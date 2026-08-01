@@ -1,0 +1,26 @@
+{
+"type": "FeatureCollection",
+"name": "osm_check",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "label": "NTT", "operator": "NTT", "dist_name": "Bangalore", "state_name": "Karnataka" }, "geometry": { "type": "Point", "coordinates": [ 77.6416147, 13.193043699999984 ] } },
+{ "type": "Feature", "properties": { "label": "Yotta Datacenter", "operator": "Yotta Datacenter Pvt Lmt", "dist_name": "Raigarh", "state_name": "Maharashtra" }, "geometry": { "type": "Point", "coordinates": [ 73.2008712, 18.9118586 ] } },
+{ "type": "Feature", "properties": { "label": "Nxtra Data Chennai", "operator": null, "dist_name": "Kancheepuram", "state_name": "Tamil Nadu" }, "geometry": { "type": "Point", "coordinates": [ 80.22102506855876, 12.830607260454382 ] } },
+{ "type": "Feature", "properties": { "label": "Government Data Centre", "operator": null, "dist_name": "Kancheepuram", "state_name": "Tamil Nadu" }, "geometry": { "type": "Point", "coordinates": [ 80.23995948556157, 13.017775591269727 ] } },
+{ "type": "Feature", "properties": { "label": "STTelemedia Global Data Centeres", "operator": null, "dist_name": "Bangalore", "state_name": "Karnataka" }, "geometry": { "type": "Point", "coordinates": [ 77.719988097833081, 12.981183837530681 ] } },
+{ "type": "Feature", "properties": { "label": "CtrlS Mumbai", "operator": null, "dist_name": "Thane", "state_name": "Maharashtra" }, "geometry": { "type": "Point", "coordinates": [ 73.023812419622459, 19.108279657235794 ] } },
+{ "type": "Feature", "properties": { "label": "NTT Mumbai 7 Data Center", "operator": null, "dist_name": "Mumbai Suburban", "state_name": "Maharashtra" }, "geometry": { "type": "Point", "coordinates": [ 72.89116562436817, 19.11463940882377 ] } },
+{ "type": "Feature", "properties": { "label": "AdaniConneX Chennai 1", "operator": null, "dist_name": "Kancheepuram", "state_name": "Tamil Nadu" }, "geometry": { "type": "Point", "coordinates": [ 80.226110436833352, 12.821585242651757 ] } },
+{ "type": "Feature", "properties": { "label": "NTT DC3", "operator": "NTT", "dist_name": "Bangalore", "state_name": "Karnataka" }, "geometry": { "type": "Point", "coordinates": [ 77.757825305188192, 13.038626992574155 ] } },
+{ "type": "Feature", "properties": { "label": "NTT", "operator": "NTT", "dist_name": "Kancheepuram", "state_name": "Tamil Nadu" }, "geometry": { "type": "Point", "coordinates": [ 80.166768724317066, 13.099032186269273 ] } },
+{ "type": "Feature", "properties": { "label": "NTT DC building 1", "operator": "NTT", "dist_name": "Kancheepuram", "state_name": "Tamil Nadu" }, "geometry": { "type": "Point", "coordinates": [ 80.166788837933694, 13.099253531065743 ] } },
+{ "type": "Feature", "properties": { "label": "NTT DC building 2", "operator": "NTT", "dist_name": "Kancheepuram", "state_name": "Tamil Nadu" }, "geometry": { "type": "Point", "coordinates": [ 80.166759308929102, 13.098565889920247 ] } },
+{ "type": "Feature", "properties": { "label": "Digital Connexion DC", "operator": "Reliance", "dist_name": "Kancheepuram", "state_name": "Tamil Nadu" }, "geometry": { "type": "Point", "coordinates": [ 80.164415329539267, 13.100322810883181 ] } },
+{ "type": "Feature", "properties": { "label": "CtrlS Data Center Chennai", "operator": "CtrlS", "dist_name": "Kancheepuram", "state_name": "Tamil Nadu" }, "geometry": { "type": "Point", "coordinates": [ 80.162610507949481, 13.10787813556003 ] } },
+{ "type": "Feature", "properties": { "label": "Iron Mountain Data Centers", "operator": "Iron Mountain", "dist_name": "Kancheepuram", "state_name": "Tamil Nadu" }, "geometry": { "type": "Point", "coordinates": [ 80.168260900597758, 13.100475287384135 ] } },
+{ "type": "Feature", "properties": { "label": "Iron Mountain CHN-1 DC", "operator": "Iron Mountain", "dist_name": "Kancheepuram", "state_name": "Tamil Nadu" }, "geometry": { "type": "Point", "coordinates": [ 80.168792321644759, 13.100434284580217 ] } },
+{ "type": "Feature", "properties": { "label": "Iron Mountain CHN-2 DC", "operator": "Iron Mountain", "dist_name": "Kancheepuram", "state_name": "Tamil Nadu" }, "geometry": { "type": "Point", "coordinates": [ 80.168002463148952, 13.100539404164412 ] } },
+{ "type": "Feature", "properties": { "label": "Colt Data Center", "operator": "Colt", "dist_name": "Kancheepuram", "state_name": "Tamil Nadu" }, "geometry": { "type": "Point", "coordinates": [ 80.163301878342253, 13.091433905407312 ] } },
+{ "type": "Feature", "properties": { "label": "NIO Datacenter", "operator": null, "dist_name": "North Goa", "state_name": "Goa" }, "geometry": { "type": "Point", "coordinates": [ 73.801604580994109, 15.455894864213674 ] } }
+]
+}
