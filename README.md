@@ -6,7 +6,7 @@ their environmental impacts extend through shared regional systems."*
 For more information contact Dr Priyanka deSouza (<priyanka.desouza@ucdenver.edu>).
 
 An India map with 373 data centres over 642 districts, where the district layer can be
-switched between 17 social, environmental and energy indicators — including the modelled
+switched between 23 social, environmental and energy indicators — including the modelled
 PM2.5 increment produced by the sector's own electricity demand. The point of the app is
 that the two layers can be read against each other: the facilities sit in one geography,
 the pollution their electricity causes appears in another.
@@ -67,13 +67,26 @@ resolves to a runnable copy.
 
 ## What's in the app
 
+**Two inventories, as in the paper.** The district count layer is the 342-facility ATLAS
+census across 38 hosting districts, which is the basis for every siting result. The
+facility points and all capacity, electricity, carbon and water figures are the
+373-facility combined inventory across 40 districts. The choropleth and the points
+therefore do not agree, by design; the About tab explains why.
+
 **Map.** District choropleth plus facility points, optionally with the 321 coal and gas
 plants that carry the sector's attributable emissions and the 19-point OpenStreetMap
 cross-check (black rings). Hovering a district gives a profile
 card; hovering a facility gives its type, imputed capacity, electricity, carbon
 and both water terms.
 
-**District layers.** Data-centre count · PM2.5 increment from data centres (log scale) ·
+**The Scope 1 / Scope 2 chain.** Six layers trace one footprint across three geographies:
+Scope 1 on-site cooling water and backup-diesel NOx in the 40 facility districts; Scope 2
+SO2, NOx and PM2.5 mapped where they are physically released, across 161 districts; and
+the modelled PM2.5 increment where the concentration settles. Scope 2 *water* is charged
+to the consuming district rather than mapped to its source, because about a third of it is
+hydropower reservoir evaporation and only the coal and gas fleet is geolocated.
+
+**District layers.** Data-centre count (ATLAS census) · PM2.5 increment from data centres (log scale) ·
 ambient PM2.5 · surface NO2 · summer ozone · extreme-heat days · NFHS wealth score ·
 Relative Wealth Index · urban share · SC/ST share · below-poverty-line share · Muslim
 share · no-electricity share · coal capacity · distance to nearest fossil plant · baseline
@@ -87,7 +100,7 @@ water stress · population.
 
 | File | Rows | Source |
 |---|---|---|
-| `data/districts.geojson` | 642 | district geography joined to the analysis layer and the InMAP receiving field; geometry simplified to 0.01° for the browser |
+| `data/districts.geojson` | 642 | district geography joined to the analysis layer, the InMAP receiving field, the InMAP source field aggregated to districts (Scope 2 SO2/NOx/PM2.5 released), facility-level Scope 1 and Scope 2 water, and central-scenario backup-diesel NOx; geometry simplified to 0.01° for the browser |
 | `data/facilities.geojson` | 373 | 335 India facilities from the open [Global Data Center Map](https://github.com/Ringmast4r/Global-Data-Center-Map) inventory (ATLAS; 342 rows before de-duplication), plus 38 hand-compiled press-verified major campuses (Yotta, AdaniConneX, STT GDC, NTT, CtrlS, Nxtra, Princeton Digital, Sify, GPX/Equinix, AWS, Google), joined to the facility-level footprint accounting |
 | `data/plants.geojson` | 321 | WRI Global Power Plant Database, coal and gas only |
 | `data/osm_check.geojson` | 19 | OpenStreetMap cross-check layer: Overpass `telecom=data_center` + `building=data_center`, screened to records identifiable as data centres, disputed-territory spillover removed |
@@ -123,6 +136,10 @@ These are stated in the app's About tab as well, because a map invites over-read
 - Most facilities do not disclose capacity. It is imputed by operator class and scaled to
   a national anchor, so individual facility values are allocations, not measurements.
 - District values are means and hide within-district variation.
+- District names denote polygons in the 2015 survey geography, not municipal entities.
+  The polygon labelled Chennai lies offshore and is empty; Chennai city falls inside the
+  Kancheepuram polygon. Seven polygons carry no gridded population or no survey data and
+  are flagged on hover.
 - The PM2.5 increment is modelled, not measured, and cannot be attributed to any
   individual facility.
 

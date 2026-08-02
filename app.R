@@ -23,8 +23,16 @@ osm_check  <- sf::st_read("data/osm_check.geojson", quiet = TRUE)
 
 # indicator registry: column, label, legend title, palette, transform, digits
 IND <- list(
-  "Data centres (count)"                 = list(col="dc_count",                 pal="Reds",    fmt=0,  unit="facilities"),
+  "Data centres (ATLAS census, count)"   = list(col="dc_count",                 pal="Reds",    fmt=0,  unit="facilities"),
   "PM2.5 increment from data centres"    = list(col="dpm25",                    pal="Purples", fmt=4,  unit="ug/m3", log=TRUE),
+
+  # --- the Scope 1 / Scope 2 chain: consumed here, released there, breathed elsewhere
+  "Scope 1 water: on-site cooling"       = list(col="s1_water_ml",              pal="Blues",   fmt=0,  unit="ML/yr", grp="chain"),
+  "Scope 1 air: backup-diesel NOx"       = list(col="diesel_nox_t",             pal="Oranges", fmt=1,  unit="t/yr",  grp="chain"),
+  "Scope 2 water (charged to consumer)"  = list(col="s2_water_ml",              pal="Blues",   fmt=0,  unit="ML/yr", grp="chain"),
+  "Scope 2 SO2 released at plants"       = list(col="emis_so2_t",               pal="YlOrRd",  fmt=0,  unit="t/yr",  grp="chain", log=TRUE),
+  "Scope 2 NOx released at plants"       = list(col="emis_nox_t",               pal="YlOrRd",  fmt=0,  unit="t/yr",  grp="chain", log=TRUE),
+  "Scope 2 PM2.5 released at plants"     = list(col="emis_pm25_t",              pal="YlOrRd",  fmt=1,  unit="t/yr",  grp="chain", log=TRUE),
   "Ambient PM2.5 (ACAG)"                 = list(col="pm25_acag_local",          pal="YlOrBr",  fmt=1,  unit="ug/m3"),
   "Surface NO2"                          = list(col="no2_surf",                 pal="YlOrRd",  fmt=2,  unit="ppb"),
   "Summer ozone (MDA8)"                  = list(col="o3_summer",                pal="YlGn",    fmt=1,  unit="ug/m3"),
@@ -56,7 +64,7 @@ ui <- page_sidebar(
   sidebar = sidebar(
     width = 330,
     selectInput("ind", "District layer", choices = names(IND),
-                selected = "Data centres (count)"),
+                selected = "Data centres (ATLAS census, count)"),
     checkboxInput("show_fac",    "Show data centres", TRUE),
     checkboxInput("show_plants", "Show coal & gas plants", FALSE),
     checkboxInput("show_osm",    "Show OpenStreetMap cross-check", FALSE),
@@ -71,6 +79,12 @@ ui <- page_sidebar(
       "District layers are 2015-geography district means. The PM2.5 increment ",
       "is the modelled contribution of data-centre electricity demand, dispersed ",
       "from the coal and gas plants that serve it."),
+    helpText(tags$small(
+      tags$b("Two inventories, as in the paper."), " The district count layer is the ",
+      "342-facility ATLAS census (38 hosting districts), which is what the siting ",
+      "analysis uses. The points and every capacity, electricity, carbon and water ",
+      "figure are the 373-facility combined inventory. The two therefore do not ",
+      "match, by design.")),
     helpText(
       tags$small("Facility coordinates are town- or postal-area centroids, not ",
                  "site locations. Capacity is imputed for facilities that do not ",
@@ -84,7 +98,7 @@ ui <- page_sidebar(
 
   layout_columns(
     fill = FALSE,
-    value_box("Facilities shown",   textOutput("vb_n"),    theme = "primary"),
+    value_box("Facilities shown (of 373)", textOutput("vb_n"),  theme = "primary"),
     value_box("Imputed IT capacity", textOutput("vb_mw"),  theme = "secondary"),
     value_box("Electricity",         textOutput("vb_gwh"), theme = "secondary"),
     value_box("Attributable CO2",    textOutput("vb_co2"), theme = "secondary")
@@ -104,6 +118,24 @@ ui <- page_sidebar(
           "Chennai and Bengaluru while the shading jumps to the thermal-generation ",
           "corridors and the areas downwind of them. Facilities sit in one geography; the ",
           "air pollution their electricity causes appears in another."),
+
+        h4("Two inventories, and which number comes from which"),
+        p("The paper keeps two inventories apart, and so does this app. The ",
+          tags$b("342-facility ATLAS census"), " is the basis for everything about ",
+          tags$em("where"), " the industry sits: the district count layer, the 38 hosting ",
+          "districts, and every siting statistic in the paper. The ",
+          tags$b("373-facility combined inventory"), " — ATLAS plus the hand-compiled ",
+          "campuses — is the basis for everything about ", tags$em("how much"), " it ",
+          "consumes: the facility points on the map, and the capacity, electricity, ",
+          "carbon and water figures in the boxes above."),
+        p("So the choropleth totals 342 across 38 districts while the points total 373 ",
+          "across 40. That is not an error. The compiled campuses are excluded from the ",
+          "siting side because they were found by searching for large named projects, ",
+          "which makes them a set selected for prominence rather than a sample; using ",
+          "them to describe where the industry locates would build that selection into ",
+          "the answer. They are included on the capacity side because they are a tenth ",
+          "of the facility count but about a third of national IT capacity, so leaving ",
+          "them out would understate the sector's demand."),
 
         h4("Where the facilities come from"),
         p("The map carries 373 facilities, assembled from two sources."),
@@ -199,6 +231,36 @@ ui <- page_sidebar(
           tags$li("Dispersion: ", tags$a(href="https://inmap.run/", target="_blank",
                   "InMAP"), ", global implementation of Thakrar et al. (2022).")),
 
+        h4("Following one burden through the chain"),
+        p("Six layers, grouped under Scope 1 and Scope 2, let you watch a single sector's ",
+          "footprint move across the map. ", tags$b("Scope 1"), " is what happens at the ",
+          "facility: cooling water drawn on site, and the nitrogen oxides from backup ",
+          "diesel generators, which is the one air emission that is not displaced. Both ",
+          "sit in the 40 districts that host facilities. ", tags$b("Scope 2 SO2, NOx and ",
+          "PM2.5"), " are the emissions the sector's electricity causes, mapped where they ",
+          "are physically released — at the coal and gas plants that serve the load. Those ",
+          "reach ", tags$b("161 districts"), ", four times as many as host a facility. ",
+          "Switch finally to ", tags$em("PM2.5 increment from data centres"), " and you see ",
+          "where the resulting concentration actually settles, which is different again."),
+        p(tags$small(tags$b("One label needs care."), " Scope 2 water is charged to the ",
+          "district that consumed the electricity, not the district where the water was ",
+          "drawn — it is a consumption account, not a location. The three Scope 2 emission ",
+          "layers are the opposite: they show where the emission physically occurs. Scope 2 ",
+          "water cannot be mapped to its true source here, because roughly a third of it is ",
+          "reservoir evaporation attributed to hydropower and the pipeline locates only the ",
+          "coal and gas fleet.")),
+
+        h4("Reading the district map"),
+        p("District names here denote polygons in the 2015 survey geography, not "
+          , "municipal entities. One case matters enough to flag: the polygon labelled ",
+          tags$b("Chennai"), " lies offshore and contains no land, population or ",
+          "households, so it shows as empty on every layer. Chennai city falls inside ",
+          "the polygon labelled ", tags$b("Kancheepuram"), ", which is why that district ",
+          "carries 10.8 million residents, an 86.8% urban share and the facilities at ",
+          "central-Chennai addresses. Six other small coastal and island districts ",
+          "likewise carry no gridded population or no survey data and are flagged the "
+          , "same way when you hover them."),
+
         h4("Limits worth knowing"),
         tags$ul(
           tags$li("Coordinates are town-precision; a point locates a facility in its town, not at its site."),
@@ -248,14 +310,18 @@ server <- function(input, output, session) {
     pal <- colorNumeric(spec$pal, domain = vshow, na.color = "#f0f0f0",
                         reverse = isTRUE(spec$rev))
 
+    nodata <- is.na(d$pop_2020) | d$pop_2020 == 0 | is.na(d$urban_share_2019)
     lab <- sprintf(
-      "<b>%s</b><br/>%s<br/><hr style='margin:4px 0'/>
+      "<b>%s</b><br/>%s%s<br/><hr style='margin:4px 0'/>
        %s: <b>%s</b> %s<br/>
        Data centres: %s &nbsp;|&nbsp; Coal capacity: %s MW<br/>
        Population: %s &nbsp;|&nbsp; Urban share: %s<br/>
        Wealth score: %s &nbsp;|&nbsp; SC/ST: %s &nbsp;|&nbsp; BPL: %s<br/>
        PM2.5 increment: %s ug/m3",
       d$dist_name, d$state_name,
+      ifelse(nodata,
+             "<br/><span style='color:#b2182b'>no land area, population or survey data in this polygon</span>",
+             ""),
       input$ind, fmtnum(v, spec$fmt), spec$unit,
       fmtnum(d$dc_count, 0), fmtnum(d$coal_mw, 0),
       fmtnum(d$pop_2020, 0), fmtnum(d$urban_share_2019, 2),
