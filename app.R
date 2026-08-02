@@ -74,7 +74,12 @@ ui <- page_sidebar(
     helpText(
       tags$small("Facility coordinates are town- or postal-area centroids, not ",
                  "site locations. Capacity is imputed for facilities that do not ",
-                 "disclose it. See the paper's Methods for the full accounting."))
+                 "disclose it. See the paper's Methods for the full accounting.")),
+    hr(),
+    helpText(tags$small(
+      "Contact: Dr Priyanka deSouza, ",
+      tags$a(href = "mailto:priyanka.desouza@ucdenver.edu",
+             "priyanka.desouza@ucdenver.edu")))
   ),
 
   layout_columns(
@@ -200,7 +205,12 @@ ui <- page_sidebar(
           tags$li("Most facilities do not disclose capacity; it is imputed by operator class and scaled to a national anchor."),
           tags$li("District values are means and hide within-district variation."),
           tags$li("The increment cannot be attributed to any individual facility.")
-        )
+        ),
+
+        h4("Contact"),
+        p("For more information contact Dr Priyanka deSouza, ",
+          tags$a(href = "mailto:priyanka.desouza@ucdenver.edu",
+                 "priyanka.desouza@ucdenver.edu"), ".")
       ))
   )
 )

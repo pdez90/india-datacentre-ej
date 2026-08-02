@@ -3,6 +3,8 @@
 Interactive companion to *"Data centers in India locate in affluent districts while
 their environmental impacts extend through shared regional systems."*
 
+For more information contact Dr Priyanka deSouza (<priyanka.desouza@ucdenver.edu>).
+
 An India map with 373 data centres over 642 districts, where the district layer can be
 switched between 17 social, environmental and energy indicators — including the modelled
 PM2.5 increment produced by the sector's own electricity demand. The point of the app is
