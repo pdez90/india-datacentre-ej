@@ -37,8 +37,8 @@ IND <- list(
   "Surface NO2"                          = list(col="no2_surf",                 pal="YlOrRd",  fmt=2,  unit="ppb"),
   "Summer ozone (MDA8)"                  = list(col="o3_summer",                pal="YlGn",    fmt=1,  unit="ug/m3"),
   "Extreme heat days (>=35 C)"           = list(col="hot_days_peryr",           pal="Oranges", fmt=0,  unit="days/yr"),
-  "Mean wealth score (NFHS-5)"           = list(col="wealth_mean_2019",         pal="Blues",   fmt=0,  unit="index"),
-  "Relative Wealth Index"                = list(col="rwi_mean",                 pal="Blues",   fmt=2,  unit="index"),
+  "Asset wealth (NFHS-5 percentile)"     = list(col="wealth_pct",                pal="Blues",   fmt=0,  unit="percentile of districts"),
+  "Relative Wealth Index (Chi 2022)"     = list(col="rwi_mean",                 pal="Blues",   fmt=2,  unit="index, 0 = country average"),
   "Urban share"                          = list(col="urban_share_2019",         pal="BuPu",    fmt=2,  unit="proportion"),
   "Share SC/ST"                          = list(col="share_scst_2019",          pal="Greens",  fmt=2,  unit="proportion"),
   "Share below poverty line"             = list(col="share_bpl_2019",           pal="Greens",  fmt=2,  unit="proportion"),
@@ -101,7 +101,7 @@ ui <- page_sidebar(
     value_box("Facilities shown (of 373)", textOutput("vb_n"),  theme = "primary"),
     value_box("Imputed IT capacity", textOutput("vb_mw"),  theme = "secondary"),
     value_box("Electricity",         textOutput("vb_gwh"), theme = "secondary"),
-    value_box("Attributable CO2",    textOutput("vb_co2"), theme = "secondary")
+    value_box("Attributable CO2 (avg factor)", textOutput("vb_co2"), theme = "secondary")
   ),
 
   navset_card_tab(
@@ -194,8 +194,11 @@ ui <- page_sidebar(
           "plausible range; independent market estimates put installed Indian capacity ",
           "near 950 MW in 2024 and about 1.28 GW in mid-2025. ",
           tags$b("This app uses the central 1,000 MW anchor throughout"), ", which is why ",
-          "the capacity box reads 1,000 MW with every filter cleared, and why electricity ",
-          "and carbon totals match the paper's central scenario."),
+          "the capacity box reads 1,000 MW with every filter cleared, and why the electricity ",
+          "total matches the paper's central scenario. The carbon box reports the ",
+          "average-factor value, 6.97 Mt, which is the figure in the paper's scenario ",
+          "table; the paper's headline of 7.3 Mt is the same quantity computed on ",
+          "state-level marginal emission factors, and the two differ by about 5%."),
         p(tags$small(tags$b("Consequence worth understanding:"), " an individual facility's ",
           "megawatt figure is an allocation, not a measurement. The anchor fixes the ",
           "national total, and the class weights decide only how that total is divided ",
@@ -235,7 +238,10 @@ ui <- page_sidebar(
         p("Six layers, grouped under Scope 1 and Scope 2, let you watch a single sector's ",
           "footprint move across the map. ", tags$b("Scope 1"), " is what happens at the ",
           "facility: cooling water drawn on site, and the nitrogen oxides from backup ",
-          "diesel generators, which is the one air emission that is not displaced. Both ",
+          "diesel generators, which is the one air emission that is not displaced. The diesel "
+          , "layer shows the paper's central scenario, about 4% of the sector's "
+          , "grid-attributable NOx; across the reported emission-factor range that "
+          , "share spans roughly 2 to 7%. Both ",
           "sit in the 40 districts that host facilities. ", tags$b("Scope 2 SO2, NOx and ",
           "PM2.5"), " are the emissions the sector's electricity causes, mapped where they ",
           "are physically released — at the coal and gas plants that serve the load. Those ",
@@ -248,7 +254,29 @@ ui <- page_sidebar(
           "layers are the opposite: they show where the emission physically occurs. Scope 2 ",
           "water cannot be mapped to its true source here, because roughly a third of it is ",
           "reservoir evaporation attributed to hydropower and the pipeline locates only the ",
-          "coal and gas fleet.")),
+          "coal and gas fleet. It is also an upper estimate: it uses average grid water ",
+          "intensities because no marginal water intensity is published for India, and the ",
+          "paper puts the plausible national range at roughly 23 to 36 GL per year against ",
+          "the 36 GL shown here.")),
+
+        h4("The two wealth measures"),
+        p("Wealth appears twice, from independent sources, and neither is money. The ",
+          tags$b("NFHS-5 asset score"), " is a principal-components index of household ",
+          "assets — durables, housing materials, water and sanitation — and its raw values ",
+          "run to six figures on an arbitrary scale that means nothing on its own. It is ",
+          "shown here as a ", tags$b("percentile of India's 636 surveyed districts"), ", so ",
+          "90 means richer in assets than 90% of districts. On that scale the median ",
+          "data-centre district sits at the 89th percentile against the 47th for districts ",
+          "without one; the paper reports the same contrast as a standardized difference of ",
+          "1.47, and notes that the mean hosting district sits above 86% of districts."),
+        p("The ", tags$b("Relative Wealth Index"), " (Chi et al., 2022) is a machine-learning ",
+          "estimate of relative wealth built from satellite imagery, connectivity and ",
+          "other geospatial data at 2.4 km resolution, validated against household surveys ",
+          "and censuses. It is already dimensionless and roughly centred, so ", tags$b("0 is ",
+          "about the country average"), " and district means here run from about −0.5 to ",
+          "+1.2. It is shown unmodified. Hosting districts average +0.31 against −0.09 for ",
+          "non-hosting ones. The two measures are built from entirely different inputs and ",
+          "agree, which is why the paper reports both."),
 
         h4("Reading the district map"),
         p("District names here denote polygons in the 2015 survey geography, not "
@@ -316,7 +344,7 @@ server <- function(input, output, session) {
        %s: <b>%s</b> %s<br/>
        Data centres: %s &nbsp;|&nbsp; Coal capacity: %s MW<br/>
        Population: %s &nbsp;|&nbsp; Urban share: %s<br/>
-       Wealth score: %s &nbsp;|&nbsp; SC/ST: %s &nbsp;|&nbsp; BPL: %s<br/>
+       Asset wealth: %s pctile &nbsp;|&nbsp; SC/ST: %s &nbsp;|&nbsp; BPL: %s<br/>
        PM2.5 increment: %s ug/m3",
       d$dist_name, d$state_name,
       ifelse(nodata,
@@ -325,7 +353,7 @@ server <- function(input, output, session) {
       input$ind, fmtnum(v, spec$fmt), spec$unit,
       fmtnum(d$dc_count, 0), fmtnum(d$coal_mw, 0),
       fmtnum(d$pop_2020, 0), fmtnum(d$urban_share_2019, 2),
-      fmtnum(d$wealth_mean_2019, 0), fmtnum(d$share_scst_2019, 2),
+      fmtnum(d$wealth_pct, 0), fmtnum(d$share_scst_2019, 2),
       fmtnum(d$share_bpl_2019, 2), fmtnum(d$dpm25, 4)
     ) |> lapply(htmltools::HTML)
 
@@ -381,7 +409,7 @@ server <- function(input, output, session) {
 
   output$dtab <- renderDT({
     d <- sf::st_drop_geometry(dist_f()) |>
-      select(any_of(c("dist_name","state_name","dc_count","pop_2020","wealth_mean_2019",
+      select(any_of(c("dist_name","state_name","dc_count","pop_2020","wealth_pct","rwi_mean",
                       "urban_share_2019","share_scst_2019","share_bpl_2019",
                       "pm25_acag_local","no2_surf","coal_mw","bws_raw","dpm25"))) |>
       arrange(desc(dc_count))
@@ -390,7 +418,7 @@ server <- function(input, output, session) {
               options = list(pageLength = 20, dom = "Bfrtip", buttons = c("csv","excel"),
                              scrollX = TRUE)) |>
       formatRound(c("wealth_mean_2019","pop_2020","coal_mw"), 0) |>
-      formatRound(c("urban_share_2019","share_scst_2019","share_bpl_2019",
+      formatRound(c("wealth_pct","rwi_mean","urban_share_2019","share_scst_2019","share_bpl_2019",
                     "pm25_acag_local","no2_surf","bws_raw"), 2) |>
       formatRound("dpm25", 4)
   })

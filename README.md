@@ -84,11 +84,15 @@ Scope 1 on-site cooling water and backup-diesel NOx in the 40 facility districts
 SO2, NOx and PM2.5 mapped where they are physically released, across 161 districts; and
 the modelled PM2.5 increment where the concentration settles. Scope 2 *water* is charged
 to the consuming district rather than mapped to its source, because about a third of it is
-hydropower reservoir evaporation and only the coal and gas fleet is geolocated.
+hydropower reservoir evaporation and only the coal and gas fleet is geolocated. Scope 2
+water is also an upper estimate — it uses average grid water intensities, since no marginal
+water intensity is published for India, and the paper's plausible range is roughly 23–36 GL
+per year. The diesel layer is the paper's central scenario, about 4% of grid-attributable
+NOx, spanning roughly 2–7% across the reported emission-factor range.
 
 **District layers.** Data-centre count (ATLAS census) · PM2.5 increment from data centres (log scale) ·
-ambient PM2.5 · surface NO2 · summer ozone · extreme-heat days · NFHS wealth score ·
-Relative Wealth Index · urban share · SC/ST share · below-poverty-line share · Muslim
+ambient PM2.5 · surface NO2 · summer ozone · extreme-heat days · NFHS asset wealth (district percentile) ·
+Relative Wealth Index (Chi et al. 2022) · urban share · SC/ST share · below-poverty-line share · Muslim
 share · no-electricity share · coal capacity · distance to nearest fossil plant · baseline
 water stress · population.
 
@@ -117,8 +121,9 @@ each facility gets a class weight (telecom 0.5, enterprise 1, colocation 3, hype
 10), and those weights are scaled by a single common factor so the inventory sums to an
 assumed national total — the *anchor*. The paper evaluates 750, 1,000 and 1,500 MW; the
 app uses the central 1,000 MW anchor, so it reconciles exactly with the paper's central
-scenario (9.8 TWh/yr, 7.0 Mt CO2e). Individual facility megawatts are allocations, not
-measurements.
+scenario (9.8 TWh/yr, 6.97 Mt CO2e on average grid factors — the scenario-table value;
+the paper's headline of 7.3 Mt is the same quantity on state-level marginal factors, about
+5% higher). Individual facility megawatts are allocations, not measurements.
 
 ## Caveats carried into the interface
 
@@ -135,6 +140,9 @@ These are stated in the app's About tab as well, because a map invites over-read
   layer and are counted in no total; nothing in the inventory depends on OSM completeness.
 - Most facilities do not disclose capacity. It is imputed by operator class and scaled to
   a national anchor, so individual facility values are allocations, not measurements.
+- Neither wealth measure is money. The NFHS asset score is a principal-components index
+  on an arbitrary scale, shown as a percentile of the 636 surveyed districts; the Relative
+  Wealth Index (Chi et al. 2022) is dimensionless with 0 near the country average.
 - District values are means and hide within-district variation.
 - District names denote polygons in the 2015 survey geography, not municipal entities.
   The polygon labelled Chennai lies offshore and is empty; Chennai city falls inside the
