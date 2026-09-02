@@ -22,8 +22,8 @@ library(jsonlite)
 # (Google Forms > Send > < > > copy the src of the iframe; it ends in
 # ?embedded=true). While a url is empty the tab shows the questions and a
 # mailto fallback instead.
-FORM_DC_URL     <- Sys.getenv("FORM_DC_URL",     unset = "")
-FORM_POLICY_URL <- Sys.getenv("FORM_POLICY_URL", unset = "")
+FORM_DC_URL     <- Sys.getenv("FORM_DC_URL",     unset = "https://docs.google.com/forms/d/e/1FAIpQLSeEsoKwHVzlHH3GAUOgQHr7WSCXS_fdi_iXVUBXzPe1ats0cw/viewform?embedded=true")
+FORM_POLICY_URL <- Sys.getenv("FORM_POLICY_URL", unset = "https://docs.google.com/forms/d/e/1FAIpQLScjBODHJgp6u2Klg6XMzHoZtZsI2M9uHUULjcAsTYVej4SagA/viewform?embedded=true")
 CONTACT_EMAIL   <- "priyanka.desouza@ucdenver.edu"
 REPO_URL        <- "https://github.com/pdez90/india-datacentre-ej"
 
@@ -98,7 +98,7 @@ DC_FIELDS <- list(
   "Address, or the most precise location you can give (locality, city, state; a map link if you have one)",
   "Capacity, if known - IT load or total power in MW, and whether it is operating, under construction or announced",
   "How did you find out about this data center? (operator page, news report, site visit, planning notice, other) - please include a link where possible",
-  "Your name and email (optional, only used to follow up on the entry)")
+  "Your contact details - name, email address and telephone number (optional; used only to follow up on this entry)")
 POL_FIELDS <- list(
   "State or union territory",
   "Policy name and year (e.g. 'Data Centre Policy 2024')",
@@ -106,7 +106,7 @@ POL_FIELDS <- list(
   "What it offers data centers: capital subsidy, stamp-duty exemption, electricity-duty exemption, land incentive, single-window clearance, other (tick or describe)",
   "Does the policy require any environmental assessment or set water or energy conditions? (yes / no / not stated)",
   "Anything else worth recording (amendments, successor policies, whether it replaces an earlier policy)",
-  "Your name and email (optional)")
+  "Your contact details - name, email address and telephone number (optional; used only to follow up on this entry)")
 
 # ---- ui ---------------------------------------------------------------------
 ui <- page_sidebar(

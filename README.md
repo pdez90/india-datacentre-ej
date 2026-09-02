@@ -97,60 +97,39 @@ measurement; state and national aggregates are the meaningful quantities. The CO
 box uses the average grid factor (the paper's scenario-table value); the paper's headline
 uses state marginal factors. Both appear on the About tab.
 
-## Setting up the submission forms
+## The submission forms
 
-Submissions are collected with two Google Forms owned by the author, so no credentials
-live in the app and responses land in a Google Sheet.
+Submissions are collected with two Google Forms owned by the author (responses land in the
+linked Google Sheets in her Drive), so no credentials live in the app:
 
-1. Create a form **"India data centre inventory – submit a facility"** with these questions
-   (short answer unless noted):
-   - Data centre name (and operator, if different) — required
-   - Address, or the most precise location you can give (locality, city, state; map link
-     if you have one) — required, paragraph
-   - Capacity, if known (IT load or total power in MW), and status (operating / under
-     construction / announced)
-   - How did you find out about this data centre? — required, paragraph (operator page,
-     news report, site visit, planning notice, other; please include a link)
-   - Your name and email (optional)
-2. Create a form **"India data centre policy tracker – submit a policy"**:
-   - State or union territory — required
-   - Policy name and year — required
-   - Link to the notification, gazette or official summary — required
-   - What it offers data centres — checkboxes: capital subsidy, stamp-duty exemption,
-     electricity-duty exemption, land incentive, single-window clearance, other
-   - Does the policy require an environmental assessment or set water/energy conditions?
-     — yes / no / not stated
-   - Anything else worth recording (amendments, successor policies)
-   - Your name and email (optional)
-3. In each form choose *Send → < > (Embed HTML)* and copy the `src` URL of the iframe (it
-   ends in `?embedded=true`). Set it in the app either as environment variables on Connect
-   Cloud (`FORM_DC_URL`, `FORM_POLICY_URL`; Settings → Environment variables) or by pasting
-   the URLs into the two `Sys.getenv(..., unset = "")` defaults at the top of `app.R`.
-   Until a URL is set, the tab lists the questions and gives a mailto link instead.
-4. Link each form to a response Sheet (Responses → Sheets icon). New entries are checked
-   against the source they cite before they enter `data/operator_facilities.csv` or
-   `data/state_dc_policies.csv` in the analysis repository; nothing changes the map
-   automatically.
+- **India data centre inventory – submit a facility** — name/operator, address or best
+  location, capacity if known, status, how the submitter found it (with link), source type,
+  optional contact details (name, email, telephone).
+- **India data centre policy tracker – submit a policy** — state, policy name and year,
+  link to the notification or official summary (required), incentives offered, whether an
+  environmental assessment or water/energy conditions apply, notes, optional contact details.
+
+Their embed URLs are the defaults of `FORM_DC_URL` / `FORM_POLICY_URL` at the top of
+`app.R`; setting either as an environment variable on Connect Cloud overrides the default.
+New entries are checked against the source they cite before they enter
+`data/operator_facilities.csv` or `data/state_dc_policies.csv` in the analysis repository;
+nothing changes the map automatically.
 
 ## Publishing it
 
 **Posit Connect Cloud** is the target. It deploys from this public GitHub repository.
 
-1. Regenerate the dependency manifest from inside the app folder whenever `app.R`'s
-   packages change (they did in this revision: `jsonlite` was added):
-
-   ```r
-   install.packages("rsconnect")
-   rsconnect::writeManifest()
-   ```
-
-   Commit the resulting `manifest.json`. It pins the R version and package versions, and
-   Connect Cloud rebuilds the environment from it.
+1. `manifest.json` pins the R version and package versions, and Connect Cloud rebuilds the
+   environment from it. Regenerate it (`rsconnect::writeManifest()` inside the app folder)
+   only when a package is added, and **keep `terra` pinned at 1.8-54 from Posit Package
+   Manager** — a freshly captured manifest records whatever terra the Mac has (1.9-x), which
+   does not build against Connect Cloud's GDAL 3.4.1 and fails the publish. terra enters only
+   through leaflet → raster.
 2. Sign in at connect.posit.cloud, open the application, and republish from the branch (or
    Publish → Shiny → pick the repo and branch, `app.R` as the primary file, for a first
    deployment). Build logs stream live.
-3. Set `FORM_DC_URL` and `FORM_POLICY_URL` as environment variables on the app once the
-   Google Forms exist.
+3. The two Google Forms are embedded by default; override with the `FORM_DC_URL` /
+   `FORM_POLICY_URL` environment variables only if the forms are ever replaced.
 
 The `data/` folder is committed with the app, so there is no runtime dependency on the
 analysis pipeline.
