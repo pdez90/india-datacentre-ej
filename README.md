@@ -64,6 +64,11 @@ population-weighted mean, the population above 0.01 ug/m3 and GEMM attributable 
 scope (operating 0.0585 ug/m3, ~1,976 deaths/yr; stock plus pipeline 0.1352 ug/m3, ~4,629).
 
 **Filters.** Scope, state and facility type. All four value boxes and both tables respond.
+The facility-type filter applies to the points, the value boxes, the *Data centres (count)*
+layer and the district table's count; every other district layer, including the PM2.5
+increment, is an all-type aggregate (it cannot be recomputed from facility rows) and is
+labelled as such in the sidebar. On log-scaled layers, districts with a true zero are drawn
+grey rather than as a tiny positive value.
 
 **Tables.** District and facility tables with column filters and CSV/Excel export.
 
@@ -127,6 +132,19 @@ Their embed URLs are the defaults of `FORM_DC_URL` / `FORM_POLICY_URL` at the to
 New entries are checked against the source they cite before they enter
 `data/operator_facilities.csv` or `data/state_dc_policies.csv` in the analysis repository;
 nothing changes the map automatically.
+
+## Checks
+
+`Rscript tests/check_app_data.R` (from the app folder) verifies the data contract and smoke-runs
+the server: required columns in every file, 642 valid district geometries with unique keys,
+facility statuses and `is_operating` in agreement, district counts summing to the facility
+counts, MW/TWh totals and policy counts agreeing with `headline.json`, only http(s) URLs in the
+policy sources, no HTML markup in name fields, and that the scope and type filters keep the
+count layer and the value boxes consistent. Run it after every `22_build_shiny_data.R`.
+
+Every data-derived string that reaches the browser (facility, operator, district, plant and
+OSM names; policy sources) is HTML-escaped; in the policy-source table only the generated
+Link column is rendered as HTML, and only `http(s)://` URLs become links.
 
 ## Publishing it
 

@@ -43,7 +43,7 @@ policies$has_policy <- as.logical(policies$has_policy)
 # indicator registry: column, palette, digits, unit. Columns ending in *_all
 # have a build-out twin that the scope switch selects.
 IND <- list(
-  "Data centres (count)"                 = list(col="dc_count",   alt="dc_count_all", pal="Reds",    fmt=0, unit="facilities"),
+  "Data centres (count)"                 = list(col="dc_count_sel", pal="Reds",    fmt=0, unit="facilities (current scope and type filter)"),
   "PM2.5 increment from data centres"    = list(col="dpm25",      alt="dpm25_all",    pal="Purples", fmt=4, unit="ug/m3", log=TRUE, inmap=TRUE),
   "PM2.5 increment: operating only"      = list(col="dpm25",      pal="Purples", fmt=4, unit="ug/m3", log=TRUE, inmap="operating"),
   "PM2.5 increment: stock plus pipeline" = list(col="dpm25_all",  pal="Purples", fmt=4, unit="ug/m3", log=TRUE, inmap="all"),
@@ -77,6 +77,14 @@ STATUS_LAB <- c(operating="Operating", construction="Under construction", announ
 
 fmtnum <- function(x, d = 0) ifelse(is.na(x), "n/a", formatC(x, format = "f", digits = d, big.mark = ","))
 fmt1   <- function(x) formatC(as.numeric(x), format = "f", digits = 1)
+esc    <- function(x) htmltools::htmlEscape(ifelse(is.na(x), "", as.character(x)))   # every data-derived string that enters HTML
+safe_link <- function(url) {   # only http(s) URLs become anchors; everything else is shown as escaped text
+  ok <- !is.na(url) & grepl("^https?://", url)
+  shown <- ifelse(nchar(url) > 60, paste0(substr(url, 1, 57), "..."), url)
+  ifelse(ok, sprintf("<a href='%s' target='_blank' rel='noopener noreferrer'>%s</a>",
+                     htmltools::htmlEscape(url, attribute = TRUE), htmltools::htmlEscape(shown)),
+         htmltools::htmlEscape(ifelse(is.na(url), "", url)))
+}
 yesno  <- function(x) ifelse(is.na(x) | x == "", "-", x)
 
 # ---- submission-form helpers --------------------------------------------------
@@ -131,6 +139,9 @@ ui <- page_sidebar(
     selectInput("state", "State", choices = c("All India", sort(unique(na.omit(districts$state_name)))),
                 selected = "All India"),
     checkboxGroupInput("types", "Facility type", choices = names(TYPE_COL), selected = names(TYPE_COL)),
+    helpText(tags$small("The type filter applies to the points, the value boxes, the district count layer and the ",
+                        "district table's count. Every other district layer, including the PM2.5 increment, is an ",
+                        "all-type aggregate and does not change with it.")),
     hr(),
     helpText(tags$small(
       tags$b("Two scopes, as in the paper."), " The operating inventory (",
@@ -380,8 +391,15 @@ server <- function(input, output, session) {
   })
 
   dist_f <- reactive({
-    if (input$state == "All India") districts
-    else districts[!is.na(districts$state_name) & districts$state_name == input$state, ]
+    d <- if (input$state == "All India") districts
+         else districts[!is.na(districts$state_name) & districts$state_name == input$state, ]
+    # facility count for the CURRENT scope and type selection (equals dc_count / dc_count_all
+    # when every type is selected)
+    f <- sf::st_drop_geometry(fac_f())
+    key_d <- paste(d$dist_name, d$state_name, sep = "||")
+    cnt <- table(paste(f$dist_name, f$state_name, sep = "||"))
+    d$dc_count_sel <- as.integer(ifelse(key_d %in% names(cnt), cnt[key_d], 0L))
+    d
   })
 
   output$vb_n_title <- renderText(sprintf("Facilities shown (of %d)", nrow(fac_scope())))
@@ -438,9 +456,9 @@ server <- function(input, output, session) {
     col  <- if (is_all() && !is.null(spec$alt)) spec$alt else spec$col
     d <- dist_f()
     v <- d[[col]]
-    vshow <- if (isTRUE(spec$log)) log10(pmax(v, 1e-5)) else v
+    vshow <- if (isTRUE(spec$log)) ifelse(!is.na(v) & v > 0, log10(v), NA_real_) else v   # zeros are drawn grey, not as tiny positives
     pal <- colorNumeric(spec$pal, domain = vshow, na.color = "#f0f0f0", reverse = isTRUE(spec$rev))
-    ncount <- if (is_all()) d$dc_count_all else d$dc_count
+    ncount <- d$dc_count_sel
     dp     <- if (is_all()) d$dpm25_all else d$dpm25
     nodata <- is.na(d$pop_2020) | d$pop_2020 == 0 | is.na(d$urban_share_2019)
     lab <- sprintf(
@@ -450,9 +468,9 @@ server <- function(input, output, session) {
        Population: %s &nbsp;|&nbsp; Urban share: %s<br/>
        Asset wealth: %s pctile &nbsp;|&nbsp; SC/ST: %s &nbsp;|&nbsp; BPL: %s<br/>
        PM2.5 increment: %s ug/m3",
-      d$dist_name, d$state_name,
+      esc(d$dist_name), esc(d$state_name),
       ifelse(nodata, "<br/><span style='color:#b2182b'>no land area, population or survey data in this polygon</span>", ""),
-      input$ind, fmtnum(v, spec$fmt), spec$unit,
+      esc(input$ind), fmtnum(v, spec$fmt), esc(spec$unit),
       fmtnum(ncount, 0), fmtnum(d$coal_mw, 0),
       fmtnum(d$pop_2020, 0), fmtnum(d$urban_share_2019, 2),
       fmtnum(d$wealth_pct, 0), fmtnum(d$share_scst_2019, 2), fmtnum(d$share_bpl_2019, 2),
@@ -465,7 +483,7 @@ server <- function(input, output, session) {
                   label = lab) |>
       addLegend("bottomright", pal = pal, values = vshow, opacity = 0.85,
                 title = paste0(input$ind, "<br/><small>", spec$unit,
-                               if (isTRUE(spec$log)) " (log scale)" else "",
+                               if (isTRUE(spec$log)) " (log scale; grey = zero or no data)" else "",
                                if (is_all() && !is.null(spec$alt)) " - stock plus pipeline" else "",
                                inmap_note(spec), "</small>"),
                 labFormat = if (isTRUE(spec$log)) labelFormat(transform = function(x) 10^x) else labelFormat())
@@ -475,13 +493,13 @@ server <- function(input, output, session) {
         data = plants, radius = ~pmax(2, sqrt(pmax(capacity_mw, 1)) / 12),
         color = ~ifelse(fuel == "Coal", "#4d4d4d", "#1b7837"), stroke = FALSE, fillOpacity = 0.55,
         label = ~lapply(sprintf("<b>%s</b><br/>%s, %s MW<br/>Attributable SO2 %s t/yr | NOx %s t/yr | PM2.5 %s t/yr",
-                                name, fuel, fmtnum(capacity_mw), fmtnum(so2_t), fmtnum(nox_t), fmtnum(pm25_t, 1)),
+                                esc(name), esc(fuel), fmtnum(capacity_mw), fmtnum(so2_t), fmtnum(nox_t), fmtnum(pm25_t, 1)),
                         htmltools::HTML))
     }
     if (isTRUE(input$show_osm) && nrow(osm_check) > 0) {
       m <- m |> addCircleMarkers(
         data = osm_check, radius = 9, color = "#111", weight = 1.4, fill = FALSE, opacity = 0.85,
-        label = ~lapply(sprintf("<b>%s</b><br/>OpenStreetMap cross-check<br/>%s, %s", label, dist_name, state_name),
+        label = ~lapply(sprintf("<b>%s</b><br/>OpenStreetMap cross-check<br/>%s, %s", esc(label), esc(dist_name), esc(state_name)),
                         htmltools::HTML))
     }
     f <- fac_f()
@@ -498,7 +516,7 @@ server <- function(input, output, session) {
           "<b>%s</b><br/>%s | %s | %s<br/>%s, %s<br/><hr style='margin:4px 0'/>
            IT capacity: %s MW%s<br/>Electricity: %s GWh/yr<br/>CO2: %s kt/yr<br/>
            On-site water: %s ML/yr<br/>Electricity-related water: %s ML/yr",
-          name, operator, dc_type, STATUS_LAB[as.character(status)], dist_name, state_name,
+          esc(name), esc(operator), esc(dc_type), esc(STATUS_LAB[as.character(status)]), esc(dist_name), esc(state_name),
           fmtnum(mw_use, 2),
           ifelse(is.na(mw_reported), " (allocated)", paste0(" (", fmtnum(mw_reported, 1), " MW reported)")),
           fmtnum(gwh_use, 1), fmtnum(co2_use, 1), fmtnum(s1_use, 1), fmtnum(s2_use, 1)), htmltools::HTML))
@@ -508,7 +526,7 @@ server <- function(input, output, session) {
 
   output$dtab <- renderDT({
     d <- sf::st_drop_geometry(dist_f())
-    cnt <- if (is_all()) "dc_count_all" else "dc_count"
+    cnt <- "dc_count_sel"
     dpc <- if (is_all()) "dpm25_all" else "dpm25"
     d <- d |>
       select(any_of(c("dist_name", "state_name", cnt, "pop_2020", "wealth_pct", "rwi_mean",
@@ -561,11 +579,9 @@ server <- function(input, output, session) {
     s <- pol_src |>
       transmute(State = state, Claim = gsub("_", " ", claim), Value = value,
                 `Source type` = source_type, `Issuing body` = issuing_body, Title = source_title,
-                Link = ifelse(is.na(url) | url == "", "",
-                              sprintf("<a href='%s' target='_blank'>%s</a>", url,
-                                      ifelse(nchar(url) > 60, paste0(substr(url, 1, 57), "..."), url))),
+                Link = safe_link(url),
                 `Document date` = document_date, Retrieved = retrieved, `Verbatim passage` = quote)
-    datatable(s, rownames = FALSE, filter = "top", escape = FALSE, extensions = "Buttons",
+    datatable(s, rownames = FALSE, filter = "top", escape = -which(names(s) == "Link"), extensions = "Buttons",
               options = list(pageLength = 15, dom = "Bfrtip", buttons = c("csv", "excel"), scrollX = TRUE))
   })
 }
