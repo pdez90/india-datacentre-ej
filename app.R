@@ -22,8 +22,10 @@ library(jsonlite)
 # (Google Forms > Send > < > > copy the src of the iframe; it ends in
 # ?embedded=true). While a url is empty the tab shows the questions and a
 # mailto fallback instead.
-FORM_DC_URL     <- Sys.getenv("FORM_DC_URL",     unset = "")
-FORM_POLICY_URL <- Sys.getenv("FORM_POLICY_URL", unset = "")
+FORM_DC_URL     <- Sys.getenv("FORM_DC_URL",
+  unset = "https://docs.google.com/forms/d/e/1FAIpQLSdNP3OSogFFzASsXARiPFmM3w3x-AwG4CqwZLqmpk3pjbKMpQ/viewform?embedded=true")
+FORM_POLICY_URL <- Sys.getenv("FORM_POLICY_URL",
+  unset = "https://docs.google.com/forms/d/e/1FAIpQLSdiz78rLfXpWlFf9HT6tnoUo5kyzXAt5Sfpf79Qz6EaSlU_dQ/viewform?embedded=true")
 CONTACT_EMAIL   <- "priyanka.desouza@ucdenver.edu"
 REPO_URL        <- "https://github.com/pdez90/india-datacentre-ej"
 
