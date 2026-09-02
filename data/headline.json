@@ -1,5 +1,5 @@
 {
-  "built": "2026-09-01",
+  "built": "2026-09-02",
   "n_operating": 209,
   "n_all": 297,
   "n_construction": 50,
@@ -26,7 +26,31 @@
   "policy_states_reviewed": 18,
   "facilities_in_policy_states": 182,
   "facilities_in_policy_states_all": 267,
+  "inmap_operating": {
+    "pwm_ugm3": 0.0585,
+    "pop_ge_0_01_million": 1234,
+    "pop_ge_0_10_million": 179,
+    "deaths_per_yr": 1976
+  },
+  "inmap_all": {
+    "pwm_ugm3": 0.1352,
+    "pop_ge_0_01_million": 1351,
+    "pop_ge_0_10_million": 508,
+    "deaths_per_yr": 4629
+  },
   "inmap_summary_lines": ["Population-weighted mean PM2.5 increment (grid): 0.0585 ug/m3", "  (district-mean equivalent, for comparison:     0.0583 ug/m3)", "Population exposed >= 0.01 ug/m3 (grid cells): 1234 million", "Population exposed >= 0.10 ug/m3 (grid cells): 179 million", "Exposure-weighted receiving profile: SC/ST 0.32 | BPL 0.47 | wealth 261099", "GEMM attributable deaths from the increment: 1976 /yr", "Districts covered by grid: 642 of 642"],
+  "context": {
+    "gen_total_twh": 1826,
+    "gen_total_src": "CEA / Vasudha Foundation, FY2024-25 gross generation",
+    "per_capita_kwh": 1460,
+    "per_capita_src": "CEA via PIB Year End Review 2025: 1,460 kWh per capita in FY2024-25",
+    "peak_demand_gw": 242.49,
+    "peak_demand_src": "CEA via PIB: all-India peak demand met, 242.49 GW, FY2025-26",
+    "india_fossil_co2_mt": 2992,
+    "india_fossil_co2_src": "Global Carbon Budget 2024: India 8% of 37.4 GtCO2 fossil emissions",
+    "coal_deaths_total": 78000,
+    "coal_deaths_src": "Cropper et al. 2021 PNAS: ~78,000 deaths/yr attributable to India's coal fleet"
+  },
   "emission_districts": 161,
   "plants": 321,
   "osm_points": 20

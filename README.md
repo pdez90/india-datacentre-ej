@@ -50,6 +50,19 @@ days · NFHS asset wealth (district percentile) · Relative Wealth Index (Chi et
 urban share · SC/ST share · below-poverty-line share · Muslim share · no-electricity share ·
 coal capacity · distance to nearest fossil plant · baseline water stress · population.
 
+**Value boxes with context.** Facilities shown, allocated IT capacity, electricity and CO2
+for the current selection, each with a context line: districts covered; facility load (IT load
+x PUE 1.6) as a share of India's record peak demand (242.49 GW, CEA FY2025-26); electricity as
+a share of national generation (1,826 TWh, CEA FY2024-25) and as the average annual use of N
+million Indians (1,460 kWh per capita, CEA FY2024-25); CO2 as a share of India's fossil CO2
+(about 3.0 Gt, Global Carbon Budget 2024). The constants and their sources live in
+`data/headline.json`.
+
+**Modelled exposure for both scopes.** Three InMAP layers: the operating field, the
+stock-plus-pipeline field and the increment the pipeline adds; the legend of each carries the
+population-weighted mean, the population above 0.01 ug/m3 and GEMM attributable deaths for that
+scope (operating 0.0585 ug/m3, ~1,976 deaths/yr; stock plus pipeline 0.1352 ug/m3, ~4,629).
+
 **Filters.** Scope, state and facility type. All four value boxes and both tables respond.
 
 **Tables.** District and facility tables with column filters and CSV/Excel export.

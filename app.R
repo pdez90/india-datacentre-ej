@@ -22,8 +22,8 @@ library(jsonlite)
 # (Google Forms > Send > < > > copy the src of the iframe; it ends in
 # ?embedded=true). While a url is empty the tab shows the questions and a
 # mailto fallback instead.
-FORM_DC_URL     <- Sys.getenv("FORM_DC_URL",     unset = "https://docs.google.com/forms/d/e/1FAIpQLSeEsoKwHVzlHH3GAUOgQHr7WSCXS_fdi_iXVUBXzPe1ats0cw/viewform?embedded=true")
-FORM_POLICY_URL <- Sys.getenv("FORM_POLICY_URL", unset = "https://docs.google.com/forms/d/e/1FAIpQLScjBODHJgp6u2Klg6XMzHoZtZsI2M9uHUULjcAsTYVej4SagA/viewform?embedded=true")
+FORM_DC_URL     <- Sys.getenv("FORM_DC_URL",     unset = "")
+FORM_POLICY_URL <- Sys.getenv("FORM_POLICY_URL", unset = "")
 CONTACT_EMAIL   <- "priyanka.desouza@ucdenver.edu"
 REPO_URL        <- "https://github.com/pdez90/india-datacentre-ej"
 
@@ -37,13 +37,17 @@ pol_src    <- read.csv("data/policy_sources.csv", stringsAsFactors = FALSE)
 H          <- jsonlite::read_json("data/headline.json")
 
 facilities$status <- factor(facilities$status, levels = c("operating", "construction", "announced"))
+districts$dpm25_added <- pmax(districts$dpm25_all - districts$dpm25, 0)
 policies$has_policy <- as.logical(policies$has_policy)
 
 # indicator registry: column, palette, digits, unit. Columns ending in *_all
 # have a build-out twin that the scope switch selects.
 IND <- list(
   "Data centres (count)"                 = list(col="dc_count",   alt="dc_count_all", pal="Reds",    fmt=0, unit="facilities"),
-  "PM2.5 increment from data centres"    = list(col="dpm25",      alt="dpm25_all",    pal="Purples", fmt=4, unit="ug/m3", log=TRUE),
+  "PM2.5 increment from data centres"    = list(col="dpm25",      alt="dpm25_all",    pal="Purples", fmt=4, unit="ug/m3", log=TRUE, inmap=TRUE),
+  "PM2.5 increment: operating only"      = list(col="dpm25",      pal="Purples", fmt=4, unit="ug/m3", log=TRUE, inmap="operating"),
+  "PM2.5 increment: stock plus pipeline" = list(col="dpm25_all",  pal="Purples", fmt=4, unit="ug/m3", log=TRUE, inmap="all"),
+  "PM2.5 increment added by the pipeline"= list(col="dpm25_added",pal="Purples", fmt=4, unit="ug/m3", log=TRUE, inmap="added"),
   # --- the Scope 1 / Scope 2 chain (operating inventory): consumed here, released there, breathed elsewhere
   "Scope 1 water: on-site cooling"       = list(col="s1_water_ml",  pal="Blues",   fmt=0, unit="ML/yr",  grp="chain"),
   "Scope 1 air: backup-diesel NOx"       = list(col="diesel_nox_t", pal="Oranges", fmt=1, unit="t/yr",   grp="chain"),
@@ -98,7 +102,7 @@ DC_FIELDS <- list(
   "Address, or the most precise location you can give (locality, city, state; a map link if you have one)",
   "Capacity, if known - IT load or total power in MW, and whether it is operating, under construction or announced",
   "How did you find out about this data center? (operator page, news report, site visit, planning notice, other) - please include a link where possible",
-  "Your contact details - name, email address and telephone number (optional; used only to follow up on this entry)")
+  "Your name and email (optional, only used to follow up on the entry)")
 POL_FIELDS <- list(
   "State or union territory",
   "Policy name and year (e.g. 'Data Centre Policy 2024')",
@@ -106,7 +110,7 @@ POL_FIELDS <- list(
   "What it offers data centers: capital subsidy, stamp-duty exemption, electricity-duty exemption, land incentive, single-window clearance, other (tick or describe)",
   "Does the policy require any environmental assessment or set water or energy conditions? (yes / no / not stated)",
   "Anything else worth recording (amendments, successor policies, whether it replaces an earlier policy)",
-  "Your contact details - name, email address and telephone number (optional; used only to follow up on this entry)")
+  "Your name and email (optional)")
 
 # ---- ui ---------------------------------------------------------------------
 ui <- page_sidebar(
@@ -151,11 +155,16 @@ ui <- page_sidebar(
 
   layout_columns(
     fill = FALSE,
-    value_box(textOutput("vb_n_title"), textOutput("vb_n"), theme = "primary"),
-    value_box("Allocated IT capacity", textOutput("vb_mw"),  theme = "secondary"),
-    value_box("Electricity",           textOutput("vb_gwh"), theme = "secondary"),
-    value_box("CO2 (average grid factor)", textOutput("vb_co2"), theme = "secondary")
+    value_box(textOutput("vb_n_title"), textOutput("vb_n"), textOutput("vb_n_ctx"), theme = "primary"),
+    value_box("Allocated IT capacity", textOutput("vb_mw"),  textOutput("vb_mw_ctx"),  theme = "secondary"),
+    value_box("Electricity",           textOutput("vb_gwh"), textOutput("vb_gwh_ctx"), theme = "secondary"),
+    value_box("CO2 (average grid factor)", textOutput("vb_co2"), textOutput("vb_co2_ctx"), theme = "secondary")
   ),
+  p(class = "text-muted small px-2 mb-1",
+    "Context lines compare the facilities shown with all-India figures: generation and peak demand ",
+    "from the Central Electricity Authority (FY2024-25 / FY2025-26), per-capita consumption 1,460 kWh ",
+    "(CEA, FY2024-25), and fossil CO2 of about 3.0 Gt (Global Carbon Budget 2024). Capacity is compared ",
+    "at facility load (IT load x PUE 1.6)."),
 
   navset_card_tab(
     nav_panel("Map",        leafletOutput("map", height = "620px")),
@@ -271,6 +280,15 @@ ui <- page_sidebar(
                   fmt1(H$scope2_gl_operating), fmt1(H$scope2_gl_nohydro_operating)))),
 
         h4("Reading the PM2.5 increment"),
+        p(sprintf(paste0("The operating inventory raises population-weighted annual PM2.5 by %.4f ug/m3 across ",
+                         "India, with %s million people above 0.01 ug/m3 and about %s attributable deaths a year ",
+                         "(GEMM); the stock-plus-pipeline scenario raises it to %.4f ug/m3, %s million people and ",
+                         "about %s deaths. Three district layers show the operating field, the build-out field and ",
+                         "the difference between them, and the layer named simply 'PM2.5 increment from data centres' ",
+                         "follows the scope switch."),
+                  H$inmap_operating$pwm_ugm3, fmtnum(H$inmap_operating$pop_ge_0_01_million),
+                  fmtnum(H$inmap_operating$deaths_per_yr), H$inmap_all$pwm_ugm3,
+                  fmtnum(H$inmap_all$pop_ge_0_01_million), fmtnum(H$inmap_all$deaths_per_yr))),
         p("This is not measured pollution. It is the modelled annual-mean PM2.5 attributable to ",
           "the electricity these facilities consume, obtained by assigning each facility's demand ",
           "to the generators that respond at the margin and dispersing the resulting emissions ",
@@ -314,10 +332,18 @@ ui <- page_sidebar(
           tags$li("District values are means and hide within-district variation."),
           tags$li("The pipeline scenario counts announcements; not all of them will be built.")),
 
-        h4("Contribute"),
-        p("Use the ", tags$em("Submit a data centre"), " and ", tags$em("Submit a policy"),
-          " tabs to send additions and corrections. Every submission is checked against its ",
-          "source before it enters the inventory or the policy tracker."),
+        h4("A living inventory"),
+        p("The facility inventory and the state policy compilation are our best effort from public ",
+          "sources on a stated date: operator facility lists and a curated directory read page by page, ",
+          "two independent corroboration sources, and state notifications with a sourced passage behind ",
+          "every policy claim. Both change faster than any single retrieval can track: facilities open, ",
+          "close and change hands, and states enact, amend and replace incentive policies every year. ",
+          "This site is therefore maintained as a living document. Use the ",
+          tags$em("Submit a data centre"), " and ", tags$em("Submit a policy"),
+          " tabs to send additions and corrections; every submission is checked against the source it ",
+          "cites before it enters the inventory or the tracker, and the data files, the build date above ",
+          "and the ", tags$a(href = REPO_URL, target = "_blank", "repository history"),
+          " record what changed and when."),
         p(tags$small("Built ", H$built, ". Code and data: ",
                      tags$a(href = REPO_URL, target = "_blank", REPO_URL), ".")),
         h4("Contact"),
@@ -363,12 +389,49 @@ server <- function(input, output, session) {
   output$vb_mw  <- renderText(paste0(fmtnum(sum(fac_f()$mw_use,  na.rm = TRUE), 0), " MW"))
   output$vb_gwh <- renderText(paste0(fmtnum(sum(fac_f()$gwh_use, na.rm = TRUE), 0), " GWh/yr"))
   output$vb_co2 <- renderText(paste0(fmtnum(sum(fac_f()$co2_use, na.rm = TRUE) / 1000, 2), " Mt/yr"))
+  CX <- H$context
+  output$vb_n_ctx <- renderText({
+    f <- fac_f(); d <- length(unique(f$dist_name[!is.na(f$dist_name)]))
+    sprintf("in %d of India's 642 districts%s", d,
+            if (is_all()) sprintf("; %d operating, %d under construction, %d announced",
+                                  sum(f$status == "operating"), sum(f$status == "construction"),
+                                  sum(f$status == "announced")) else "")
+  })
+  output$vb_mw_ctx <- renderText({
+    mw <- sum(fac_f()$mw_use, na.rm = TRUE)
+    sprintf("~%s MW at facility load: %.2f%% of India's record peak demand (%.0f GW)",
+            fmtnum(mw * 1.6), 100 * mw * 1.6 / 1000 / CX$peak_demand_gw, CX$peak_demand_gw)
+  })
+  output$vb_gwh_ctx <- renderText({
+    gwh <- sum(fac_f()$gwh_use, na.rm = TRUE)
+    sprintf("%.2f%% of India's generation; the average annual use of %s million Indians",
+            100 * gwh / 1000 / CX$gen_total_twh, fmtnum(gwh * 1e6 / CX$per_capita_kwh / 1e6, 1))
+  })
+  output$vb_co2_ctx <- renderText({
+    kt <- sum(fac_f()$co2_use, na.rm = TRUE)
+    sprintf("%.2f%% of India's fossil CO2 (~%.1f Gt/yr)", 100 * kt / 1000 / CX$india_fossil_co2_mt,
+            CX$india_fossil_co2_mt / 1000)
+  })
 
   output$map <- renderLeaflet({
     leaflet(options = leafletOptions(minZoom = 4)) |>
       addProviderTiles(providers$CartoDB.PositronNoLabels) |>
       setView(lng = 79, lat = 22, zoom = 5)
   })
+
+  # exposure summary for the InMAP layers (from tab16_inmap_summary.txt of each scope)
+  inmap_note <- function(spec) {
+    if (is.null(spec$inmap)) return("")
+    which <- if (identical(spec$inmap, TRUE)) (if (is_all()) "all" else "operating") else spec$inmap
+    if (which == "added") {
+      o <- H$inmap_operating; b <- H$inmap_all
+      return(sprintf("<br/>pipeline adds %.3f ug/m3 to the population-weighted mean and ~%s deaths/yr",
+                     b$pwm_ugm3 - o$pwm_ugm3, fmtnum(b$deaths_per_yr - o$deaths_per_yr)))
+    }
+    x <- if (which == "all") H$inmap_all else H$inmap_operating
+    sprintf("<br/>population-weighted mean %.4f ug/m3; %s million people above 0.01; ~%s attributable deaths/yr (GEMM)",
+            x$pwm_ugm3, fmtnum(x$pop_ge_0_01_million), fmtnum(x$deaths_per_yr))
+  }
 
   observe({
     spec <- IND[[input$ind]]
@@ -403,7 +466,8 @@ server <- function(input, output, session) {
       addLegend("bottomright", pal = pal, values = vshow, opacity = 0.85,
                 title = paste0(input$ind, "<br/><small>", spec$unit,
                                if (isTRUE(spec$log)) " (log scale)" else "",
-                               if (is_all() && !is.null(spec$alt)) " - stock plus pipeline" else "", "</small>"),
+                               if (is_all() && !is.null(spec$alt)) " - stock plus pipeline" else "",
+                               inmap_note(spec), "</small>"),
                 labFormat = if (isTRUE(spec$log)) labelFormat(transform = function(x) 10^x) else labelFormat())
 
     if (isTRUE(input$show_plants) && nrow(plants) > 0) {
