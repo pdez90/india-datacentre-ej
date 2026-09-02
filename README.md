@@ -117,21 +117,21 @@ uses state marginal factors. Both appear on the About tab.
 
 ## The submission forms
 
-Submissions are collected with two Google Forms owned by the author (responses land in the
-linked Google Sheets in her Drive), so no credentials live in the app:
+Submissions are collected with two Google Forms created by `create_forms.gs` (responses land in
+the Sheets "India DC inventory – facility submissions" and "India DC policy tracker –
+submissions"), so no credentials live in the app:
 
-- **India data centre inventory – submit a facility** — name/operator, address or best
-  location, capacity if known, status, how the submitter found it (with link), source type,
-  optional contact details (name, email, telephone).
-- **India data centre policy tracker – submit a policy** — state, policy name and year,
+- **India data centre inventory – submit a facility** — new facility or correction, name/operator,
+  address or best location, capacity if known, status, how the submitter found it, source link(s),
+  optional name and email.
+- **India data centre policy tracker – submit a policy** — state (dropdown), policy name and year,
   link to the notification or official summary (required), incentives offered, whether an
-  environmental assessment or water/energy conditions apply, notes, optional contact details.
+  environmental assessment or water/energy conditions apply, notes, optional name and email.
 
-Their embed URLs are the defaults of `FORM_DC_URL` / `FORM_POLICY_URL` at the top of
-`app.R`; setting either as an environment variable on Connect Cloud overrides the default.
-New entries are checked against the source they cite before they enter
-`data/operator_facilities.csv` or `data/state_dc_policies.csv` in the analysis repository;
-nothing changes the map automatically.
+Their embed URLs are the defaults of `FORM_DC_URL` / `FORM_POLICY_URL` at the top of `app.R`;
+setting either as an environment variable on Connect Cloud overrides the default. New entries are
+checked against the source they cite before they enter `data/operator_facilities.csv` or
+`data/state_dc_policies.csv` in the analysis repository; nothing changes the map automatically.
 
 ## Checks
 

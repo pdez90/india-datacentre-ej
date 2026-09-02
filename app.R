@@ -107,18 +107,20 @@ form_panel <- function(url, title, intro, fields, mail_subject) {
                      "the inventory; nothing submitted here changes the map automatically.")))
   }
 }
-DC_FIELDS <- list(
-  "Data center name (and operator, if different)",
+DC_FIELDS <- list(   # mirrors the live form; shown only if the embed URL is ever unset
+  "Is this a new facility or a correction to one already on the map?",
+  "Data centre name (and operator, if different)",
   "Address, or the most precise location you can give (locality, city, state; a map link if you have one)",
-  "Capacity, if known - IT load or total power in MW, and whether it is operating, under construction or announced",
-  "How did you find out about this data center? (operator page, news report, site visit, planning notice, other) - please include a link where possible",
-  "Your name and email (optional, only used to follow up on the entry)")
+  "Capacity, if known (IT load or total power in MW)",
+  "Status: operating, under construction or announced",
+  "How did you find out about this data centre? Link(s) to the source, or a description of it",
+  "Your name and email (optional, only used to follow up on this entry)")
 POL_FIELDS <- list(
   "State or union territory",
   "Policy name and year (e.g. 'Data Centre Policy 2024')",
   "Link to the notification, gazette or official summary (required)",
-  "What it offers data centers: capital subsidy, stamp-duty exemption, electricity-duty exemption, land incentive, single-window clearance, other (tick or describe)",
-  "Does the policy require any environmental assessment or set water or energy conditions? (yes / no / not stated)",
+  "What it offers data centres: capital subsidy, stamp-duty exemption, electricity-duty exemption, land incentive, single-window clearance, power tariff concession, infrastructure status, other",
+  "Does the policy require any environmental assessment, or set water or energy conditions? (yes / no / not stated)",
   "Anything else worth recording (amendments, successor policies, whether it replaces an earlier policy)",
   "Your name and email (optional)")
 
