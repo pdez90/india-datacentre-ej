@@ -5,31 +5,139 @@ their environmental impacts extend through shared regional systems."*
 
 For more information contact Dr Priyanka deSouza (<priyanka.desouza@ucdenver.edu>).
 
-An India map with 373 data centres over 642 districts, where the district layer can be
-switched between 23 social, environmental and energy indicators — including the modelled
-PM2.5 increment produced by the sector's own electricity demand. The point of the app is
-that the two layers can be read against each other: the facilities sit in one geography,
-the pollution their electricity causes appears in another.
+An India map of the country's data centres over 642 districts, where the district layer
+can be switched between 23 social, environmental and energy indicators, including the
+modelled PM2.5 increment produced by the sector's own electricity demand. The point of the
+app is that the two layers can be read against each other: the facilities sit in one
+geography, the pollution their electricity causes appears in another. Two further tabs
+track the state incentive policies that are steering the build-out, and two forms let
+readers submit data centres and policies we have missed.
 
 ## Run it locally
 
 ```r
-install.packages(c("shiny", "bslib", "leaflet", "sf", "dplyr", "DT"))
+install.packages(c("shiny", "bslib", "leaflet", "sf", "dplyr", "DT", "jsonlite"))
 shiny::runApp()
 ```
 
+## What's in the app
+
+**Two scopes, as in the paper.** The *operating inventory* (209 facilities in 31
+districts) is the basis of every result in the paper. The *stock-plus-pipeline* scenario
+adds the 50 under-construction and 38 announced facilities (297 in all, 37 districts) and
+re-allocates capacity to the build-out anchor. The sidebar switch changes the facility
+points, the value boxes, the district count layer and the PM2.5 increment layer together;
+the Scope 1 / Scope 2 chain layers are for the operating inventory. Pipeline facilities are
+drawn with a dark outline (dashed for announced) and lighter fill.
+
+**Map.** District choropleth plus facility points, optionally with the 321 coal and gas
+plants that carry the sector's attributable emissions (hover for each plant's attributable
+SO2, NOx and PM2.5) and the screened OpenStreetMap cross-check (black rings). Hovering a
+district gives a profile card; hovering a facility gives its type, status, reported and
+allocated capacity, electricity, carbon and both water terms.
+
+**The Scope 1 / Scope 2 chain.** Six layers trace one footprint across three geographies:
+Scope 1 on-site cooling water and backup-diesel NOx in the hosting districts; Scope 2 SO2,
+NOx and PM2.5 mapped where they are physically released, at the plants; and the modelled
+PM2.5 increment where the concentration settles. Scope 2 *water* is charged to the consuming
+district rather than mapped to its source, because about a third of it is hydropower
+reservoir evaporation and only the coal and gas fleet is geolocated; it uses average grid
+water intensities and is an upper estimate.
+
+**District layers.** Data-centre count · PM2.5 increment from data centres (log scale) ·
+Scope 1/2 chain (six layers) · ambient PM2.5 · surface NO2 · summer ozone · extreme-heat
+days · NFHS asset wealth (district percentile) · Relative Wealth Index (Chi et al. 2022) ·
+urban share · SC/ST share · below-poverty-line share · Muslim share · no-electricity share ·
+coal capacity · distance to nearest fossil plant · baseline water stress · population.
+
+**Filters.** Scope, state and facility type. All four value boxes and both tables respond.
+
+**Tables.** District and facility tables with column filters and CSV/Excel export.
+
+**State policies.** The 18-state compilation of data-centre incentive policies (dedicated
+policy and year; capital subsidy, stamp-duty and electricity-duty exemptions, land
+incentive, single-window clearance, environmental-assessment requirement) joined to each
+state's facility counts and the water stress and pollution of its hosting districts, and a
+second table with the source, verbatim passage and retrieval date behind every cell.
+
+**Submit a data centre / Submit a policy.** Two Google Forms, embedded. See *Setting up
+the submission forms* below.
+
+## Data provenance
+
+Everything in `data/` is written by `scripts/22_build_shiny_data.R` in the analysis
+repository from the pipeline's outputs, so the app has no runtime dependency on the
+pipeline and the numbers in the interface cannot drift from the paper's tables.
+
+| File | Rows | Source |
+|---|---|---|
+| `data/districts.geojson` | 642 | 2015 district geography joined to the analysis layer (`analysis_district.csv`, both scopes' counts), the InMAP receiving field (`tab16_inmap_districts.csv`, both scopes), the InMAP source field aggregated to plant districts (`tab16b_emissions_points.csv`), facility Scope 1 and Scope 2 water (`tab15_facilities.csv`) and central-scenario backup-diesel NOx (`dcgrd_genset_district.csv`); geometry simplified to 0.01° |
+| `data/facilities.geojson` | 297 | `dc_current_inventory.csv` (stock plus pipeline) with status, reported IT load and coordinates; operating-scope allocations (`mw_it`, `e_fac_gwh`, `co2_kt`, `scope1_ml`, `scope2_ml`) for the 209 operating facilities and build-out allocations (`*_all`) for all 297, from `tab15_facilities.csv` in each scope |
+| `data/plants.geojson` | 321 | WRI Global Power Plant Database coal and gas plants that receive an allocation of the sector's marginal emissions, with the attributable tonnes (`tab16b_emissions_points.csv`) |
+| `data/osm_check.geojson` | 20 | OpenStreetMap cross-check: Overpass `telecom=data_center` + `building=data_center`, screened to records identifiable as data centres and to the study geography (50-km tolerance) |
+| `data/policies.csv` | 18 | `tab14_policy_burden.csv`: policy compilation joined to hosting-district burden, both scopes' facility counts |
+| `data/policy_sources.csv` | 140 | `data/state_dc_policies_sources.csv`: one row per state × claim with URL, verbatim passage and retrieval date |
+| `data/headline.json` | – | the numbers the interface text quotes (facility and district counts, anchors, TWh, CO2, kt, diesel share, policy counts), taken from `tab15_national.csv`, `tab15b_marginal.csv`, `tab16_inmap_summary.txt`, `dcgrd_genset_summary.csv` and `tab14_policy_burden.csv` |
+
+**How the inventory is built.** Two sources are read entry by entry: the facility lists
+that India's fifteen colocation and hyperscale operator groups publish on their own
+websites (an operator census, 73 rows), and the DataCenterMap directory (326 entries, each
+page read for status and reported IT load). Where an operator's own list enumerates its
+buildings in a market, those rows replace the directory's rows for that operator and
+market. ATLAS (the open Global Data Center Map) and a screened OpenStreetMap query
+corroborate the inventory but add nothing to it. The paper's SI section S1 documents every
+step and every identity.
+
+**What the capacity numbers are.** Only a minority of facilities disclose IT load. Reported
+loads are held fixed; the rest is allocated by operator class (telecom 0.5, enterprise 1,
+colocation 3, hyperscale 10) and the commercial subset is scaled to a national anchor
+(1,800 MW of commercial IT load for the operating inventory, the build-out figure for the
+pipeline scenario). An individual facility's megawatts are an allocation, not a
+measurement; state and national aggregates are the meaningful quantities. The CO2 value
+box uses the average grid factor (the paper's scenario-table value); the paper's headline
+uses state marginal factors. Both appear on the About tab.
+
+## Setting up the submission forms
+
+Submissions are collected with two Google Forms owned by the author, so no credentials
+live in the app and responses land in a Google Sheet.
+
+1. Create a form **"India data centre inventory – submit a facility"** with these questions
+   (short answer unless noted):
+   - Data centre name (and operator, if different) — required
+   - Address, or the most precise location you can give (locality, city, state; map link
+     if you have one) — required, paragraph
+   - Capacity, if known (IT load or total power in MW), and status (operating / under
+     construction / announced)
+   - How did you find out about this data centre? — required, paragraph (operator page,
+     news report, site visit, planning notice, other; please include a link)
+   - Your name and email (optional)
+2. Create a form **"India data centre policy tracker – submit a policy"**:
+   - State or union territory — required
+   - Policy name and year — required
+   - Link to the notification, gazette or official summary — required
+   - What it offers data centres — checkboxes: capital subsidy, stamp-duty exemption,
+     electricity-duty exemption, land incentive, single-window clearance, other
+   - Does the policy require an environmental assessment or set water/energy conditions?
+     — yes / no / not stated
+   - Anything else worth recording (amendments, successor policies)
+   - Your name and email (optional)
+3. In each form choose *Send → < > (Embed HTML)* and copy the `src` URL of the iframe (it
+   ends in `?embedded=true`). Set it in the app either as environment variables on Connect
+   Cloud (`FORM_DC_URL`, `FORM_POLICY_URL`; Settings → Environment variables) or by pasting
+   the URLs into the two `Sys.getenv(..., unset = "")` defaults at the top of `app.R`.
+   Until a URL is set, the tab lists the questions and gives a mailto link instead.
+4. Link each form to a response Sheet (Responses → Sheets icon). New entries are checked
+   against the source they cite before they enter `data/operator_facilities.csv` or
+   `data/state_dc_policies.csv` in the analysis repository; nothing changes the map
+   automatically.
+
 ## Publishing it
 
-**Posit Connect Cloud** is the right target as of 2026. Posit is migrating shinyapps.io
-into Connect Cloud — a self-migration tool arrives September 2026 and automatic migration
-begins early 2027 — so publishing to Connect Cloud now avoids being moved later. The free
-plan allows 5 applications with 4 GB RAM and 1 CPU, against 1 GB and a 25-active-hour
-monthly cap on the old shinyapps.io free plan. Connect Cloud deploys from a public GitHub
-repository.
+**Posit Connect Cloud** is the target. It deploys from this public GitHub repository.
 
-1. Put this folder in its own public GitHub repo (`app.R`, `README.md`, `data/`). Keep it
-   separate from the analysis repo, which is far too large to deploy.
-2. Generate the dependency manifest from inside the app folder:
+1. Regenerate the dependency manifest from inside the app folder whenever `app.R`'s
+   packages change (they did in this revision: `jsonlite` was added):
 
    ```r
    install.packages("rsconnect")
@@ -38,123 +146,33 @@ repository.
 
    Commit the resulting `manifest.json`. It pins the R version and package versions, and
    Connect Cloud rebuilds the environment from it.
-3. Sign in at connect.posit.cloud, click Publish, choose Shiny, pick the repo and branch,
-   set `app.R` as the primary file, and publish. Build logs stream live.
+2. Sign in at connect.posit.cloud, open the application, and republish from the branch (or
+   Publish → Shiny → pick the repo and branch, `app.R` as the primary file, for a first
+   deployment). Build logs stream live.
+3. Set `FORM_DC_URL` and `FORM_POLICY_URL` as environment variables on the app once the
+   Google Forms exist.
 
 The `data/` folder is committed with the app, so there is no runtime dependency on the
-analysis pipeline and the whole deployment is about 1.7 MB.
-
-### If you use shinyapps.io instead
-
-Still works, and existing URLs will keep redirecting after migration, but the free tier
-gives 25 active hours per month with a 15-minute idle timeout, no password protection, and
-a "Powered by RStudio" badge. Twenty-five hours is not much for a paper companion: a single
-sustained burst of readers can exhaust it, after which the app goes offline until the next
-month.
-
-```r
-install.packages("rsconnect")
-rsconnect::setAccountInfo(name = "<account>", token = "<token>", secret = "<secret>")
-rsconnect::deployApp(appName = "india-datacentre-ej")
-```
+analysis pipeline.
 
 ### For the paper
 
-Journal reviewers and readers need a link that does not rot. Archive the repo to Zenodo to
-mint a DOI, cite that DOI in the data-availability statement, and give the live Connect
-Cloud URL as the interactive companion. If the hosted app ever lapses, the DOI still
-resolves to a runnable copy.
-
-## What's in the app
-
-**Two inventories, as in the paper.** The district count layer is the 342-facility ATLAS
-census across 38 hosting districts, which is the basis for every siting result. The
-facility points and all capacity, electricity, carbon and water figures are the
-373-facility combined inventory across 40 districts. The choropleth and the points
-therefore do not agree, by design; the About tab explains why.
-
-**Map.** District choropleth plus facility points, optionally with the 321 coal and gas
-plants that carry the sector's attributable emissions and the 19-point OpenStreetMap
-cross-check (black rings). Hovering a district gives a profile
-card; hovering a facility gives its type, imputed capacity, electricity, carbon
-and both water terms.
-
-**The Scope 1 / Scope 2 chain.** Six layers trace one footprint across three geographies:
-Scope 1 on-site cooling water and backup-diesel NOx in the 40 facility districts; Scope 2
-SO2, NOx and PM2.5 mapped where they are physically released, across 161 districts; and
-the modelled PM2.5 increment where the concentration settles. Scope 2 *water* is charged
-to the consuming district rather than mapped to its source, because about a third of it is
-hydropower reservoir evaporation and only the coal and gas fleet is geolocated. Scope 2
-water is also an upper estimate — it uses average grid water intensities, since no marginal
-water intensity is published for India, and the paper's plausible range is roughly 23–36 GL
-per year. The diesel layer is the paper's central scenario, about 4% of grid-attributable
-NOx, spanning roughly 2–7% across the reported emission-factor range.
-
-**District layers.** Data-centre count (ATLAS census) · PM2.5 increment from data centres (log scale) ·
-ambient PM2.5 · surface NO2 · summer ozone · extreme-heat days · NFHS asset wealth (district percentile) ·
-Relative Wealth Index (Chi et al. 2022) · urban share · SC/ST share · below-poverty-line share · Muslim
-share · no-electricity share · coal capacity · distance to nearest fossil plant · baseline
-water stress · population.
-
-**Filters.** State and facility type. All four value boxes and both tables respond.
-
-**Tables.** District and facility tables with column filters and CSV/Excel export.
-
-## Data provenance
-
-| File | Rows | Source |
-|---|---|---|
-| `data/districts.geojson` | 642 | district geography joined to the analysis layer, the InMAP receiving field, the InMAP source field aggregated to districts (Scope 2 SO2/NOx/PM2.5 released), facility-level Scope 1 and Scope 2 water, and central-scenario backup-diesel NOx; geometry simplified to 0.01° for the browser |
-| `data/facilities.geojson` | 373 | 335 India facilities from the open [Global Data Center Map](https://github.com/Ringmast4r/Global-Data-Center-Map) inventory (ATLAS; 342 rows before de-duplication), plus 38 hand-compiled press-verified major campuses (Yotta, AdaniConneX, STT GDC, NTT, CtrlS, Nxtra, Princeton Digital, Sify, GPX/Equinix, AWS, Google), joined to the facility-level footprint accounting |
-| `data/plants.geojson` | 321 | WRI Global Power Plant Database, coal and gas only |
-| `data/osm_check.geojson` | 19 | OpenStreetMap cross-check layer: Overpass `telecom=data_center` + `building=data_center`, screened to records identifiable as data centres, disputed-territory spillover removed |
-
-The 38 hand-compiled campuses are a tenth of the facility count but about a third of
-national IT capacity, because they are the large hyperscale and colocation projects; 31 of
-the 38 have no ATLAS counterpart at all. They were found by searching operator press rooms,
-state investment-promotion announcements, and the data-center trade press (Data Center
-Dynamics, Baxtel, Business Standard, Voice&Data, VARIndia, Digital Infra), with a source
-citation recorded for every row.
-
-Only 8 facilities disclose IT capacity (164 MW in total). Everything else is imputed:
-each facility gets a class weight (telecom 0.5, enterprise 1, colocation 3, hyperscale
-10), and those weights are scaled by a single common factor so the inventory sums to an
-assumed national total — the *anchor*. The paper evaluates 750, 1,000 and 1,500 MW; the
-app uses the central 1,000 MW anchor, so it reconciles exactly with the paper's central
-scenario (9.8 TWh/yr, 6.97 Mt CO2e on average grid factors — the scenario-table value;
-the paper's headline of 7.3 Mt is the same quantity on state-level marginal factors, about
-5% higher). Individual facility megawatts are allocations, not measurements.
+Archive the repository to Zenodo to mint a DOI, cite that DOI in the data-availability
+statement, and give the live Connect Cloud URL as the interactive companion. If the hosted
+app ever lapses, the DOI still resolves to a runnable copy.
 
 ## Caveats carried into the interface
 
 These are stated in the app's About tab as well, because a map invites over-reading:
 
-- Coordinates are town-, suburb- or postal-area centroids. Of the 38 press-compiled
-  campuses, 21 sit at the locality named in the reporting and 17 at a GeoNames city
-  centroid; none is a site-level pin. A point locates a facility in its town, not at its
-  site. No sub-district inference is supportable.
-- OpenStreetMap is a coverage check only. The raw Overpass extraction returns 238 features,
-  but the tags are badly misapplied in India — Kerala Akshaya e-service kiosks, Aadhaar
-  enrolment points, computer shops — and only 20 survive screening, 19 after removing a
-  Gilgit-Baltistan facility inside the clipping boundary. Those 19 are drawn as a separate
-  layer and are counted in no total; nothing in the inventory depends on OSM completeness.
-- Most facilities do not disclose capacity. It is imputed by operator class and scaled to
-  a national anchor, so individual facility values are allocations, not measurements.
-- Neither wealth measure is money. The NFHS asset score is a principal-components index
-  on an arbitrary scale, shown as a percentile of the 636 surveyed districts; the Relative
-  Wealth Index (Chi et al. 2022) is dimensionless with 0 near the country average.
-- District values are means and hide within-district variation.
-- District names denote polygons in the 2015 survey geography, not municipal entities.
-  The polygon labelled Chennai lies offshore and is empty; Chennai city falls inside the
-  Kancheepuram polygon. Seven polygons carry no gridded population or no survey data and
-  are flagged on hover.
-- The PM2.5 increment is modelled, not measured, and cannot be attributed to any
+- Coordinates are city- or locality centroids, never site-level pins. A point locates a
+  facility in its town, not at its site.
+- Most facilities do not disclose capacity; it is allocated by operator class and scaled to
+  a national anchor.
+- The pipeline scenario counts announcements; not all of them will be built.
+- District values are 2015-geography district means and hide within-district variation.
+  The polygon labelled Chennai lies offshore; Chennai city is inside Kancheepuram, and
+  Hyderabad's facilities are in Rangareddy within unified Andhra Pradesh.
+- The PM2.5 increment is modelled, scenario-consistent, and cannot be attributed to any
   individual facility.
-
-## Rebuilding the data
-
-The GeoJSON layers are derived from the pipeline outputs (`districts_zones.gpkg`,
-`analysis_district.csv`, `tab16_inmap_districts.csv`, `dc_current_inventory.gpkg`,
-`tab15_facilities.csv`, `gppd_india.csv`, `dc_osm_points.rds`). Regenerate them after any
-pipeline rerun so the app does not drift from the paper. The OSM cross-check layer applies
-the same screening rule as `11_inventory_current.R` (`OSM_DC_PAT` / `OSM_KIOSK_PAT`).
+- OpenStreetMap is a coverage check only and enters no total.
