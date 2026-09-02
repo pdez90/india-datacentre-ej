@@ -140,7 +140,9 @@ the server: required columns in every file, 642 valid district geometries with u
 facility statuses and `is_operating` in agreement, district counts summing to the facility
 counts, MW/TWh totals and policy counts agreeing with `headline.json`, only http(s) URLs in the
 policy sources, no HTML markup in name fields, and that the scope and type filters keep the
-count layer and the value boxes consistent. Run it after every `22_build_shiny_data.R`.
+count layer and the value boxes consistent. Run it after every `22_build_shiny_data.R`; GitHub
+Actions (`.github/workflows/check-app-data.yml`) runs the same script on every push or pull
+request that touches `app.R`, `data/` or `tests/`.
 
 Every data-derived string that reaches the browser (facility, operator, district, plant and
 OSM names; policy sources) is HTML-escaped; in the policy-source table only the generated
