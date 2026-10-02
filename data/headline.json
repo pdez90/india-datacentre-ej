@@ -55,6 +55,16 @@
     "coal_deaths_total": 78000,
     "coal_deaths_src": "Cropper et al. 2021 PNAS: ~78,000 deaths/yr attributable to India's coal fleet"
   },
+  "esmi": {
+    "districts": 78,
+    "districts_urban": 69,
+    "monitors": 515,
+    "first": "2014-10-22",
+    "last": "2019-12-31",
+    "hosting_districts": 24,
+    "hosting_median_h": 154,
+    "nonhosting_urban_median_h": 472
+  },
   "emission_districts": 161,
   "plants": 321,
   "osm_points": 20

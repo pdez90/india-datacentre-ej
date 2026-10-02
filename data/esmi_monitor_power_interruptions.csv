@@ -1,0 +1,529 @@
+monitor,esmi_district,esmi_state,esmi_category,connection_type,urban,zone_uid,district_2015,state_2015,first_date,last_date,recorded_days,recorded_minutes,interrupted_minutes,interruption_h_per_yr,used
+Garladinne,Anantpur,Andhra Pradesh,Other Municipal Area,Domestic,True,DIST_0553,Anantapur,Andhra Pradesh,2015-01-05,2019-12-31,1657,2140020,96813,396.3,True
+Kadiri- Anantpur,Anantpur,Andhra Pradesh,Other Municipal Area,Domestic,True,DIST_0553,Anantapur,Andhra Pradesh,2015-11-17,2019-01-30,1125,1596000,195993,1075.8,True
+Kamkampalli- Anantpur [Offline],Anantpur,Andhra Pradesh,Gram Panchayat,Domestic,False,DIST_0553,Anantapur,Andhra Pradesh,2015-11-17,2017-06-04,557,794580,94526,1042.1,True
+Kotanka,Anantpur,Andhra Pradesh,Gram Panchayat,Domestic,False,DIST_0553,Anantapur,Andhra Pradesh,2014-11-05,2019-11-24,1803,2414100,690513,2505.7,True
+Nandamuri Nagar- Anantapur [Offline],Anantpur,Andhra Pradesh,District Headquarters,Non Domestic,True,DIST_0553,Anantapur,Andhra Pradesh,2015-03-01,2017-10-17,824,1178460,41104,305.5,True
+Kovvur-East Godavari,East Godavari,Andhra Pradesh,Other Municipal Area,Domestic,True,DIST_0545,East Godavari,Andhra Pradesh,2016-02-02,2018-05-29,341,489480,123592,2211.9,True
+Razole Village,East Godavari,Andhra Pradesh,Gram Panchayat,Domestic,False,DIST_0545,East Godavari,Andhra Pradesh,2016-03-06,2016-12-06,242,346680,28456,719.0,True
+Ameerpeth- Hyderabad,Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2015-01-06,2019-12-31,1536,1948200,27201,122.3,True
+Boiguda- Hyderabad [Offline],Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2015-12-09,2018-01-31,501,646800,48507,657.0,True
+Gachibowli - Hyderabad,Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2015-11-29,2019-11-26,1276,1774320,27376,135.2,True
+Kakatiya Nagar- Hyderabad,Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2014-11-05,2019-12-31,1843,2388120,51582,189.2,True
+Mallapur - Hyderabad [Offline],Hyderabad,Andhra Pradesh/Telangana,Gram Panchayat,Domestic,False,DIST_0536,Hyderabad,Andhra Pradesh,2015-10-19,2017-01-01,433,618660,12181,172.5,True
+Narapally - Hyderabad,Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2016-01-18,2017-03-11,290,411300,28583,608.8,True
+Sainikpuri- Hyderabad,Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2015-11-29,2019-12-31,1456,1820460,47947,230.7,True
+Tarnaka- Hyderabad,Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2014-10-29,2019-12-31,1859,2434560,42120,151.6,True
+Uppal- Hyderabad [Offline],Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2015-12-09,2017-01-07,285,396660,15891,350.9,True
+VPuram- Hyderabad [Offline],Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2015-12-26,2017-10-22,631,907860,12158,117.3,True
+VidyaNagar- Hyderabad [Offline],Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2015-09-24,2018-01-20,644,901620,14012,136.1,True
+Vijay Nagar- Hyderabad,Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2014-10-30,2019-12-31,1859,2435640,27112,97.5,True
+Bodireddypally-Prakasam,Prakasam,Andhra Pradesh,Gram Panchayat,Domestic,False,DIST_0549,Prakasam,Andhra Pradesh,2016-02-19,2019-12-31,1331,1647840,348230,1851.2,True
+Gollapalle-Prakasam [Offline],Prakasam,Andhra Pradesh,Gram Panchayat,Agriculture,False,DIST_0549,Prakasam,Andhra Pradesh,2016-02-10,2018-02-03,93,110340,12656,1004.8,True
+Banjara hills Hyderabad,Hyderabad,Telangana,State Capital,Domestic,True,DIST_0537,Rangareddy,Andhra Pradesh,2017-06-02,2019-12-31,942,1101000,6134,48.8,True
+Meerpet -Hyderabad,Rangareddy,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0537,Rangareddy,Andhra Pradesh,2015-10-10,2019-02-18,533,760620,19768,227.7,True
+Jangaon- Warangal,Warangal,Telangana,Other Municipal Area,Non Domestic,True,DIST_0540,Warangal,Andhra Pradesh,2015-09-21,2019-12-31,1528,1958280,47837,214.0,True
+Vanaparty -Warangal [Offline],Warangal,Telangana,District Headquarters,Domestic,True,DIST_0540,Warangal,Andhra Pradesh,2015-10-23,2018-08-25,827,1187280,73729,544.0,True
+Waddicherla -Warangal [Offline],Warangal,Telangana,District Headquarters,Domestic,True,DIST_0540,Warangal,Andhra Pradesh,2015-10-23,2018-03-12,746,1070760,80576,659.2,True
+ASEB Campus Guwahati,Kamrup Metro,Assam,State Capital,Non Domestic,True,DIST_0322,Kamrup Metropolitan,Assam,2016-12-15,2018-03-17,429,608520,10950,157.6,True
+Bamunimaidan Guwahati,Kamrup Metro,Assam,State Capital,Domestic,True,DIST_0322,Kamrup Metropolitan,Assam,2016-12-16,2019-02-26,726,1037040,19850,167.7,True
+Capital Electrical Subdivision Guwahati,Kamrup Metro,Assam,State Capital,Non Domestic,True,DIST_0322,Kamrup Metropolitan,Assam,2016-12-16,2019-12-31,1109,1341900,4372,28.5,True
+Datalpara Guwahati,Kamrup Metro,Assam,State Capital,Domestic,True,DIST_0322,Kamrup Metropolitan,Assam,2016-12-15,2019-12-31,1095,1344960,47199,307.4,True
+GNB road Guwahati,Kamrup Metro,Assam,State Capital,Domestic,True,DIST_0322,Kamrup Metropolitan,Assam,2016-12-15,2019-09-11,987,1338480,27284,178.6,True
+Gohaibari Guwahati,Kamrup Metro,Assam,State Capital,Domestic,True,DIST_0322,Kamrup Metropolitan,Assam,2016-12-15,2017-12-29,378,541080,25482,412.5,True
+Guwahati Club Guwahati [Offline],Kamrup Metro,Assam,State Capital,Non Domestic,True,DIST_0322,Kamrup Metropolitan,Assam,2016-12-16,2017-08-11,227,323460,6210,168.2,True
+Hedayetpur Guwahati,Kamrup Metro,Assam,State Capital,Domestic,True,DIST_0322,Kamrup Metropolitan,Assam,2016-12-16,2019-02-22,666,953280,16513,151.7,True
+Juri Par Shanti Path Guwahati [Offline],Kamrup Metro,Assam,State Capital,Domestic,True,DIST_0322,Kamrup Metropolitan,Assam,2016-12-16,2017-10-23,312,448260,13627,266.3,True
+Tarun Nagar Guwahati,Kamrup Metro,Assam,State Capital,Domestic,True,DIST_0322,Kamrup Metropolitan,Assam,2016-12-16,2019-12-31,1102,1324260,25287,167.3,True
+Ulubari Guwahati,Kamrup Metro,Assam,State Capital,Domestic,True,DIST_0322,Kamrup Metropolitan,Assam,2016-12-16,2018-03-12,451,648840,11711,158.1,True
+Jamui - Town,Jamui,Bihar,District Headquarters,Domestic,True,DIST_0238,Jamui,Bihar,2015-08-14,2019-12-31,1540,1981140,240939,1065.4,True
+Bank Colony- Sasaram,Sasaram,Bihar,District Headquarters,Domestic,True,DIST_0234,Rohtas,Bihar,2016-05-23,2018-03-12,139,197700,11985,531.1,True
+Fazalganj-Sasaram,Sasaram,Bihar,District Headquarters,Domestic,True,DIST_0234,Rohtas,Bihar,2016-01-04,2018-11-06,735,1053240,208260,1732.1,True
+Adarsh Nagar -Saharsa [Offline],Saharsa,Bihar,District Headquarters,Domestic,True,DIST_0214,Saharsa,Bihar,2016-03-02,2017-01-22,271,382800,48166,1102.2,True
+Baijnathpur-Saharsa,Saharsa,Bihar,Gram Panchayat,Domestic,False,DIST_0214,Saharsa,Bihar,2016-02-26,2019-12-31,1370,1711500,357037,1827.4,True
+Baluaha-Saharsa [Offline],Saharsa,Bihar,Gram Panchayat,Domestic,False,DIST_0214,Saharsa,Bihar,2016-02-18,2016-12-19,123,173760,73494,3705.2,True
+Bangaon-Saharsa [Offline],Saharsa,Bihar,Gram Panchayat,Domestic,False,DIST_0214,Saharsa,Bihar,2016-03-02,2017-10-23,595,853740,191663,1966.6,True
+Gangjala-Saharsa [Offline],Saharsa,Bihar,District Headquarters,Domestic,True,DIST_0214,Saharsa,Bihar,2016-03-02,2017-08-17,531,760320,39008,449.4,True
+Jori-Saharsa,Saharsa,Bihar,Gram Panchayat,Domestic,False,DIST_0214,Saharsa,Bihar,2016-02-26,2019-10-17,1210,1699260,370314,1909.0,True
+Mahishi-Saharsa [Offline],Saharsa,Bihar,Gram Panchayat,Domestic,False,DIST_0214,Saharsa,Bihar,2016-03-22,2017-08-11,449,636240,191459,2636.1,True
+Mahpura-Saharsa [Offline],Saharsa,Bihar,Gram Panchayat,Domestic,False,DIST_0214,Saharsa,Bihar,2016-03-02,2017-09-22,466,577560,217484,3298.6,True
+Manoj Market-Saharsa,Saharsa,Bihar,District Headquarters,Non Domestic,True,DIST_0214,Saharsa,Bihar,2016-03-02,2018-08-03,566,793500,83553,922.4,True
+Refugee Colony-Saharsa,Saharsa,Bihar,District Headquarters,Domestic,True,DIST_0214,Saharsa,Bihar,2016-03-02,2017-05-31,438,623580,84581,1188.2,True
+Saharsa Basti -Saharsa [Offline],Saharsa,Bihar,District Headquarters,Domestic,True,DIST_0214,Saharsa,Bihar,2016-03-02,2016-09-27,208,296580,42442,1253.6,True
+Sulindabad-Saharsa [Offline],Saharsa,Bihar,Gram Panchayat,Domestic,False,DIST_0214,Saharsa,Bihar,2016-03-02,2016-09-15,198,284040,39879,1229.9,True
+Ward No 4- Saharsa [Offline],Saharsa,Bihar,District Headquarters,Domestic,True,DIST_0214,Saharsa,Bihar,2016-03-02,2016-05-03,63,89040,9830,967.1,True
+Industrial Phase 1- Chandigarh,Chandigarh,Chandigarh (UT),State Capital,Non Domestic,True,DIST_0055,Chandigarh,Chandigarh,2015-08-26,2017-12-28,833,1195980,2592,19.0,True
+Industrial Phase 2 - Chandigarh [Offline],Chandigarh,Chandigarh (UT),State Capital,Non Domestic,True,DIST_0055,Chandigarh,Chandigarh,2015-08-26,2017-06-19,660,949500,10402,96.0,True
+Sector 28 - Chandigarh,Chandigarh,Chandigarh (UT),State Capital,Domestic,True,DIST_0055,Chandigarh,Chandigarh,2015-08-26,2019-12-27,1522,1993800,10768,47.3,True
+Sector 37- Chandigarh,Chandigarh,Chandigarh (UT),State Capital,Non Domestic,True,DIST_0055,Chandigarh,Chandigarh,2015-08-26,2019-12-31,1538,1977000,12697,56.3,True
+Sector 9- Chandigarh,Chandigarh,Chandigarh (UT),State Capital,Non Domestic,True,DIST_0055,Chandigarh,Chandigarh,2015-08-26,2019-12-31,1565,2020980,14195,61.5,True
+Samta Colony _Raipur,Raipur,Chhattisgarh,State Capital,Domestic,True,DIST_0410,Raipur,Chattisgarh,2016-05-18,2019-12-31,1317,1638480,11050,59.1,True
+Bethora- Goa,North Goa,Goa,Gram Panchayat,Non Domestic,False,DIST_0585,North Goa,Goa,2016-02-03,2019-12-31,1410,1765260,38239,189.8,True
+Carambolim- Goa,North Goa,Goa,Gram Panchayat,Domestic,False,DIST_0585,North Goa,Goa,2016-01-29,2019-12-31,1323,1721220,28095,143.0,True
+Curti Ponda- Goa,North Goa,Goa,Gram Panchayat,Non Domestic,False,DIST_0585,North Goa,Goa,2016-01-28,2018-07-25,894,1276080,18404,126.3,True
+MG Road Panjim- Goa [Offline],North Goa,Goa,State Capital,Non Domestic,True,DIST_0585,North Goa,Goa,2016-02-01,2017-11-27,597,848940,9891,102.1,True
+Miramar Panjim- Goa [Offline],North Goa,Goa,State Capital,Domestic,True,DIST_0585,North Goa,Goa,2016-02-03,2017-01-29,362,519180,3585,60.5,True
+Nerul- Goa,North Goa,Goa,Gram Panchayat,Domestic,False,DIST_0585,North Goa,Goa,2016-02-17,2018-07-08,641,911100,31598,303.8,True
+Benaulim- Goa,Salcete,Goa,Gram Panchayat,Non Domestic,False,DIST_0586,South Goa,Goa,2016-01-28,2018-11-20,315,390300,19818,444.8,True
+Betalbatim- Goa [Offline],South Goa,Goa,Gram Panchayat,Non Domestic,False,DIST_0586,South Goa,Goa,2016-01-29,2017-01-12,173,235020,6542,243.8,True
+Colva-Goa [Offline],South Goa,Goa,Gram Panchayat,Non Domestic,False,DIST_0586,South Goa,Goa,2016-01-13,2016-02-08,16,17880,1770,867.2,False
+Cuncolim- Goa,South Goa,Goa,Gram Panchayat,Domestic,False,DIST_0586,South Goa,Goa,2016-03-26,2019-12-31,1277,1567200,38965,217.8,True
+Gogal Madgaon- Goa,South Goa,Goa,District Headquarters,Domestic,True,DIST_0586,South Goa,Goa,2016-01-28,2019-12-31,1403,1751940,12814,64.1,True
+Sancole- Goa [Offline],South Goa,Goa,Other Municipal Area,Non Domestic,True,DIST_0586,South Goa,Goa,2016-01-30,2018-11-15,1010,1449180,22537,136.2,True
+Dandia Bazar Vadodara,Vadodara,Gujarat,District Headquarters,Domestic,True,DIST_0486,Vadodara,Gujarat,2017-03-31,2019-12-31,993,1193280,12605,92.5,True
+Sector 56- Gurgaon [Offline],Gurgaon,Haryana,District Headquarters,Domestic,True,DIST_0086,Gurgaon,Haryana,2014-10-28,2017-06-12,935,1337940,72969,477.8,True
+Kalyan Nagar- Kurukshetra [Offline],Kurukshetra,Haryana,District Headquarters,Domestic,True,DIST_0072,Kurukshetra,Haryana,2015-08-26,2018-07-08,484,688980,22858,290.6,True
+Mathana - Kurukshetra [Offline],Kurukshetra,Haryana,Gram Panchayat,Domestic,False,DIST_0072,Kurukshetra,Haryana,2015-10-13,2016-10-18,318,454980,42924,826.4,True
+Sector 3- Kurukshetra,Kurukshetra,Haryana,District Headquarters,Domestic,True,DIST_0072,Kurukshetra,Haryana,2015-08-25,2019-12-31,1572,2023980,89683,388.2,True
+University - Kurukshetra [Offline],Kurukshetra,Haryana,District Headquarters,Domestic,True,DIST_0072,Kurukshetra,Haryana,2015-08-25,2017-04-03,577,828000,17903,189.4,True
+University Quarter- Kurukshetra,Kurukshetra,Haryana,District Headquarters,Domestic,True,DIST_0072,Kurukshetra,Haryana,2015-08-25,2018-03-12,642,916980,18191,173.8,True
+Dhangar Toli Chatra [Offline],Chatra,Jharkhand,District Headquarters,Domestic,True,DIST_0347,Chatra,Jharkhand,2017-04-27,2017-05-19,12,15240,7639,4390.9,False
+Bagodar-Giridih [Offline],Giridih,Jharkhand,Other Municipal Area,Domestic,True,DIST_0349,Giridih,Jharkhand,2017-05-13,2018-01-12,158,222960,107930,4240.5,True
+Dhawatand-Giridih [Offline],Giridih,Jharkhand,Gram Panchayat,Domestic,False,DIST_0349,Giridih,Jharkhand,2017-05-12,2017-05-26,15,20640,11187,4748.0,False
+Dondolo-Giridih [Offline],Giridih,Jharkhand,Gram Panchayat,Domestic,False,DIST_0349,Giridih,Jharkhand,2017-05-13,2018-06-19,396,559440,192234,3010.1,True
+Harladih-Giridih,Giridih,Jharkhand,Gram Panchayat,Domestic,False,DIST_0349,Giridih,Jharkhand,2017-05-13,2017-05-29,17,24120,7423,2695.9,False
+Isri Bazar-Giridih,Giridih,Jharkhand,Gram Panchayat,Domestic,False,DIST_0349,Giridih,Jharkhand,2017-05-12,2017-12-08,211,302700,87602,2535.2,True
+Keshwari-Giridih [Offline],Giridih,Jharkhand,Gram Panchayat,Domestic,False,DIST_0349,Giridih,Jharkhand,2017-05-13,2018-09-28,502,720720,246826,3000.0,True
+Purnanagar-Giridih [Offline],Giridih,Jharkhand,Gram Panchayat,Domestic,False,DIST_0349,Giridih,Jharkhand,2017-09-18,2018-10-02,371,481020,140702,2562.4,True
+Sariya-Giridih [Offline],Giridih,Jharkhand,Gram Panchayat,Domestic,False,DIST_0349,Giridih,Jharkhand,2017-05-13,2018-10-02,505,723240,213669,2588.0,True
+Bhatbigha-Hazaribagh,Hazaribagh,Jharkhand,Gram Panchayat,Domestic,False,DIST_0360,Hazaribagh,Jharkhand,2018-03-29,2018-12-31,275,393240,210328,4685.4,True
+Devangana Hazaribagh,Hazaribagh,Jharkhand,District Headquarters,Domestic,True,DIST_0360,Hazaribagh,Jharkhand,2018-04-03,2019-02-07,311,445500,83467,1641.2,True
+Dumar-Hazaribagh,Hazaribagh,Jharkhand,Gram Panchayat,Domestic,False,DIST_0360,Hazaribagh,Jharkhand,2017-09-01,2017-10-20,50,71100,34541,4255.7,True
+Kadma-Hzaribagh [Offline],Hazaribagh,Jharkhand,District Headquarters,Domestic,True,DIST_0360,Hazaribagh,Jharkhand,2017-05-22,2018-07-28,351,502560,61887,1078.7,True
+Lalpur Chowk-Hazaribagh,Hazaribagh,Jharkhand,District Headquarters,Domestic,True,DIST_0360,Hazaribagh,Jharkhand,2017-09-03,2018-10-22,415,597600,226385,3318.5,True
+Okni-Hazaribagh,Hazaribagh,Jharkhand,District Headquarters,Domestic,True,DIST_0360,Hazaribagh,Jharkhand,2018-03-29,2018-12-30,273,387540,60142,1359.5,True
+Oriya-Hazaribagh,Hazaribagh,Jharkhand,Gram Panchayat,Domestic,False,DIST_0360,Hazaribagh,Jharkhand,2017-05-21,2018-03-29,313,449940,75462,1469.2,True
+Salgaon-Hazaribagh,Hazaribagh,Jharkhand,District Headquarters,Domestic,True,DIST_0360,Hazaribagh,Jharkhand,2017-05-29,2018-03-28,75,82200,16883,1799.2,True
+Sindur Siyari-Hazaribagh,Hazaribagh,Jharkhand,Gram Panchayat,Domestic,False,DIST_0360,Hazaribagh,Jharkhand,2017-05-21,2018-11-28,354,497040,114608,2019.9,True
+Patan-Palmau,Palamu,Jharkhand,Other Municipal Area,Domestic,True,DIST_0358,Palamu,Jharkhand,2018-02-14,2018-04-09,55,77760,15780,1777.7,True
+Saraidih-Palamu,Palamu,Jharkhand,Gram Panchayat,Domestic,False,DIST_0358,Palamu,Jharkhand,2017-05-18,2017-12-31,207,295560,165493,4905.0,True
+Sudna-Daltonganj,Palamu,Jharkhand,District Headquarters,Domestic,True,DIST_0358,Palamu,Jharkhand,2017-05-08,2017-06-28,52,74160,9149,1080.7,True
+5th phase JP Nagar- Bengaluru,Bengaluru Urban,Karnataka,State Capital,Domestic,True,DIST_0572,Bangalore,Karnataka,2016-07-07,2017-06-12,170,225060,31673,1232.8,True
+BTM Layout- Bengaluru [Offline],Bengaluru Urban,Karnataka,State Capital,Domestic,True,DIST_0572,Bangalore,Karnataka,2014-11-05,2017-06-12,316,405720,45994,993.1,True
+Basaweshwara Nagar- Bengaluru,Bengaluru Urban,Karnataka,State Capital,Domestic,True,DIST_0572,Bangalore,Karnataka,2015-09-25,2017-08-21,695,1000620,32988,288.8,True
+Chandra Layout- Bengaluru,Bengaluru Urban,Karnataka,State Capital,Domestic,True,DIST_0572,Bangalore,Karnataka,2014-12-16,2019-12-02,1177,1666620,36555,192.1,True
+JP Nagar,Bengaluru Urban,Karnataka,State Capital,Non Domestic,True,DIST_0572,Bangalore,Karnataka,2014-11-05,2018-12-13,1109,1565400,85933,480.9,True
+Jayanagar- Bengaluru [Offline],Bengaluru Urban,Karnataka,State Capital,Domestic,True,DIST_0572,Bangalore,Karnataka,2014-11-05,2017-06-12,836,1186860,51562,380.6,True
+MCECHS Layout - Bengaluru [Offline],Bengaluru Urban,Karnataka,State Capital,Domestic,True,DIST_0572,Bangalore,Karnataka,2015-04-21,2017-06-12,650,924480,52713,499.5,True
+MarenHalli- Bengaluru [Offline],Bengaluru Urban,Karnataka,State Capital,Domestic,True,DIST_0572,Bangalore,Karnataka,2015-08-20,2017-05-04,482,684180,15873,203.2,True
+Rajaji Nagar- Bengaluru,Bengaluru Urban,Karnataka,State Capital,Domestic,True,DIST_0572,Bangalore,Karnataka,2015-08-12,2019-12-31,1527,1961100,27311,122.0,True
+Ramesh Nagar- Bengaluru,Bengaluru Urban,Karnataka,State Capital,Domestic,True,DIST_0572,Bangalore,Karnataka,2016-03-24,2019-01-02,1014,1459620,41745,250.5,True
+Srirampura-Bengaluru,Bengaluru Urban,Karnataka,State Capital,Non Domestic,True,DIST_0572,Bangalore,Karnataka,2014-12-19,2019-12-31,1613,2063880,93210,395.6,True
+VV Puram - Bengaluru [Offline],Bengaluru Urban,Karnataka,State Capital,Domestic,True,DIST_0572,Bangalore,Karnataka,2015-09-25,2017-01-29,489,700260,18504,231.5,True
+Yelahanka - Bengaluru,Bengaluru Urban,Karnataka,State Capital,Domestic,True,DIST_0572,Bangalore,Karnataka,2015-10-20,2019-12-31,1520,1952820,56093,251.6,True
+Angol- Belgaum,Belgaum,Karnataka,District Headquarters,Domestic,True,DIST_0555,Belgaum,Karnataka,2015-10-13,2019-09-27,972,1328280,34083,224.8,True
+Bhagyanagar-Belgaum,Belgaum,Karnataka,District Headquarters,Domestic,True,DIST_0555,Belgaum,Karnataka,2014-10-30,2019-07-14,1559,2223720,95503,376.2,True
+Congress Road-Belgaum,Belgaum,Karnataka,District Headquarters,Non Domestic,True,DIST_0555,Belgaum,Karnataka,2016-05-30,2019-12-31,884,1176600,29067,216.4,True
+Halbhavi Camp- Belgaum,Belgaum,Karnataka,District Headquarters,Domestic,True,DIST_0555,Belgaum,Karnataka,2016-07-11,2019-12-31,1128,1355280,34171,220.9,True
+Hindawadi- Belgaum,Belgaum,Karnataka,District Headquarters,Domestic,True,DIST_0555,Belgaum,Karnataka,2016-11-09,2019-12-11,546,777600,16748,188.7,True
+Jamboti - Belagum,Belgaum,Karnataka,Gram Panchayat,Non Domestic,False,DIST_0555,Belgaum,Karnataka,2016-05-17,2019-12-31,1201,1481400,208654,1233.8,True
+Khade Bazar - Belgaum [Offline],Belgaum,Karnataka,District Headquarters,Domestic,True,DIST_0555,Belgaum,Karnataka,2015-05-05,2018-06-10,1111,1596420,19426,106.6,True
+Nippani,Belgaum,Karnataka,Other Municipal Area,Non Domestic,True,DIST_0555,Belgaum,Karnataka,2016-06-27,2019-12-31,1185,1551900,50303,283.9,True
+Raibaug-Belgaum [Offline],Belgaum,Karnataka,Gram Panchayat,Domestic,False,DIST_0555,Belgaum,Karnataka,2016-05-17,2017-11-23,181,257940,677,23.0,True
+Rani Chennamma Nagar- Belgaum [Offline],Belgaum,Karnataka,District Headquarters,Domestic,True,DIST_0555,Belgaum,Karnataka,2016-06-09,2017-06-06,327,468900,10154,189.7,True
+Sadashiv Nagar- Belgaum,Belgaum,Karnataka,District Headquarters,Domestic,True,DIST_0555,Belgaum,Karnataka,2016-05-30,2019-12-31,1259,1533900,58827,336.0,True
+Shivaji Nagar- Belgaum,Belgaum,Karnataka,District Headquarters,Domestic,True,DIST_0555,Belgaum,Karnataka,2016-06-07,2019-03-21,987,1407120,35024,218.0,True
+Udyambaug-Belgaum [Offline],Belgaum,Karnataka,District Headquarters,Domestic,True,DIST_0555,Belgaum,Karnataka,2016-06-08,2018-08-02,769,1098180,31307,249.7,True
+Yellur-Belgaum,Belgaum,Karnataka,Gram Panchayat,Domestic,False,DIST_0555,Belgaum,Karnataka,2018-01-29,2019-12-06,677,754920,34118,395.9,True
+Hudem-Bellary [Offline],Bellary,Karnataka,Gram Panchayat,Non Domestic,False,DIST_0565,Bellary,Karnataka,2017-03-23,2017-06-11,81,116160,10076,759.9,True
+Sri Ram Rang Pura-Bellary,Bellary,Karnataka,Gram Panchayat,Non Domestic,False,DIST_0565,Bellary,Karnataka,2017-03-23,2019-12-31,1012,1192920,91283,670.3,True
+Kannur-Bijapur,Bijapur,Karnataka,Gram Panchayat,Non Domestic,False,DIST_0557,Bijapur,Karnataka,2017-03-25,2019-12-27,522,682320,100954,1296.1,True
+Galagihulukoppa-Dharwad [Offline],Dharwad,Karnataka,Gram Panchayat,Non Domestic,False,DIST_0562,Dharwad,Karnataka,2017-03-25,2017-06-02,70,96960,22010,1988.5,True
+Anegundi-Koppal,Koppal,Karnataka,Gram Panchayat,Non Domestic,False,DIST_0560,Koppal,Karnataka,2017-03-04,2017-08-26,173,246120,23724,844.4,True
+Bangi Kunta Raichur,Raichur,Karnataka,District Headquarters,Domestic,True,DIST_0559,Raichur,Karnataka,2018-03-13,2019-12-31,604,621360,5177,73.0,True
+Mahabubnagar-Raichur,Raichur,Karnataka,District Headquarters,Non Domestic,True,DIST_0559,Raichur,Karnataka,2017-03-05,2019-12-31,927,1113720,32774,257.8,True
+Rajendra Gunj Raichur,Raichur,Karnataka,District Headquarters,Domestic,True,DIST_0559,Raichur,Karnataka,2018-01-22,2019-11-17,509,580920,39708,598.8,True
+Ajekar- Dheputte [Offline],Udupi,Karnataka,Gram Panchayat,Domestic,False,DIST_0569,Udupi,Karnataka,2015-01-09,2015-05-15,81,111900,12629,988.7,True
+Brahmavar,Udupi,Karnataka,Other Municipal Area,Domestic,True,DIST_0569,Udupi,Karnataka,2015-01-09,2019-12-31,1706,2337180,118353,443.6,True
+Guddiangadi,Udupi,Karnataka,Gram Panchayat,Domestic,False,DIST_0569,Udupi,Karnataka,2015-01-07,2019-01-17,1469,2112120,144289,598.4,True
+Idu [Offline],Udupi,Karnataka,Gram Panchayat,Domestic,False,DIST_0569,Udupi,Karnataka,2015-01-09,2015-12-07,270,354300,81771,2021.8,True
+Karkala [Offline],Udupi,Karnataka,Other Municipal Area,Non Domestic,True,DIST_0569,Udupi,Karnataka,2015-01-06,2015-10-12,279,399540,28869,633.0,True
+Kundapur [Offline],Udupi,Karnataka,Other Municipal Area,Domestic,True,DIST_0569,Udupi,Karnataka,2015-01-06,2016-10-22,533,760500,82053,945.1,True
+Maruti Vethika Road- Udupi [Offline],Udupi,Karnataka,District Headquarters,Non Domestic,True,DIST_0569,Udupi,Karnataka,2015-01-07,2015-12-18,333,477360,31289,574.2,True
+Mudur [Offline],Udupi,Karnataka,Gram Panchayat,Domestic,False,DIST_0569,Udupi,Karnataka,2015-01-09,2018-05-19,1201,1714920,339663,1735.0,True
+Nakre,Udupi,Karnataka,Gram Panchayat,Domestic,False,DIST_0569,Udupi,Karnataka,2015-01-07,2018-04-19,729,1040160,92451,778.6,True
+Shirva [Offline],Udupi,Karnataka,Gram Panchayat,Domestic,False,DIST_0569,Udupi,Karnataka,2015-01-07,2016-01-22,298,424860,25719,530.3,True
+Siddhapura [Offline],Udupi,Karnataka,Other Municipal Area,Domestic,True,DIST_0569,Udupi,Karnataka,2014-12-15,2016-05-07,434,618600,76167,1078.6,True
+Yadthare [Offline],Udupi,Karnataka,Gram Panchayat,Non Domestic,False,DIST_0569,Udupi,Karnataka,2015-01-06,2016-06-29,524,748680,103186,1207.3,True
+Anjad- Barwani [Offline],Barwani,Madhya Pradesh,Other Municipal Area,Domestic,True,DIST_0441,Barwani,Madhya Pradesh,2015-09-20,2017-10-23,705,1014240,31605,273.0,True
+Awali- Barwani [Offline],Barwani,Madhya Pradesh,Gram Panchayat,Agriculture,False,DIST_0441,Barwani,Madhya Pradesh,2015-09-20,2016-05-22,245,351420,159432,3974.2,True
+Chatali Village- Barwani [Offline],Barwani,Madhya Pradesh,Gram Panchayat,Domestic,False,DIST_0441,Barwani,Madhya Pradesh,2016-01-13,2019-01-01,362,503640,143563,2497.0,True
+Chatali-Barwani [Offline],Barwani,Madhya Pradesh,Gram Panchayat,Agriculture,False,DIST_0441,Barwani,Madhya Pradesh,2016-02-17,2016-12-01,50,47520,12692,2339.7,True
+Chhota Badada [Offline],Barwani,Madhya Pradesh,Gram Panchayat,Domestic,False,DIST_0441,Barwani,Madhya Pradesh,2015-09-17,2017-11-13,718,1016100,70258,605.7,True
+Chichaliya - Barwani [Offline],Barwani,Madhya Pradesh,Gram Panchayat,Domestic,False,DIST_0441,Barwani,Madhya Pradesh,2015-10-08,2015-10-22,15,20700,2035,861.2,False
+Kasrawad Basahat -Barwani [Offline],Barwani,Madhya Pradesh,Gram Panchayat,Domestic,False,DIST_0441,Barwani,Madhya Pradesh,2014-12-16,2018-01-25,908,1291620,46754,317.1,True
+Mohipura - Barwani [Offline],Barwani,Madhya Pradesh,Gram Panchayat,Agriculture,False,DIST_0441,Barwani,Madhya Pradesh,2015-09-16,2016-03-29,193,277200,167906,5306.1,True
+Mohipura Farm- Barwani [Offline],Barwani,Madhya Pradesh,Gram Panchayat,Agriculture,False,DIST_0441,Barwani,Madhya Pradesh,2015-11-11,2016-10-28,331,472440,298390,5532.8,True
+Navalpura - Barwani,Barwani,Madhya Pradesh,Other Municipal Area,Domestic,True,DIST_0441,Barwani,Madhya Pradesh,2015-09-15,2018-12-26,969,1337460,44115,288.9,True
+Pichhodi - Barwani [Offline],Barwani,Madhya Pradesh,Gram Panchayat,Agriculture,False,DIST_0441,Barwani,Madhya Pradesh,2015-09-14,2017-09-03,442,571320,339865,5211.1,True
+SavariyaPani- Barwani [Offline],Barwani,Madhya Pradesh,Gram Panchayat,Domestic,False,DIST_0441,Barwani,Madhya Pradesh,2015-09-21,2016-03-03,24,32400,7422,2006.7,False
+Amoni-Bhopal,Bhopal,Madhya Pradesh,Gram Panchayat,Non Domestic,False,DIST_0444,Bhopal,Madhya Pradesh,2017-03-31,2018-10-23,318,446700,116106,2276.9,True
+Arera Colony - Bhopal,Bhopal,Madhya Pradesh,State Capital,Domestic,True,DIST_0444,Bhopal,Madhya Pradesh,2015-08-04,2019-12-31,1535,1960320,18775,83.9,True
+Ashoka Garden Bhopal,Bhopal,Madhya Pradesh,District Headquarters,Domestic,True,DIST_0444,Bhopal,Madhya Pradesh,2017-03-30,2019-12-31,932,1110300,22385,176.6,True
+Bagh Farahat Afza Bhopal,Bhopal,Madhya Pradesh,District Headquarters,Domestic,True,DIST_0444,Bhopal,Madhya Pradesh,2017-07-08,2018-02-12,219,313680,10716,299.3,True
+Chouksey Nagar Bhopal,Bhopal,Madhya Pradesh,District Headquarters,Domestic,True,DIST_0444,Bhopal,Madhya Pradesh,2017-03-30,2019-12-31,993,1191960,13266,97.5,True
+Iggiri-Bhopal [Offline],Bhopal,Madhya Pradesh,Gram Panchayat,Domestic,False,DIST_0444,Bhopal,Madhya Pradesh,2017-04-17,2017-10-15,120,164400,67269,3584.4,True
+Katara Hills Bhopal,Bhopal,Madhya Pradesh,District Headquarters,Domestic,True,DIST_0444,Bhopal,Madhya Pradesh,2017-04-03,2017-08-12,112,158460,2437,134.7,True
+Rahul Nagar Bhopal,Bhopal,Madhya Pradesh,District Headquarters,Domestic,True,DIST_0444,Bhopal,Madhya Pradesh,2017-04-14,2018-12-02,557,796920,14183,155.9,True
+Salaiya Bhopal,Bhopal,Madhya Pradesh,District Headquarters,Domestic,True,DIST_0444,Bhopal,Madhya Pradesh,2017-04-01,2019-12-09,919,1172580,36638,273.7,True
+Sangoni Kalan-Bhopal [Offline],Bhopal,Madhya Pradesh,Gram Panchayat,Non Domestic,False,DIST_0444,Bhopal,Madhya Pradesh,2017-03-31,2018-05-24,417,596460,12694,186.4,True
+Shyam Nagar Bhopal,Bhopal,Madhya Pradesh,District Headquarters,Domestic,True,DIST_0444,Bhopal,Madhya Pradesh,2017-04-08,2019-12-22,901,1069560,11033,90.4,True
+Kothi Bazar Hoshangabad,Hoshangabad,Madhya Pradesh,District Headquarters,Domestic,True,DIST_0449,Hoshangabad,Madhya Pradesh,2017-04-02,2019-12-31,991,1191060,20248,148.9,True
+Malakhedi road Hoshangabad,Hoshangabad,Madhya Pradesh,District Headquarters,Non Domestic,True,DIST_0449,Hoshangabad,Madhya Pradesh,2017-04-01,2019-12-31,843,996000,23257,204.5,True
+Malakhedi-Hoshangabad,Hoshangabad,Madhya Pradesh,Gram Panchayat,Domestic,False,DIST_0449,Hoshangabad,Madhya Pradesh,2017-04-01,2019-11-14,771,1058100,118934,984.7,True
+Nyas Colony Hoshangabad,Hoshangabad,Madhya Pradesh,District Headquarters,Domestic,True,DIST_0449,Hoshangabad,Madhya Pradesh,2017-04-02,2019-03-01,698,1002420,22660,198.0,True
+Rasuliya Hoshangabad,Hoshangabad,Madhya Pradesh,District Headquarters,Domestic,True,DIST_0449,Hoshangabad,Madhya Pradesh,2017-04-01,2017-04-10,10,14040,364,227.1,False
+Mandideep-Bhopal,Raisen,Madhya Pradesh,Other Municipal Area,Non Domestic,True,DIST_0446,Raisen,Madhya Pradesh,2014-12-16,2019-12-31,1200,1649460,23981,127.4,True
+Akoli Jehangir [Offline],Akola,Maharashtra,Gram Panchayat,Domestic,False,DIST_0501,Akola,Maharashtra,2014-10-31,2015-03-08,93,117900,33334,2476.7,True
+Akot [Offline],Akola,Maharashtra,Other Municipal Area,Domestic,True,DIST_0501,Akola,Maharashtra,2014-11-24,2017-01-07,776,1114800,33035,259.6,True
+Balaji Nagar- Akola [Offline],Akola,Maharashtra,District Headquarters,Domestic,True,DIST_0501,Akola,Maharashtra,2014-11-24,2017-12-19,861,1236840,15285,108.3,True
+Chandikapur,Akola,Maharashtra,Gram Panchayat,Agriculture,False,DIST_0501,Akola,Maharashtra,2014-11-24,2018-04-16,795,1113840,719041,5655.0,True
+Gajipur [Offline],Akola,Maharashtra,Gram Panchayat,Non Domestic,False,DIST_0501,Akola,Maharashtra,2014-11-08,2016-02-25,474,678420,60064,775.6,True
+Hiwarkhed (I) [Offline],Akola,Maharashtra,Gram Panchayat,Non Domestic,False,DIST_0501,Akola,Maharashtra,2014-11-24,2017-06-19,922,1313460,74001,493.5,True
+Hiwarkhed (R),Akola,Maharashtra,Gram Panchayat,Domestic,False,DIST_0501,Akola,Maharashtra,2014-11-24,2019-09-01,1662,2296920,214489,818.0,True
+Kanheri Sarap,Akola,Maharashtra,Gram Panchayat,Agriculture,False,DIST_0501,Akola,Maharashtra,2014-11-05,2019-12-10,1772,2292300,1182200,4517.8,True
+Khadki- Akola,Akola,Maharashtra,Other Municipal Area,Domestic,True,DIST_0501,Akola,Maharashtra,2014-11-26,2019-12-31,1819,2348520,42198,157.4,True
+Kirti Nagar - Akola,Akola,Maharashtra,District Headquarters,Domestic,True,DIST_0501,Akola,Maharashtra,2015-10-05,2019-12-31,1424,1851720,58355,276.1,True
+MIDC-Akola [Offline],Akola,Maharashtra,District Headquarters,Non Domestic,True,DIST_0501,Akola,Maharashtra,2014-11-24,2018-06-23,1208,1714920,47988,245.1,True
+Pachmori,Akola,Maharashtra,Gram Panchayat,Non Domestic,False,DIST_0501,Akola,Maharashtra,2014-11-05,2018-06-02,1305,1873200,118597,554.6,True
+Pimplekhuta [Offline],Akola,Maharashtra,Gram Panchayat,Non Domestic,False,DIST_0501,Akola,Maharashtra,2014-11-24,2016-05-10,534,766740,42681,487.6,True
+Renuka Nagar - Akola,Akola,Maharashtra,District Headquarters,Domestic,True,DIST_0501,Akola,Maharashtra,2015-10-02,2019-12-31,1139,1426800,41206,253.0,True
+Tapadiya Nagar - Akola,Akola,Maharashtra,District Headquarters,Domestic,True,DIST_0501,Akola,Maharashtra,2015-11-11,2018-02-28,806,1154700,13458,102.1,True
+80 feet road- Dhule,Dhule,Maharashtra,District Headquarters,Domestic,True,DIST_0498,Dhule,Maharashtra,2015-09-06,2018-10-02,645,882540,25683,254.9,True
+Badgujar Colony - Dhule,Dhule,Maharashtra,District Headquarters,Domestic,True,DIST_0498,Dhule,Maharashtra,2015-09-05,2019-12-31,1524,1933320,34447,156.1,True
+Bhaji market- Dhule [Offline],Dhule,Maharashtra,District Headquarters,Domestic,True,DIST_0498,Dhule,Maharashtra,2015-09-06,2016-12-22,326,464460,7798,147.1,True
+Devpur- Dhule,Dhule,Maharashtra,District Headquarters,Domestic,True,DIST_0498,Dhule,Maharashtra,2015-09-06,2019-12-31,1557,1973280,37347,165.8,True
+Gondur- Dhule,Dhule,Maharashtra,Gram Panchayat,Agriculture,False,DIST_0498,Dhule,Maharashtra,2015-09-06,2019-12-31,1347,1646520,328220,1746.2,True
+MIDC Awadhan- Dhule [Offline],Dhule,Maharashtra,District Headquarters,Non Domestic,True,DIST_0498,Dhule,Maharashtra,2015-08-31,2016-08-19,267,378360,4281,99.1,True
+Patrakar Colony- Dhule,Dhule,Maharashtra,District Headquarters,Domestic,True,DIST_0498,Dhule,Maharashtra,2015-09-05,2019-12-31,1487,1879140,51397,239.6,True
+Professor Colony- Dhule,Dhule,Maharashtra,District Headquarters,Domestic,True,DIST_0498,Dhule,Maharashtra,2015-09-05,2018-05-23,957,1362660,30565,196.5,True
+Samata Nagar - Dhule [Offline],Dhule,Maharashtra,District Headquarters,Domestic,True,DIST_0498,Dhule,Maharashtra,2015-11-02,2016-11-23,372,529440,12030,199.0,True
+Wani [Offline],Dhule,Maharashtra,Gram Panchayat,Agriculture,False,DIST_0498,Dhule,Maharashtra,2015-09-03,2017-07-18,682,979080,603398,5398.7,True
+Santacruz- Mumbai [Offline],Mumbai,Maharashtra,State Capital,Domestic,True,DIST_0519,Mumbai,Maharashtra,2015-09-06,2017-06-12,630,904320,4037,39.1,True
+Marol- Mumbai,Mumbai Suburban District,Maharashtra,State Capital,Domestic,True,DIST_0518,Mumbai Suburban,Maharashtra,2015-05-31,2019-12-31,1464,2016180,2509,10.9,True
+Amar Nagar- Nagpur,Nagpur,Maharashtra,District Headquarters,Domestic,True,DIST_0505,Nagpur,Maharashtra,2014-12-15,2019-12-31,1595,2017980,26322,114.3,True
+Besa- Nagpur,Nagpur,Maharashtra,District Headquarters,Non Domestic,True,DIST_0505,Nagpur,Maharashtra,2015-10-07,2019-12-31,1206,1466640,25543,152.6,True
+Congress Nagar-Nagpur,Nagpur,Maharashtra,District Headquarters,Domestic,True,DIST_0505,Nagpur,Maharashtra,2015-12-01,2019-12-31,1339,1667880,31039,163.0,True
+Nildoh- Nagpur [Offline],Nagpur,Maharashtra,District Headquarters,Domestic,True,DIST_0505,Nagpur,Maharashtra,2015-10-13,2016-07-31,287,405840,7267,156.9,True
+Sadar- Nagpur,Nagpur,Maharashtra,District Headquarters,Domestic,True,DIST_0505,Nagpur,Maharashtra,2015-10-13,2019-12-31,836,870300,22948,231.0,True
+Tilak Nagar- Nagpur,Nagpur,Maharashtra,District Headquarters,Domestic,True,DIST_0505,Nagpur,Maharashtra,2014-12-16,2019-09-06,1389,1875120,29595,138.3,True
+Adgaon-Nashik,Nashik,Maharashtra,Gram Panchayat,Domestic,False,DIST_0516,Nashik,Maharashtra,2018-05-04,2019-09-26,511,612660,10645,152.2,True
+Ashok Nagar - Nashik,Nashik,Maharashtra,District Headquarters,Domestic,True,DIST_0516,Nashik,Maharashtra,2015-10-26,2019-08-13,1152,1592520,79289,436.1,True
+Bhendali-Nashik,Nashik,Maharashtra,Gram Panchayat,Domestic,False,DIST_0516,Nashik,Maharashtra,2018-05-13,2019-03-05,120,166380,26033,1370.7,True
+Chandori-Nashik,Nashik,Maharashtra,Gram Panchayat,Domestic,False,DIST_0516,Nashik,Maharashtra,2018-05-12,2019-11-18,515,592260,51434,760.8,True
+Chatori-Nashik,Nashik,Maharashtra,Gram Panchayat,Domestic,False,DIST_0516,Nashik,Maharashtra,2018-05-05,2019-03-06,306,439920,12959,258.0,True
+Chitegaon phata-Nashik,Nashik,Maharashtra,Gram Panchayat,Non Domestic,False,DIST_0516,Nashik,Maharashtra,2018-05-12,2019-08-06,452,589620,48685,723.3,True
+Kalpataru Nagar - Nashik,Nashik,Maharashtra,District Headquarters,Domestic,True,DIST_0516,Nashik,Maharashtra,2014-11-24,2019-12-31,1430,1916820,46676,213.3,True
+Kamatwade- Nashik [Offline],Nashik,Maharashtra,District Headquarters,Domestic,True,DIST_0516,Nashik,Maharashtra,2015-08-26,2017-05-31,555,785520,21293,237.5,True
+Kasbe Sukene-Nashik,Nashik,Maharashtra,Gram Panchayat,Domestic,False,DIST_0516,Nashik,Maharashtra,2018-05-04,2019-12-26,602,617760,13404,190.1,True
+MIDC Ambad - Nashik [Offline],Nashik,Maharashtra,District Headquarters,Non Domestic,True,DIST_0516,Nashik,Maharashtra,2015-11-23,2018-05-04,766,1101420,12610,100.3,True
+Ozar-Nashik,Nashik,Maharashtra,Gram Panchayat,Non Domestic,False,DIST_0516,Nashik,Maharashtra,2018-05-13,2019-02-20,118,163980,6611,353.2,True
+Shingave-Nashik,Nashik,Maharashtra,Gram Panchayat,Non Domestic,False,DIST_0516,Nashik,Maharashtra,2018-06-24,2019-11-11,443,492540,62555,1112.6,True
+Shiv Colony- Nashik,Nashik,Maharashtra,District Headquarters,Domestic,True,DIST_0516,Nashik,Maharashtra,2015-08-26,2019-06-12,1312,1874220,36390,170.1,True
+Aundh- Pune,Pune,Maharashtra,District Headquarters,Domestic,True,DIST_0521,Pune,Maharashtra,2014-10-31,2019-12-31,1820,2366820,18508,68.5,True
+Bajirao Road- Pune,Pune,Maharashtra,District Headquarters,Non Domestic,True,DIST_0521,Pune,Maharashtra,2014-10-22,2019-12-31,1856,2426520,18391,66.4,True
+Baner- Pune,Pune,Maharashtra,District Headquarters,Domestic,True,DIST_0521,Pune,Maharashtra,2014-10-30,2019-12-31,1810,2351820,29762,110.9,True
+Baramati,Pune,Maharashtra,Other Municipal Area,Domestic,True,DIST_0521,Pune,Maharashtra,2014-11-05,2019-12-31,1454,1855380,8639,40.8,True
+Bhosari,Pune,Maharashtra,Other Municipal Area,Non Domestic,True,DIST_0521,Pune,Maharashtra,2014-10-22,2019-11-26,1700,2218140,108655,429.1,True
+Bibwewadi -Pune,Pune,Maharashtra,District Headquarters,Domestic,True,DIST_0521,Pune,Maharashtra,2015-08-26,2019-12-31,1554,1974480,40526,179.8,True
+Kondhanpur,Pune,Maharashtra,Gram Panchayat,Domestic,False,DIST_0521,Pune,Maharashtra,2014-10-30,2019-12-31,1859,2412060,131820,478.7,True
+Nanegaon,Pune,Maharashtra,Gram Panchayat,Agriculture,False,DIST_0521,Pune,Maharashtra,2014-11-09,2018-09-11,957,1352520,153321,993.0,True
+Nimgaon Ketki [Offline],Pune,Maharashtra,Gram Panchayat,Domestic,False,DIST_0521,Pune,Maharashtra,2014-10-30,2016-03-08,485,694560,54008,681.2,True
+PEG (Kothrud)- Pune,Pune,Maharashtra,District Headquarters,Non Domestic,True,DIST_0521,Pune,Maharashtra,2014-10-22,2019-12-31,1875,2440260,27159,97.5,True
+Pabal,Pune,Maharashtra,Gram Panchayat,Domestic,False,DIST_0521,Pune,Maharashtra,2014-10-30,2019-12-31,1722,2200200,161810,644.2,True
+Paud,Pune,Maharashtra,Gram Panchayat,Domestic,False,DIST_0521,Pune,Maharashtra,2014-10-28,2019-12-31,1840,2368380,123702,457.5,True
+Pimpri-Chinchwad,Pune,Maharashtra,Other Municipal Area,Non Domestic,True,DIST_0521,Pune,Maharashtra,2014-10-29,2019-11-25,1828,2421180,77304,279.7,True
+Sahakarnagar- Pune,Pune,Maharashtra,District Headquarters,Domestic,True,DIST_0521,Pune,Maharashtra,2014-11-13,2019-12-31,1784,2298120,41486,158.1,True
+Saswad,Pune,Maharashtra,Other Municipal Area,Domestic,True,DIST_0521,Pune,Maharashtra,2014-10-31,2018-08-06,1218,1721340,63613,323.7,True
+Shaniwarpeth- Pune,Pune,Maharashtra,District Headquarters,Domestic,True,DIST_0521,Pune,Maharashtra,2014-10-31,2019-12-31,1852,2397840,20124,73.5,True
+Supa [Offline],Pune,Maharashtra,Gram Panchayat,Domestic,False,DIST_0521,Pune,Maharashtra,2014-10-30,2019-12-02,1479,1919340,73080,333.5,True
+Talegaon,Pune,Maharashtra,Other Municipal Area,Domestic,True,DIST_0521,Pune,Maharashtra,2014-10-31,2019-12-31,1868,2419920,78768,285.1,True
+Gimhavne-Ratnagiri,Ratnagiri,Maharashtra,Gram Panchayat,Domestic,False,DIST_0528,Ratnagiri,Maharashtra,2017-05-25,2019-12-31,947,1100220,45271,360.4,True
+Guhagar (C),Ratnagiri,Maharashtra,Other Municipal Area,Non Domestic,True,DIST_0528,Ratnagiri,Maharashtra,2017-03-12,2019-12-31,945,1193100,51154,375.6,True
+Guhagar (R),Ratnagiri,Maharashtra,Other Municipal Area,Domestic,True,DIST_0528,Ratnagiri,Maharashtra,2017-03-14,2019-12-31,934,1085700,19065,153.8,True
+Khadpoli-Ratnagiri [Offline],Ratnagiri,Maharashtra,Gram Panchayat,Domestic,False,DIST_0528,Ratnagiri,Maharashtra,2017-05-24,2018-07-31,339,485580,15404,277.9,True
+Khed Ratnagiri,Ratnagiri,Maharashtra,Other Municipal Area,Domestic,True,DIST_0528,Ratnagiri,Maharashtra,2017-04-09,2019-12-31,980,1152600,25001,190.0,True
+Madhal-Ratnagiri,Ratnagiri,Maharashtra,Gram Panchayat,Non Domestic,False,DIST_0528,Ratnagiri,Maharashtra,2017-05-28,2019-12-09,358,506400,28123,486.5,True
+Radgaon MIDC Ratnagiri,Ratnagiri,Maharashtra,District Headquarters,Non Domestic,True,DIST_0528,Ratnagiri,Maharashtra,2017-05-24,2019-12-31,822,1102200,17546,139.5,True
+Subhash road Ratnagiri,Ratnagiri,Maharashtra,District Headquarters,Non Domestic,True,DIST_0528,Ratnagiri,Maharashtra,2017-05-24,2019-12-31,939,1116180,20003,157.0,True
+Tilak Ali Ratnagiri,Ratnagiri,Maharashtra,District Headquarters,Domestic,True,DIST_0528,Ratnagiri,Maharashtra,2017-05-30,2019-12-15,871,1037940,25313,213.6,True
+Bhatghar [Offline],Satara,Maharashtra,Gram Panchayat,Domestic,False,DIST_0527,Satara,Maharashtra,2014-12-02,2016-10-10,666,951180,30361,279.6,True
+Mohol,Solapur,Maharashtra,Gram Panchayat,Domestic,False,DIST_0526,Solapur,Maharashtra,2014-10-29,2019-12-31,1689,2200320,125089,498.0,True
+Bail Bazar- Kalyan [Offline],Thane,Maharashtra,Other Municipal Area,Domestic,True,DIST_0517,Thane,Maharashtra,2015-09-07,2019-01-15,876,1242240,22660,159.8,True
+Bhopoli- Palghar,Palghar,Maharashtra,Gram Panchayat,Non Domestic,False,DIST_0517,Thane,Maharashtra,2016-08-01,2019-12-31,674,701760,30645,382.5,True
+Karsood- Palghar,Palghar,Maharashtra,Gram Panchayat,Domestic,False,DIST_0517,Thane,Maharashtra,2016-08-01,2019-09-13,1138,1502160,279595,1630.5,True
+Lokgram- Kalyan [Offline],Thane,Maharashtra,Other Municipal Area,Domestic,True,DIST_0517,Thane,Maharashtra,2015-09-08,2017-09-18,628,890820,16090,158.2,True
+Malwada- Palghar,Palghar,Maharashtra,Gram Panchayat,Non Domestic,False,DIST_0517,Thane,Maharashtra,2016-08-01,2019-12-31,1099,1308600,130158,871.3,True
+Nilje- Dombivali,Thane,Maharashtra,Other Municipal Area,Domestic,True,DIST_0517,Thane,Maharashtra,2015-12-16,2018-06-08,881,1255920,14318,99.9,True
+Palghar Town,Palghar,Maharashtra,District Headquarters,Non Domestic,True,DIST_0517,Thane,Maharashtra,2016-08-01,2019-12-31,1234,1540980,33730,191.7,True
+Shiv Mandir -Dombivali,Thane,Maharashtra,Other Municipal Area,Domestic,True,DIST_0517,Thane,Maharashtra,2015-09-21,2019-12-31,1219,1534680,19056,108.8,True
+Malcha Marg- Delhi,Central Delhi,Delhi,State Capital,Non Domestic,True,DIST_0095,Central,Nct Of Delhi,2015-04-07,2019-12-31,1683,2183460,18383,73.8,True
+Mayur Vihar (III)- Delhi [Offline],East Delhi,Delhi,State Capital,Domestic,True,DIST_0093,East,Nct Of Delhi,2015-06-11,2016-08-03,411,583440,12457,187.0,True
+Bhajanpura- Delhi,North East Delhi,Delhi,State Capital,Domestic,True,DIST_0092,North East,Nct Of Delhi,2015-05-22,2019-08-31,862,1178400,41490,308.4,True
+Pitampura- Delhi,North West Delhi,Delhi,State Capital,Domestic,True,DIST_0090,North West,Nct Of Delhi,2015-06-06,2019-08-11,1062,1447260,10758,65.1,True
+Lajpat Nagar- Delhi,South Delhi,Delhi,State Capital,Non Domestic,True,DIST_0098,South,Nct Of Delhi,2015-04-07,2019-12-23,1556,1989780,17396,76.6,True
+Vasant Kunj- Delhi [Offline],South West Delhi,Delhi,State Capital,Domestic,True,DIST_0097,South West,Nct Of Delhi,2015-05-22,2017-04-18,697,1001640,5385,47.1,True
+Shakurpur- Delhi [Offline],West Delhi,Delhi,State Capital,Domestic,True,DIST_0096,West,Nct Of Delhi,2014-10-31,2018-11-02,1272,1807140,22214,107.7,True
+Keonjhar [Offline],Kendujhar,Odisha,Other Municipal Area,Domestic,True,DIST_0375,Kendujhar,Odisha,2015-09-05,2016-09-01,260,369600,58885,1395.7,True
+Bhimatangi Housing Colony Bhubaneswar,Khordha,Odisha,State Capital,Domestic,True,DIST_0386,Khordha,Odisha,2017-11-30,2018-12-11,318,446580,16144,316.7,True
+Chandrasekharpur Bhubaneswar,Khordha,Odisha,State Capital,Domestic,True,DIST_0386,Khordha,Odisha,2017-12-28,2018-12-13,220,312540,2390,67.0,True
+Jan Path- Bhubaneswar,Khordha,Odisha,State Capital,Non Domestic,True,DIST_0386,Khordha,Odisha,2014-11-07,2019-11-25,1644,2140440,130087,532.4,True
+Jaydev Vihar-Bhuvaneshwar,Khordha,Odisha,State Capital,Domestic,True,DIST_0386,Khordha,Odisha,2017-09-24,2019-12-31,813,932520,43732,410.8,True
+Saheed Nagar Bhubaneswar,Khordha,Odisha,State Capital,Domestic,True,DIST_0386,Khordha,Odisha,2018-03-06,2019-12-31,652,678480,9552,123.3,True
+Sector 70- Mohali,Sahibzada Ajit Singh Nagar,Punjab,District Headquarters,Domestic,True,DIST_0052,Sahibzada Ajit Singh Nagar,Punjab,2015-08-27,2019-12-31,1587,2027940,28442,122.9,True
+Baghru -Jaipur,Jaipur,Rajasthan,Other Municipal Area,Domestic,True,DIST_0110,Jaipur,Rajasthan,2015-12-15,2019-01-29,963,1378200,147077,934.8,True
+Civil Lines - Jaipur,Jaipur,Rajasthan,State Capital,Non Domestic,True,DIST_0110,Jaipur,Rajasthan,2015-12-18,2019-06-10,992,1416300,4904,30.3,True
+Hathroi- Jaipur [Offline],Jaipur,Rajasthan,State Capital,Domestic,True,DIST_0110,Jaipur,Rajasthan,2015-11-24,2017-06-12,558,797280,6321,69.5,True
+Mansarovar- Jaipur [Offline],Jaipur,Rajasthan,State Capital,Domestic,True,DIST_0110,Jaipur,Rajasthan,2015-11-24,2017-06-12,561,806520,10309,112.0,True
+Ramganj- Jaipur [Offline],Jaipur,Rajasthan,State Capital,Non Domestic,True,DIST_0110,Jaipur,Rajasthan,2015-12-15,2017-06-12,546,784560,10483,117.0,True
+Sahakar Marg- Jaipur,Jaipur,Rajasthan,State Capital,Domestic,True,DIST_0110,Jaipur,Rajasthan,2015-12-15,2019-01-22,421,593760,13464,198.6,True
+Shivdaspura- Jaipur [Offline],Jaipur,Rajasthan,Gram Panchayat,Non Domestic,False,DIST_0110,Jaipur,Rajasthan,2015-09-10,2017-10-14,293,414540,279619,5908.9,True
+SirsiRoad -Jaipur,Jaipur,Rajasthan,State Capital,Domestic,True,DIST_0110,Jaipur,Rajasthan,2015-12-15,2018-07-28,680,961680,20467,186.4,True
+Vaishali Nagar- Jaipur [Offline],Jaipur,Rajasthan,State Capital,Domestic,True,DIST_0110,Jaipur,Rajasthan,2015-12-15,2016-05-25,152,217320,1191,48.0,True
+Barapal-Udaipur,Udaipur,Rajasthan,Gram Panchayat,Domestic,False,DIST_0130,Udaipur,Rajasthan,2016-06-12,2016-08-27,72,100380,17652,1540.5,True
+Brahmpuri- Udaipur [Offline],Udaipur,Rajasthan,District Headquarters,Domestic,True,DIST_0130,Udaipur,Rajasthan,2016-06-21,2018-05-08,662,937740,20171,188.4,True
+Debari Village-Udaipur,Udaipur,Rajasthan,Gram Panchayat,Domestic,False,DIST_0130,Udaipur,Rajasthan,2016-07-20,2017-07-27,253,323520,145880,3950.0,True
+Mandwa-Udaipur [Offline],Udaipur,Rajasthan,Gram Panchayat,Domestic,False,DIST_0130,Udaipur,Rajasthan,2016-06-12,2016-09-28,108,154140,17070,970.1,True
+Mavli- Udaipur,Udaipur,Rajasthan,Gram Panchayat,Domestic,False,DIST_0130,Udaipur,Rajasthan,2016-06-07,2019-12-31,1175,1337400,111998,733.6,True
+Menar-Udaipur [Offline],Udaipur,Rajasthan,Gram Panchayat,Domestic,False,DIST_0130,Udaipur,Rajasthan,2016-06-07,2016-10-18,101,142500,21116,1298.1,True
+Panchavati-Udaipur [Offline],Udaipur,Rajasthan,District Headquarters,Non Domestic,True,DIST_0130,Udaipur,Rajasthan,2016-06-12,2017-06-12,365,522600,6150,103.1,True
+Parai-Udaipur,Udaipur,Rajasthan,Gram Panchayat,Non Domestic,False,DIST_0130,Udaipur,Rajasthan,2016-06-12,2017-05-10,333,478740,60451,1106.1,True
+Ram Nagar-Udaipur [Offline],Udaipur,Rajasthan,District Headquarters,Domestic,True,DIST_0130,Udaipur,Rajasthan,2016-06-12,2016-09-05,86,122880,3503,249.7,True
+Thana- Udaipur [Offline],Udaipur,Rajasthan,Gram Panchayat,Agriculture,False,DIST_0130,Udaipur,Rajasthan,2016-06-12,2017-04-16,309,444780,74126,1459.9,True
+Ziniret Chowk-Udaipur [Offline],Udaipur,Rajasthan,District Headquarters,Domestic,True,DIST_0130,Udaipur,Rajasthan,2016-06-21,2016-12-02,159,225120,2943,114.5,True
+Agri road Chidambaram,Cuddalore,Tamil Nadu,Other Municipal Area,Domestic,True,DIST_0617,Cuddalore,Tamil Nadu,2018-04-28,2019-12-05,541,622920,14400,202.5,True
+Gandhi Nagar  Semmandalam,Cuddalore,Tamil Nadu,District Headquarters,Domestic,True,DIST_0617,Cuddalore,Tamil Nadu,2018-01-15,2019-12-05,111,149580,4488,262.8,True
+Kuthappakkam Cuddalore,Cuddalore,Tamil Nadu,Other Municipal Area,Domestic,True,DIST_0617,Cuddalore,Tamil Nadu,2018-04-28,2018-07-08,60,85200,2685,276.1,True
+Manjakuppam Cuddalore,Cuddalore,Tamil Nadu,District Headquarters,Domestic,True,DIST_0617,Cuddalore,Tamil Nadu,2018-01-12,2018-05-10,26,34500,1384,351.4,False
+Patharikuppam-Cuddalore,Cuddalore,Tamil Nadu,Gram Panchayat,Domestic,False,DIST_0617,Cuddalore,Tamil Nadu,2018-04-28,2019-12-31,599,612420,10281,147.1,True
+Periyar Street Chidambaram,Cuddalore,Tamil Nadu,Other Municipal Area,Domestic,True,DIST_0617,Cuddalore,Tamil Nadu,2018-04-30,2019-12-05,429,501480,398,7.0,True
+Surakalpeth Cuddalore,Cuddalore,Tamil Nadu,District Headquarters,Domestic,True,DIST_0617,Cuddalore,Tamil Nadu,2018-01-15,2018-08-29,91,126000,2719,189.0,True
+Thandeswaranallur-Cuddalore,Cuddalore,Tamil Nadu,Gram Panchayat,Domestic,False,DIST_0617,Cuddalore,Tamil Nadu,2018-04-27,2019-12-05,443,555420,16274,256.7,True
+Theradi Kadai Street Chidambaram,Cuddalore,Tamil Nadu,Other Municipal Area,Non Domestic,True,DIST_0617,Cuddalore,Tamil Nadu,2018-04-27,2019-12-05,539,610680,7514,107.8,True
+Thiruvetkalam-Chidambaram,Cuddalore,Tamil Nadu,Gram Panchayat,Domestic,False,DIST_0617,Cuddalore,Tamil Nadu,2018-04-27,2019-12-05,502,547380,15713,251.5,True
+VSR Nagar Chidambaram,Cuddalore,Tamil Nadu,Other Municipal Area,Domestic,True,DIST_0617,Cuddalore,Tamil Nadu,2018-04-27,2019-12-05,241,311580,10520,295.8,True
+West cross street Chidambaram,Cuddalore,Tamil Nadu,Other Municipal Area,Non Domestic,True,DIST_0617,Cuddalore,Tamil Nadu,2018-02-26,2019-12-05,402,456780,195351,3746.4,True
+Alandur- Chennai,Kancheepuram,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2014-10-29,2019-12-31,1731,2235420,52240,204.7,True
+Chitlapakkam Chennai,Kancheepuram,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2017-12-14,2018-10-20,268,379500,3808,87.9,True
+Gopalapuram- Chennai,Chennai,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2014-12-16,2019-11-26,1411,1814698,23344,112.7,True
+Netaji Nagar- Chennai,Chennai,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2016-02-15,2019-09-11,1213,1675680,6162,32.2,True
+Prithvi Avenue- Chennai,Chennai,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2016-05-20,2019-12-31,1247,1532640,9088,51.9,True
+Retteri Chennai,Chennai,Tamil Nadu,District Headquarters,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2018-01-15,2018-06-15,136,191640,1330,60.8,True
+Spurtank Road- Chennai [Offline],Chennai,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2014-11-30,2015-04-21,128,184080,8484,403.7,True
+T Nagar Chennai,Kancheepuram,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2017-12-14,2019-09-26,611,754800,2863,33.2,True
+Velachery Chennai,Kancheepuram,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2017-12-15,2019-12-07,687,774960,7218,81.6,True
+Ambathur Chennai,Thiruvallur,Tamil Nadu,State Capital,Domestic,True,DIST_0602,Thiruvallur,Tamil Nadu,2018-04-11,2019-12-05,317,304380,4851,139.6,True
+Avadi Chennai,Thiruvallur,Tamil Nadu,Other Municipal Area,Domestic,True,DIST_0602,Thiruvallur,Tamil Nadu,2018-01-15,2019-12-31,585,579360,10323,156.1,True
+Govardhanagiri Avadi,Thiruvallur,Tamil Nadu,State Capital,Domestic,True,DIST_0602,Thiruvallur,Tamil Nadu,2018-04-11,2019-12-05,414,481860,7307,132.8,True
+Ikkadu-Thiruvallur,Thiruvallur,Tamil Nadu,Other Municipal Area,Domestic,True,DIST_0602,Thiruvallur,Tamil Nadu,2018-02-26,2018-05-04,22,27000,2217,719.3,False
+Kamraj Nagar Avadi,Thiruvallur,Tamil Nadu,State Capital,Domestic,True,DIST_0602,Thiruvallur,Tamil Nadu,2018-04-07,2019-12-05,554,649980,13041,175.8,True
+Mangulam Pattabiram,Thiruvallur,Tamil Nadu,State Capital,Domestic,True,DIST_0602,Thiruvallur,Tamil Nadu,2018-02-26,2019-12-06,61,78540,2956,329.7,True
+Oragadam Ambathur,Thiruvallur,Tamil Nadu,State Capital,Domestic,True,DIST_0602,Thiruvallur,Tamil Nadu,2018-09-01,2019-12-05,424,439080,10966,218.8,True
+Puthagaram Chennai,Thiruvallur,Tamil Nadu,State Capital,Domestic,True,DIST_0602,Thiruvallur,Tamil Nadu,2018-04-11,2019-12-05,497,546840,7584,121.5,True
+TNHB colony Avadi,Thiruvallur,Tamil Nadu,State Capital,Domestic,True,DIST_0602,Thiruvallur,Tamil Nadu,2018-04-07,2019-12-05,568,640140,7857,107.5,True
+Thendral Nagar Avadi,Thiruvallur,Tamil Nadu,State Capital,Domestic,True,DIST_0602,Thiruvallur,Tamil Nadu,2018-04-18,2019-12-07,54,72420,8091,978.7,True
+Vijaylakshmipuram Ambathur,Thiruvallur,Tamil Nadu,State Capital,Domestic,True,DIST_0602,Thiruvallur,Tamil Nadu,2018-04-07,2019-01-31,300,431220,6075,123.4,True
+Dhanoli Agra,Agra,Uttar Pradesh,Gram Panchayat,Non Domestic,False,DIST_0146,Agra,Uttar Pradesh,2016-12-28,2018-04-29,484,695400,42537,535.8,True
+Kedar Nagar Agra,Agra,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0146,Agra,Uttar Pradesh,2016-12-28,2019-12-31,1089,1306680,36655,245.7,True
+Pathauli-Agra,Agra,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0146,Agra,Uttar Pradesh,2016-12-28,2019-01-21,728,1038720,271359,2288.5,True
+Ram Bagh Agra,Agra,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0146,Agra,Uttar Pradesh,2016-12-28,2017-03-31,91,126900,9244,638.1,True
+Sikandra Agra,Agra,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0146,Agra,Uttar Pradesh,2016-12-27,2019-12-31,1085,1327800,16604,109.5,True
+Taj East Gate Road Agra [Offline],Agra,Uttar Pradesh,District Headquarters,Non Domestic,True,DIST_0146,Agra,Uttar Pradesh,2016-12-27,2017-06-25,180,258180,3065,104.0,True
+UPSIDC Site C Agra,Agra,Uttar Pradesh,District Headquarters,Non Domestic,True,DIST_0146,Agra,Uttar Pradesh,2016-12-28,2019-12-31,1079,1291920,62083,421.0,True
+Agarwal Mohalla Jarwal Kasba,Bahraich,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0180,Bahraich,Uttar Pradesh,2018-01-26,2019-05-31,484,661620,174804,2314.4,True
+Bahadurpur-Bahraich,Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2018-01-05,2019-12-31,723,734760,213784,2548.8,True
+Bardaha-Bahraich,Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2018-05-26,2019-12-31,501,483540,199242,3609.5,True
+Bashirganj Bahraich,Bahraich,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0180,Bahraich,Uttar Pradesh,2017-11-15,2018-09-16,276,386220,23836,540.6,True
+Bhagrahan Tola Nanpara [Offline],Bahraich,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0180,Bahraich,Uttar Pradesh,2017-11-10,2018-06-30,233,334560,84796,2220.3,True
+Bhavaniyapur Baharaich,Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2017-11-16,2019-06-03,545,780180,355743,3994.3,True
+Chowk Bazar Jarwal Kasba,Bahraich,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0180,Bahraich,Uttar Pradesh,2017-11-28,2019-12-31,763,817080,187412,2009.3,True
+Dhanwa Ramsahaypurwa Bahraich [Offline],Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2017-11-17,2018-02-21,92,126420,41670,2887.4,True
+Ghulam Ali Pura Bahraich,Bahraich,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0180,Bahraich,Uttar Pradesh,2017-11-15,2018-06-09,207,295800,13352,395.4,True
+Huzurpur road-Kaisarganj,Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2017-11-06,2019-10-08,520,644700,202430,2750.6,True
+Huzurpur-Bahraich,Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2017-11-09,2019-12-11,689,711000,243986,3006.1,True
+Jagatapur-Bahraich,Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2017-12-04,2019-11-28,639,804600,330161,3594.6,True
+Kanjaya-Bahraich,Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2017-09-21,2019-12-31,680,679620,216520,2790.8,True
+Kanoongopura Bahraich,Bahraich,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0180,Bahraich,Uttar Pradesh,2018-05-23,2019-12-31,562,550200,22326,355.5,True
+Khutehna-Bahraich [Offline],Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2018-01-02,2018-04-10,91,125580,40678,2837.5,True
+Kurmaura-Bahraich,Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2017-11-17,2018-06-17,195,268740,131185,4276.2,True
+Mahasi-Bahraich,Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2018-02-21,2019-06-26,386,549780,246341,3925.1,True
+Medilalpurva Baharaich,Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2017-12-01,2018-06-01,181,258000,131489,4464.5,True
+Mihinpurwa-Bahraich,Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2017-11-16,2019-12-31,723,744900,270258,3178.2,True
+Nai Basti Bahraich,Bahraich,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0180,Bahraich,Uttar Pradesh,2017-11-14,2019-12-24,767,847920,42032,434.2,True
+Nazirpura-Bahraich,Bahraich,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0180,Bahraich,Uttar Pradesh,2018-01-05,2019-12-31,707,772440,31616,358.5,True
+Puraini-Bahraich,Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2017-11-07,2018-10-11,339,488040,185380,3327.5,True
+Qazipura-Bahraich [Offline],Bahraich,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0180,Bahraich,Uttar Pradesh,2017-12-08,2018-02-23,78,111600,2330,182.9,True
+Raja Bazar Nanpara,Bahraich,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0180,Bahraich,Uttar Pradesh,2018-01-12,2019-12-31,554,560640,130495,2039.0,True
+Rishibhumi Risia,Bahraich,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0180,Bahraich,Uttar Pradesh,2017-11-17,2019-12-31,635,693180,153136,1935.2,True
+Samariya-Bahraich [Offline],Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2017-11-10,2018-04-25,164,232140,86970,3281.9,True
+Saraswati Nagar Risiya,Bahraich,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0180,Bahraich,Uttar Pradesh,2017-11-20,2019-04-29,336,476220,149700,2753.7,True
+Sarsa-Bahraich [Offline],Bahraich,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0180,Bahraich,Uttar Pradesh,2018-05-29,2018-07-10,43,61380,23797,3396.2,True
+Takia Jarwal Kasba,Bahraich,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0180,Bahraich,Uttar Pradesh,2017-11-28,2019-12-31,763,817920,194163,2079.5,True
+Mathura Bazar 1-Balrampur,Balrampur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0182,Balrampur,Uttar Pradesh,2017-09-06,2018-05-29,79,111780,66527,5213.6,True
+Awas Vikas colony Barabanki,Barabanki,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0176,Bara Banki,Uttar Pradesh,2018-01-16,2019-12-31,715,770880,29990,340.8,True
+Baraulia-Barabanki,Barabanki,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0176,Bara Banki,Uttar Pradesh,2017-12-31,2018-09-18,261,372300,159465,3752.1,True
+Belhara-Barabanki [Offline],Barabanki,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0176,Bara Banki,Uttar Pradesh,2017-12-17,2018-08-23,186,264720,91996,3044.3,True
+Brandawan-Barabanki,Barabanki,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0176,Bara Banki,Uttar Pradesh,2017-12-23,2019-12-31,729,747900,216813,2539.5,True
+Dariyabad-Barabanki,Barabanki,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0176,Bara Banki,Uttar Pradesh,2017-12-21,2018-10-08,256,363120,103994,2508.8,True
+Dashehrabagh Barabanki,Barabanki,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0176,Bara Banki,Uttar Pradesh,2017-12-18,2019-07-31,507,611580,200554,2872.6,True
+Fatehpur-Barabanki,Barabanki,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0176,Bara Banki,Uttar Pradesh,2017-12-17,2019-12-31,662,674280,103539,1345.1,True
+Firozpur Suratganj,Barabanki,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0176,Bara Banki,Uttar Pradesh,2018-04-20,2019-12-31,614,576480,172425,2620.1,True
+Ganeshpur-Barabanki,Barabanki,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0176,Bara Banki,Uttar Pradesh,2017-11-03,2019-12-31,778,827700,132923,1406.8,True
+Gondaura-Barabanki,Barabanki,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0176,Bara Banki,Uttar Pradesh,2017-11-03,2019-09-21,599,765240,244643,2800.5,True
+Haidergarh-Barabanki,Barabanki,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0176,Bara Banki,Uttar Pradesh,2018-01-14,2019-02-08,384,534180,164213,2692.9,True
+Ibrahimpur-Barabanki,Barabanki,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0176,Bara Banki,Uttar Pradesh,2018-03-16,2019-12-31,620,592440,215300,3183.5,True
+Kadirabag 1 Ramnagar,Barabanki,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0176,Bara Banki,Uttar Pradesh,2017-11-03,2019-12-08,675,754080,132715,1541.7,True
+Kanjwara-Barabanki,Barabanki,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0176,Bara Banki,Uttar Pradesh,2017-12-13,2019-11-10,673,788220,189678,2108.0,True
+Karsanda-Barabanki,Barabanki,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0176,Bara Banki,Uttar Pradesh,2017-12-05,2019-08-16,460,577620,189885,2879.7,True
+Kasraila-Barabanki,Barabanki,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0176,Bara Banki,Uttar Pradesh,2017-12-02,2019-12-28,508,482040,193985,3525.2,True
+Kotwa Dham-Barabanki [Offline],Barabanki,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0176,Bara Banki,Uttar Pradesh,2018-04-22,2018-08-08,75,99060,33804,2989.3,True
+Naipura-Barabanki,Barabanki,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0176,Bara Banki,Uttar Pradesh,2017-12-16,2018-09-04,201,279720,117391,3676.3,True
+Nurwaf Mohalla Tikaitnagar,Barabanki,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0176,Bara Banki,Uttar Pradesh,2018-01-26,2019-10-23,595,667800,133426,1750.2,True
+Paigwa-Barabanki,Barabanki,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0176,Bara Banki,Uttar Pradesh,2017-12-20,2019-12-31,723,765660,199900,2287.1,True
+Paisar Barabanki,Barabanki,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0176,Bara Banki,Uttar Pradesh,2017-12-18,2019-12-16,626,687120,19863,253.2,True
+Palhari Barabanki,Barabanki,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0176,Bara Banki,Uttar Pradesh,2017-12-27,2019-12-31,713,724380,164803,1993.0,True
+Sarwangi Mohalla Tikaitnagar,Barabanki,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0176,Bara Banki,Uttar Pradesh,2018-04-22,2019-12-31,619,619500,117666,1663.8,True
+Tap Sipaha-Barabanki,Barabanki,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0176,Bara Banki,Uttar Pradesh,2017-12-05,2019-05-17,472,572820,342452,5237.0,True
+Bhupauli-Chandauli [Offline],Chandauli,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0196,Chandauli,Uttar Pradesh,2015-08-31,2016-02-15,109,155700,90804,5108.8,True
+Chakia- Chandauli [Offline],Chandauli,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0196,Chandauli,Uttar Pradesh,2015-11-01,2016-03-23,128,183600,103169,4922.4,True
+Daudpur- Chandauli [Offline],Chandauli,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0196,Chandauli,Uttar Pradesh,2015-11-01,2015-11-23,23,32760,23306,6232.0,False
+Dhaneja- Chandauli [Offline],Chandauli,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0196,Chandauli,Uttar Pradesh,2015-11-01,2017-05-25,568,809940,409837,4432.6,True
+Mughalsarai - Chandauli [Offline],Chandauli,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0196,Chandauli,Uttar Pradesh,2015-08-31,2016-08-02,254,362880,81040,1956.3,True
+Nehru Nagar- Chandauli [Offline],Chandauli,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0196,Chandauli,Uttar Pradesh,2015-08-31,2015-11-20,79,112320,47508,3705.2,True
+Sanjay Nagar- Chandauli City [Offline],Chandauli,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0196,Chandauli,Uttar Pradesh,2015-09-02,2017-09-04,685,980160,275015,2457.9,True
+Shahabganj - Chandauli,Chandauli,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0196,Chandauli,Uttar Pradesh,2015-11-01,2018-05-04,796,1138440,498235,3833.8,True
+Housila Nagar Faizabad,Faizabad,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0177,Faizabad,Uttar Pradesh,2017-01-07,2017-09-04,209,294000,18793,560.0,True
+Inayat Nagar-Faizabad,Faizabad,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0177,Faizabad,Uttar Pradesh,2017-01-23,2017-09-26,187,261600,92785,3107.0,True
+Kuchera-Faizabad [Offline],Faizabad,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0177,Faizabad,Uttar Pradesh,2016-12-19,2017-02-20,47,56700,13664,2111.1,True
+Mahawan-Faizabad,Faizabad,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0177,Faizabad,Uttar Pradesh,2017-01-03,2017-01-31,28,39180,9791,2189.1,False
+Milkipur-Faizabad,Faizabad,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0177,Faizabad,Uttar Pradesh,2017-01-06,2017-03-23,63,88380,19027,1885.9,True
+Rano Pali-Faizabad [Offline],Faizabad,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0177,Faizabad,Uttar Pradesh,2016-12-16,2017-02-04,36,49260,3746,666.2,True
+Sahadatganj Faizabad,Faizabad,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0177,Faizabad,Uttar Pradesh,2017-06-07,2017-07-15,37,50700,4739,818.8,True
+Sharda Nagar Faizabad,Faizabad,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0177,Faizabad,Uttar Pradesh,2017-01-05,2017-06-18,162,232380,20962,790.2,True
+Allipur-Fatehpur,Fatehpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0172,Fatehpur,Uttar Pradesh,2016-12-16,2019-12-31,972,1235700,396974,2814.2,True
+Civil line-Fatehpur,Fatehpur,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0172,Fatehpur,Uttar Pradesh,2017-01-05,2017-09-15,251,359100,37668,918.9,True
+Harsinghpur-Fatehpur [Offline],Fatehpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0172,Fatehpur,Uttar Pradesh,2017-01-03,2017-02-01,24,30840,11026,3131.9,False
+Husepur-Fatehpur,Fatehpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0172,Fatehpur,Uttar Pradesh,2017-01-02,2018-11-09,603,861480,392221,3988.3,True
+Jahanabad-Fatehpur [Offline],Fatehpur,Uttar Pradesh,Other Municipal Area,Non Domestic,True,DIST_0172,Fatehpur,Uttar Pradesh,2017-01-10,2017-05-28,137,193020,78053,3542.3,True
+Kevai-Fatehpur,Fatehpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0172,Fatehpur,Uttar Pradesh,2017-01-03,2018-01-07,100,134640,78719,5121.6,True
+Khaga-Fatehpur [Offline],Fatehpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0172,Fatehpur,Uttar Pradesh,2017-01-04,2017-04-03,82,116580,22020,1654.6,True
+Patel Nagar Fatehpur [Offline],Fatehpur,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0172,Fatehpur,Uttar Pradesh,2017-01-03,2018-02-17,407,585420,48718,729.0,True
+Sai-Fatehpur,Fatehpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0172,Fatehpur,Uttar Pradesh,2017-01-14,2018-01-02,335,475800,145934,2686.8,True
+Jhundapura-Noida,Gautam Buddh Nagar,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0141,Gautam Buddha Nagar,Uttar Pradesh,2018-02-21,2019-12-31,488,524340,16355,273.2,True
+Arjun Nagar-Ghaziabad,Ghaziabad,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0140,Ghaziabad,Uttar Pradesh,2016-05-25,2019-12-31,1046,1282980,41037,280.2,True
+Indirapuram- Ghaizabad,Ghaziabad,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0140,Ghaziabad,Uttar Pradesh,2014-12-16,2019-12-31,1631,2104500,99118,412.6,True
+MG Road Ghaziabad,Hapur,Uttar Pradesh,District Headquarters,Non Domestic,True,DIST_0140,Ghaziabad,Uttar Pradesh,2016-01-13,2019-12-31,1026,1237500,95585,676.6,True
+Meerut Road Ghaziabad,Ghaziabad,Uttar Pradesh,District Headquarters,Non Domestic,True,DIST_0140,Ghaziabad,Uttar Pradesh,2017-03-07,2019-12-31,636,876600,28937,289.2,True
+Raj Nagar-Ghaziabad,Ghaziabad,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0140,Ghaziabad,Uttar Pradesh,2016-11-23,2019-12-31,991,1173240,42726,319.0,True
+Sahibabad Industrial Area-Ghaziabad [Offline],Ghaziabad,Uttar Pradesh,District Headquarters,Non Domestic,True,DIST_0140,Ghaziabad,Uttar Pradesh,2016-01-13,2017-10-31,319,449820,30856,600.9,True
+Chirgaon-Jhansi [Offline],Jhansi,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0166,Jhansi,Uttar Pradesh,2017-01-25,2017-10-23,234,334380,80899,2119.4,True
+Civil lines Jhansi [Offline],Jhansi,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0166,Jhansi,Uttar Pradesh,2016-12-27,2017-04-27,121,174240,12775,642.3,True
+Hydel Colony Jhansi [Offline],Jhansi,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0166,Jhansi,Uttar Pradesh,2017-01-02,2017-06-07,115,161820,8735,472.9,True
+Jhar Pahar Jhansi,Jhansi,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0166,Jhansi,Uttar Pradesh,2016-12-16,2019-01-15,735,1052820,33793,281.2,True
+Loha Mandi Jhansi [Offline],Jhansi,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0166,Jhansi,Uttar Pradesh,2017-01-02,2017-06-21,68,95100,12192,1123.0,True
+Mau Ranipur-Jhansi,Jhansi,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0166,Jhansi,Uttar Pradesh,2017-01-03,2017-05-31,145,207060,54965,2325.4,True
+Mau Rural-Jhansi [Offline],Jhansi,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0166,Jhansi,Uttar Pradesh,2017-01-02,2017-08-03,96,130020,52308,3524.2,True
+Moth-Jhansi [Offline],Jhansi,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0166,Jhansi,Uttar Pradesh,2016-12-30,2018-10-27,659,941580,186854,1738.4,True
+Om Shanti Nagar Jhansi,Jhansi,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0166,Jhansi,Uttar Pradesh,2017-01-03,2019-01-12,680,965700,102587,930.6,True
+Prem Nagar Jhansi,Jhansi,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0166,Jhansi,Uttar Pradesh,2017-01-04,2018-03-12,395,560100,42141,659.1,True
+Veerangana nagar-Jhansi [Offline],Jhansi,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0166,Jhansi,Uttar Pradesh,2017-06-08,2018-06-29,363,521220,42630,716.5,True
+Barra - Kanpur [Offline],Kanpur,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0164,Kanpur Nagar,Uttar Pradesh,2015-08-06,2017-08-23,707,1008900,51906,450.7,True
+Barra 2- Kanpur [Offline],Kanpur,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0164,Kanpur Nagar,Uttar Pradesh,2015-08-06,2015-08-17,12,17280,2440,1236.9,False
+Birhana Road- Kanpur [Offline],Kanpur,Uttar Pradesh,District Headquarters,Non Domestic,True,DIST_0164,Kanpur Nagar,Uttar Pradesh,2015-08-06,2016-05-21,287,412620,31156,661.4,True
+Civil Line- Kanpur [Offline],Kanpur,Uttar Pradesh,District Headquarters,Non Domestic,True,DIST_0164,Kanpur Nagar,Uttar Pradesh,2015-08-05,2017-10-23,707,996660,63342,556.7,True
+Kakadeo-Kanpur,Kanpur,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0164,Kanpur Nagar,Uttar Pradesh,2015-09-05,2019-04-15,1161,1669680,88286,463.2,True
+Masvanpur-Kanpur,Kanpur,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0164,Kanpur Nagar,Uttar Pradesh,2015-08-06,2019-12-31,1570,2016600,136786,594.2,True
+Panki CF- Kanpur [Offline],Kanpur,Uttar Pradesh,District Headquarters,Non Domestic,True,DIST_0164,Kanpur Nagar,Uttar Pradesh,2014-12-16,2017-11-14,584,811920,26795,289.1,True
+Panki- Kanpur [Offline],Kanpur,Uttar Pradesh,District Headquarters,Non Domestic,True,DIST_0164,Kanpur Nagar,Uttar Pradesh,2014-12-16,2017-10-23,787,1122900,35750,278.9,True
+Shastri Nagar-Kanpur [Offline],Kanpur,Uttar Pradesh,District Headquarters,Non Domestic,True,DIST_0164,Kanpur Nagar,Uttar Pradesh,2015-08-06,2017-04-10,571,814860,53650,576.8,True
+Swaroop Nagar - Kanpur [Offline],Kanpur,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0164,Kanpur Nagar,Uttar Pradesh,2015-08-06,2016-02-27,133,191460,26909,1231.2,True
+Vikas Nagar- Kanpur,Kanpur,Uttar Pradesh,District Headquarters,Non Domestic,True,DIST_0164,Kanpur Nagar,Uttar Pradesh,2015-08-06,2019-06-26,1413,2030400,88396,381.4,True
+Aishbagh-Lucknow,Lucknow,Uttar Pradesh,State Capital,Domestic,True,DIST_0157,Lucknow,Uttar Pradesh,2017-11-03,2019-12-31,210,249780,30819,1080.8,True
+Alambagh- Lucknow,Lucknow,Uttar Pradesh,State Capital,Domestic,True,DIST_0157,Lucknow,Uttar Pradesh,2014-11-24,2019-12-31,1580,2031660,45501,196.2,True
+Aliganj- Lucknow,Lucknow,Uttar Pradesh,State Capital,Non Domestic,True,DIST_0157,Lucknow,Uttar Pradesh,2016-06-21,2019-12-31,1129,1383480,36068,228.4,True
+Ashiana-Lucknow [Offline],Lucknow,Uttar Pradesh,State Capital,Domestic,True,DIST_0157,Lucknow,Uttar Pradesh,2017-11-03,2018-11-07,290,382260,10711,245.5,True
+Jankipuram Lucknow,Lucknow,Uttar Pradesh,State Capital,Domestic,True,DIST_0157,Lucknow,Uttar Pradesh,2017-11-06,2019-12-31,773,877140,14863,148.4,True
+Kapoorthala-Lucknow,Lucknow,Uttar Pradesh,State Capital,Domestic,True,DIST_0157,Lucknow,Uttar Pradesh,2017-11-03,2019-12-31,637,722460,12599,152.8,True
+Vikas Nagar- Lucknow [Offline],Lucknow,Uttar Pradesh,State Capital,Domestic,True,DIST_0157,Lucknow,Uttar Pradesh,2015-08-06,2016-01-10,135,192420,26312,1197.9,True
+Bag Kala Lan Saharanpur [Offline],Saharanpur,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0132,Saharanpur,Uttar Pradesh,2017-01-18,2017-02-24,37,52680,6702,1114.5,True
+Bari Bag Saharanpur,Saharanpur,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0132,Saharanpur,Uttar Pradesh,2017-01-04,2019-07-09,877,1244340,98774,695.4,True
+Chunaitee Gara-Saharanpur,Saharanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0132,Saharanpur,Uttar Pradesh,2016-12-19,2019-12-31,1076,1226280,413025,2950.5,True
+Haqikatnagar Saharanpur,Saharanpur,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0132,Saharanpur,Uttar Pradesh,2016-12-29,2018-05-29,77,110040,38023,3026.9,True
+Kumarheda-Saharanpur [Offline],Saharanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0132,Saharanpur,Uttar Pradesh,2017-01-04,2018-07-25,509,725700,261721,3159.3,True
+Topri-Saharanpur[Offline],Saharanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0132,Saharanpur,Uttar Pradesh,2016-12-19,2017-06-16,159,208020,71861,3026.2,True
+Vinod Vihar Colony Saharanpur [Offline],Saharanpur,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0132,Saharanpur,Uttar Pradesh,2017-01-04,2017-11-14,310,445980,29670,582.8,True
+Anand Nagar Sitapur,Sitapur,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0154,Sitapur,Uttar Pradesh,2018-02-26,2019-12-30,501,523860,106494,1780.8,True
+Bhadupur Sidhauli,Sitapur,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0154,Sitapur,Uttar Pradesh,2017-10-25,2019-12-31,530,660120,251458,3336.9,True
+Bhattha Mehmoodabad,Sitapur,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0154,Sitapur,Uttar Pradesh,2017-11-07,2019-11-06,692,789060,157462,1748.1,True
+Biswan-Sitapur,Sitapur,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0154,Sitapur,Uttar Pradesh,2018-02-23,2019-12-31,668,590820,126575,1876.7,True
+Devtapur-Sitapur[Offline],Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2015-08-18,2018-06-03,824,1175820,437582,3260.0,True
+Dharampur,Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2016-08-29,2018-06-23,463,652980,276011,3702.8,True
+Ichauli- Sitapur,Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2016-07-31,2018-07-30,654,929580,442859,4173.3,True
+Jhauwa Khurd- Sitapur,Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2016-08-30,2019-12-26,998,1113300,446844,3516.0,True
+Jyotishah Alampur- Sitapur [Offline],Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2016-08-20,2018-01-18,429,610140,268512,3855.1,True
+Kamhira Kathura - Sitapur,Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2016-08-11,2019-12-26,1109,1337100,609846,3995.4,True
+Kankari- Sitapur,Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2016-08-18,2019-10-05,779,951960,445222,4097.0,True
+Khindaura- Sitapur,Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2016-08-16,2019-12-31,1152,1380480,269216,1708.3,True
+Manwan- Sitapur,Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2016-08-14,2019-07-26,579,703320,309546,3855.5,True
+Mukimpur-Sitapur [Offline],Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2016-08-12,2018-03-12,250,355320,189234,4665.3,True
+Muradpur -Sitapur,Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2017-10-12,2019-02-28,430,581040,275700,4156.6,True
+Pahadpur-Sitapur,Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2018-02-20,2018-10-18,208,272040,131245,4226.2,True
+Ramuapur Mahmoodabad,Sitapur,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0154,Sitapur,Uttar Pradesh,2017-11-03,2018-08-18,270,379380,72761,1680.1,True
+Sahdipur-Sitapur,Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2017-10-11,2019-01-27,381,544500,202563,3258.9,True
+Sidhauli Town,Sitapur,Uttar Pradesh,Other Municipal Area,Domestic,True,DIST_0154,Sitapur,Uttar Pradesh,2016-07-08,2019-07-14,995,1393500,265339,1668.0,True
+Sikandarabad - Sitapur,Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2017-10-17,2018-10-06,287,398820,122124,2682.4,True
+Tarinpur Sitapur,Sitapur,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0154,Sitapur,Uttar Pradesh,2017-10-14,2019-07-01,486,687480,103123,1314.0,True
+Tedwadih- Sitapur,Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2016-07-06,2018-08-14,712,992040,408768,3609.5,True
+Thangaon-Sitapur,Sitapur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0154,Sitapur,Uttar Pradesh,2016-08-01,2019-10-03,868,1024020,464933,3977.3,True
+Vijay Laxmi Nagar Sitapur,Sitapur,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0154,Sitapur,Uttar Pradesh,2018-02-26,2019-02-20,360,517860,28440,481.1,True
+Baldirai (E)-Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-03,2019-12-10,389,394020,91899,2043.1,True
+Baldirai (W)-Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-04,2019-12-10,381,375780,85422,1991.3,True
+Bikwajipur Parasin-Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-01,2019-12-10,364,351180,69881,1743.1,True
+Bikwajipur-Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-23,2019-12-10,374,366960,74241,1772.3,True
+Dhanaudi (E)-Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-18,2019-12-10,378,372360,75583,1778.1,True
+Dhanaudi (W)-Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-01,2019-12-10,360,387840,120152,2713.8,True
+Kharsoma (E) -Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-01,2019-12-10,391,378480,113324,2622.9,True
+Kharsoma (N) Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-12-26,2019-12-10,282,222060,37250,1469.5,True
+Kharsoma (S)-Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-01,2019-12-12,374,343860,76410,1946.6,True
+Kharsoma (W) -Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-01,2019-12-10,389,343740,104226,2656.1,True
+Paraspatti (E)-Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-01,2019-12-10,376,355620,103572,2551.3,True
+Paraspatti (W)-Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-01,2019-12-10,394,359220,104968,2559.8,True
+Purehubba-Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-01,2019-12-10,376,368760,79048,1877.8,True
+Sukhbaderi-Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-19,2018-12-31,104,148320,58447,3452.0,True
+Tiwaripur (E)-Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-01,2019-09-26,364,430740,152406,3099.5,True
+Tiwaripur (W)-Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-05,2019-12-10,378,426060,165752,3407.9,True
+Uttardah-Sultanpur,Sultanpur,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0179,Sultanpur,Uttar Pradesh,2018-09-01,2019-12-10,382,371280,105086,2479.4,True
+Bhairav Talab - Varanasi [Offline],Varanasi,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0197,Varanasi,Uttar Pradesh,2015-08-31,2016-04-12,166,237540,142526,5256.1,True
+Jayapur- Varanasi [Offline],Varanasi,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0197,Varanasi,Uttar Pradesh,2015-11-01,2016-06-22,235,336900,180661,4697.5,True
+Pandeypur- Varanasi [Offline],Varanasi,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0197,Varanasi,Uttar Pradesh,2015-08-31,2018-02-09,857,1224780,100974,722.2,True
+Samneghat- Varanasi [Offline],Varanasi,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0197,Varanasi,Uttar Pradesh,2015-11-01,2016-01-01,62,88800,4106,405.1,True
+Sarang Talab - Varanasi [Offline],Varanasi,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0197,Varanasi,Uttar Pradesh,2015-08-30,2017-07-27,694,997500,96363,846.3,True
+Sarnath - Varanasi [Offline],Varanasi,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0197,Varanasi,Uttar Pradesh,2015-08-31,2016-07-15,260,371640,216931,5113.3,True
+Shivpur-Varanasi [Offline],Varanasi,Uttar Pradesh,Gram Panchayat,Domestic,False,DIST_0197,Varanasi,Uttar Pradesh,2015-09-23,2017-10-24,729,1039560,426823,3596.7,True
+Sonarpura Varanasi [Offline],Varanasi,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0197,Varanasi,Uttar Pradesh,2017-04-28,2017-11-29,197,280200,17269,539.9,True
+Sundarpur - Varanasi [Offline],Varanasi,Uttar Pradesh,District Headquarters,Domestic,True,DIST_0197,Varanasi,Uttar Pradesh,2015-08-30,2017-08-23,710,1020720,52367,449.4,True
+Agarchitti-Chamoli [Offline],Chamoli,Uttaranchal/Uttarakhand,Gram Panchayat,Domestic,False,DIST_0057,Chamoli,Uttarakhaand,2016-11-23,2017-06-12,201,288780,33071,1003.2,True
+Gwartala Gairsain,Chamoli,Uttaranchal/Uttarakhand,District Headquarters,Domestic,True,DIST_0057,Chamoli,Uttarakhaand,2016-11-24,2019-12-06,1047,1255200,81323,567.6,True
+Jhinjhoni-Chamoli,Chamoli,Uttaranchal/Uttarakhand,Gram Panchayat,Domestic,False,DIST_0057,Chamoli,Uttarakhaand,2016-12-12,2017-06-11,174,246240,40806,1451.7,True
+Jungle Chatti-Chamoli [Offline],Chamoli,Uttaranchal/Uttarakhand,District Headquarters,Domestic,True,DIST_0057,Chamoli,Uttarakhaand,2016-11-23,2017-06-12,200,285660,28257,866.5,True
+Kund Colony Gopeshwar,Chamoli,Uttaranchal/Uttarakhand,Other Municipal Area,Non Domestic,True,DIST_0057,Chamoli,Uttarakhaand,2016-11-11,2018-02-11,404,572520,41885,640.9,True
+Malsi-Chamoli [Offline],Chamoli,Uttaranchal/Uttarakhand,Gram Panchayat,Domestic,False,DIST_0057,Chamoli,Uttarakhaand,2016-11-24,2017-10-23,287,406860,30669,660.3,True
+Mandir Marg Gopeshwar [Offline],Chamoli,Uttaranchal/Uttarakhand,Other Municipal Area,Domestic,True,DIST_0057,Chamoli,Uttarakhaand,2016-12-12,2017-10-23,273,389280,21269,478.6,True
+PWD Guest house road Gairsain,Chamoli,Uttaranchal/Uttarakhand,District Headquarters,Domestic,True,DIST_0057,Chamoli,Uttarakhaand,2016-11-24,2019-12-31,1048,1251180,47189,330.4,True
+Ranikhet road Gairsain [Offline],Chamoli,Uttaranchal/Uttarakhand,District Headquarters,Non Domestic,True,DIST_0057,Chamoli,Uttarakhaand,2016-11-24,2017-05-15,142,194340,11936,538.0,True
+Saliyana Gairsain,Chamoli,Uttaranchal/Uttarakhand,Gram Panchayat,Domestic,False,DIST_0057,Chamoli,Uttarakhaand,2016-11-24,2018-03-12,442,621660,37287,525.4,True
+Sumerpur-Chamoli,Chamoli,Uttaranchal/Uttarakhand,Gram Panchayat,Domestic,False,DIST_0057,Chamoli,Uttarakhaand,2016-11-24,2019-12-12,751,954720,166934,1531.7,True
+Arvind Marg-Dehradun,Dehradun,Uttaranchal/Uttarakhand,State Capital,Domestic,True,DIST_0060,Dehradun,Uttarakhaand,2016-11-24,2019-01-09,728,1042980,25276,212.3,True
+Inder Vihar Dehradun,Dehradun,Uttaranchal/Uttarakhand,State Capital,Domestic,True,DIST_0060,Dehradun,Uttarakhaand,2017-03-16,2019-12-31,811,896100,44075,430.9,True
+Kaulagarh Dehradun,Dehradun,Uttaranchal/Uttarakhand,State Capital,Domestic,True,DIST_0060,Dehradun,Uttarakhaand,2016-11-18,2019-09-06,935,1245420,26169,184.1,True
+Sahastradhara road-Dehradun [Offline],Dehradun,Uttaranchal/Uttarakhand,State Capital,Domestic,True,DIST_0060,Dehradun,Uttarakhaand,2016-11-24,2017-03-14,106,149340,6308,370.0,True
+Tilak Nagar Deharadun,Dehradun,Uttaranchal/Uttarakhand,State Capital,Domestic,True,DIST_0060,Dehradun,Uttarakhaand,2017-04-22,2018-08-01,347,486540,12374,222.8,True
+Kalindi Housing Estate- Kolkata [Offline],North 24 Parganas,West Bengal,State Capital,Domestic,True,DIST_0337,North Twenty Four Parganas,West Bengal,2014-12-16,2015-11-27,76,103620,4359,368.5,True
+Alipur Road- Kolkata [Offline],Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2014-12-16,2016-05-30,364,518340,1497,25.3,True
+Belguria- Kolkata [Offline],Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2014-12-16,2015-04-18,66,85320,3011,309.1,True
+Dhakuria Kolkata,Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2017-04-18,2019-12-31,920,1154400,4798,36.4,True
+Golpark [Offline],Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2014-12-16,2017-10-16,847,1208160,6691,48.5,True
+Jadavpur-Kolkata,Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2017-04-15,2019-11-23,884,1087080,737,5.9,True
+Joka-Kolkata,Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2018-04-02,2019-12-09,394,551280,3695,58.7,True
+Khardah- Kolkata [Offline],Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2014-12-16,2015-11-16,282,400020,9055,198.3,True
+Mukundapur Kolkata,Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2018-04-05,2019-12-31,634,655740,1864,24.9,True

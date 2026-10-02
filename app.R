@@ -36,7 +36,10 @@ plants     <- sf::st_read("data/plants.geojson",     quiet = TRUE)
 osm_check  <- sf::st_read("data/osm_check.geojson",  quiet = TRUE)
 # Public, sourced facility table (scripts/24_public_inventory.R; data dictionary in DATA.md)
 PUB_CSV    <- "data/india_datacentres_public.csv"
-PUB_ZIP    <- "data/india_datacentres_documented.zip"   # table + data dictionary + every cited URL with its archived copy (scripts/22)
+PUB_ZIP    <- "data/india_datacentres_documented.zip"
+ESMI_CSV   <- "data/district_power_interruptions.csv"        # district supply-interruption hours (scripts/28, Prayas ESMI)
+ESMI_MON   <- "data/esmi_monitor_power_interruptions.csv"    # the same, monitor by monitor
+esmi_d     <- if (file.exists(ESMI_CSV)) read.csv(ESMI_CSV, stringsAsFactors = FALSE) else NULL   # table + data dictionary + every cited URL with its archived copy (scripts/22)
 pubtab     <- if (file.exists(PUB_CSV)) read.csv(PUB_CSV, stringsAsFactors = FALSE) else NULL
 policies   <- read.csv("data/policies.csv", stringsAsFactors = FALSE)
 pol_src    <- read.csv("data/policy_sources.csv", stringsAsFactors = FALSE)
@@ -74,6 +77,8 @@ IND <- list(
   "Coal capacity"                        = list(col="coal_mw",                   pal="Greys",  fmt=0, unit="MW"),
   "Distance to nearest fossil plant"     = list(col="dist_fossil_km",            pal="PuBu",   fmt=0, unit="km"),
   "Baseline water stress (Aqueduct)"     = list(col="bws_raw",                   pal="RdYlBu", fmt=2, unit="ratio", rev=TRUE),
+  "Power interruptions (ESMI, all monitors)"   = list(col="esmi_h_yr",       pal="OrRd", fmt=0, unit="h/yr", log=TRUE),
+  "Power interruptions (ESMI, urban monitors)" = list(col="esmi_h_yr_urban", pal="OrRd", fmt=0, unit="h/yr", log=TRUE),
   "Population (2020)"                    = list(col="pop_2020",                  pal="Purples",fmt=0, unit="people")
 )
 
@@ -220,6 +225,36 @@ ui <- page_sidebar(
           tags$em("Submit a policy"), " tab."),
         h5("Policy compilation"), DTOutput("ptab"),
         h5(class = "mt-4", "Sources, claim by claim"), DTOutput("pstab"))),
+    nav_panel("Power interruptions",
+      div(class = "p-3",
+        p("How often the grid fails in each district, measured. Prayas (Energy Group)'s Electricity Supply ",
+          "Monitoring Initiative (ESMI) logged the supply voltage every minute at ", H$esmi$monitors,
+          " monitors in ", H$esmi$districts, sprintf(" districts between %s and %s. ", H$esmi$first, H$esmi$last),
+          "A minute below 80 V counts as an interruption (a complete loss of supply or severe undervoltage); ",
+          "minutes with no reading count as missing, not as interruptions. Each monitor's interrupted share of its ",
+          "recorded minutes is scaled to hours per year, and a district's value is the mean over its monitors, ",
+          "for all monitors and for urban monitors only (state capitals, district headquarters and other ",
+          "municipal areas)."),
+        p(sprintf(paste0("Data centres sit where the grid is most reliable: comparing urban monitors only, the %d ",
+                         "districts with operating data centres and a monitor have a median of %s interruption hours a ",
+                         "year, against %s in districts without data centres. These hours are what backup diesel generators cover; ",
+                         "the paper uses them to bound backup-diesel emissions (SI section S5)."),
+                  H$esmi$hosting_districts, fmtnum(H$esmi$hosting_median_h), fmtnum(H$esmi$nonhosting_urban_median_h))),
+        p(tags$small(
+          "Districts are in the 2015 survey geography; newer districts are pooled into their 2015 parent ",
+          "(Hapur into Ghaziabad, Palghar into Thane, Salcete into South Goa) and Chennai and Hyderabad monitors ",
+          "are placed in Kancheepuram and Rangareddy, as the facilities are. Monitors with fewer than 30 recorded ",
+          "days are listed but not used. A district with few monitors, or monitors on a single feeder, may not ",
+          "represent the whole district. Data centres usually take supply on dedicated high-tension feeders, ",
+          "which are more reliable than the domestic connections most monitors sit on. ",
+          tags$b("Source: "), "Prayas (Energy Group), Electricity Supply Monitoring Initiative, minute-wise voltage ",
+          "data 2014-2019, ", tags$a(href = "https://doi.org/10.7910/DVN/CLLZZM", target = "_blank", "doi:10.7910/DVN/CLLZZM"),
+          ". Free for non-commercial, academic and research use with the source acknowledged. The map layers ",
+          tags$em("Power interruptions (ESMI)"), " show the same values.")),
+        if (!is.null(esmi_d)) tagList(
+          downloadButton("dl_esmi", "Download district interruption hours (CSV)", class = "btn-sm btn-primary mb-3 me-2"),
+          downloadButton("dl_esmi_mon", "Monitor by monitor (CSV)", class = "btn-sm mb-3"),
+          DTOutput("esmitab")))),
     nav_panel("Submit a data centre",
       form_panel(FORM_DC_URL, "Tell us about a data centre we have missed",
         paste0("The inventory is built from operator facility lists and a curated directory; every ",
@@ -360,7 +395,8 @@ ui <- page_sidebar(
           tags$li("Water stress: ", tags$a(href = "https://www.wri.org/aqueduct", target = "_blank", "WRI Aqueduct 4.0"), " baseline water stress."),
           tags$li("PM2.5: Washington University ", tags$a(href = "https://sites.wustl.edu/acag/datasets/surface-pm2-5/",
                                                           target = "_blank", "ACAG"), " surface product; surface NO2 (Anenberg et al., 2022) and ozone (Wang et al., 2025)."),
-          tags$li("Grid reliability: Prayas Electricity Supply Monitoring Initiative (ESMI), 2014-2019."),
+          tags$li("Grid reliability: Prayas Electricity Supply Monitoring Initiative (ESMI), minute-wise voltage 2014-2019, ",
+                  tags$a(href = "https://doi.org/10.7910/DVN/CLLZZM", target = "_blank", "doi:10.7910/DVN/CLLZZM"), "; see the Power interruptions tab."),
           tags$li("Dispersion: ", tags$a(href = "https://inmap.run/", target = "_blank", "InMAP"), ", global implementation of Thakrar et al. (2022)."),
           tags$li("State policies: state notifications and gazettes, investment-promotion portals, secondary legal summaries; every claim sourced on the State policies tab.")),
 
@@ -560,12 +596,12 @@ server <- function(input, output, session) {
       select(any_of(c("dist_name", "state_name", cnt, "pop_2020", "wealth_pct", "rwi_mean",
                       "urban_share_2019", "share_scst_2019", "share_bpl_2019",
                       "pm25_acag_local", "no2_surf", "coal_mw", "bws_raw", dpc,
-                      "s1_water_ml", "emis_so2_t"))) |>
+                      "s1_water_ml", "emis_so2_t", "esmi_h_yr"))) |>
       rename(data_centres = all_of(cnt), pm25_increment = all_of(dpc)) |>
       arrange(desc(data_centres))
     datatable(d, rownames = FALSE, filter = "top", extensions = "Buttons",
               options = list(pageLength = 20, dom = "Bfrtip", buttons = c("csv", "excel"), scrollX = TRUE)) |>
-      formatRound(c("pop_2020", "coal_mw", "s1_water_ml", "emis_so2_t"), 0) |>
+      formatRound(c("pop_2020", "coal_mw", "s1_water_ml", "emis_so2_t", "esmi_h_yr"), 0) |>
       formatRound(c("wealth_pct", "rwi_mean", "urban_share_2019", "share_scst_2019", "share_bpl_2019",
                     "pm25_acag_local", "no2_surf", "bws_raw"), 2) |>
       formatRound("pm25_increment", 4)
@@ -589,6 +625,31 @@ server <- function(input, output, session) {
     filename = function() "india_datacentres_documented.zip",
     content  = function(file) file.copy(PUB_ZIP, file),
     contentType = "application/zip")
+
+  output$dl_esmi <- downloadHandler(
+    filename = function() "india_district_power_interruptions_esmi.csv",
+    content  = function(file) file.copy(ESMI_CSV, file))
+  output$dl_esmi_mon <- downloadHandler(
+    filename = function() "india_esmi_monitor_power_interruptions.csv",
+    content  = function(file) file.copy(ESMI_MON, file))
+
+  output$esmitab <- renderDT({
+    req(esmi_d)
+    e <- esmi_d |>
+      transmute(District = district_2015, State = state_2015,
+                `Interruption h/yr (all monitors)` = interruption_h_per_yr,
+                `Interruption h/yr (urban monitors)` = interruption_h_per_yr_urban,
+                `Interruption h/yr (rural monitors)` = interruption_h_per_yr_rural,
+                Monitors = n_monitors, Urban = n_urban_monitors, Rural = n_rural_monitors,
+                `Monitor range (h/yr)` = paste0(round(min_monitor_h), "-", round(max_monitor_h)),
+                `Recorded monitor-days` = recorded_monitor_days, From = first_date, To = last_date,
+                `ESMI districts pooled` = esmi_districts_pooled,
+                `Operating data centres` = dc_count_operating, `Incl. pipeline` = dc_count_all)
+    datatable(e, rownames = FALSE, filter = "top", extensions = "Buttons",
+              options = list(pageLength = 20, dom = "Bfrtip", buttons = c("csv", "excel"), scrollX = TRUE,
+                             order = list(list(2, "desc")))) |>
+      formatRound(c("Interruption h/yr (all monitors)", "Interruption h/yr (urban monitors)", "Interruption h/yr (rural monitors)"), 0)
+  })
 
   output$dl_public <- downloadHandler(
     filename = function() "india_datacentres_public.csv",

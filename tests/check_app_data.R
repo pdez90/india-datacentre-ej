@@ -50,6 +50,15 @@ if (file.exists("data/india_datacentres_public.csv")) {
         "documented dataset ZIP is missing a file")
 }
 
+# ---- district power interruptions (scripts/28, Prayas ESMI) ---------------------------
+chk(file.exists("data/district_power_interruptions.csv") && file.exists("data/esmi_monitor_power_interruptions.csv"), "ESMI interruption files missing")
+if (file.exists("data/district_power_interruptions.csv")) {
+  es <- read.csv("data/district_power_interruptions.csv", stringsAsFactors = FALSE)
+  chk(all(es$zone_uid %in% d$zone_uid) && !anyDuplicated(es$zone_uid), "ESMI districts not unique / not in the district layer")
+  chk(nrow(es) == H$esmi$districts && sum(!is.na(d$esmi_h_yr)) == nrow(es), "ESMI district count != headline / district layer")
+  chk(all(es$interruption_h_per_yr >= 0 & es$interruption_h_per_yr <= 8760), "ESMI hours outside 0-8760")
+}
+
 # ---- geometry and keys ----------------------------------------------------------
 chk(nrow(d) == 642, sprintf("districts: %d rows, expected 642", nrow(d)))
 chk(!anyDuplicated(d$zone_uid), "duplicate zone_uid")
@@ -108,7 +117,7 @@ if (requireNamespace("shiny", quietly = TRUE)) {
     chk(sum(dist_f()$dc_count_sel) == as.integer(gsub(",", "", output$vb_n)), "type filter: district count layer != facilities shown")
     session$setInputs(scope = "all", types = TYPES)
     chk(output$vb_n == format(H$n_all, big.mark = ",") && all(dist_f()$dc_count_sel == dist_f()$dc_count_all), "build-out count layer != dc_count_all")
-    for (o in c("dtab", "ftab", "ptab", "pstab", if (file.exists("data/india_datacentres_public.csv")) "srctab")) chk(nchar(output[[o]]) > 100, paste(o, "did not render"))
+    for (o in c("dtab", "ftab", "ptab", "pstab", "esmitab", if (file.exists("data/india_datacentres_public.csv")) "srctab")) chk(nchar(output[[o]]) > 100, paste(o, "did not render"))
   })
 }
 

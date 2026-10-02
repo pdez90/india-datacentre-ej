@@ -65,6 +65,10 @@ population-weighted mean, the population above 0.01 ug/m3 and GEMM attributable 
 scope (district-mean population-weighted increment: operating 0.0648 ug/m3, ~2,233 deaths/yr;
 stock plus pipeline 0.1880 ug/m3, ~6,507).
 
+**Power interruptions.** A tab with measured grid-supply interruption hours for the 78
+districts that have Prayas ESMI voltage monitors (2014-2019), with a table and CSV downloads
+(district and monitor level); two map layers show the same values.
+
 **Filters.** Scope, state and facility type (hyperscale, colocation, telecom, enterprise, government). All four value boxes and both tables respond.
 The facility-type filter applies to the points, the value boxes, the *Data centres (count)*
 layer and the district table's count; every other district layer, including the PM2.5
@@ -99,6 +103,8 @@ pipeline and the numbers in the interface cannot drift from the paper's tables.
 | `data/policy_sources.csv` | 140 | `data/state_dc_policies_sources.csv`: one row per state × claim with URL, verbatim passage and retrieval date |
 | `data/headline.json` | – | the numbers the interface text quotes (facility and district counts, anchors, TWh, CO2, kt, diesel share, policy counts), taken from `tab15_national.csv`, `tab15b_marginal_totals.csv`, `tab16b_emissions_points.csv`, `tab16_inmap_summary.txt` and `tab14_policy_burden.csv`; the diesel share is the paper's (SI S5) |
 | `data/india_datacentres_public.csv` | 340 | the sourced facility table (`scripts/24_public_inventory.R`); data dictionary in `DATA.md` |
+| `data/district_power_interruptions.csv` | 78 | `tab28_esmi_district_outages.csv` (`scripts/28_esmi_outages.py`): supply-interruption hours per year (minutes below 80 V, 2014-2019) from the Prayas ESMI monitors, per 2015 district, for all, urban and rural monitors; offered for download on the *Power interruptions* tab. Source: Prayas (Energy Group), ESMI, doi:10.7910/DVN/CLLZZM (non-commercial use with acknowledgement) |
+| `data/esmi_monitor_power_interruptions.csv` | 528 | the same, monitor by monitor (`esmi_monitor_outages.csv`) |
 | `data/india_datacentres_documented.zip` | – | the download offered on the Facilities tab: the facility table, `DATA.md`, `sources_and_archives.csv` (every cited URL, the facilities citing it, its archived copy and snapshot date) and a README with licence and citation |
 
 **How the inventory is built.** The backbone is the Data Center Map directory, whose India
