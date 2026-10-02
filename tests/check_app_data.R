@@ -26,7 +26,7 @@ need_d <- c("zone_uid", "dist_name", "state_name", "dc_count", "dc_count_all", "
             "pop_2020", "wealth_pct", "rwi_mean", "urban_share_2019", "share_scst_2019", "share_bpl_2019",
             "share_muslim_2019", "share_no_electricity_2019", "pm25_acag_local", "no2_surf", "o3_summer",
             "hot_days_peryr", "coal_mw", "dist_fossil_km", "bws_raw", "s1_water_ml", "s2_water_ml",
-            "diesel_nox_t", "emis_so2_t", "emis_nox_t", "emis_pm25_t")
+            "emis_so2_t", "emis_nox_t", "emis_pm25_t")
 chk(all(need_d %in% names(d)), paste("districts.geojson missing:", paste(setdiff(need_d, names(d)), collapse = ", ")))
 need_f <- c("name", "operator", "status", "dc_type", "dist_name", "state_name", "is_operating",
             "mw_it", "e_fac_gwh", "co2_kt", "scope1_ml", "scope2_ml",
@@ -37,13 +37,27 @@ chk(all(c("label", "dist_name", "state_name") %in% names(o)), "osm_check.geojson
 chk(all(c("state", "policy_name", "policy_year", "has_policy", "dc_count", "dc_count_all") %in% names(pol)), "policies.csv columns")
 chk(all(c("state", "claim", "url", "quote") %in% names(src)), "policy_sources.csv columns")
 
+# ---- public sourced facility table (optional; built by scripts/24_public_inventory.R) ----
+if (file.exists("data/india_datacentres_public.csv")) {
+  pub <- read.csv("data/india_datacentres_public.csv", stringsAsFactors = FALSE)
+  chk(nrow(pub) == nrow(f) && sum(pub$status == "operating") == sum(f$is_operating), "public table rows/status != facilities.geojson")
+  chk(all(grepl("^https?://", pub$source_url)), "public table: every row needs a source_url")
+  chk(!any(c("lon", "lat", "longitude", "latitude") %in% names(pub)), "public table must not carry coordinates")
+  chk(abs(sum(pub$mw_it_used_in_paper, na.rm = TRUE) - sum(f$mw_it[f$is_operating])) < 0.5, "public table MW != facilities.geojson operating MW")
+  chk(file.exists("data/india_datacentres_documented.zip"), "documented dataset ZIP missing (run scripts/22)")
+  if (file.exists("data/india_datacentres_documented.zip"))
+    chk(all(c("README.txt", "india_datacentres_public.csv", "DATA.md", "sources_and_archives.csv") %in% unzip("data/india_datacentres_documented.zip", list = TRUE)$Name),
+        "documented dataset ZIP is missing a file")
+}
+
 # ---- geometry and keys ----------------------------------------------------------
 chk(nrow(d) == 642, sprintf("districts: %d rows, expected 642", nrow(d)))
 chk(!anyDuplicated(d$zone_uid), "duplicate zone_uid")
 chk(!anyDuplicated(paste(d$dist_name, d$state_name)), "duplicate (district, state) key")
 chk(all(st_is_valid(d)), "invalid district geometries")
 chk(all(!st_is_empty(f)), "facility with empty geometry")
-chk(all(f$dc_type %in% c("hyperscale", "colocation", "telecom", "enterprise")), "unknown facility type")
+TYPES <- c("hyperscale", "colocation", "telecom", "enterprise", "government")
+chk(all(f$dc_type %in% TYPES), "unknown facility type")
 chk(all(f$status %in% c("operating", "construction", "announced")), "unknown facility status")
 chk(all((f$status == "operating") == f$is_operating), "status and is_operating disagree")
 chk(all(paste(f$dist_name, f$state_name) %in% paste(d$dist_name, d$state_name)), "facility district not in the district layer")
@@ -87,14 +101,14 @@ if (requireNamespace("shiny", quietly = TRUE)) {
   env <- new.env(); suppressPackageStartupMessages(sys.source(tf, envir = env))
   shiny::testServer(env$server, {
     session$setInputs(scope = "operating", ind = "Data centres (count)", show_fac = TRUE, show_plants = TRUE,
-                      show_osm = TRUE, state = "All India", types = c("hyperscale", "colocation", "telecom", "enterprise"))
-    chk(output$vb_n == "209", "operating facility count in value box")
-    chk(sum(dist_f()$dc_count_sel) == 209 && all(dist_f()$dc_count_sel == dist_f()$dc_count), "district count layer != dc_count with all types")
+                      show_osm = TRUE, state = "All India", types = TYPES)
+    chk(output$vb_n == format(H$n_operating, big.mark = ","), "operating facility count in value box")
+    chk(sum(dist_f()$dc_count_sel) == H$n_operating && all(dist_f()$dc_count_sel == dist_f()$dc_count), "district count layer != dc_count with all types")
     session$setInputs(types = "hyperscale")
     chk(sum(dist_f()$dc_count_sel) == as.integer(gsub(",", "", output$vb_n)), "type filter: district count layer != facilities shown")
-    session$setInputs(scope = "all", types = c("hyperscale", "colocation", "telecom", "enterprise"))
-    chk(output$vb_n == "297" && all(dist_f()$dc_count_sel == dist_f()$dc_count_all), "build-out count layer != dc_count_all")
-    for (o in c("dtab", "ftab", "ptab", "pstab")) chk(nchar(output[[o]]) > 100, paste(o, "did not render"))
+    session$setInputs(scope = "all", types = TYPES)
+    chk(output$vb_n == format(H$n_all, big.mark = ",") && all(dist_f()$dc_count_sel == dist_f()$dc_count_all), "build-out count layer != dc_count_all")
+    for (o in c("dtab", "ftab", "ptab", "pstab", if (file.exists("data/india_datacentres_public.csv")) "srctab")) chk(nchar(output[[o]]) > 100, paste(o, "did not render"))
   })
 }
 

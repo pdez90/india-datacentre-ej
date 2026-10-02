@@ -1,19 +1,19 @@
-state,policy_name,policy_year,capital_subsidy,stamp_duty_exemption,electricity_duty_exemption,land_incentive,single_window,eia_required,verify_note,dc_districts,dc_count,median_bws,share_dists_high_stress,median_gtd,mean_pm25,mean_no2_1e5,has_policy,dc_count_all
-Telangana,ICT Policy / Data Centre Policy,2016,no,yes,yes,yes,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),1,19,4.89,1,-1.04,31.3,3.57,TRUE,36
-Tamil Nadu,TN Data Centre Policy,2021,partial,yes,yes,yes,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),4,26,1.11,1,-0.95,27.5,2.54,TRUE,34
-Uttar Pradesh,UP Data Centre Policy,2021,yes,yes,yes,yes,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),3,18,9.3,1,12.86,89.9,8.15,TRUE,24
-West Bengal,Data Centre Policy,2021,no,yes,yes,no,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),2,8,0.22,0,3.02,59.6,5.27,TRUE,9
-Tripura,Tripura Data Center Policy-2021,2021,yes,no,partial,yes,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),1,1,0.22,0,1.81,61.6,3.42,TRUE,1
-Karnataka,Data Centre Policy (draft/It policy),2022,partial,partial,yes,partial,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),1,27,0.99,1,-1.04,30.6,3.98,TRUE,31
-Gujarat,IT/ITeS Policy (DC provisions),2022,yes,yes,yes,yes,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),1,9,6.25,1,14.16,45.7,5.17,TRUE,12
-Odisha,Data Centre Policy,2022,yes,yes,yes,yes,yes,no,verified 2026-09-01 (Invest Odisha + Cushman & Wakefield),1,2,0.43,1,1.96,39.6,3.88,TRUE,2
-Haryana,Data Centre Policy,2022,partial,yes,yes,yes,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),1,1,22.98,1,7.42,79.1,6.22,TRUE,3
-Maharashtra,IT-ITES Policy (data center provisions),2023,partial,yes,yes,yes,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),5,64,0.25,0.4,-1.74,44,5,TRUE,101
-Andhra Pradesh,Data Center Policy 4.0 (2024-2029),2024,yes,yes,no,partial,no,no,verified 2026-09-01 (G.O.Ms.No.6 ITE&C 14.11.2024; residual/post-split AP),1,1,1.23,1,-0.04,28.9,3.27,TRUE,7
-Bihar,IT Policy 2024 (data centre provisions),2024,yes,no,partial,partial,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),1,1,0.69,1,3.03,91.9,4.67,TRUE,1
-Rajasthan,Rajasthan Data Center Policy,2025,yes,yes,no,yes,no,no,verified 2026-09-01 (state PDF fetch-blocked; cross-checked Drishti IAS + PSU Watch),1,5,11.73,1,8.2,55.6,3.38,TRUE,6
-Delhi (NCT),none dedicated,,no,no,no,no,no,no,verified 2026-09-01 (no dedicated DC policy; see state_dc_policies_sources.csv),3,13,20.63,1,12.81,97,10.59,FALSE,13
-Kerala,none dedicated,,no,no,no,no,no,no,verified 2026-09-01 (no dedicated DC policy; see state_dc_policies_sources.csv),1,8,0.44,1,-1.75,23.7,2.07,FALSE,8
-Punjab,none dedicated,,no,no,no,no,no,no,verified 2026-09-01 (no dedicated DC policy; see state_dc_policies_sources.csv),2,3,5.88,0.5,12.69,66.4,4.99,FALSE,3
-Madhya Pradesh,none dedicated,,no,no,no,no,no,no,verified 2026-09-01 (no dedicated DC policy; see state_dc_policies_sources.csv),1,2,1.59,1,-1.04,33,3.15,FALSE,4
-Chhattisgarh,none dedicated,,no,no,no,no,no,no,verified 2026-09-01 (no dedicated DC policy; see state_dc_policies_sources.csv),1,1,1.02,1,-1.63,49.8,5.6,FALSE,2
+state,policy_name,policy_year,capital_subsidy,stamp_duty_exemption,electricity_duty_exemption,land_incentive,single_window,eia_required,verify_note,has_policy,dc_districts,dc_count,median_bws,share_dists_high_stress,median_gtd,mean_pm25,mean_no2_1e5,dc_count_all
+Telangana,ICT Policy / Data Centre Policy,2016,no,yes,yes,yes,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),TRUE,2,21,4.3450626133121,1,,31.9183359146118,3.34974037671794,38
+Tamil Nadu,TN Data Centre Policy,2021,partial,yes,yes,yes,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),TRUE,4,27,0.94395165900012,1,,26.8200702667236,2.58109147054291,36
+Tripura,Tripura Data Center Policy-2021,2021,yes,no,partial,yes,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),TRUE,1,1,0.2203886933017,0,,61.5596351623535,3.43060433922001,2
+Uttar Pradesh,UP Data Centre Policy,2021,yes,yes,yes,yes,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),TRUE,3,19,9.30367927590023,1,,89.8824615478516,7.8928911428972,26
+West Bengal,Data Centre Policy,2021,no,yes,yes,no,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),TRUE,2,10,0.222353881868983,0,,59.6001720428467,5.30978797276567,13
+Gujarat,IT/ITeS Policy (DC provisions),2022,yes,yes,yes,yes,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),TRUE,1,10,6.2463291,1,,45.7071533203125,5.4231909520763,14
+Haryana,Data Centre Policy,2022,partial,yes,yes,yes,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),TRUE,5,9,11.2315218192206,1,,67.2775085449219,5.47354091037099,11
+Karnataka,Data Centre Policy (draft/It policy),2022,partial,partial,yes,partial,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),TRUE,3,30,0.99011229944328,0.666666666666667,,29.1651242574056,3.16665206213738,32
+Odisha,Data Centre Policy,2022,yes,yes,yes,yes,yes,no,verified 2026-09-01 (Invest Odisha + Cushman & Wakefield),TRUE,1,4,0.434950904883599,1,,39.6450958251953,3.93713042367106,5
+Maharashtra,IT-ITES Policy (data center provisions),2023,partial,yes,yes,yes,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),TRUE,5,64,0.246370384643516,0.4,,44.0040992736817,4.81390670040193,101
+Andhra Pradesh,Data Center Policy 4.0 (2024-2029),2024,yes,yes,no,partial,no,no,verified 2026-09-01 (G.O.Ms.No.6 ITE&C 14.11.2024; residual/post-split AP),TRUE,1,1,1.2327789792821,1,,28.9009761810303,3.23285526881395,9
+Bihar,IT Policy 2024 (data centre provisions),2024,yes,no,partial,partial,yes,no,verified 2026-09-01 (primary/credible sources; see state_dc_policies_sources.csv),TRUE,1,3,0.68571924208283,1,,91.8784637451172,4.68815180220487,3
+Rajasthan,Rajasthan Data Center Policy,2025,yes,yes,no,yes,no,no,verified 2026-09-01 (state PDF fetch-blocked; cross-checked Drishti IAS + PSU Watch),TRUE,1,7,11.7323497658038,1,,55.5627365112305,3.34759403527509,7
+Chhattisgarh,none dedicated,,no,no,no,no,no,no,verified 2026-09-01 (no dedicated DC policy; see state_dc_policies_sources.csv),FALSE,2,2,0.823171244800166,1,,47.0939636230469,5.78577115484749,3
+Delhi (NCT),none dedicated,,no,no,no,no,no,no,verified 2026-09-01 (no dedicated DC policy; see state_dc_policies_sources.csv),FALSE,3,11,20.6306165462828,1,,96.9608357747397,10.1779222195543,11
+Kerala,none dedicated,,no,no,no,no,no,no,verified 2026-09-01 (no dedicated DC policy; see state_dc_policies_sources.csv),FALSE,3,9,0.4371433,1,,21.8245499928792,1.99455605819305,9
+Madhya Pradesh,none dedicated,,no,no,no,no,no,no,verified 2026-09-01 (no dedicated DC policy; see state_dc_policies_sources.csv),FALSE,2,3,2.56778842320872,1,,41.1639671325684,2.92589328914783,5
+Punjab,none dedicated,,no,no,no,no,no,no,verified 2026-09-01 (no dedicated DC policy; see state_dc_policies_sources.csv),FALSE,3,5,10.494063623878,1,,63.8680661519368,5.30479397944585,5

@@ -22,10 +22,10 @@ shiny::runApp()
 
 ## What's in the app
 
-**Two scopes, as in the paper.** The *operating inventory* (209 facilities in 31
-districts) is the basis of every result in the paper. The *stock-plus-pipeline* scenario
-adds the 50 under-construction and 38 announced facilities (297 in all, 37 districts) and
-re-allocates capacity to the build-out anchor. The sidebar switch changes the facility
+**Two scopes, as in the paper.** The *operating inventory* (246 facilities in 52
+districts; revised inventory v2, 30 September 2026) is the basis of every result in the paper.
+The *stock-plus-pipeline* scenario adds the 56 under-construction and 38 announced facilities
+(340 in all, 57 districts), sized at their reported build-out loads or the operating allocation. The sidebar switch changes the facility
 points, the value boxes, the district count layer and the PM2.5 increment layer together;
 the Scope 1 / Scope 2 chain layers are for the operating inventory. Pipeline facilities are
 drawn with a dark outline (dashed for announced) and lighter fill.
@@ -36,8 +36,9 @@ SO2, NOx and PM2.5) and the screened OpenStreetMap cross-check (black rings). Ho
 district gives a profile card; hovering a facility gives its type, status, reported and
 allocated capacity, electricity, carbon and both water terms.
 
-**The Scope 1 / Scope 2 chain.** Six layers trace one footprint across three geographies:
-Scope 1 on-site cooling water and backup-diesel NOx in the hosting districts; Scope 2 SO2,
+**The Scope 1 / Scope 2 chain.** Five layers trace one footprint across three geographies:
+Scope 1 on-site cooling water in the hosting districts (the backup-diesel NOx layer is
+withdrawn until the diesel estimate is rerun on the v2 inventory); Scope 2 SO2,
 NOx and PM2.5 mapped where they are physically released, at the plants; and the modelled
 PM2.5 increment where the concentration settles. Scope 2 *water* is charged to the consuming
 district rather than mapped to its source, because about a third of it is hydropower
@@ -45,7 +46,7 @@ reservoir evaporation and only the coal and gas fleet is geolocated; it uses ave
 water intensities and is an upper estimate.
 
 **District layers.** Data-centre count · PM2.5 increment from data centres (log scale) ·
-Scope 1/2 chain (six layers) · ambient PM2.5 · surface NO2 · summer ozone · extreme-heat
+Scope 1/2 chain (five layers) · ambient PM2.5 · surface NO2 · summer ozone · extreme-heat
 days · NFHS asset wealth (district percentile) · Relative Wealth Index (Chi et al. 2022) ·
 urban share · SC/ST share · below-poverty-line share · Muslim share · no-electricity share ·
 coal capacity · distance to nearest fossil plant · baseline water stress · population.
@@ -61,9 +62,10 @@ million Indians (1,460 kWh per capita, CEA FY2024-25); CO2 as a share of India's
 **Modelled exposure for both scopes.** Three InMAP layers: the operating field, the
 stock-plus-pipeline field and the increment the pipeline adds; the legend of each carries the
 population-weighted mean, the population above 0.01 ug/m3 and GEMM attributable deaths for that
-scope (operating 0.0585 ug/m3, ~1,976 deaths/yr; stock plus pipeline 0.1352 ug/m3, ~4,629).
+scope (district-mean population-weighted increment: operating 0.0648 ug/m3, ~2,233 deaths/yr;
+stock plus pipeline 0.1880 ug/m3, ~6,507).
 
-**Filters.** Scope, state and facility type. All four value boxes and both tables respond.
+**Filters.** Scope, state and facility type (hyperscale, colocation, telecom, enterprise, government). All four value boxes and both tables respond.
 The facility-type filter applies to the points, the value boxes, the *Data centres (count)*
 layer and the district table's count; every other district layer, including the PM2.5
 increment, is an all-type aggregate (it cannot be recomputed from facility rows) and is
@@ -83,34 +85,35 @@ the submission forms* below.
 
 ## Data provenance
 
-Everything in `data/` is written by `scripts/22_build_shiny_data.R` in the analysis
+Everything in `data/` is written by `scripts/22_build_shiny_data.py` in the analysis
 repository from the pipeline's outputs, so the app has no runtime dependency on the
 pipeline and the numbers in the interface cannot drift from the paper's tables.
 
 | File | Rows | Source |
 |---|---|---|
-| `data/districts.geojson` | 642 | 2015 district geography joined to the analysis layer (`analysis_district.csv`, both scopes' counts), the InMAP receiving field (`tab16_inmap_districts.csv`, both scopes), the InMAP source field aggregated to plant districts (`tab16b_emissions_points.csv`), facility Scope 1 and Scope 2 water (`tab15_facilities.csv`) and central-scenario backup-diesel NOx (`dcgrd_genset_district.csv`); geometry simplified to 0.01° |
-| `data/facilities.geojson` | 297 | `dc_current_inventory.csv` (stock plus pipeline) with status, reported IT load and coordinates; operating-scope allocations (`mw_it`, `e_fac_gwh`, `co2_kt`, `scope1_ml`, `scope2_ml`) for the 209 operating facilities and build-out allocations (`*_all`) for all 297, from `tab15_facilities.csv` in each scope |
-| `data/plants.geojson` | 321 | WRI Global Power Plant Database coal and gas plants that receive an allocation of the sector's marginal emissions, with the attributable tonnes (`tab16b_emissions_points.csv`) |
+| `data/districts.geojson` | 642 | 2015 district geography joined to the analysis layer (`analysis_district.csv`, both scopes' counts), the InMAP receiving field (`tab16_inmap_districts.csv`, both scopes), the InMAP source field aggregated to plant districts (`tab16b_emissions_points.csv`), facility Scope 1 and Scope 2 water (`tab15_facilities.csv`); geometry simplified to 0.01° |
+| `data/facilities.geojson` | 340 | `dc_current_inventory.csv` (stock plus pipeline) with `facility_id`, status, reported IT load and city-level coordinates; operating-scope allocations (`mw_it`, `e_fac_gwh`, `co2_kt`, `scope1_ml`, `scope2_ml`) for the 246 operating facilities and build-out allocations (`*_all`) for all 340, from `tab15_facilities.csv` in each scope |
+| `data/plants.geojson` | 321 | WRI Global Power Plant Database coal and gas plants that receive an allocation of the sector's marginal emissions, with the attributable tonnes for both scopes (`tab16b_emissions_points.csv`; `*_all` = stock plus pipeline) |
 | `data/osm_check.geojson` | 20 | OpenStreetMap cross-check: Overpass `telecom=data_center` + `building=data_center`, screened to records identifiable as data centres and to the study geography (50-km tolerance) |
 | `data/policies.csv` | 18 | `tab14_policy_burden.csv`: policy compilation joined to hosting-district burden, both scopes' facility counts |
 | `data/policy_sources.csv` | 140 | `data/state_dc_policies_sources.csv`: one row per state × claim with URL, verbatim passage and retrieval date |
-| `data/headline.json` | – | the numbers the interface text quotes (facility and district counts, anchors, TWh, CO2, kt, diesel share, policy counts), taken from `tab15_national.csv`, `tab15b_marginal.csv`, `tab16_inmap_summary.txt`, `dcgrd_genset_summary.csv` and `tab14_policy_burden.csv` |
+| `data/headline.json` | – | the numbers the interface text quotes (facility and district counts, anchors, TWh, CO2, kt, diesel share, policy counts), taken from `tab15_national.csv`, `tab15b_marginal_totals.csv`, `tab16b_emissions_points.csv`, `tab16_inmap_summary.txt` and `tab14_policy_burden.csv`; the diesel share is the paper's (SI S5) |
+| `data/india_datacentres_public.csv` | 340 | the sourced facility table (`scripts/24_public_inventory.R`); data dictionary in `DATA.md` |
+| `data/india_datacentres_documented.zip` | – | the download offered on the Facilities tab: the facility table, `DATA.md`, `sources_and_archives.csv` (every cited URL, the facilities citing it, its archived copy and snapshot date) and a README with licence and citation |
 
-**How the inventory is built.** Two sources are read entry by entry: the facility lists
-that India's fifteen colocation and hyperscale operator groups publish on their own
-websites (an operator census, 73 rows), and the DataCenterMap directory (326 entries, each
-page read for status and reported IT load). Where an operator's own list enumerates its
-buildings in a market, those rows replace the directory's rows for that operator and
-market. ATLAS (the open Global Data Center Map) and a screened OpenStreetMap query
-corroborate the inventory but add nothing to it. The paper's SI section S1 documents every
-step and every identity.
+**How the inventory is built.** The backbone is the Data Center Map directory, whose India
+listing is read entry by entry for status and reported IT load (213 rows). Three other kinds of
+record add facilities the directory misses: operators' own published facility lists (66 rows),
+a census of government data centres (32 rows) and operator, company, government or press
+records for sites first noticed in the cross-check (29 rows). The Atlas of Data Center Politics
+and a screened OpenStreetMap query are cross-checks only. `DATA.md` documents every step.
 
 **What the capacity numbers are.** Only a minority of facilities disclose IT load. Reported
-loads are held fixed; the rest is allocated by operator class (telecom 0.5, enterprise 1,
-colocation 3, hyperscale 10) and the commercial subset is scaled to a national anchor
-(1,800 MW of commercial IT load for the operating inventory, the build-out figure for the
-pipeline scenario). An individual facility's megawatts are an allocation, not a
+loads are held fixed; the rest is allocated by operator class (telecom 0.5, enterprise and
+government 1, colocation 3, hyperscale 10) and the commercial subset is scaled to a national
+anchor of 1,800 MW of commercial IT load (2,059 MW across the operating inventory). The
+pipeline scenario keeps that per-weight allocation and uses published build-out loads where
+they exist (6,302 MW). An individual facility's megawatts are an allocation, not a
 measurement; state and national aggregates are the meaningful quantities. The CO2 value
 box uses the average grid factor (the paper's scenario-table value); the paper's headline
 uses state marginal factors. Both appear on the About tab.

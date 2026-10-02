@@ -34,6 +34,10 @@ districts  <- sf::st_read("data/districts.geojson",  quiet = TRUE)
 facilities <- sf::st_read("data/facilities.geojson", quiet = TRUE)
 plants     <- sf::st_read("data/plants.geojson",     quiet = TRUE)
 osm_check  <- sf::st_read("data/osm_check.geojson",  quiet = TRUE)
+# Public, sourced facility table (scripts/24_public_inventory.R; data dictionary in DATA.md)
+PUB_CSV    <- "data/india_datacentres_public.csv"
+PUB_ZIP    <- "data/india_datacentres_documented.zip"   # table + data dictionary + every cited URL with its archived copy (scripts/22)
+pubtab     <- if (file.exists(PUB_CSV)) read.csv(PUB_CSV, stringsAsFactors = FALSE) else NULL
 policies   <- read.csv("data/policies.csv", stringsAsFactors = FALSE)
 pol_src    <- read.csv("data/policy_sources.csv", stringsAsFactors = FALSE)
 H          <- jsonlite::read_json("data/headline.json")
@@ -52,7 +56,6 @@ IND <- list(
   "PM2.5 increment added by the pipeline"= list(col="dpm25_added",pal="Purples", fmt=4, unit="ug/m3", log=TRUE, inmap="added"),
   # --- the Scope 1 / Scope 2 chain (operating inventory): consumed here, released there, breathed elsewhere
   "Scope 1 water: on-site cooling"       = list(col="s1_water_ml",  pal="Blues",   fmt=0, unit="ML/yr",  grp="chain"),
-  "Scope 1 air: backup-diesel NOx"       = list(col="diesel_nox_t", pal="Oranges", fmt=1, unit="t/yr",   grp="chain"),
   "Scope 2 water (charged to consumer)"  = list(col="s2_water_ml",  pal="Blues",   fmt=0, unit="ML/yr",  grp="chain"),
   "Scope 2 SO2 released at plants"       = list(col="emis_so2_t",   pal="YlOrRd",  fmt=0, unit="t/yr",   grp="chain", log=TRUE),
   "Scope 2 NOx released at plants"       = list(col="emis_nox_t",   pal="YlOrRd",  fmt=0, unit="t/yr",   grp="chain", log=TRUE),
@@ -74,7 +77,7 @@ IND <- list(
   "Population (2020)"                    = list(col="pop_2020",                  pal="Purples",fmt=0, unit="people")
 )
 
-TYPE_COL   <- c(hyperscale="#b2182b", colocation="#2166ac", telecom="#66a61e", enterprise="#e6ab02")
+TYPE_COL   <- c(hyperscale="#b2182b", colocation="#2166ac", telecom="#66a61e", enterprise="#e6ab02", government="#6a3d9a")
 STATUS_LAB <- c(operating="Operating", construction="Under construction", announced="Announced")
 
 fmtnum <- function(x, d = 0) ifelse(is.na(x), "n/a", formatC(x, format = "f", digits = d, big.mark = ","))
@@ -152,7 +155,7 @@ ui <- page_sidebar(
       H$n_operating, " facilities, ", H$hosting_districts_operating, " districts) is the basis of every ",
       "result in the paper. The stock-plus-pipeline scenario adds ", H$n_construction,
       " under-construction and ", H$n_announced, " announced facilities (", H$n_all,
-      " in all) and re-allocates capacity to the build-out anchor; it is a scenario, ",
+      " in all), sized at their reported build-out loads or the operating allocation; it is a scenario, ",
       "not a count of what exists.")),
     helpText(tags$small(
       "District layers are 2015-geography district means. The PM2.5 increment is the ",
@@ -184,7 +187,24 @@ ui <- page_sidebar(
   navset_card_tab(
     nav_panel("Map",        leafletOutput("map", height = "620px")),
     nav_panel("Districts",  DTOutput("dtab")),
-    nav_panel("Facilities", DTOutput("ftab")),
+    nav_panel("Facilities",
+      div(class = "p-3",
+        p("Every facility in the inventory, with the capacity the paper uses. ",
+          "The sourced table below gives each facility's source links, every published capacity figure we ",
+          "found and which one we used, and the cross-check against the ",
+          tags$a(href = "https://www.atlasofdatacenterpolitics.com/", target = "_blank", "Atlas of Data Center Politics"), ". ",
+          "Location is published at city and district level only. Column definitions and methods are in ",
+          tags$a(href = paste0(REPO_URL, "/blob/main/DATA.md"), target = "_blank", "DATA.md"), ". ",
+          "The facility table is licensed ", tags$a(href = "https://creativecommons.org/licenses/by-nc/4.0/", target = "_blank", "CC BY-NC 4.0"),
+          " (credit required; no commercial use without permission)."),
+        p("Every source is linked, and an archived copy (Internet Archive or archive.today) is given wherever the ",
+          "site allows one, so each row can be checked even if the original page changes. The documented ",
+          "dataset bundles the table, its data dictionary, a list of every cited URL with its archived copy and ",
+          "snapshot date, and a README with the licence and how to cite it."),
+        if (file.exists(PUB_ZIP)) downloadButton("dl_bundle", "Download the documented dataset (ZIP)", class = "btn-sm btn-primary mb-3 me-2"),
+        if (!is.null(pubtab)) downloadButton("dl_public", "Facility table only (CSV)", class = "btn-sm mb-3"),
+        DTOutput("ftab"),
+        if (!is.null(pubtab)) tagList(h5(class = "mt-4", "Sources and capacity notes, facility by facility"), DTOutput("srctab")))),
     nav_panel("State policies",
       div(class = "p-3",
         p("State incentive policies for data centres, compiled from state notifications and ",
@@ -202,8 +222,8 @@ ui <- page_sidebar(
         h5(class = "mt-4", "Sources, claim by claim"), DTOutput("pstab"))),
     nav_panel("Submit a data centre",
       form_panel(FORM_DC_URL, "Tell us about a data centre we have missed",
-        paste0("The inventory is built from operator facility lists and a curated directory, checked ",
-               "against two independent sources (", H$n_operating, " operating facilities; ",
+        paste0("The inventory is built from operator facility lists and a curated directory; every ",
+               "facility carries a source link, and the Facilities tab shows how far each was verified (", H$n_operating, " operating facilities; ",
                H$n_all, " including the pipeline). Facilities open, close and change hands faster ",
                "than any single source records, so we welcome additions and corrections. Please tell ",
                "us how you know about the facility: entries are verified against the source before ",
@@ -229,14 +249,16 @@ ui <- page_sidebar(
           "electricity causes appears in another."),
 
         h4("Where the facilities come from"),
-        p("The inventory is assembled from two sources, each read entry by entry: the facility ",
-          "lists that India's colocation and hyperscale operators publish on their own websites ",
-          "(an operator census), and the DataCenterMap commercial directory, every page of which ",
-          "was read for status and reported IT load. Where an operator's own list enumerates its ",
-          "buildings in a market, those rows replace the directory's rows for that operator and ",
-          "market. Two further sources corroborate the inventory without adding to it: the open ",
-          tags$a(href = "https://github.com/Ringmast4r/Global-Data-Center-Map", target = "_blank",
-                 "Global Data Center Map"), " (ATLAS) and a screened OpenStreetMap query."),
+        p("The backbone of the inventory is the Data Center Map directory (datacentermap.com), whose ",
+          "India listing was read entry by entry for status and reported IT load; every facility it lists ",
+          "is kept unless it is closed or a second listing of the same building. Three other kinds of record ",
+          "add facilities the directory misses: the facility lists that operators publish on their own websites ",
+          "(an operator census), a census of government data centres (NIC and NICSI national data centres, ",
+          "UIDAI, ISRO, railways and the State Data Centres), and operator, company, government or press records ",
+          "for sites first noticed in a cross-check. The ",
+          tags$a(href = "https://www.atlasofdatacenterpolitics.com/", target = "_blank", "Atlas of Data Center Politics"),
+          " and a screened OpenStreetMap query are used only as cross-checks, never as the source of a row. ",
+          "Every facility carries a source link; the Facilities tab gives them, with how each was verified."),
         p(sprintf(paste0("The result is %d operating facilities in %d districts, and %d facilities in %d ",
                          "districts once the %d under-construction and %d announced facilities are added. "),
                   H$n_operating, H$hosting_districts_operating, H$n_all, H$hosting_districts_all,
@@ -257,12 +279,13 @@ ui <- page_sidebar(
         h4("What the capacity numbers are"),
         p(sprintf(paste0("Only a minority of facilities disclose their IT load. Reported loads are held ",
                          "fixed, and the remaining capacity is allocated: each facility gets a relative ",
-                         "weight by operator class (telecom 0.5, enterprise 1, colocation 3, hyperscale ",
+                         "weight by operator class (telecom 0.5, enterprise and government 1, colocation 3, hyperscale ",
                          "10) and the commercial subset is scaled to a national anchor of %s MW of ",
                          "commercial IT load, giving %s MW across the operating inventory. "),
                   fmtnum(H$anchor_commercial_mw), fmtnum(H$mw_operating)),
-          "Under the stock-plus-pipeline scenario the anchor is the build-out figure and the ",
-          sprintf("inventory totals %s MW. ", fmtnum(H$mw_all)),
+          "Under the stock-plus-pipeline scenario, facilities that publish a build-out load keep it and the ",
+          "rest are sized at the same per-weight allocation as the operating inventory, ",
+          sprintf("giving %s MW. ", fmtnum(H$mw_all)),
           tags$b("An individual facility's megawatt figure is therefore an allocation, not a ",
                  "measurement"), "; treat state and national aggregates as the meaningful quantities."),
         p(sprintf(paste0("The operating inventory draws about %s TWh per year, %s%% of national ",
@@ -274,13 +297,14 @@ ui <- page_sidebar(
                   fmt1(H$so2_kt_operating), fmt1(H$nox_kt_operating), fmt1(H$pm25_kt_operating))),
 
         h4("Following one burden through the chain"),
-        p("Six layers, grouped under Scope 1 and Scope 2, let you watch the sector's footprint ",
+        p("Five layers, grouped under Scope 1 and Scope 2, let you watch the sector's footprint ",
           "move across the map. ", tags$b("Scope 1"), " is what happens at the facility: cooling ",
-          "water drawn on site, and the nitrogen oxides from backup diesel generators, the one air ",
-          "emission that is not displaced. The diesel layer is the paper's central scenario, about ",
-          sprintf("%s%% of the sector's grid-attributable NOx, emitted at ground level in the hosting ",
-                  fmt1(H$diesel_nox_pct_central)),
-          "districts. ", tags$b("Scope 2 SO2, NOx and PM2.5"), " are the emissions the sector's ",
+          "water drawn on site. Backup diesel generators are the other Scope 1 burden, and the one air ",
+          "emission that is not displaced: the paper puts their nitrogen oxides at ",
+          sprintf("%s%% (central about %s%%) of the sector's grid-attributable NOx, emitted at ground level in the hosting ",
+                  H$diesel_nox_pct_range, fmt1(H$diesel_nox_pct_central)),
+          "districts. That estimate has not yet been rerun on the revised inventory, so it is not mapped here. ",
+          tags$b("Scope 2 SO2, NOx and PM2.5"), " are the emissions the sector's ",
           "electricity causes, mapped where they are physically released, at the ",
           sprintf("%d coal and gas plants that serve the load, across %d districts. ",
                   H$plants, H$emission_districts),
@@ -536,14 +560,14 @@ server <- function(input, output, session) {
       select(any_of(c("dist_name", "state_name", cnt, "pop_2020", "wealth_pct", "rwi_mean",
                       "urban_share_2019", "share_scst_2019", "share_bpl_2019",
                       "pm25_acag_local", "no2_surf", "coal_mw", "bws_raw", dpc,
-                      "s1_water_ml", "diesel_nox_t", "emis_so2_t"))) |>
+                      "s1_water_ml", "emis_so2_t"))) |>
       rename(data_centres = all_of(cnt), pm25_increment = all_of(dpc)) |>
       arrange(desc(data_centres))
     datatable(d, rownames = FALSE, filter = "top", extensions = "Buttons",
               options = list(pageLength = 20, dom = "Bfrtip", buttons = c("csv", "excel"), scrollX = TRUE)) |>
       formatRound(c("pop_2020", "coal_mw", "s1_water_ml", "emis_so2_t"), 0) |>
       formatRound(c("wealth_pct", "rwi_mean", "urban_share_2019", "share_scst_2019", "share_bpl_2019",
-                    "pm25_acag_local", "no2_surf", "bws_raw", "diesel_nox_t"), 2) |>
+                    "pm25_acag_local", "no2_surf", "bws_raw"), 2) |>
       formatRound("pm25_increment", 4)
   })
 
@@ -559,6 +583,33 @@ server <- function(input, output, session) {
               options = list(pageLength = 20, dom = "Bfrtip", buttons = c("csv", "excel"), scrollX = TRUE)) |>
       formatRound(c("mw_reported", "mw_allocated", "electricity_gwh", "co2_kt",
                     "onsite_water_ml", "electricity_water_ml"), 2)
+  })
+
+  output$dl_bundle <- downloadHandler(
+    filename = function() "india_datacentres_documented.zip",
+    content  = function(file) file.copy(PUB_ZIP, file),
+    contentType = "application/zip")
+
+  output$dl_public <- downloadHandler(
+    filename = function() "india_datacentres_public.csv",
+    content  = function(file) file.copy(PUB_CSV, file))
+
+  output$srctab <- renderDT({
+    req(pubtab)
+    s <- pubtab |>
+      transmute(ID = facility_id, Facility = facility_name, Operator = operator, Status = status,
+                City = city, District = district_2015,
+                `Reported IT MW (current)` = mw_it_reported_current, `Reported IT MW (build-out)` = mw_it_reported_buildout,
+                `What the MW figure is` = mw_basis, `Capacity note` = mw_flag,
+                `IT MW used in paper` = mw_it_used_in_paper, `How MW was set` = mw_method,
+                Source = safe_link(source_url), `Source (archived)` = safe_link(source_url_archive),
+                `Second source` = safe_link(source_url_2), `Second source (archived)` = safe_link(source_url_2_archive),
+                Verification = source_verification, Confidence = confidence, `Open issue` = open_issue,
+                `Atlas of Data Center Politics` = ifelse(adp_match == "none", "not in Atlas", paste0(adp_campus_name, " (", adp_size_bucket, ")")))
+    datatable(s, rownames = FALSE, filter = "top",
+              escape = -which(names(s) %in% c("Source", "Source (archived)", "Second source", "Second source (archived)")),
+              extensions = "Buttons",
+              options = list(pageLength = 15, dom = "Bfrtip", buttons = c("csv", "excel"), scrollX = TRUE))
   })
 
   output$ptab <- renderDT({
