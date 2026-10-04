@@ -68,7 +68,7 @@ if (file.exists("data/district_power_interruptions.csv")) {
 }
 
 # ---- geometry and keys ----------------------------------------------------------
-chk(nrow(d) == 642, sprintf("districts: %d rows, expected 642", nrow(d)))
+chk(nrow(d) == 641, sprintf("districts: %d rows, expected 641 (Census 2011 polygons joined to NFHS identifiers)", nrow(d)))
 chk(!anyDuplicated(d$zone_uid), "duplicate zone_uid")
 chk(!anyDuplicated(paste(d$dist_name, d$state_name)), "duplicate (district, state) key")
 chk(all(st_is_valid(d)), "invalid district geometries")
