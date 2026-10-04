@@ -26,7 +26,7 @@ need_d <- c("zone_uid", "dist_name", "state_name", "dc_count", "dc_count_all", "
             "pop_2020", "wealth_pct", "rwi_mean", "urban_share_2019", "share_scst_2019", "share_bpl_2019",
             "share_muslim_2019", "share_no_electricity_2019", "pm25_acag_local", "no2_surf", "o3_summer",
             "hot_days_peryr", "coal_mw", "dist_fossil_km", "bws_raw", "s1_water_ml", "s2_water_ml",
-            "emis_so2_t", "emis_nox_t", "emis_pm25_t")
+            "diesel_nox_t", "emis_so2_t", "emis_nox_t", "emis_pm25_t")
 chk(all(need_d %in% names(d)), paste("districts.geojson missing:", paste(setdiff(need_d, names(d)), collapse = ", ")))
 need_f <- c("name", "operator", "status", "dc_type", "dist_name", "state_name", "is_operating",
             "mw_it", "e_fac_gwh", "co2_kt", "scope1_ml", "scope2_ml",
@@ -52,6 +52,14 @@ if (file.exists("data/india_datacentres_public.csv")) {
 
 # ---- district power interruptions (scripts/28, Prayas ESMI) ---------------------------
 chk(file.exists("data/district_power_interruptions.csv") && file.exists("data/esmi_monitor_power_interruptions.csv"), "ESMI interruption files missing")
+chk(file.exists("data/power_interruptions_backup_diesel.csv") && file.exists("data/emission_factors.csv"), "download tables from scripts/30 missing")
+if (file.exists("data/power_interruptions_backup_diesel.csv")) {
+  pd <- read.csv("data/power_interruptions_backup_diesel.csv", stringsAsFactors = FALSE)
+  chk(all(c("district", "state", "operating_facilities", "outage_hours_tier", "outage_hours_used_O_d", "diesel_nox_t_central", "notes") %in% names(pd)), "backup-diesel table columns")
+  chk(sum(pd$district != "ALL HOSTING DISTRICTS") == H$hosting_districts_operating, "backup-diesel table: one row per hosting district")
+  ef <- read.csv("data/emission_factors.csv", stringsAsFactors = FALSE)
+  chk(all(c("factor", "category", "applies_to", "level", "value", "unit", "source", "how_used", "script") %in% names(ef)) && nrow(ef) > 100, "emission-factors table columns")
+}
 if (file.exists("data/district_power_interruptions.csv")) {
   es <- read.csv("data/district_power_interruptions.csv", stringsAsFactors = FALSE)
   chk(all(es$zone_uid %in% d$zone_uid) && !anyDuplicated(es$zone_uid), "ESMI districts not unique / not in the district layer")

@@ -39,6 +39,8 @@ PUB_CSV    <- "data/india_datacentres_public.csv"
 PUB_ZIP    <- "data/india_datacentres_documented.zip"
 ESMI_CSV   <- "data/district_power_interruptions.csv"        # district supply-interruption hours (scripts/28, Prayas ESMI)
 ESMI_MON   <- "data/esmi_monitor_power_interruptions.csv"    # the same, monitor by monitor
+DIESEL_CSV <- "data/power_interruptions_backup_diesel.csv"   # hosting districts: interruption hours -> backup-diesel inputs and results (scripts/30)
+EF_CSV     <- "data/emission_factors.csv"                    # every emission factor and intensity used, with source and use (scripts/30)
 esmi_d     <- if (file.exists(ESMI_CSV)) read.csv(ESMI_CSV, stringsAsFactors = FALSE) else NULL   # table + data dictionary + every cited URL with its archived copy (scripts/22)
 pubtab     <- if (file.exists(PUB_CSV)) read.csv(PUB_CSV, stringsAsFactors = FALSE) else NULL
 policies   <- read.csv("data/policies.csv", stringsAsFactors = FALSE)
@@ -59,6 +61,7 @@ IND <- list(
   "PM2.5 increment added by the pipeline"= list(col="dpm25_added",pal="Purples", fmt=4, unit="ug/m3", log=TRUE, inmap="added"),
   # --- the Scope 1 / Scope 2 chain (operating inventory): consumed here, released there, breathed elsewhere
   "Scope 1 water: on-site cooling"       = list(col="s1_water_ml",  pal="Blues",   fmt=0, unit="ML/yr",  grp="chain"),
+  "Scope 1 air: backup-diesel NOx"       = list(col="diesel_nox_t", pal="Oranges", fmt=1, unit="t/yr",   grp="chain"),
   "Scope 2 water (charged to consumer)"  = list(col="s2_water_ml",  pal="Blues",   fmt=0, unit="ML/yr",  grp="chain"),
   "Scope 2 SO2 released at plants"       = list(col="emis_so2_t",   pal="YlOrRd",  fmt=0, unit="t/yr",   grp="chain", log=TRUE),
   "Scope 2 NOx released at plants"       = list(col="emis_nox_t",   pal="YlOrRd",  fmt=0, unit="t/yr",   grp="chain", log=TRUE),
@@ -241,9 +244,8 @@ ui <- page_sidebar(
                          "the paper uses them to bound backup-diesel emissions (SI section S5)."),
                   H$esmi$hosting_districts, fmtnum(H$esmi$hosting_median_h), fmtnum(H$esmi$nonhosting_urban_median_h))),
         p(tags$small(
-          "Districts are in the 2015 survey geography; newer districts are pooled into their 2015 parent ",
-          "(Hapur into Ghaziabad, Palghar into Thane, Salcete into South Goa) and Chennai and Hyderabad monitors ",
-          "are placed in Kancheepuram and Rangareddy, as the facilities are. Monitors with fewer than 30 recorded ",
+          "Districts are the Census 2011 geography used throughout; newer districts are pooled into their 2011 parent ",
+          "(Hapur into Ghaziabad, Palghar into Thane, Salcete into South Goa). Monitors with fewer than 30 recorded ",
           "days are listed but not used. A district with few monitors, or monitors on a single feeder, may not ",
           "represent the whole district. Data centres usually take supply on dedicated high-tension feeders, ",
           "which are more reliable than the domestic connections most monitors sit on. ",
@@ -253,7 +255,12 @@ ui <- page_sidebar(
           tags$em("Power interruptions (ESMI)"), " show the same values.")),
         if (!is.null(esmi_d)) tagList(
           downloadButton("dl_esmi", "Download district interruption hours (CSV)", class = "btn-sm btn-primary mb-3 me-2"),
-          downloadButton("dl_esmi_mon", "Monitor by monitor (CSV)", class = "btn-sm mb-3"),
+          downloadButton("dl_esmi_mon", "Monitor by monitor (CSV)", class = "btn-sm mb-3 me-2"),
+          if (file.exists(DIESEL_CSV)) downloadButton("dl_diesel", "Hosting districts: interruption hours and backup diesel (CSV)", class = "btn-sm mb-3"),
+          if (file.exists(DIESEL_CSV)) p(tags$small("The third file has one row per district with an operating data centre: its ESMI monitors and measured hours, ",
+            "which outage-hour value the backup-diesel model used and why (measured in the district, or the state or national urban median where the district has no monitor), ",
+            "and the resulting generator hours, diesel electricity and NOx / PM2.5 at the paper's central scenario (40% of measured interruption hours plus 100 hours of testing). ",
+            "A README with definitions and sources is included in the documented dataset.")),
           DTOutput("esmitab")))),
     nav_panel("Submit a data centre",
       form_panel(FORM_DC_URL, "Tell us about a data centre we have missed",
@@ -331,14 +338,18 @@ ui <- page_sidebar(
           sprintf("Marginal SO2, NOx and primary PM2.5 are %s, %s and %s kt per year.",
                   fmt1(H$so2_kt_operating), fmt1(H$nox_kt_operating), fmt1(H$pm25_kt_operating))),
 
+        if (file.exists(EF_CSV)) p(downloadButton("dl_ef", "Download every emission factor used (CSV)", class = "btn-sm btn-primary me-2"),
+          tags$small("State marginal emission factors (Sengupta et al. 2022, flat-load weighted), the average grid CO2 factor, PUE, utilisation and water intensities, ",
+                     "the gas/coal split and stack heights used to place emissions at plants, and the backup-diesel factors: one row per factor and level, with unit, source, how it is used and the script.")),
         h4("Following one burden through the chain"),
-        p("Five layers, grouped under Scope 1 and Scope 2, let you watch the sector's footprint ",
+        p("Six layers, grouped under Scope 1 and Scope 2, let you watch the sector's footprint ",
           "move across the map. ", tags$b("Scope 1"), " is what happens at the facility: cooling ",
-          "water drawn on site. Backup diesel generators are the other Scope 1 burden, and the one air ",
-          "emission that is not displaced: the paper puts their nitrogen oxides at ",
-          sprintf("%s%% (central about %s%%) of the sector's grid-attributable NOx, emitted at ground level in the hosting ",
-                  H$diesel_nox_pct_range, fmt1(H$diesel_nox_pct_central)),
-          "districts. That estimate has not yet been rerun on the revised inventory, so it is not mapped here. ",
+          "water drawn on site, and the nitrogen oxides from backup diesel generators, the one air ",
+          "emission that is not displaced. The diesel layer is the paper's central scenario (measured district ",
+          "supply interruptions from the Power interruptions tab, plus 100 hours of testing a year), about ",
+          sprintf("%s%% of the sector's grid-attributable NOx (%s%% across the scenarios), emitted at ground level in the hosting ",
+                  fmt1(H$diesel_nox_pct_central), H$diesel_nox_pct_range),
+          "districts. ",
           tags$b("Scope 2 SO2, NOx and PM2.5"), " are the emissions the sector's ",
           "electricity causes, mapped where they are physically released, at the ",
           sprintf("%d coal and gas plants that serve the load, across %d districts. ",
@@ -596,14 +607,14 @@ server <- function(input, output, session) {
       select(any_of(c("dist_name", "state_name", cnt, "pop_2020", "wealth_pct", "rwi_mean",
                       "urban_share_2019", "share_scst_2019", "share_bpl_2019",
                       "pm25_acag_local", "no2_surf", "coal_mw", "bws_raw", dpc,
-                      "s1_water_ml", "emis_so2_t", "esmi_h_yr"))) |>
+                      "s1_water_ml", "diesel_nox_t", "emis_so2_t", "esmi_h_yr"))) |>
       rename(data_centres = all_of(cnt), pm25_increment = all_of(dpc)) |>
       arrange(desc(data_centres))
     datatable(d, rownames = FALSE, filter = "top", extensions = "Buttons",
               options = list(pageLength = 20, dom = "Bfrtip", buttons = c("csv", "excel"), scrollX = TRUE)) |>
       formatRound(c("pop_2020", "coal_mw", "s1_water_ml", "emis_so2_t", "esmi_h_yr"), 0) |>
       formatRound(c("wealth_pct", "rwi_mean", "urban_share_2019", "share_scst_2019", "share_bpl_2019",
-                    "pm25_acag_local", "no2_surf", "bws_raw"), 2) |>
+                    "pm25_acag_local", "no2_surf", "bws_raw", "diesel_nox_t"), 2) |>
       formatRound("pm25_increment", 4)
   })
 
@@ -632,6 +643,12 @@ server <- function(input, output, session) {
   output$dl_esmi_mon <- downloadHandler(
     filename = function() "india_esmi_monitor_power_interruptions.csv",
     content  = function(file) file.copy(ESMI_MON, file))
+  output$dl_diesel <- downloadHandler(
+    filename = function() "india_datacentres_power_interruptions_backup_diesel.csv",
+    content  = function(file) file.copy(DIESEL_CSV, file))
+  output$dl_ef <- downloadHandler(
+    filename = function() "india_datacentres_emission_factors.csv",
+    content  = function(file) file.copy(EF_CSV, file))
 
   output$esmitab <- renderDT({
     req(esmi_d)

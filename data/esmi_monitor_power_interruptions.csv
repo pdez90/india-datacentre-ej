@@ -7,6 +7,7 @@ Nandamuri Nagar- Anantapur [Offline],Anantpur,Andhra Pradesh,District Headquarte
 Kovvur-East Godavari,East Godavari,Andhra Pradesh,Other Municipal Area,Domestic,True,DIST_0545,East Godavari,Andhra Pradesh,2016-02-02,2018-05-29,341,489480,123592,2211.9,True
 Razole Village,East Godavari,Andhra Pradesh,Gram Panchayat,Domestic,False,DIST_0545,East Godavari,Andhra Pradesh,2016-03-06,2016-12-06,242,346680,28456,719.0,True
 Ameerpeth- Hyderabad,Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2015-01-06,2019-12-31,1536,1948200,27201,122.3,True
+Banjara hills Hyderabad,Hyderabad,Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2017-06-02,2019-12-31,942,1101000,6134,48.8,True
 Boiguda- Hyderabad [Offline],Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2015-12-09,2018-01-31,501,646800,48507,657.0,True
 Gachibowli - Hyderabad,Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2015-11-29,2019-11-26,1276,1774320,27376,135.2,True
 Kakatiya Nagar- Hyderabad,Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2014-11-05,2019-12-31,1843,2388120,51582,189.2,True
@@ -20,7 +21,6 @@ VidyaNagar- Hyderabad [Offline],Hyderabad,Andhra Pradesh/Telangana,State Capital
 Vijay Nagar- Hyderabad,Hyderabad,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0536,Hyderabad,Andhra Pradesh,2014-10-30,2019-12-31,1859,2435640,27112,97.5,True
 Bodireddypally-Prakasam,Prakasam,Andhra Pradesh,Gram Panchayat,Domestic,False,DIST_0549,Prakasam,Andhra Pradesh,2016-02-19,2019-12-31,1331,1647840,348230,1851.2,True
 Gollapalle-Prakasam [Offline],Prakasam,Andhra Pradesh,Gram Panchayat,Agriculture,False,DIST_0549,Prakasam,Andhra Pradesh,2016-02-10,2018-02-03,93,110340,12656,1004.8,True
-Banjara hills Hyderabad,Hyderabad,Telangana,State Capital,Domestic,True,DIST_0537,Rangareddy,Andhra Pradesh,2017-06-02,2019-12-31,942,1101000,6134,48.8,True
 Meerpet -Hyderabad,Rangareddy,Andhra Pradesh/Telangana,State Capital,Domestic,True,DIST_0537,Rangareddy,Andhra Pradesh,2015-10-10,2019-02-18,533,760620,19768,227.7,True
 Jangaon- Warangal,Warangal,Telangana,Other Municipal Area,Non Domestic,True,DIST_0540,Warangal,Andhra Pradesh,2015-09-21,2019-12-31,1528,1958280,47837,214.0,True
 Vanaparty -Warangal [Offline],Warangal,Telangana,District Headquarters,Domestic,True,DIST_0540,Warangal,Andhra Pradesh,2015-10-23,2018-08-25,827,1187280,73729,544.0,True
@@ -291,6 +291,11 @@ Parai-Udaipur,Udaipur,Rajasthan,Gram Panchayat,Non Domestic,False,DIST_0130,Udai
 Ram Nagar-Udaipur [Offline],Udaipur,Rajasthan,District Headquarters,Domestic,True,DIST_0130,Udaipur,Rajasthan,2016-06-12,2016-09-05,86,122880,3503,249.7,True
 Thana- Udaipur [Offline],Udaipur,Rajasthan,Gram Panchayat,Agriculture,False,DIST_0130,Udaipur,Rajasthan,2016-06-12,2017-04-16,309,444780,74126,1459.9,True
 Ziniret Chowk-Udaipur [Offline],Udaipur,Rajasthan,District Headquarters,Domestic,True,DIST_0130,Udaipur,Rajasthan,2016-06-21,2016-12-02,159,225120,2943,114.5,True
+Gopalapuram- Chennai,Chennai,Tamil Nadu,State Capital,Domestic,True,DIST_0603,Chennai,Tamil Nadu,2014-12-16,2019-11-26,1411,1814698,23344,112.7,True
+Netaji Nagar- Chennai,Chennai,Tamil Nadu,State Capital,Domestic,True,DIST_0603,Chennai,Tamil Nadu,2016-02-15,2019-09-11,1213,1675680,6162,32.2,True
+Prithvi Avenue- Chennai,Chennai,Tamil Nadu,State Capital,Domestic,True,DIST_0603,Chennai,Tamil Nadu,2016-05-20,2019-12-31,1247,1532640,9088,51.9,True
+Retteri Chennai,Chennai,Tamil Nadu,District Headquarters,Domestic,True,DIST_0603,Chennai,Tamil Nadu,2018-01-15,2018-06-15,136,191640,1330,60.8,True
+Spurtank Road- Chennai [Offline],Chennai,Tamil Nadu,State Capital,Domestic,True,DIST_0603,Chennai,Tamil Nadu,2014-11-30,2015-04-21,128,184080,8484,403.7,True
 Agri road Chidambaram,Cuddalore,Tamil Nadu,Other Municipal Area,Domestic,True,DIST_0617,Cuddalore,Tamil Nadu,2018-04-28,2019-12-05,541,622920,14400,202.5,True
 Gandhi Nagar  Semmandalam,Cuddalore,Tamil Nadu,District Headquarters,Domestic,True,DIST_0617,Cuddalore,Tamil Nadu,2018-01-15,2019-12-05,111,149580,4488,262.8,True
 Kuthappakkam Cuddalore,Cuddalore,Tamil Nadu,Other Municipal Area,Domestic,True,DIST_0617,Cuddalore,Tamil Nadu,2018-04-28,2018-07-08,60,85200,2685,276.1,True
@@ -305,11 +310,6 @@ VSR Nagar Chidambaram,Cuddalore,Tamil Nadu,Other Municipal Area,Domestic,True,DI
 West cross street Chidambaram,Cuddalore,Tamil Nadu,Other Municipal Area,Non Domestic,True,DIST_0617,Cuddalore,Tamil Nadu,2018-02-26,2019-12-05,402,456780,195351,3746.4,True
 Alandur- Chennai,Kancheepuram,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2014-10-29,2019-12-31,1731,2235420,52240,204.7,True
 Chitlapakkam Chennai,Kancheepuram,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2017-12-14,2018-10-20,268,379500,3808,87.9,True
-Gopalapuram- Chennai,Chennai,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2014-12-16,2019-11-26,1411,1814698,23344,112.7,True
-Netaji Nagar- Chennai,Chennai,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2016-02-15,2019-09-11,1213,1675680,6162,32.2,True
-Prithvi Avenue- Chennai,Chennai,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2016-05-20,2019-12-31,1247,1532640,9088,51.9,True
-Retteri Chennai,Chennai,Tamil Nadu,District Headquarters,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2018-01-15,2018-06-15,136,191640,1330,60.8,True
-Spurtank Road- Chennai [Offline],Chennai,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2014-11-30,2015-04-21,128,184080,8484,403.7,True
 T Nagar Chennai,Kancheepuram,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2017-12-14,2019-09-26,611,754800,2863,33.2,True
 Velachery Chennai,Kancheepuram,Tamil Nadu,State Capital,Domestic,True,DIST_0604,Kancheepuram,Tamil Nadu,2017-12-15,2019-12-07,687,774960,7218,81.6,True
 Ambathur Chennai,Thiruvallur,Tamil Nadu,State Capital,Domestic,True,DIST_0602,Thiruvallur,Tamil Nadu,2018-04-11,2019-12-05,317,304380,4851,139.6,True
@@ -518,12 +518,12 @@ Inder Vihar Dehradun,Dehradun,Uttaranchal/Uttarakhand,State Capital,Domestic,Tru
 Kaulagarh Dehradun,Dehradun,Uttaranchal/Uttarakhand,State Capital,Domestic,True,DIST_0060,Dehradun,Uttarakhaand,2016-11-18,2019-09-06,935,1245420,26169,184.1,True
 Sahastradhara road-Dehradun [Offline],Dehradun,Uttaranchal/Uttarakhand,State Capital,Domestic,True,DIST_0060,Dehradun,Uttarakhaand,2016-11-24,2017-03-14,106,149340,6308,370.0,True
 Tilak Nagar Deharadun,Dehradun,Uttaranchal/Uttarakhand,State Capital,Domestic,True,DIST_0060,Dehradun,Uttarakhaand,2017-04-22,2018-08-01,347,486540,12374,222.8,True
+Alipur Road- Kolkata [Offline],Kolkata,West Bengal,State Capital,Domestic,True,DIST_0342,Kolkata,West Bengal,2014-12-16,2016-05-30,364,518340,1497,25.3,True
+Belguria- Kolkata [Offline],Kolkata,West Bengal,State Capital,Domestic,True,DIST_0342,Kolkata,West Bengal,2014-12-16,2015-04-18,66,85320,3011,309.1,True
+Dhakuria Kolkata,Kolkata,West Bengal,State Capital,Domestic,True,DIST_0342,Kolkata,West Bengal,2017-04-18,2019-12-31,920,1154400,4798,36.4,True
+Golpark [Offline],Kolkata,West Bengal,State Capital,Domestic,True,DIST_0342,Kolkata,West Bengal,2014-12-16,2017-10-16,847,1208160,6691,48.5,True
+Jadavpur-Kolkata,Kolkata,West Bengal,State Capital,Domestic,True,DIST_0342,Kolkata,West Bengal,2017-04-15,2019-11-23,884,1087080,737,5.9,True
+Joka-Kolkata,Kolkata,West Bengal,State Capital,Domestic,True,DIST_0342,Kolkata,West Bengal,2018-04-02,2019-12-09,394,551280,3695,58.7,True
+Khardah- Kolkata [Offline],Kolkata,West Bengal,State Capital,Domestic,True,DIST_0342,Kolkata,West Bengal,2014-12-16,2015-11-16,282,400020,9055,198.3,True
+Mukundapur Kolkata,Kolkata,West Bengal,State Capital,Domestic,True,DIST_0342,Kolkata,West Bengal,2018-04-05,2019-12-31,634,655740,1864,24.9,True
 Kalindi Housing Estate- Kolkata [Offline],North 24 Parganas,West Bengal,State Capital,Domestic,True,DIST_0337,North Twenty Four Parganas,West Bengal,2014-12-16,2015-11-27,76,103620,4359,368.5,True
-Alipur Road- Kolkata [Offline],Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2014-12-16,2016-05-30,364,518340,1497,25.3,True
-Belguria- Kolkata [Offline],Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2014-12-16,2015-04-18,66,85320,3011,309.1,True
-Dhakuria Kolkata,Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2017-04-18,2019-12-31,920,1154400,4798,36.4,True
-Golpark [Offline],Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2014-12-16,2017-10-16,847,1208160,6691,48.5,True
-Jadavpur-Kolkata,Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2017-04-15,2019-11-23,884,1087080,737,5.9,True
-Joka-Kolkata,Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2018-04-02,2019-12-09,394,551280,3695,58.7,True
-Khardah- Kolkata [Offline],Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2014-12-16,2015-11-16,282,400020,9055,198.3,True
-Mukundapur Kolkata,Kolkata,West Bengal,State Capital,Domestic,True,DIST_0343,South Twenty Four Parganas,West Bengal,2018-04-05,2019-12-31,634,655740,1864,24.9,True

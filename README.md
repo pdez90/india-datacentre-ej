@@ -36,9 +36,9 @@ SO2, NOx and PM2.5) and the screened OpenStreetMap cross-check (black rings). Ho
 district gives a profile card; hovering a facility gives its type, status, reported and
 allocated capacity, electricity, carbon and both water terms.
 
-**The Scope 1 / Scope 2 chain.** Five layers trace one footprint across three geographies:
-Scope 1 on-site cooling water in the hosting districts (the backup-diesel NOx layer is
-withdrawn until the diesel estimate is rerun on the v2 inventory); Scope 2 SO2,
+**The Scope 1 / Scope 2 chain.** Six layers trace one footprint across three geographies:
+Scope 1 on-site cooling water and backup-diesel NOx in the hosting districts (diesel from
+measured district supply interruptions, `scripts/29_backup_diesel.R`); Scope 2 SO2,
 NOx and PM2.5 mapped where they are physically released, at the plants; and the modelled
 PM2.5 increment where the concentration settles. Scope 2 *water* is charged to the consuming
 district rather than mapped to its source, because about a third of it is hydropower
@@ -46,7 +46,7 @@ reservoir evaporation and only the coal and gas fleet is geolocated; it uses ave
 water intensities and is an upper estimate.
 
 **District layers.** Data-centre count · PM2.5 increment from data centres (log scale) ·
-Scope 1/2 chain (five layers) · ambient PM2.5 · surface NO2 · summer ozone · extreme-heat
+Scope 1/2 chain (six layers) · ambient PM2.5 · surface NO2 · summer ozone · extreme-heat
 days · NFHS asset wealth (district percentile) · Relative Wealth Index (Chi et al. 2022) ·
 urban share · SC/ST share · below-poverty-line share · Muslim share · no-electricity share ·
 coal capacity · distance to nearest fossil plant · baseline water stress · population.
@@ -101,7 +101,7 @@ pipeline and the numbers in the interface cannot drift from the paper's tables.
 | `data/osm_check.geojson` | 20 | OpenStreetMap cross-check: Overpass `telecom=data_center` + `building=data_center`, screened to records identifiable as data centres and to the study geography (50-km tolerance) |
 | `data/policies.csv` | 18 | `tab14_policy_burden.csv`: policy compilation joined to hosting-district burden, both scopes' facility counts |
 | `data/policy_sources.csv` | 140 | `data/state_dc_policies_sources.csv`: one row per state × claim with URL, verbatim passage and retrieval date |
-| `data/headline.json` | – | the numbers the interface text quotes (facility and district counts, anchors, TWh, CO2, kt, diesel share, policy counts), taken from `tab15_national.csv`, `tab15b_marginal_totals.csv`, `tab16b_emissions_points.csv`, `tab16_inmap_summary.txt` and `tab14_policy_burden.csv`; the diesel share is the paper's (SI S5) |
+| `data/headline.json` | – | the numbers the interface text quotes (facility and district counts, anchors, TWh, CO2, kt, diesel share, policy counts), taken from `tab15_national.csv`, `tab15b_marginal_totals.csv`, `tab16b_emissions_points.csv`, `tab16_inmap_summary.txt`, `tab29_diesel_scenarios.csv` and `tab14_policy_burden.csv` |
 | `data/india_datacentres_public.csv` | 340 | the sourced facility table (`scripts/24_public_inventory.R`); data dictionary in `DATA.md` |
 | `data/district_power_interruptions.csv` | 78 | `tab28_esmi_district_outages.csv` (`scripts/28_esmi_outages.py`): supply-interruption hours per year (minutes below 80 V, 2014-2019) from the Prayas ESMI monitors, per 2015 district, for all, urban and rural monitors; offered for download on the *Power interruptions* tab. Source: Prayas (Energy Group), ESMI, doi:10.7910/DVN/CLLZZM (non-commercial use with acknowledgement) |
 | `data/esmi_monitor_power_interruptions.csv` | 528 | the same, monitor by monitor (`esmi_monitor_outages.csv`) |
