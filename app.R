@@ -34,6 +34,18 @@ districts  <- sf::st_read("data/districts.geojson",  quiet = TRUE)
 facilities <- sf::st_read("data/facilities.geojson", quiet = TRUE)
 plants     <- sf::st_read("data/plants.geojson",     quiet = TRUE)
 osm_check  <- sf::st_read("data/osm_check.geojson",  quiet = TRUE)
+# The 2011/2015 geography predates Telangana: show its ten districts under Telangana, as the paper does
+# (scripts/00_config.R TELANGANA_DISTRICTS), so the state filter and labels match the policy table.
+TELANGANA_DISTRICTS <- c("Adilabad", "Nizamabad", "Karimnagar", "Medak", "Hyderabad",
+                         "Rangareddy", "Mahbubnagar", "Nalgonda", "Warangal", "Khammam")
+to_telangana <- function(x) {
+  if (all(c("state_name", "dist_name") %in% names(x)))
+    x$state_name <- ifelse(!is.na(x$state_name) & x$state_name == "Andhra Pradesh" & x$dist_name %in% TELANGANA_DISTRICTS,
+                           "Telangana", x$state_name)
+  x
+}
+districts <- to_telangana(districts); facilities <- to_telangana(facilities)
+plants <- to_telangana(plants); osm_check <- to_telangana(osm_check)
 # Public, sourced facility table (scripts/24_public_inventory.R; data dictionary in DATA.md)
 PUB_CSV    <- "data/india_datacentres_public.csv"
 PUB_ZIP    <- "data/india_datacentres_documented.zip"
@@ -138,6 +150,7 @@ POL_FIELDS <- list(
 # ---- ui ---------------------------------------------------------------------
 ui <- page_sidebar(
   title = "India Data Centre Environmental Justice Explorer",
+  fillable = FALSE,   # let the page scroll so the map keeps its height instead of being squeezed below the value boxes
   theme = bs_theme(version = 5, bootswatch = "flatly"),
 
   sidebar = sidebar(
@@ -166,12 +179,12 @@ ui <- page_sidebar(
       " in all), sized at their reported build-out loads or the operating allocation; it is a scenario, ",
       "not a count of what exists.")),
     helpText(tags$small(
-      "District layers are 2015-geography district means. The PM2.5 increment is the ",
+      "District layers are means over the 641 Census 2011 districts. The PM2.5 increment is the ",
       "modelled contribution of data-centre electricity demand, dispersed from the coal ",
       "and gas plants that serve it. The Scope 1 / Scope 2 chain layers are for the ",
       "operating inventory.")),
     helpText(tags$small(
-      "Facility coordinates are city- or locality centroids, not site locations. Capacity is ",
+      "Facility points are site geocodes rounded to 0.01 degrees (about 1 km); their precision (building, campus, locality or city) is in the facility table. Capacity is ",
       "an allocation for facilities that do not disclose it.")),
     hr(),
     helpText(tags$small("Contact: Dr Priyanka deSouza, ",
@@ -193,7 +206,10 @@ ui <- page_sidebar(
     "at facility load (IT load x PUE 1.6)."),
 
   navset_card_tab(
-    nav_panel("Map",        leafletOutput("map", height = "620px")),
+    full_screen = TRUE,
+    nav_panel("Map",
+      tags$style(HTML("#map { min-height: 560px; } .leaflet-labels-pane { pointer-events: none; }")),
+      leafletOutput("map", height = "calc(100vh - 170px)")),
     nav_panel("Districts",  DTOutput("dtab")),
     nav_panel("Facilities",
       div(class = "p-3",
@@ -389,12 +405,12 @@ ui <- page_sidebar(
           "and roughly centred on zero. The two are built from entirely different inputs and agree."),
 
         h4("Reading the district map"),
-        p("District names denote polygons in the 2015 survey geography, not municipal entities. ",
-          "The polygon labelled ", tags$b("Chennai"), " lies offshore and contains no land, ",
-          "population or households; Chennai city falls inside the polygon labelled ",
-          tags$b("Kancheepuram"), ", which is why that district carries the facilities at ",
-          "central-Chennai addresses. Hyderabad's facilities sit in ", tags$b("Rangareddy"),
-          ", and Telangana is part of unified Andhra Pradesh in this geography."),
+        p("Districts are the 641 Census 2011 district polygons, joined to the NFHS-5 survey districts. ",
+          "Chennai, Hyderabad, Kolkata and Mumbai are districts in their own right, so their facilities sit in ",
+          "those districts. Districts created after 2011 are not split out, and the ten Telangana districts are ",
+          "shown under Telangana although the 2011 geography predates the state. The submitted version of the ",
+          "paper used an NFHS district shapefile that turned out to be displaced by about 11 km on average ",
+          "(28 km at Chennai, which had put the city offshore); it has been replaced."),
 
         h4("Other data sources"),
         tags$ul(
@@ -413,7 +429,7 @@ ui <- page_sidebar(
 
         h4("Limits worth knowing"),
         tags$ul(
-          tags$li("Coordinates are city- or locality-precision; a point locates a facility in its town, not at its site."),
+          tags$li("Points are site geocodes rounded to about 1 km, and 35 of the 340 rest on a city placeholder; the public table gives each one's precision."),
           tags$li("Most facilities do not disclose capacity; it is allocated by operator class and scaled to a national anchor."),
           tags$li("District values are means and hide within-district variation."),
           tags$li("The pipeline scenario counts announcements; not all of them will be built.")),
@@ -484,8 +500,8 @@ server <- function(input, output, session) {
   output$vb_co2 <- renderText(paste0(fmtnum(sum(fac_f()$co2_use, na.rm = TRUE) / 1000, 2), " Mt/yr"))
   CX <- H$context
   output$vb_n_ctx <- renderText({
-    f <- fac_f(); d <- length(unique(f$dist_name[!is.na(f$dist_name)]))
-    sprintf("in %d of India's 642 districts%s", d,
+    f <- fac_f(); k <- !is.na(f$dist_name); d <- length(unique(paste(f$dist_name[k], f$state_name[k])))   # names repeat across states
+    sprintf("in %d of India's %d districts%s", d, nrow(districts),
             if (is_all()) sprintf("; %d operating, %d under construction, %d announced",
                                   sum(f$status == "operating"), sum(f$status == "construction"),
                                   sum(f$status == "announced")) else "")
@@ -507,8 +523,23 @@ server <- function(input, output, session) {
   })
 
   output$map <- renderLeaflet({
+    # Keyless basemaps: Esri's public tile services and the OpenStreetMap standard tiles need no API key
+    # (CARTO's tiles now return "API key required"). Place names sit in their own pane above the district
+    # fills so they stay readable over the choropleth.
+    esri <- function(svc) sprintf("https://server.arcgisonline.com/ArcGIS/rest/services/%s/MapServer/tile/{z}/{y}/{x}", svc)
     leaflet(options = leafletOptions(minZoom = 4)) |>
-      addProviderTiles(providers$CartoDB.PositronNoLabels) |>
+      addMapPane("labels", zIndex = 450) |>
+      addTiles(esri("Canvas/World_Light_Gray_Base"), group = "Light grey",
+               attribution = "Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors") |>
+      addTiles("https://tile.openstreetmap.org/{z}/{x}/{y}.png", group = "OpenStreetMap",
+               attribution = "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors") |>
+      addTiles(esri("World_Imagery"), group = "Satellite",
+               attribution = "Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics") |>
+      addTiles(esri("Canvas/World_Light_Gray_Reference"), group = "Place names",
+               options = tileOptions(pane = "labels")) |>
+      addLayersControl(baseGroups = c("Light grey", "OpenStreetMap", "Satellite"), overlayGroups = "Place names",
+                       position = "topleft", options = layersControlOptions(collapsed = TRUE)) |>
+      addScaleBar(position = "bottomleft", options = scaleBarOptions(imperial = FALSE)) |>
       setView(lng = 79, lat = 22, zoom = 5)
   })
 
@@ -552,11 +583,11 @@ server <- function(input, output, session) {
       fmtnum(dp, 4)) |> lapply(htmltools::HTML)
 
     m <- leafletProxy("map", data = d) |>
-      clearShapes() |> clearMarkers() |> clearControls() |>
+      clearShapes() |> clearMarkers() |> removeControl("legend") |>
       addPolygons(fillColor = ~pal(vshow), fillOpacity = 0.78, color = "white", weight = 0.4,
                   highlightOptions = highlightOptions(weight = 2, color = "#333", bringToFront = TRUE),
                   label = lab) |>
-      addLegend("bottomright", pal = pal, values = vshow, opacity = 0.85,
+      addLegend("bottomright", pal = pal, values = vshow, opacity = 0.85, layerId = "legend",
                 title = paste0(input$ind, "<br/><small>", spec$unit,
                                if (isTRUE(spec$log)) " (log scale; grey = zero or no data)" else "",
                                if (is_all() && !is.null(spec$alt)) " - stock plus pipeline" else "",
