@@ -62,9 +62,11 @@ source for a row.
 
 Every row has a `source_url`. 286 rows also have an independent `source_url_2`.
 `source_url_archive` and `source_url_2_archive` give archived copies, from the Internet Archive or
-(for sites that refuse it) archive.today, filled by `scripts/25_archive_sources.py`. 338 of the
-340 facilities have at least one archived source; the unarchived links are on sites that block web
-archives (chiefly datacentermap.com) or were unreachable from them. `sources_and_archives.csv` in the
+(for sites that refuse it) archive.today, filled by `scripts/25_archive_sources.py`. All 340
+facilities have at least one archived source, and 541 of the 552 cited URLs have a copy. The 76 Data
+Center Map pages, which the Internet Archive refuses, were archived on archive.today by hand on
+10 October 2026. The 11 unarchived links are on Indian government document servers, IndiaMART and
+one company site that block web archives or were unreachable from them. `sources_and_archives.csv` in the
 downloadable bundle lists every cited URL with its archived copy, snapshot date and status.
 
 - **On 30 September 2026, the 145 Data Center Map rows that had no independent source were each
