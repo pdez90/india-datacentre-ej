@@ -1,0 +1,1136 @@
+{
+ "disparity": {
+  "operating": [
+   {
+    "contrast": "SC/ST vs General",
+    "pwc_group": 0.0612030374823486,
+    "pwc_ref": 0.0450432169497973,
+    "Z": 0.198182810328489,
+    "ratio": 1.35876257574059,
+    "boot_sign_prob": 0.0519740129935032
+   },
+   {
+    "contrast": "OBC vs General",
+    "pwc_group": 0.0681767507595057,
+    "pwc_ref": 0.0450432169497973,
+    "Z": 0.253865133674572,
+    "ratio": 1.51358529377446,
+    "boot_sign_prob": 0.0769615192403798
+   },
+   {
+    "contrast": "BPL vs non-BPL",
+    "pwc_group": 0.0603523951214325,
+    "pwc_ref": 0.0603057372183345,
+    "Z": 0.000508550072059219,
+    "ratio": 1.00077368929144,
+    "boot_sign_prob": 0.996501749125437
+   },
+   {
+    "contrast": "No electricity vs has electricity",
+    "pwc_group": 0.0426403190166804,
+    "pwc_ref": 0.0609067566160371,
+    "Z": -0.211855311888231,
+    "ratio": 0.700091769546845,
+    "boot_sign_prob": 0.0599700149925037
+   },
+   {
+    "contrast": "Rural vs urban",
+    "pwc_group": 0.0559919878847722,
+    "pwc_ref": 0.0695617050575608,
+    "Z": -0.144691021793868,
+    "ratio": 0.804925466367451,
+    "boot_sign_prob": 0.0299850074962519
+   },
+   {
+    "contrast": "Muslim vs Hindu",
+    "pwc_group": 0.0442956521479486,
+    "pwc_ref": 0.0637983817369143,
+    "Z": -0.221319555689261,
+    "ratio": 0.694306829452364,
+    "boot_sign_prob": 0.0189905047476262
+   },
+   {
+    "contrast": "Poorest quintile vs richest",
+    "pwc_group": 0.0346500318097722,
+    "pwc_ref": 0.0647959662671672,
+    "Z": -0.431177359529916,
+    "ratio": 0.534756001120547,
+    "boot_sign_prob": 0.128935532233883
+   },
+   {
+    "contrast": "Poorer quintile vs richest",
+    "pwc_group": 0.0468102193218981,
+    "pwc_ref": 0.0647959662671672,
+    "Z": -0.23251822155018,
+    "ratio": 0.722424898008155,
+    "boot_sign_prob": 0.465767116441779
+   },
+   {
+    "contrast": "Middle quintile vs richest",
+    "pwc_group": 0.0885377580780081,
+    "pwc_ref": 0.0647959662671672,
+    "Z": 0.172887399849833,
+    "ratio": 1.3664084846416,
+    "boot_sign_prob": 0.122938530734633
+   },
+   {
+    "contrast": "Richer quintile vs richest",
+    "pwc_group": 0.0669103016575385,
+    "pwc_ref": 0.0647959662671672,
+    "Z": 0.0233196192998962,
+    "ratio": 1.03263066379246,
+    "boot_sign_prob": 0.95552223888056
+   }
+  ],
+  "all": [
+   {
+    "contrast": "SC/ST vs General",
+    "pwc_group": 0.166371614704064,
+    "pwc_ref": 0.127340897428215,
+    "Z": 0.19314263351323,
+    "ratio": 1.30650575003094,
+    "boot_sign_prob": 0.0189905047476262
+   },
+   {
+    "contrast": "OBC vs General",
+    "pwc_group": 0.182273280080201,
+    "pwc_ref": 0.127340897428215,
+    "Z": 0.247601955183669,
+    "ratio": 1.43138052080206,
+    "boot_sign_prob": 0.0759620189905048
+   },
+   {
+    "contrast": "BPL vs non-BPL",
+    "pwc_group": 0.174947794783288,
+    "pwc_ref": 0.154023575675117,
+    "Z": 0.0931620929540588,
+    "ratio": 1.13585075542141,
+    "boot_sign_prob": 0.629685157421289
+   },
+   {
+    "contrast": "No electricity vs has electricity",
+    "pwc_group": 0.113027723759249,
+    "pwc_ref": 0.165216655643754,
+    "Z": -0.249621289380301,
+    "ratio": 0.684118216283008,
+    "boot_sign_prob": 0.0539730134932534
+   },
+   {
+    "contrast": "Rural vs urban",
+    "pwc_group": 0.153679091423304,
+    "pwc_ref": 0.184609653885017,
+    "Z": -0.13626162067804,
+    "ratio": 0.83245425246841,
+    "boot_sign_prob": 0.0669665167416292
+   },
+   {
+    "contrast": "Muslim vs Hindu",
+    "pwc_group": 0.116623053116658,
+    "pwc_ref": 0.17305068149223,
+    "Z": -0.264360382614492,
+    "ratio": 0.673924263753301,
+    "boot_sign_prob": 0.000999500249875062
+   },
+   {
+    "contrast": "Poorest quintile vs richest",
+    "pwc_group": 0.0908043994431346,
+    "pwc_ref": 0.16509943638348,
+    "Z": -0.453768424380931,
+    "ratio": 0.549998240043784,
+    "boot_sign_prob": 0.126936531734133
+   },
+   {
+    "contrast": "Poorer quintile vs richest",
+    "pwc_group": 0.11883907755979,
+    "pwc_ref": 0.16509943638348,
+    "Z": -0.259219376099809,
+    "ratio": 0.71980304816886,
+    "boot_sign_prob": 0.391804097951025
+   },
+   {
+    "contrast": "Middle quintile vs richest",
+    "pwc_group": 0.239401286244686,
+    "pwc_ref": 0.16509943638348,
+    "Z": 0.240618502656206,
+    "ratio": 1.4500430255172,
+    "boot_sign_prob": 0.0859570214892554
+   },
+   {
+    "contrast": "Richer quintile vs richest",
+    "pwc_group": 0.203589774846947,
+    "pwc_ref": 0.16509943638348,
+    "Z": 0.159091572421484,
+    "ratio": 1.2331342814161,
+    "boot_sign_prob": 0.646676661669165
+   }
+  ]
+ },
+ "baseline": {
+  "operating": [
+   {
+    "exposure": "Data-center presence",
+    "contrast": "SC/ST vs General",
+    "pwc_group": 0.142372786608497,
+    "pwc_ref": 0.231867264646051,
+    "Z": -0.237422325803354,
+    "ratio": 0.614027110837882,
+    "boot_sign_prob": 0.00299850074962519,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "OBC vs General",
+    "pwc_group": 0.165342970595022,
+    "pwc_ref": 0.231867264646051,
+    "Z": -0.169644615802868,
+    "ratio": 0.713093203766477,
+    "boot_sign_prob": 0.0819590204897551,
+    "perm_p_within_state": 0.0141971605678864
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "BPL vs non-BPL",
+    "pwc_group": 0.132462091497207,
+    "pwc_ref": 0.208685216262415,
+    "Z": -0.204748685907576,
+    "ratio": 0.634745929154081,
+    "boot_sign_prob": 0.00499750124937531,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "No electricity vs has electricity",
+    "pwc_group": 0.0515462499481023,
+    "pwc_ref": 0.177956988686972,
+    "Z": -0.362182263863205,
+    "ratio": 0.289655665272987,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "Rural vs urban",
+    "pwc_group": 0.0954708604163305,
+    "pwc_ref": 0.34111480312804,
+    "Z": -0.68718728135151,
+    "ratio": 0.279878971949789,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "Muslim vs Hindu",
+    "pwc_group": 0.166463951831817,
+    "pwc_ref": 0.17094734159415,
+    "Z": -0.0119487273703964,
+    "ratio": 0.973773270057763,
+    "boot_sign_prob": 0.823588205897052,
+    "perm_p_within_state": 0.840631873625275
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "Poorest quintile vs richest",
+    "pwc_group": 0.0291355671011869,
+    "pwc_ref": 0.571589089010305,
+    "Z": -1.63665012138698,
+    "ratio": 0.0509729238387572,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "Poorer quintile vs richest",
+    "pwc_group": 0.0126581701039346,
+    "pwc_ref": 0.571589089010305,
+    "Z": -1.73078521180828,
+    "ratio": 0.0221455768616088,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "Middle quintile vs richest",
+    "pwc_group": 0.152703346808958,
+    "pwc_ref": 0.571589089010305,
+    "Z": -1.00339506792124,
+    "ratio": 0.267155811307317,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "Richer quintile vs richest",
+    "pwc_group": 0.102862338998451,
+    "pwc_ref": 0.571589089010305,
+    "Z": -1.20503266005402,
+    "ratio": 0.179958541854874,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "SC/ST vs General",
+    "pwc_group": 52.0752452942725,
+    "pwc_ref": 54.7314082124296,
+    "Z": -0.0988839375181461,
+    "ratio": 0.9514691288803,
+    "boot_sign_prob": 0.460769615192404,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "OBC vs General",
+    "pwc_group": 52.392761994122,
+    "pwc_ref": 54.7314082124296,
+    "Z": -0.112465334628837,
+    "ratio": 0.957270490661769,
+    "boot_sign_prob": 0.521739130434783,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "BPL vs non-BPL",
+    "pwc_group": 49.8369678104803,
+    "pwc_ref": 55.3143365228008,
+    "Z": -0.269940632427673,
+    "ratio": 0.90097741278949,
+    "boot_sign_prob": 0.130934532733633,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "No electricity vs has electricity",
+    "pwc_group": 63.1133602890791,
+    "pwc_ref": 52.4804305829904,
+    "Z": 0.527568844936992,
+    "ratio": 1.20260751651559,
+    "boot_sign_prob": 0.0419790104947526,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "Rural vs urban",
+    "pwc_group": 53.4670791413891,
+    "pwc_ref": 51.435001080437,
+    "Z": 0.109308055094015,
+    "ratio": 1.03950768967175,
+    "boot_sign_prob": 0.590704647676162,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "Muslim vs Hindu",
+    "pwc_group": 54.3081607750009,
+    "pwc_ref": 53.1643306062033,
+    "Z": 0.0170957864410157,
+    "ratio": 1.02151499239726,
+    "boot_sign_prob": 0.95952023988006,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "Poorest quintile vs richest",
+    "pwc_group": 62.9474831997007,
+    "pwc_ref": 51.3566167620307,
+    "Z": 0.622196674862534,
+    "ratio": 1.22569373078796,
+    "boot_sign_prob": 0.276861569215392,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "Poorer quintile vs richest",
+    "pwc_group": 61.053513391004,
+    "pwc_ref": 51.3566167620307,
+    "Z": 0.559942250755859,
+    "ratio": 1.18881494226743,
+    "boot_sign_prob": 0.285857071464268,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "Middle quintile vs richest",
+    "pwc_group": 45.7431710653197,
+    "pwc_ref": 51.3566167620307,
+    "Z": -0.184725109949325,
+    "ratio": 0.890696738791774,
+    "boot_sign_prob": 0.557721139430285,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "Richer quintile vs richest",
+    "pwc_group": 43.0808079391195,
+    "pwc_ref": 51.3566167620307,
+    "Z": -0.361457495203361,
+    "ratio": 0.838856035605723,
+    "boot_sign_prob": 0.271864067966017,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "SC/ST vs General",
+    "pwc_group": 4.46105020927905,
+    "pwc_ref": 4.97555390463827,
+    "Z": -0.175425927345728,
+    "ratio": 0.896593684799678,
+    "boot_sign_prob": 0.123938030984508,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "OBC vs General",
+    "pwc_group": 4.65198785007619,
+    "pwc_ref": 4.97555390463827,
+    "Z": -0.0405194314177503,
+    "ratio": 0.934968837487532,
+    "boot_sign_prob": 0.762618690654673,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "BPL vs non-BPL",
+    "pwc_group": 4.30999346241274,
+    "pwc_ref": 4.95770802368763,
+    "Z": -0.323699760726336,
+    "ratio": 0.869352015451467,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "No electricity vs has electricity",
+    "pwc_group": 4.18780458410333,
+    "pwc_ref": 4.67805584412604,
+    "Z": -0.194157735552015,
+    "ratio": 0.895201922260444,
+    "boot_sign_prob": 0.0329835082458771,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "Rural vs urban",
+    "pwc_group": 4.19802202757527,
+    "pwc_ref": 5.65202973038989,
+    "Z": -0.589399972671271,
+    "ratio": 0.742745920992472,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "Muslim vs Hindu",
+    "pwc_group": 4.60225000272847,
+    "pwc_ref": 4.70077478545329,
+    "Z": -0.101207011346252,
+    "ratio": 0.979040735363518,
+    "boot_sign_prob": 0.425787106446777,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "Poorest quintile vs richest",
+    "pwc_group": 4.04434133351289,
+    "pwc_ref": 6.60830357608117,
+    "Z": -0.962629034954824,
+    "ratio": 0.612009010625878,
+    "boot_sign_prob": 0.00899550224887556,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "Poorer quintile vs richest",
+    "pwc_group": 4.30026326306522,
+    "pwc_ref": 6.60830357608117,
+    "Z": -0.807882309855698,
+    "ratio": 0.650736337027566,
+    "boot_sign_prob": 0.015992003998001,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "Middle quintile vs richest",
+    "pwc_group": 4.10365082309239,
+    "pwc_ref": 6.60830357608117,
+    "Z": -0.932142495445932,
+    "ratio": 0.620984005327117,
+    "boot_sign_prob": 0.00999500249875063,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "Richer quintile vs richest",
+    "pwc_group": 4.24972728411169,
+    "pwc_ref": 6.60830357608117,
+    "Z": -0.83524669880832,
+    "ratio": 0.643088991779014,
+    "boot_sign_prob": 0.0139930034982509,
+    "perm_p_within_state": ""
+   }
+  ],
+  "all": [
+   {
+    "exposure": "Data-center presence",
+    "contrast": "SC/ST vs General",
+    "pwc_group": 0.154475146377327,
+    "pwc_ref": 0.24372835762959,
+    "Z": -0.230621422931534,
+    "ratio": 0.633800464909761,
+    "boot_sign_prob": 0.00299850074962519,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "OBC vs General",
+    "pwc_group": 0.177720445352931,
+    "pwc_ref": 0.24372835762959,
+    "Z": -0.164428497379874,
+    "ratio": 0.729174262204749,
+    "boot_sign_prob": 0.0689655172413793,
+    "perm_p_within_state": 0.0235952809438112
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "BPL vs non-BPL",
+    "pwc_group": 0.145062596558154,
+    "pwc_ref": 0.220218796697928,
+    "Z": -0.196352183025371,
+    "ratio": 0.658720321486158,
+    "boot_sign_prob": 0.0119940029985007,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "No electricity vs has electricity",
+    "pwc_group": 0.0548666521361137,
+    "pwc_ref": 0.190262003684675,
+    "Z": -0.377873656628934,
+    "ratio": 0.288374194918315,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "Rural vs urban",
+    "pwc_group": 0.104797270650331,
+    "pwc_ref": 0.358872390684383,
+    "Z": -0.692530385468818,
+    "ratio": 0.292018203045599,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "Muslim vs Hindu",
+    "pwc_group": 0.173030922995692,
+    "pwc_ref": 0.183945711734502,
+    "Z": -0.0283811780630467,
+    "ratio": 0.940662988900967,
+    "boot_sign_prob": 0.672663668165917,
+    "perm_p_within_state": 0.654869026194761
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "Poorest quintile vs richest",
+    "pwc_group": 0.0291355671011869,
+    "pwc_ref": 0.596734221947078,
+    "Z": -1.72507715948417,
+    "ratio": 0.0488250313617355,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "Poorer quintile vs richest",
+    "pwc_group": 0.0219383658687731,
+    "pwc_ref": 0.596734221947078,
+    "Z": -1.74876176827819,
+    "ratio": 0.0367640484857573,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "Middle quintile vs richest",
+    "pwc_group": 0.152703346808958,
+    "pwc_ref": 0.596734221947078,
+    "Z": -1.06868400136533,
+    "ratio": 0.255898423775168,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "Data-center presence",
+    "contrast": "Richer quintile vs richest",
+    "pwc_group": 0.128204166090067,
+    "pwc_ref": 0.596734221947078,
+    "Z": -1.16546379323592,
+    "ratio": 0.214842992700755,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": 0.0001999600079984
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "SC/ST vs General",
+    "pwc_group": 52.0752452942725,
+    "pwc_ref": 54.7314082124296,
+    "Z": -0.0988839375181461,
+    "ratio": 0.9514691288803,
+    "boot_sign_prob": 0.460769615192404,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "OBC vs General",
+    "pwc_group": 52.392761994122,
+    "pwc_ref": 54.7314082124296,
+    "Z": -0.112465334628837,
+    "ratio": 0.957270490661769,
+    "boot_sign_prob": 0.521739130434783,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "BPL vs non-BPL",
+    "pwc_group": 49.8369678104803,
+    "pwc_ref": 55.3143365228008,
+    "Z": -0.269940632427673,
+    "ratio": 0.90097741278949,
+    "boot_sign_prob": 0.130934532733633,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "No electricity vs has electricity",
+    "pwc_group": 63.1133602890791,
+    "pwc_ref": 52.4804305829904,
+    "Z": 0.527568844936992,
+    "ratio": 1.20260751651559,
+    "boot_sign_prob": 0.0419790104947526,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "Rural vs urban",
+    "pwc_group": 53.4670791413891,
+    "pwc_ref": 51.435001080437,
+    "Z": 0.109308055094015,
+    "ratio": 1.03950768967175,
+    "boot_sign_prob": 0.590704647676162,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "Muslim vs Hindu",
+    "pwc_group": 54.3081607750009,
+    "pwc_ref": 53.1643306062033,
+    "Z": 0.0170957864410157,
+    "ratio": 1.02151499239726,
+    "boot_sign_prob": 0.95952023988006,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "Poorest quintile vs richest",
+    "pwc_group": 62.9474831997007,
+    "pwc_ref": 51.3566167620307,
+    "Z": 0.622196674862534,
+    "ratio": 1.22569373078796,
+    "boot_sign_prob": 0.276861569215392,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "Poorer quintile vs richest",
+    "pwc_group": 61.053513391004,
+    "pwc_ref": 51.3566167620307,
+    "Z": 0.559942250755859,
+    "ratio": 1.18881494226743,
+    "boot_sign_prob": 0.285857071464268,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "Middle quintile vs richest",
+    "pwc_group": 45.7431710653197,
+    "pwc_ref": 51.3566167620307,
+    "Z": -0.184725109949325,
+    "ratio": 0.890696738791774,
+    "boot_sign_prob": 0.557721139430285,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "PM2.5 (ACAG)",
+    "contrast": "Richer quintile vs richest",
+    "pwc_group": 43.0808079391195,
+    "pwc_ref": 51.3566167620307,
+    "Z": -0.361457495203361,
+    "ratio": 0.838856035605723,
+    "boot_sign_prob": 0.271864067966017,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "SC/ST vs General",
+    "pwc_group": 4.46105020927905,
+    "pwc_ref": 4.97555390463827,
+    "Z": -0.175425927345728,
+    "ratio": 0.896593684799678,
+    "boot_sign_prob": 0.123938030984508,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "OBC vs General",
+    "pwc_group": 4.65198785007619,
+    "pwc_ref": 4.97555390463827,
+    "Z": -0.0405194314177503,
+    "ratio": 0.934968837487532,
+    "boot_sign_prob": 0.762618690654673,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "BPL vs non-BPL",
+    "pwc_group": 4.30999346241274,
+    "pwc_ref": 4.95770802368763,
+    "Z": -0.323699760726336,
+    "ratio": 0.869352015451467,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "No electricity vs has electricity",
+    "pwc_group": 4.18780458410333,
+    "pwc_ref": 4.67805584412604,
+    "Z": -0.194157735552015,
+    "ratio": 0.895201922260444,
+    "boot_sign_prob": 0.0329835082458771,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "Rural vs urban",
+    "pwc_group": 4.19802202757527,
+    "pwc_ref": 5.65202973038989,
+    "Z": -0.589399972671271,
+    "ratio": 0.742745920992472,
+    "boot_sign_prob": 0.000999500249875062,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "Muslim vs Hindu",
+    "pwc_group": 4.60225000272847,
+    "pwc_ref": 4.70077478545329,
+    "Z": -0.101207011346252,
+    "ratio": 0.979040735363518,
+    "boot_sign_prob": 0.425787106446777,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "Poorest quintile vs richest",
+    "pwc_group": 4.04434133351289,
+    "pwc_ref": 6.60830357608117,
+    "Z": -0.962629034954824,
+    "ratio": 0.612009010625878,
+    "boot_sign_prob": 0.00899550224887556,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "Poorer quintile vs richest",
+    "pwc_group": 4.30026326306522,
+    "pwc_ref": 6.60830357608117,
+    "Z": -0.807882309855698,
+    "ratio": 0.650736337027566,
+    "boot_sign_prob": 0.015992003998001,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "Middle quintile vs richest",
+    "pwc_group": 4.10365082309239,
+    "pwc_ref": 6.60830357608117,
+    "Z": -0.932142495445932,
+    "ratio": 0.620984005327117,
+    "boot_sign_prob": 0.00999500249875063,
+    "perm_p_within_state": ""
+   },
+   {
+    "exposure": "Surface NO2",
+    "contrast": "Richer quintile vs richest",
+    "pwc_group": 4.24972728411169,
+    "pwc_ref": 6.60830357608117,
+    "Z": -0.83524669880832,
+    "ratio": 0.643088991779014,
+    "boot_sign_prob": 0.0139930034982509,
+    "perm_p_within_state": ""
+   }
+  ]
+ },
+ "group_exposure": [
+  {
+   "group": "General caste",
+   "population_million": 321.95915710511,
+   "P(hosting)": 1.33299283961362,
+   "PM2.5": 1.03622827504173,
+   "Surface NO2": 1.06714400817655,
+   "Hot days": 0.924618333169821
+  },
+  {
+   "group": "Scheduled Caste",
+   "population_million": 325.41459590623,
+   "P(hosting)": 0.950957830209887,
+   "PM2.5": 1.05359225895177,
+   "Surface NO2": 1.01819680308875,
+   "Hot days": 1.02631984251704
+  },
+  {
+   "group": "Scheduled Tribe",
+   "population_million": 142.546215596255,
+   "P(hosting)": 0.571664261039979,
+   "PM2.5": 0.830306518630818,
+   "Surface NO2": 0.81639544197944,
+   "Hot days": 0.918305447731855
+  },
+  {
+   "group": "OBC",
+   "population_million": 610.561750512485,
+   "P(hosting)": 0.950548134597848,
+   "PM2.5": 0.991950749286794,
+   "Surface NO2": 0.997746392756616,
+   "Hot days": 1.04500332423126
+  },
+  {
+   "group": "Muslim",
+   "population_million": 193.282354152414,
+   "P(hosting)": 0.956992597399741,
+   "PM2.5": 1.02821494272804,
+   "Surface NO2": 0.987078747144891,
+   "Hot days": 0.794541598837756
+  },
+  {
+   "group": "Below poverty line",
+   "population_million": 638.300012447693,
+   "P(hosting)": 0.761517671567649,
+   "PM2.5": 0.943561966962803,
+   "Surface NO2": 0.924396315836569,
+   "Hot days": 0.958256374620476
+  },
+  {
+   "group": "Above poverty line",
+   "population_million": 762.181706672386,
+   "P(hosting)": 1.19972044969633,
+   "PM2.5": 1.04726484101468,
+   "Surface NO2": 1.06331646951611,
+   "Hot days": 1.03507819141355
+  }
+ ],
+ "profile": [
+  {
+   "variable": "Share Scheduled Caste",
+   "hosting_mean": 0.220073924024143,
+   "nonhosting_mean": 0.206476569562236,
+   "d_all_india": 0.134307003269459,
+   "d_within_state": -0.340343253691599,
+   "p_within_state": 0.00929554556504644
+  },
+  {
+   "variable": "Share Scheduled Tribe",
+   "hosting_mean": 0.0770527601345162,
+   "nonhosting_mean": 0.208239749940021,
+   "d_all_india": -0.557891263228291,
+   "d_within_state": -0.394327527930584,
+   "p_within_state": 8.49220348006635e-05
+  },
+  {
+   "variable": "Share SC/ST",
+   "hosting_mean": 0.277600931945133,
+   "nonhosting_mean": 0.395134047110056,
+   "d_all_india": -0.619909275976318,
+   "d_within_state": -0.608906721507106,
+   "p_within_state": 5.18904712758076e-08
+  },
+  {
+   "variable": "Share OBC",
+   "hosting_mean": 0.397708813669193,
+   "nonhosting_mean": 0.380353342835527,
+   "d_all_india": 0.0826422734986426,
+   "d_within_state": 0.108480706847797,
+   "p_within_state": 0.352890300082661
+  },
+  {
+   "variable": "Share Muslim",
+   "hosting_mean": 0.109550029630284,
+   "nonhosting_mean": 0.126780202914074,
+   "d_all_india": -0.112334968303087,
+   "d_within_state": 0.0437583630432879,
+   "p_within_state": 0.729060888835888
+  },
+  {
+   "variable": "Share BPL card",
+   "hosting_mean": 0.339462317765378,
+   "nonhosting_mean": 0.492050517014511,
+   "d_all_india": -0.671622962123855,
+   "d_within_state": -0.923270590911047,
+   "p_within_state": 6.11329843950259e-09
+  },
+  {
+   "variable": "Share without electricity",
+   "hosting_mean": 0.00788843430105441,
+   "nonhosting_mean": 0.0328109266456415,
+   "d_all_india": -0.772602099069663,
+   "d_within_state": -0.424823180096989,
+   "p_within_state": 0.000110582690190206
+  },
+  {
+   "variable": "Mean wealth score",
+   "hosting_mean": 770658.544710285,
+   "nonhosting_mean": -4859.18972168273,
+   "d_all_india": 1.53336300466063,
+   "d_within_state": 1.24468030506745,
+   "p_within_state": 1.15845870101139e-12
+  },
+  {
+   "variable": "Urban share",
+   "hosting_mean": 0.591657656978125,
+   "nonhosting_mean": 0.234100489180973,
+   "d_all_india": 1.68592524267423,
+   "d_within_state": 1.39680733112431,
+   "p_within_state": 3.34434661854046e-12
+  },
+  {
+   "variable": "Relative Wealth Index",
+   "hosting_mean": 0.353020763295992,
+   "nonhosting_mean": -0.102519054814007,
+   "d_all_india": 1.33740726797314,
+   "d_within_state": 1.04479785328566,
+   "p_within_state": 8.11773736541193e-08
+  },
+  {
+   "variable": "PM2.5, LGHAP",
+   "hosting_mean": 43.2535772010928,
+   "nonhosting_mean": 39.8545070847493,
+   "d_all_india": 0.171431047866121,
+   "d_within_state": 0.0562352092320975,
+   "p_within_state": 0.716322853887702
+  },
+  {
+   "variable": "PM2.5, ACAG local",
+   "hosting_mean": 50.7599963829166,
+   "nonhosting_mean": 46.6866970991266,
+   "d_all_india": 0.177787714499565,
+   "d_within_state": 0.332159279672888,
+   "p_within_state": 0.0209407107361752
+  },
+  {
+   "variable": "Surface NO2 (1 km annual)",
+   "hosting_mean": 6.47600176490721,
+   "nonhosting_mean": 3.84578453759713,
+   "d_all_india": 0.814355559774252,
+   "d_within_state": 0.633316181291997,
+   "p_within_state": 0.000676366193549198
+  },
+  {
+   "variable": "Surface ozone, annual mean",
+   "hosting_mean": 85.1173791729036,
+   "nonhosting_mean": 87.109903641933,
+   "d_all_india": -0.145621380513484,
+   "d_within_state": 0.0748055372179817,
+   "p_within_state": 0.545745535838108
+  },
+  {
+   "variable": "Surface ozone, summer",
+   "hosting_mean": 69.8695810661941,
+   "nonhosting_mean": 71.1834922750998,
+   "d_all_india": -0.0667691780736221,
+   "d_within_state": 0.0235224749865288,
+   "p_within_state": 0.864572983203132
+  },
+  {
+   "variable": "NO2 column, S5P",
+   "hosting_mean": 4.86748121472084e-05,
+   "nonhosting_mean": 3.20561274554371e-05,
+   "d_all_india": 0.664235420583823,
+   "d_within_state": 0.649343098204374,
+   "p_within_state": 0.000121357269067132
+  },
+  {
+   "variable": "HCHO column, S5P",
+   "hosting_mean": 0.000189670581128133,
+   "nonhosting_mean": 0.000171821507185323,
+   "d_all_india": 0.501176798918077,
+   "d_within_state": 0.530488822073867,
+   "p_within_state": 0.000143625210210319
+  },
+  {
+   "variable": "Mean air temperature (ERA5-Land)",
+   "hosting_mean": 24.489768183074,
+   "nonhosting_mean": 23.2196690600869,
+   "d_all_india": 0.271226803804922,
+   "d_within_state": 0.00745498320690054,
+   "p_within_state": 0.941714334989205
+  },
+  {
+   "variable": "Hot days >= 35 C (ERA5-Land)",
+   "hosting_mean": 55.429815303921,
+   "nonhosting_mean": 57.0472803440565,
+   "d_all_india": -0.0442361571712616,
+   "d_within_state": -0.381089113838661,
+   "p_within_state": 0.00777735723918709
+  },
+  {
+   "variable": "Daytime land-surface temperature (MODIS)",
+   "hosting_mean": 30.9427678703952,
+   "nonhosting_mean": 29.6259331873244,
+   "d_all_india": 0.257044865431702,
+   "d_within_state": -0.0185643316732537,
+   "p_within_state": 0.864909941757486
+  }
+ ],
+ "receiving": {
+  "operating": {
+   "scope": "operating",
+   "inventory": "v2",
+   "scst": 0.31899279621225,
+   "bpl": 0.455963597288026,
+   "wealth": 252718.211225037,
+   "muslim": 0.101336083420748,
+   "no_electricity": 0.0224335821511285,
+   "urban": 0.368364906190263,
+   "hosting_wealth": 730955.077856797,
+   "pwm_grid": 0.0602391932609273,
+   "pwm_dist": 0.0603270025727633,
+   "pop_ge_0_01_million": 1293.64510615413,
+   "pop_ge_0_10_million": 157.018164159211,
+   "deaths": 2077.54556287079
+  },
+  "all": {
+   "scope": "all",
+   "inventory": "v2",
+   "scst": 0.319831421895948,
+   "bpl": 0.487503942354467,
+   "wealth": 254377.990168347,
+   "muslim": 0.0984059639830825,
+   "no_electricity": 0.0219329556745124,
+   "urban": 0.360575684200665,
+   "hosting_wealth": 721292.341645413,
+   "pwm_grid": 0.163452093735413,
+   "pwm_dist": 0.163560243762148,
+   "pop_ge_0_01_million": 1375.50727609182,
+   "pop_ge_0_10_million": 613.025161627415,
+   "deaths": 5649.3186137125
+  }
+ },
+ "regional": {
+  "operating": [
+   {
+    "zone": "East",
+    "districts": 114.0,
+    "population_million": 312.50696412309,
+    "pw_increment": 0.0438862786626151,
+    "rural_over_urban": 0.783558053293607
+   },
+   {
+    "zone": "South",
+    "districts": 104.0,
+    "population_million": 288.059636266421,
+    "pw_increment": 0.137143648341172,
+    "rural_over_urban": 0.978485130064227
+   },
+   {
+    "zone": "Northeast",
+    "districts": 86.0,
+    "population_million": 52.1519989467327,
+    "pw_increment": 0.0103925791147984,
+    "rural_over_urban": 1.03115364864853
+   },
+   {
+    "zone": "North",
+    "districts": 132.0,
+    "population_million": 201.839962720052,
+    "pw_increment": 0.0211760557716385,
+    "rural_over_urban": 0.633872076421813
+   },
+   {
+    "zone": "Central",
+    "districts": 139.0,
+    "population_million": 345.978872638427,
+    "pw_increment": 0.0410093056858716,
+    "rural_over_urban": 1.00095847955876
+   },
+   {
+    "zone": "West",
+    "districts": 66.0,
+    "population_million": 199.944284425356,
+    "pw_increment": 0.0613272127650367,
+    "rural_over_urban": 1.16775831314557
+   },
+   {
+    "zone": "India",
+    "districts": 641.0,
+    "population_million": 1400.48171912008,
+    "pw_increment": 0.0603270025727633,
+    "rural_over_urban": 0.804925466367451
+   }
+  ],
+  "all": [
+   {
+    "zone": "East",
+    "districts": 114.0,
+    "population_million": 312.50696412309,
+    "pw_increment": 0.110695685454735,
+    "rural_over_urban": 0.843247631420771
+   },
+   {
+    "zone": "South",
+    "districts": 104.0,
+    "population_million": 288.059636266421,
+    "pw_increment": 0.368666316852644,
+    "rural_over_urban": 1.03329414497202
+   },
+   {
+    "zone": "Northeast",
+    "districts": 86.0,
+    "population_million": 52.1519989467327,
+    "pw_increment": 0.0296322769361868,
+    "rural_over_urban": 1.00926487513277
+   },
+   {
+    "zone": "North",
+    "districts": 132.0,
+    "population_million": 201.839962720052,
+    "pw_increment": 0.0603475153679407,
+    "rural_over_urban": 0.675318360544629
+   },
+   {
+    "zone": "Central",
+    "districts": 139.0,
+    "population_million": 345.978872638427,
+    "pw_increment": 0.110764011446346,
+    "rural_over_urban": 0.991642073824134
+   },
+   {
+    "zone": "West",
+    "districts": 66.0,
+    "population_million": 199.944284425356,
+    "pw_increment": 0.181171185722009,
+    "rural_over_urban": 1.19020474370146
+   },
+   {
+    "zone": "India",
+    "districts": 641.0,
+    "population_million": 1400.48171912008,
+    "pw_increment": 0.163560243762148,
+    "rural_over_urban": 0.83245425246841
+   }
+  ]
+ },
+ "deaths_total": {
+  "operating": 2077.55,
+  "all": 5649.32
+ }
+}
