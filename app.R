@@ -62,7 +62,7 @@ H          <- jsonlite::read_json("data/headline.json")
 # (Equation S4.6). Published live loads are kept; the commercial market (colocation + hyperscale) is calibrated
 # to the national anchor; every facility without a published load gets class weight x one MW-per-weight-unit
 # factor (lambda); listings that fail the identity screen get 0 MW. tests/check_app_data.R checks this
-# reproduces every facility's mw_it and the 2,059 MW total.
+# reproduces every facility's mw_it and the 2,051 MW total.
 CLASS_WEIGHT <- c(hyperscale = 10, colocation = 3, enterprise = 1, government = 1, telecom = 0.5)
 CAP <- local({
   f <- sf::st_drop_geometry(facilities); f <- f[f$is_operating %in% TRUE, ]
@@ -305,7 +305,8 @@ aq_walkthrough <- function() {
 
     step(3, "Which power plants emit them.",
       p("Each state's emissions are placed at that state's own plants: first split between coal and gas by fixed national ratios (for SO2, gas : coal = 1 : 5,750, so gas carries almost none), ",
-        "then shared among the state's plants of that fuel in proportion to their capacity (WRI Global Power Plant Database: 253 coal and 68 gas plants). ",
+        "then shared among the state's plants of that fuel in proportion to their capacity (WRI Global Power Plant Database: 253 coal and 68 gas plants; ",
+        "one database coordinate is corrected: SOLAPUR STPP, NTPC's 1,320 MW coal plant, which the database places near Shimla, is moved to Solapur, Maharashtra). ",
         sprintf("States with no coal plant of their own (%s) have their share spread over all coal plants nationally, again by capacity. ", paste(A$no_coal, collapse = ", ")),
         "Plants release at a fixed height (200 m for coal stacks, 100 m for gas), and only SO2, NOx and primary PM2.5 are added."),
       p(sprintf(paste0("Example: %s, the plant that receives the most SO2, is a %s MW coal plant in %s. %s's coal plants total %s MW, so it takes %s / %s = %s%% of the %s t of coal SO2 caused by %s's data centres (%s t). ",
@@ -360,14 +361,14 @@ aq_walkthrough <- function() {
       tags$pre(class = "bg-light p-2 small", "deaths = population x 0.562 (share aged 25+) x 0.0087 (NCD+LRI deaths per adult per year) x [ HR(z + increment) / HR(z) - 1 ]"),
       p("For the district chosen in step 5:"),
       uiOutput("aq_health"),
-      p(sprintf("Summed over every piece of every district: %s deaths a year, about 2,100 as the paper reports. ",
+      p(sprintf("Summed over every piece of every district: %s deaths a year, about 2,000 as the paper reports. ",
                 fmtnum(if (!is.null(AQG)) sum(AQG$pieces$deaths) else A$deaths_model)),
         "Most fall far from the data centres, in the generation corridors.")),
 
     step(7, "What this does and does not show.",
       tags$ul(class = "mb-0",
         tags$li("It is a scenario, not a measurement: it assumes the sector's demand is met at the margin of each state's grid, and that each state's emissions come from its own plants in proportion to capacity. It does not trace any facility's actual power purchases."),
-        tags$li("Allocating by estimated generation instead of capacity gives the same result (the database's generation is capacity times a fixed factor for each fuel). Flat class weights raise the deaths to about 3,000 and hyperscale-dominant weights lower them to about 1,900 (SI Table S4.1.3)."),
+        tags$li("Allocating by estimated generation instead of capacity gives the same result (the database's generation is capacity times a fixed factor for each fuel). Flat class weights raise the deaths to about 3,400 and hyperscale-dominant weights lower them to about 1,900; setting the 54 operating facilities that public sources can neither confirm nor refute (237 MW) to zero lowers them to about 1,800 (SI Table S4.1.3)."),
         tags$li("Deaths use one national adult share and baseline death rate, not state- or age-specific rates; the rate used (0.0087 per adult per year) is the upper end of the GBD 2023 range for India at ages 25+ (0.0084-0.0087), and the lower end would give about 2,000. The uncertainty of the GEMM curve and of the dispersion model is not propagated."),
         tags$li(sprintf("In the stock-plus-pipeline scenario (all %s facilities, including those under construction and announced) the population-weighted increment is %s ug/m3 and the deaths about %s a year.",
                         fmtnum(H$n_all), fmtnum(H$inmap_all$pwm_ugm3, 4), fmtnum(H$inmap_all$deaths_per_yr))))))
@@ -391,8 +392,10 @@ cap_walkthrough <- function() {
       "This is how a megawatt figure is assigned to each of the ", C$n, " operating facilities, including those that publish none. ",
       "The same numbers are in the paper (section 2.4 and SI section S4); click any facility on the map to see its own calculation."),
     step(1, "Use the published figure wherever one exists.",
-      sprintf("%d of the %d operating facilities publish a live IT load, together %s MW. ", C$n_rep, C$n, n1(C$mw_rep)),
-      "These are used exactly as published. Only figures a source labels (or clearly means) as IT load count; total power, MVA or an unlabelled \"capacity\" do not."),
+      sprintf("%d of the %d operating facilities have a published live capacity, together %s MW. ", C$n_rep, C$n, n1(C$mw_rep)),
+      "A labelled IT load is used as published (tier T1); otherwise an unlabelled operational capacity or MVA is taken as IT load (T2), total facility power is divided by the PUE of 1.6 (T3), ",
+      "a company-wide or campus figure is shared equally among the operator's sites (T4), or a rack count is taken at 4 kW per rack (T5). ",
+      "Figures found only on listing sites (Data Center Map, Baxtel and similar) are never used. Each facility's tier is named in its capacity basis."),
     step(2, "Calibrate the commercial market to a national total.",
       sprintf("Colocation and hyperscale facilities are the commercial market, which Savills India (2026) puts at %s MW of operational IT capacity in the first half of 2026. ", fmtnum(C$anchor)),
       sprintf("%d commercial facilities publish a load (%s MW), so %s - %s = %s MW is left for the %d commercial facilities that publish none.",
@@ -841,7 +844,14 @@ ui <- page_sidebar(
           "for sites found during a cross-check. The ",
           tags$a(href = "https://www.atlasofdatacenterpolitics.com/", target = "_blank", "Atlas of Data Center Politics"),
           " and a screened OpenStreetMap query are used only as cross-checks, never as the source of a row. ",
+          "Listing sites (Data Center Map, Baxtel, Ocolo, Datacenterhawk, Cloudscene, IndiaMART) are not counted as independent evidence: ",
+          "a row they alone support is rated low confidence, and they never supply a capacity. ",
           "Every facility carries a source link; the Facilities tab gives them, with how each was verified."),
+        p("Every row was reviewed against its sources between 22 and 25 October 2026 (11 rows removed as hosting resellers, offices or second rows ",
+          "for one building; 16 statuses corrected), then re-checked independently on 26 October by reviewers who did not see the earlier verdicts ",
+          "(241 rows drew no fault; accepted challenges were corrected). Confidence is high for 176 facilities, medium for 34 and low for 119. ",
+          "75 facilities (54 operating, 237 MW) can be neither confirmed nor refuted from public sources; each carries an open issue, and the paper ",
+          "tests their removal. Cited pages have Internet Archive or archive.today copies; pages that could not be archived are held by the authors as dated snapshots."),
         p(sprintf(paste0("The result is %d operating facilities in %d districts, and %d facilities in %d ",
                          "districts once the %d under-construction and %d announced facilities are added. "),
                   H$n_operating, H$hosting_districts_operating, H$n_all, H$hosting_districts_all,
@@ -860,8 +870,10 @@ ui <- page_sidebar(
           "check on the geography and are counted in no total."),
 
         h4("What the capacity numbers are"),
-        p(sprintf(paste0("Only a minority of facilities disclose their IT load. Reported loads are held ",
-                         "fixed, and the remaining capacity is allocated: each facility gets a relative ",
+        p(sprintf(paste0("Only a minority of facilities publish their capacity. Published figures are held ",
+                         "fixed, by one tiered rule: a labelled IT load as published; otherwise an unlabelled operational capacity ",
+                         "taken as IT load, total power divided by the PUE of 1.6, a company-wide figure shared equally, or racks at 4 kW. ",
+                         "Listing-site figures are never used. The remaining capacity is allocated: each facility gets a relative ",
                          "weight by operator class (telecom 0.5, enterprise and government 1, colocation 3, hyperscale ",
                          "10) and the commercial subset is scaled to a national anchor of %s MW of ",
                          "commercial IT load, giving %s MW across the operating inventory. "),
@@ -915,7 +927,10 @@ ui <- page_sidebar(
                          "follows the scope switch."),
                   H$inmap_operating$pwm_ugm3, fmtnum(H$inmap_operating$pop_ge_0_01_million),
                   fmtnum(H$inmap_operating$deaths_per_yr), H$inmap_all$pwm_ugm3,
-                  fmtnum(H$inmap_all$pop_ge_0_01_million), fmtnum(H$inmap_all$deaths_per_yr))),
+                  fmtnum(H$inmap_all$pop_ge_0_01_million), fmtnum(H$inmap_all$deaths_per_yr)),
+          "The paper reruns InMAP for four sensitivity variants (SI Table S4.1.3): plant allocation by generation (identical), ",
+          "flat class weights (about 3,400 deaths), hyperscale-dominant weights (about 1,900), and the unresolved-facility test, ",
+          "which sets the 54 operating facilities that public sources can neither confirm nor refute to zero (1,824 deaths, 11% fewer)."),
         p("This is not measured pollution. It is the modelled annual-mean PM2.5 attributable to ",
           "the electricity these facilities consume, obtained by computing each state's emissions with state marginal emission factors, ",
           "placing them at that state's coal and gas plants in proportion to capacity and dispersing them ",
@@ -958,7 +973,7 @@ ui <- page_sidebar(
 
         h4("Limits worth knowing"),
         tags$ul(
-          tags$li("Points are the site geocodes published in the facility table; 35 of the 340 rest on a city placeholder, and the table gives each one's precision."),
+          tags$li("Points are the site geocodes published in the facility table; 32 of the 329 rest on a city placeholder, and the table gives each one's precision."),
           tags$li("Most facilities do not disclose capacity; it is allocated by operator class and scaled to a national anchor."),
           tags$li("District values are totals or averages and hide within-district variation."),
           tags$li("The pipeline scenario counts announcements; not all of them will be built.")),

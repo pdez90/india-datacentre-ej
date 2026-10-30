@@ -3,165 +3,165 @@
   "operating": [
    {
     "contrast": "SC/ST vs General",
-    "pwc_group": 0.0612030374823486,
-    "pwc_ref": 0.0450432169497973,
-    "Z": 0.198182810328489,
-    "ratio": 1.35876257574059,
-    "boot_sign_prob": 0.0519740129935032
+    "pwc_group": 0.060234392617025,
+    "pwc_ref": 0.0439112742735355,
+    "Z": 0.193614070582667,
+    "ratio": 1.37172955268409,
+    "boot_sign_prob": 0.0589705147426287
    },
    {
     "contrast": "OBC vs General",
-    "pwc_group": 0.0681767507595057,
-    "pwc_ref": 0.0450432169497973,
-    "Z": 0.253865133674572,
-    "ratio": 1.51358529377446,
-    "boot_sign_prob": 0.0769615192403798
+    "pwc_group": 0.0673746335857885,
+    "pwc_ref": 0.0439112742735355,
+    "Z": 0.247575535497024,
+    "ratio": 1.5343356507054,
+    "boot_sign_prob": 0.0919540229885057
    },
    {
     "contrast": "BPL vs non-BPL",
-    "pwc_group": 0.0603523951214325,
-    "pwc_ref": 0.0603057372183345,
-    "Z": 0.000508550072059219,
-    "ratio": 1.00077368929144,
-    "boot_sign_prob": 0.996501749125437
+    "pwc_group": 0.0584137510169638,
+    "pwc_ref": 0.0601913582173304,
+    "Z": -0.0186672089803432,
+    "ratio": 0.970467401749795,
+    "boot_sign_prob": 0.925537231384308
    },
    {
     "contrast": "No electricity vs has electricity",
-    "pwc_group": 0.0426403190166804,
-    "pwc_ref": 0.0609067566160371,
-    "Z": -0.211855311888231,
-    "ratio": 0.700091769546845,
-    "boot_sign_prob": 0.0599700149925037
+    "pwc_group": 0.0416082036972928,
+    "pwc_ref": 0.0599637575443385,
+    "Z": -0.204913326224327,
+    "ratio": 0.693889199097086,
+    "boot_sign_prob": 0.0659670164917541
    },
    {
     "contrast": "Rural vs urban",
-    "pwc_group": 0.0559919878847722,
-    "pwc_ref": 0.0695617050575608,
-    "Z": -0.144691021793868,
-    "ratio": 0.804925466367451,
-    "boot_sign_prob": 0.0299850074962519
+    "pwc_group": 0.0549180548228706,
+    "pwc_ref": 0.0688887755038109,
+    "Z": -0.143245293063612,
+    "ratio": 0.797198882128956,
+    "boot_sign_prob": 0.0279860069965018
    },
    {
     "contrast": "Muslim vs Hindu",
-    "pwc_group": 0.0442956521479486,
-    "pwc_ref": 0.0637983817369143,
-    "Z": -0.221319555689261,
-    "ratio": 0.694306829452364,
-    "boot_sign_prob": 0.0189905047476262
+    "pwc_group": 0.0426247978833335,
+    "pwc_ref": 0.0629354112220738,
+    "Z": -0.222249599253005,
+    "ratio": 0.677278451918392,
+    "boot_sign_prob": 0.0169915042478761
    },
    {
     "contrast": "Poorest quintile vs richest",
-    "pwc_group": 0.0346500318097722,
-    "pwc_ref": 0.0647959662671672,
-    "Z": -0.431177359529916,
-    "ratio": 0.534756001120547,
-    "boot_sign_prob": 0.128935532233883
+    "pwc_group": 0.0329430256619888,
+    "pwc_ref": 0.0644449314842653,
+    "Z": -0.435636625828482,
+    "ratio": 0.511181017703961,
+    "boot_sign_prob": 0.112943528235882
    },
    {
     "contrast": "Poorer quintile vs richest",
-    "pwc_group": 0.0468102193218981,
-    "pwc_ref": 0.0647959662671672,
-    "Z": -0.23251822155018,
-    "ratio": 0.722424898008155,
-    "boot_sign_prob": 0.465767116441779
+    "pwc_group": 0.045073411117789,
+    "pwc_ref": 0.0644449314842653,
+    "Z": -0.243717903202798,
+    "ratio": 0.699409714304592,
+    "boot_sign_prob": 0.444777611194403
    },
    {
     "contrast": "Middle quintile vs richest",
-    "pwc_group": 0.0885377580780081,
-    "pwc_ref": 0.0647959662671672,
-    "Z": 0.172887399849833,
-    "ratio": 1.3664084846416,
-    "boot_sign_prob": 0.122938530734633
+    "pwc_group": 0.0880645248606903,
+    "pwc_ref": 0.0644449314842653,
+    "Z": 0.164490633315069,
+    "ratio": 1.36650816181241,
+    "boot_sign_prob": 0.131934032983508
    },
    {
     "contrast": "Richer quintile vs richest",
-    "pwc_group": 0.0669103016575385,
-    "pwc_ref": 0.0647959662671672,
-    "Z": 0.0233196192998962,
-    "ratio": 1.03263066379246,
-    "boot_sign_prob": 0.95552223888056
+    "pwc_group": 0.0664436400231551,
+    "pwc_ref": 0.0644449314842653,
+    "Z": 0.0212983992077704,
+    "ratio": 1.03101420845451,
+    "boot_sign_prob": 0.96751624187906
    }
   ],
   "all": [
    {
     "contrast": "SC/ST vs General",
-    "pwc_group": 0.166371614704064,
-    "pwc_ref": 0.127340897428215,
-    "Z": 0.19314263351323,
-    "ratio": 1.30650575003094,
-    "boot_sign_prob": 0.0189905047476262
+    "pwc_group": 0.214030591310388,
+    "pwc_ref": 0.166728770237517,
+    "Z": 0.185836907952775,
+    "ratio": 1.28370521179689,
+    "boot_sign_prob": 0.015992003998001
    },
    {
     "contrast": "OBC vs General",
-    "pwc_group": 0.182273280080201,
-    "pwc_ref": 0.127340897428215,
-    "Z": 0.247601955183669,
-    "ratio": 1.43138052080206,
-    "boot_sign_prob": 0.0759620189905048
+    "pwc_group": 0.231125713950914,
+    "pwc_ref": 0.166728770237517,
+    "Z": 0.230888352161067,
+    "ratio": 1.3862377418226,
+    "boot_sign_prob": 0.0879560219890055
    },
    {
     "contrast": "BPL vs non-BPL",
-    "pwc_group": 0.174947794783288,
-    "pwc_ref": 0.154023575675117,
-    "Z": 0.0931620929540588,
-    "ratio": 1.13585075542141,
-    "boot_sign_prob": 0.629685157421289
+    "pwc_group": 0.230876795271853,
+    "pwc_ref": 0.192159877487648,
+    "Z": 0.137509636418645,
+    "ratio": 1.20148283965623,
+    "boot_sign_prob": 0.506746626686657
    },
    {
     "contrast": "No electricity vs has electricity",
-    "pwc_group": 0.113027723759249,
-    "pwc_ref": 0.165216655643754,
-    "Z": -0.249621289380301,
-    "ratio": 0.684118216283008,
-    "boot_sign_prob": 0.0539730134932534
+    "pwc_group": 0.142740157575703,
+    "pwc_ref": 0.212004313377271,
+    "Z": -0.266157987108178,
+    "ratio": 0.67328893125722,
+    "boot_sign_prob": 0.0489755122438781
    },
    {
     "contrast": "Rural vs urban",
-    "pwc_group": 0.153679091423304,
-    "pwc_ref": 0.184609653885017,
-    "Z": -0.13626162067804,
-    "ratio": 0.83245425246841,
-    "boot_sign_prob": 0.0669665167416292
+    "pwc_group": 0.197832063023362,
+    "pwc_ref": 0.235313442111387,
+    "Z": -0.13267586095424,
+    "ratio": 0.840717220607044,
+    "boot_sign_prob": 0.0819590204897551
    },
    {
     "contrast": "Muslim vs Hindu",
-    "pwc_group": 0.116623053116658,
-    "pwc_ref": 0.17305068149223,
-    "Z": -0.264360382614492,
-    "ratio": 0.673924263753301,
-    "boot_sign_prob": 0.000999500249875062
+    "pwc_group": 0.149249934678056,
+    "pwc_ref": 0.222013372144902,
+    "Z": -0.274090920167052,
+    "ratio": 0.672256509759439,
+    "boot_sign_prob": 0.00499750124937531
    },
    {
     "contrast": "Poorest quintile vs richest",
-    "pwc_group": 0.0908043994431346,
-    "pwc_ref": 0.16509943638348,
-    "Z": -0.453768424380931,
-    "ratio": 0.549998240043784,
-    "boot_sign_prob": 0.126936531734133
+    "pwc_group": 0.121170147146397,
+    "pwc_ref": 0.198737051489497,
+    "Z": -0.390772919023192,
+    "ratio": 0.609700839567911,
+    "boot_sign_prob": 0.217891054472764
    },
    {
     "contrast": "Poorer quintile vs richest",
-    "pwc_group": 0.11883907755979,
-    "pwc_ref": 0.16509943638348,
-    "Z": -0.259219376099809,
-    "ratio": 0.71980304816886,
-    "boot_sign_prob": 0.391804097951025
+    "pwc_group": 0.156330165623692,
+    "pwc_ref": 0.198737051489497,
+    "Z": -0.196553817024899,
+    "ratio": 0.786618119027261,
+    "boot_sign_prob": 0.595702148925537
    },
    {
     "contrast": "Middle quintile vs richest",
-    "pwc_group": 0.239401286244686,
-    "pwc_ref": 0.16509943638348,
-    "Z": 0.240618502656206,
-    "ratio": 1.4500430255172,
-    "boot_sign_prob": 0.0859570214892554
+    "pwc_group": 0.303767598426317,
+    "pwc_ref": 0.198737051489497,
+    "Z": 0.289352987272391,
+    "ratio": 1.52849001305814,
+    "boot_sign_prob": 0.0519740129935032
    },
    {
     "contrast": "Richer quintile vs richest",
-    "pwc_group": 0.203589774846947,
-    "pwc_ref": 0.16509943638348,
-    "Z": 0.159091572421484,
-    "ratio": 1.2331342814161,
-    "boot_sign_prob": 0.646676661669165
+    "pwc_group": 0.268865123530374,
+    "pwc_ref": 0.198737051489497,
+    "Z": 0.217137528138679,
+    "ratio": 1.35286863478793,
+    "boot_sign_prob": 0.56471764117941
    }
   ]
  },
@@ -995,34 +995,34 @@
   "operating": {
    "scope": "operating",
    "inventory": "v2",
-   "scst": 0.31899279621225,
-   "bpl": 0.455963597288026,
-   "wealth": 252718.211225037,
-   "muslim": 0.101336083420748,
-   "no_electricity": 0.0224335821511285,
-   "urban": 0.368364906190263,
+   "scst": 0.318944703421001,
+   "bpl": 0.448346430514449,
+   "wealth": 260249.738192515,
+   "muslim": 0.0990668394236686,
+   "no_electricity": 0.0222392485223329,
+   "urban": 0.370611981266279,
    "hosting_wealth": 730955.077856797,
-   "pwm_grid": 0.0602391932609273,
-   "pwm_dist": 0.0603270025727633,
-   "pop_ge_0_01_million": 1293.64510615413,
-   "pop_ge_0_10_million": 157.018164159211,
-   "deaths": 2077.54556287079
+   "pwm_grid": 0.0592780763056756,
+   "pwm_dist": 0.0593811750620415,
+   "pop_ge_0_01_million": 1289.88565234052,
+   "pop_ge_0_10_million": 144.200601919908,
+   "deaths": 2047.18514200055
   },
   "all": {
    "scope": "all",
    "inventory": "v2",
-   "scst": 0.319831421895948,
-   "bpl": 0.487503942354467,
-   "wealth": 254377.990168347,
-   "muslim": 0.0984059639830825,
-   "no_electricity": 0.0219329556745124,
-   "urban": 0.360575684200665,
+   "scst": 0.320758140193187,
+   "bpl": 0.501544974573638,
+   "wealth": 238592.945311726,
+   "muslim": 0.0981773038125075,
+   "no_electricity": 0.0215932637482137,
+   "urban": 0.358301563285472,
    "hosting_wealth": 721292.341645413,
-   "pwm_grid": 0.163452093735413,
-   "pwm_dist": 0.163560243762148,
-   "pop_ge_0_01_million": 1375.50727609182,
-   "pop_ge_0_10_million": 613.025161627415,
-   "deaths": 5649.3186137125
+   "pwm_grid": 0.209526623522589,
+   "pwm_dist": 0.209805955095231,
+   "pop_ge_0_01_million": 1383.9365108397,
+   "pop_ge_0_10_million": 829.928772764856,
+   "deaths": 7259.51205282089
   }
  },
  "regional": {
@@ -1031,50 +1031,50 @@
     "zone": "East",
     "districts": 114.0,
     "population_million": 312.50696412309,
-    "pw_increment": 0.0438862786626151,
-    "rural_over_urban": 0.783558053293607
+    "pw_increment": 0.041396447537354,
+    "rural_over_urban": 0.776009618459511
    },
    {
     "zone": "South",
     "districts": 104.0,
     "population_million": 288.059636266421,
-    "pw_increment": 0.137143648341172,
-    "rural_over_urban": 0.978485130064227
+    "pw_increment": 0.136415208240798,
+    "rural_over_urban": 0.970125483482562
    },
    {
     "zone": "Northeast",
     "districts": 86.0,
     "population_million": 52.1519989467327,
-    "pw_increment": 0.0103925791147984,
-    "rural_over_urban": 1.03115364864853
+    "pw_increment": 0.0100692163710982,
+    "rural_over_urban": 1.02799636704514
    },
    {
     "zone": "North",
     "districts": 132.0,
     "population_million": 201.839962720052,
-    "pw_increment": 0.0211760557716385,
-    "rural_over_urban": 0.633872076421813
+    "pw_increment": 0.0214527792511273,
+    "rural_over_urban": 0.633251570365174
    },
    {
     "zone": "Central",
     "districts": 139.0,
     "population_million": 345.978872638427,
-    "pw_increment": 0.0410093056858716,
-    "rural_over_urban": 1.00095847955876
+    "pw_increment": 0.0406050498149187,
+    "rural_over_urban": 0.998718273680689
    },
    {
     "zone": "West",
     "districts": 66.0,
     "population_million": 199.944284425356,
-    "pw_increment": 0.0613272127650367,
-    "rural_over_urban": 1.16775831314557
+    "pw_increment": 0.060147803034873,
+    "rural_over_urban": 1.17178479442594
    },
    {
     "zone": "India",
     "districts": 641.0,
     "population_million": 1400.48171912008,
-    "pw_increment": 0.0603270025727633,
-    "rural_over_urban": 0.804925466367451
+    "pw_increment": 0.0593811750620414,
+    "rural_over_urban": 0.797198882128956
    }
   ],
   "all": [
@@ -1082,55 +1082,55 @@
     "zone": "East",
     "districts": 114.0,
     "population_million": 312.50696412309,
-    "pw_increment": 0.110695685454735,
-    "rural_over_urban": 0.843247631420771
+    "pw_increment": 0.15498385554505,
+    "rural_over_urban": 0.814705428125836
    },
    {
     "zone": "South",
     "districts": 104.0,
     "population_million": 288.059636266421,
-    "pw_increment": 0.368666316852644,
-    "rural_over_urban": 1.03329414497202
+    "pw_increment": 0.463721869678025,
+    "rural_over_urban": 1.04039530811277
    },
    {
     "zone": "Northeast",
     "districts": 86.0,
     "population_million": 52.1519989467327,
-    "pw_increment": 0.0296322769361868,
-    "rural_over_urban": 1.00926487513277
+    "pw_increment": 0.0400862623595558,
+    "rural_over_urban": 1.0010713594594
    },
    {
     "zone": "North",
     "districts": 132.0,
     "population_million": 201.839962720052,
-    "pw_increment": 0.0603475153679407,
-    "rural_over_urban": 0.675318360544629
+    "pw_increment": 0.0659809867115069,
+    "rural_over_urban": 0.71045553547202
    },
    {
     "zone": "Central",
     "districts": 139.0,
     "population_million": 345.978872638427,
-    "pw_increment": 0.110764011446346,
-    "rural_over_urban": 0.991642073824134
+    "pw_increment": 0.139163201488672,
+    "rural_over_urban": 1.0050191541565
    },
    {
     "zone": "West",
     "districts": 66.0,
     "population_million": 199.944284425356,
-    "pw_increment": 0.181171185722009,
-    "rural_over_urban": 1.19020474370146
+    "pw_increment": 0.241370296456074,
+    "rural_over_urban": 1.17705568381171
    },
    {
     "zone": "India",
     "districts": 641.0,
     "population_million": 1400.48171912008,
-    "pw_increment": 0.163560243762148,
-    "rural_over_urban": 0.83245425246841
+    "pw_increment": 0.209805955095231,
+    "rural_over_urban": 0.840717220607044
    }
   ]
  },
  "deaths_total": {
-  "operating": 2077.55,
-  "all": 5649.32
+  "operating": 2047.19,
+  "all": 7259.51
  }
 }

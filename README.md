@@ -21,10 +21,10 @@ shiny::runApp()
 
 ## What's in the app
 
-**Two scopes, as in the paper.** The *operating inventory* (246 facilities in 61
-districts; inventory of 30 September 2026) is the basis of every result in the paper.
-The *stock-plus-pipeline* scenario adds the 56 under-construction and 38 announced facilities
-(340 in all, 66 districts), sized at their reported build-out loads or the operating allocation. The sidebar switch changes the facility
+**Two scopes, as in the paper.** The *operating inventory* (233 facilities in 61
+districts; inventory of 30 September 2026, re-verified row by row in October 2026) is the basis of every result in the paper.
+The *stock-plus-pipeline* scenario adds the 60 under-construction and 36 announced facilities
+(329 in all, 66 districts), sized at their reported build-out loads or the operating allocation. The sidebar switch changes the facility
 points, the value boxes, the district count layer and the PM2.5 increment layer together;
 the Scope 1 / Scope 2 chain layers are for the operating inventory. Pipeline facilities are
 drawn with a dark outline (dashed for announced) and lighter fill.
@@ -61,7 +61,9 @@ and confidence, the Atlas cross-check, and any corrections made during verificat
 
 **Map.** District choropleth plus facility points, optionally with the 321 coal and gas
 plants that carry the sector's attributable emissions (hover for each plant's attributable
-SO2, NOx and PM2.5) and the screened OpenStreetMap cross-check (black rings). Hovering a
+SO2, NOx and PM2.5; one Global Power Plant Database coordinate is corrected: SOLAPUR STPP, NTPC's
+1,320 MW coal plant, which the database places near Shimla, is moved to Solapur, Maharashtra,
+`data/public/plant_corrections.csv`) and the screened OpenStreetMap cross-check (black rings). Hovering a
 district gives a profile card; hovering a facility gives its type, status, reported and
 allocated capacity, electricity, carbon and both water terms.
 
@@ -91,9 +93,14 @@ million Indians (1,460 kWh per capita, CEA FY2024-25); CO2 as a share of India's
 **Modelled exposure for both scopes.** Three InMAP layers: the operating field, the
 stock-plus-pipeline field and the increment the pipeline adds; the legend of each carries the
 population-weighted mean, the population above 0.01 ug/m3 and GEMM attributable deaths for that
-scope (district-mean population-weighted increment: operating 0.0603 ug/m3, ~2,078 deaths/yr;
-stock plus pipeline 0.1636 ug/m3, ~5,649). These are modelled, scenario-consistent estimates
+scope (district-mean population-weighted increment: operating 0.0594 ug/m3, ~2,047 deaths/yr;
+stock plus pipeline 0.2098 ug/m3, ~7,260). These are modelled, scenario-consistent estimates
 (GEMM concentration-response function applied to the InMAP increment), not observed mortality.
+The paper reruns InMAP for four sensitivity variants (SI Table S4.1.3): plant allocation by
+generation instead of capacity (identical, 2,047 deaths), flat class weights (3,416),
+hyperscale-dominant weights (1,872), and the unresolved-facility test, which sets the 54 operating
+facilities that public sources can neither confirm nor refute (237.3 MW) to zero (1,824 deaths,
+10.9% fewer).
 
 **Power interruptions.** A tab with measured grid-supply interruption hours for the 79
 districts that have Prayas ESMI voltage monitors (2014-2019), with a table and CSV downloads
@@ -127,14 +134,14 @@ pipeline and the numbers in the interface cannot drift from the paper's tables.
 | File | Rows | Source |
 |---|---|---|
 | `data/districts.geojson` | 641 | Census 2011 district geography (joined to the NFHS-5 district identifiers; `scripts/00a_districts.R`) joined to the analysis layer (`analysis_district.csv`, both scopes' counts), the InMAP receiving field and GEMM deaths (`tab16_inmap_district.csv`, both scopes), the InMAP source field aggregated to plant districts (`tab16b_emissions_points.csv`), facility Scope 1 and Scope 2 water (`tab15_facilities.csv`); geometry simplified to 0.004° (about 400 m) |
-| `data/facilities.geojson` | 340 | `dc_current_inventory.csv` (stock plus pipeline) with `facility_id`, status, reported IT load and site geocodes (unrounded; precision class in the public table); operating-scope allocations (`mw_it`, `e_fac_gwh`, `co2_kt`, `scope1_ml`, `scope2_ml`) for the 246 operating facilities and build-out allocations (`*_all`) for all 340, from `tab15_facilities.csv` in each scope |
-| `data/plants.geojson` | 321 | WRI Global Power Plant Database coal and gas plants that receive an allocation of the sector's marginal emissions, with the attributable tonnes for both scopes (`tab16b_emissions_points.csv`; `*_all` = stock plus pipeline) |
+| `data/facilities.geojson` | 329 | `dc_current_inventory.csv` (stock plus pipeline) with `facility_id`, status, reported IT load and site geocodes (unrounded; precision class in the public table); operating-scope allocations (`mw_it`, `e_fac_gwh`, `co2_kt`, `scope1_ml`, `scope2_ml`) for the 233 operating facilities and build-out allocations (`*_all`) for all 329, from `tab15_facilities.csv` in each scope |
+| `data/plants.geojson` | 321 | WRI Global Power Plant Database coal and gas plants (253 coal, 68 gas) that receive an allocation of the sector's marginal emissions, with the attributable tonnes for both scopes (`tab16b_emissions_points.csv`; `*_all` = stock plus pipeline); SOLAPUR STPP's coordinates corrected from Himachal Pradesh to Solapur, Maharashtra (`data/public/plant_corrections.csv`) |
 | `data/osm_check.geojson` | 20 | OpenStreetMap cross-check: Overpass `telecom=data_center` + `building=data_center`, screened to records identifiable as data centres and to the study geography (50-km tolerance) |
 | `data/policies.csv` | 18 | `tab14_policy_burden.csv`: policy compilation joined to hosting-district burden, both scopes' facility counts |
 | `data/policy_sources.csv` | 140 | `data/state_dc_policies_sources.csv`: one row per state × claim with URL, verbatim passage and retrieval date |
 | `data/ej_panel.json` | – | the paper's distributional tables, verbatim: `tab20b_inmap_disparity_national.csv` (both scopes), `tab20a_disparity_national.csv` (siting and baseline-exposure contrasts, both scopes), `tab20a_group_exposure_S61.csv`, `tab1_dc_vs_nodc_profile.csv`, `tab16_receiving_profile.csv`, `tab20b_inmap_regional.csv` |
 | `data/headline.json` | – | the numbers the interface text quotes (facility and district counts, anchors, TWh, CO2, kt, diesel share, policy counts), taken from `tab15_national.csv`, `tab15b_marginal_totals.csv`, `tab16b_emissions_points.csv`, `tab16_inmap_summary.txt`, `tab29_diesel_scenarios.csv` and `tab14_policy_burden.csv` |
-| `data/india_datacentres_public.csv` | 340 | the sourced facility table (`scripts/24_public_inventory.R`); data dictionary in `DATA.md` |
+| `data/india_datacentres_public.csv` | 329 | the sourced facility table (`scripts/24_public_inventory.R`); data dictionary in `DATA.md` |
 | `data/district_power_interruptions.csv` | 79 | `tab28_esmi_district_outages.csv` (`scripts/28_esmi_outages.py`): supply-interruption hours per year (minutes below 80 V, 2014-2019) from the Prayas ESMI monitors, per Census 2011 district, for all, urban and rural monitors; offered for download on the *Power interruptions* tab. Source: Prayas (Energy Group), ESMI, doi:10.7910/DVN/CLLZZM (non-commercial use with acknowledgement) |
 | `data/esmi_monitor_power_interruptions.csv` | 528 | the same, monitor by monitor (`esmi_monitor_outages.csv`) |
 | `data/power_interruptions_backup_diesel.csv` | 62 | one row per hosting district: its ESMI monitors and measured hours, the outage-hour value the backup-diesel model used and why, and the resulting generator hours; plus one total row whose notes give the scenario range (`scripts/30_app_download_tables.R`, from `tab29_*`); README alongside |
@@ -143,18 +150,30 @@ pipeline and the numbers in the interface cannot drift from the paper's tables.
 | `data/india_datacentres_documented.zip` | – | the download offered on the Facilities tab: the facility table, `DATA.md`, `sources_and_archives.csv` (every cited URL, the facilities citing it, its archived copy and snapshot date), the backup-diesel and emission-factor tables with their READMEs, and a README with licence and citation |
 
 **How the inventory is built.** The backbone is the Data Center Map directory, whose India
-listing is read entry by entry for status and reported IT load (213 rows). Three other kinds of
+listing is read entry by entry (202 rows). Three other kinds of
 record add facilities the directory misses: operators' own published facility lists (66 rows),
 a census of government data centres (32 rows) and operator, company, government or press
 records for sites found during the cross-check (29 rows). The Atlas of Data Center Politics
-and a screened OpenStreetMap query are cross-checks only. `DATA.md` documents every step.
+and a screened OpenStreetMap query are cross-checks only, and listing sites (Data Center Map,
+Baxtel, Ocolo, Datacenterhawk, Cloudscene, IndiaMART) are not counted as independent evidence and
+never supply a capacity. Every row was reviewed against its sources (22-25 October 2026: 11 rows
+removed, 16 statuses corrected) and then re-checked independently by reviewers who did not see the
+earlier verdicts (26 October 2026). Confidence is high for 176 rows, medium for 34 and low for 119;
+75 rows (54 operating) can be neither confirmed nor refuted from public sources and carry an open
+issue. Sources have Internet Archive or archive.today copies (529 of the 530 cited URLs); pages that
+could not be archived are held by the authors as dated snapshots outside the repository. `DATA.md`
+documents every step.
 
-**What the capacity numbers are.** Only a minority of facilities disclose IT load. Reported
-loads are held fixed; the rest is allocated by operator class (telecom 0.5, enterprise and
-government 1, colocation 3, hyperscale 10) and the commercial subset is scaled to a national
-anchor of 1,800 MW of commercial IT load (2,059 MW across the operating inventory). The
-pipeline scenario keeps that per-weight allocation and uses published build-out loads where
-they exist, and current published loads where only those exist (6,302 MW). An individual facility's megawatts are an allocation, not a
+**What the capacity numbers are.** Capacity follows one tiered method (T1-T6; each row's
+`mw_basis` starts with its tier): a published IT load is used as published (T1); otherwise an
+unlabelled operational capacity is taken as IT load (T2), total facility power is divided by the
+PUE of 1.6 (T3), a company-wide or campus figure is shared equally (T4), or racks are counted at
+4 kW (T5). 123 operating facilities have such a figure (1,383 MW; 93 of them T1). The rest (T6) is
+allocated by operator class (telecom 0.5, enterprise and government 1, colocation 3, hyperscale 10)
+and the commercial subset is scaled to a national anchor of 1,800 MW of commercial IT load
+(2,051 MW across the operating inventory). The pipeline scenario keeps that per-weight allocation
+and uses published build-out loads where they exist, and current published loads where only those
+exist (8,114 MW). An individual facility's megawatts are an allocation, not a
 measurement; state and national aggregates are the meaningful quantities. The CO2 value
 box uses the average grid factor (the paper's scenario-table value); the paper's headline
 uses state marginal factors. Both appear on the About tab.
@@ -222,7 +241,7 @@ app ever lapses, the DOI still resolves to a runnable copy.
 These are stated in the app's About tab as well, because a map invites over-reading:
 
 - Facility points are the site geocodes, graded building / campus / locality / city
-  placeholder in the public table (35 of 340 rest on a city placeholder, so their point is the
+  placeholder in the public table (32 of 329 rest on a city placeholder, so their point is the
   city, not the building).
 - Most facilities do not disclose capacity; it is allocated by operator class and scaled to
   a national anchor.
