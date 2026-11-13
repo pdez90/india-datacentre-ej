@@ -398,7 +398,7 @@ cap_walkthrough <- function() {
       "Figures found only on listing sites (Data Center Map, Baxtel and similar) are never used. Each facility's tier is named in its capacity basis."),
     step(2, "Calibrate the commercial market to a national total.",
       sprintf("Colocation and hyperscale facilities are the commercial market, which Savills India (2026) puts at %s MW of operational IT capacity in the first half of 2026. ", fmtnum(C$anchor)),
-      sprintf("%d commercial facilities publish a load (%s MW), so %s - %s = %s MW is left for the %d commercial facilities that publish none.",
+      sprintf("%d commercial facilities publish a load (%s MW), so %s - %s = %s MW is left for the %d commercial facilities that publish none (not counting listings given 0 MW in step 6).",
               C$n_rep_c, n1(C$vc), fmtnum(C$anchor), n1(C$vc), n1(C$anchor - C$vc), C$n_mod_c)),
     step(3, "Share that remainder by operator class.",
       "A facility without a published load gets a relative weight for its class: hyperscale 10, colocation 3, enterprise 1, government 1, telecom 0.5. ",
