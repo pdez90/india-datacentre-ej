@@ -711,7 +711,7 @@ ui <- page_sidebar(
         DTOutput("ej_disp_tab"),
         p(tags$small("Wealth-quintile contrasts here use the paper's population-weighted quintiles of districts and compare each ",
                      "quintile with the richest; they are not the same as the Figure 3 bars in the paper, which use equal-count quintiles and are ratios to the ",
-                     "national mean. A ratio above 1 with a sign probability above 0.05 (for example, the SC/ST row for the modelled increment in the operating inventory) is evidence ",
+                     "national mean. A ratio above 1 with a sign probability above 0.05 (for example, the OBC row for the modelled increment in the operating inventory) is evidence ",
                      "neither of inequity nor of equality: the direction is suggestive and the uncertainty too large to settle it.")),
 
         h4(class = "mt-4", "4. Where in India the increment falls"),
@@ -1457,7 +1457,7 @@ server <- function(input, output, session) {
                                                   m$`Increment: ratio`[m$`Sign prob.` < 0.05], m$`Sign prob.`[m$`Sign prob.` < 0.05]), collapse = "; ")
                    else "all sign probabilities are above 0.05",
                    sc$`Increment: ratio`, sc$`Sign prob.`,
-                   if (sc$`Sign prob.` < 0.05) sprintf("is distinguishable from parity in this scope, a %s modelled increment for SC/ST residents at the district scale", if (sc$`Increment: ratio` > 1) "higher" else "lower")
+                   if (sc$`Sign prob.` < 0.05) sprintf("is below 0.05 in this scope, a %s modelled increment for SC/ST residents at the district scale; the paper treats it as borderline, because the sign probability ranges from 0.031 to 0.151 across the capacity-weighting scenarios (SI Table S4.1.3)", if (sc$`Increment: ratio` > 1) "higher" else "lower")
                    else "is evidence neither of inequity nor of equality: the direction is suggestive, the uncertainty too large to call it either a disparity or parity"))
   })
 
@@ -1470,7 +1470,7 @@ server <- function(input, output, session) {
   output$ej_vb_incr_ctx <- renderText({ h <- ej_host(); sprintf("ug/m3, population-weighted; hosting districts hold %s%% of people and %s%% of person-ug exposure", fmt1(h$`Share of population (%)`[1]), fmt1(h$`Share of person-ug exposure (%)`[1])) })
   output$ej_vb_scst <- renderText({ m <- ej_disp(); sprintf("%.2f", m$`Increment: ratio`[m$Contrast == "SC/ST vs General"]) })
   output$ej_vb_scst_ctx <- renderText({ m <- ej_disp(); k <- m$Contrast == "SC/ST vs General"
-    sprintf("sign probability %.3f%s; siting ratio %.2f (SC/ST %s likely to live in a hosting district)", m$`Sign prob.`[k], if (m$`Sign prob.`[k] < 0.05) ", distinguishable" else ", not distinguishable at 0.05", m$`Siting: ratio, P(hosting)`[k], if (m$`Siting: ratio, P(hosting)`[k] < 1) "less" else "more") })
+    sprintf("sign probability %.3f%s; siting ratio %.2f (SC/ST %s likely to live in a hosting district)", m$`Sign prob.`[k], if (m$`Sign prob.`[k] < 0.05) ", below 0.05 (borderline across scenarios)" else ", not distinguishable at 0.05", m$`Siting: ratio, P(hosting)`[k], if (m$`Siting: ratio, P(hosting)`[k] < 1) "less" else "more") })
 
   # ---- navigation: search, shareable links ---------------------------------------------------------
   # a setView sent while the Map tab is hidden lands on a zero-size map and yields a garbage centre, so views

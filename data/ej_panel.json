@@ -3,11 +3,11 @@
   "operating": [
    {
     "contrast": "SC/ST vs General",
-    "pwc_group": 0.060234392617025,
+    "pwc_group": 0.0595952446742756,
     "pwc_ref": 0.0439112742735355,
-    "Z": 0.193614070582667,
-    "ratio": 1.37172955268409,
-    "boot_sign_prob": 0.0589705147426287
+    "Z": 0.19029573799448,
+    "ratio": 1.35717411212073,
+    "boot_sign_prob": 0.0369815092453773
    },
    {
     "contrast": "OBC vs General",
@@ -85,11 +85,11 @@
   "all": [
    {
     "contrast": "SC/ST vs General",
-    "pwc_group": 0.214030591310388,
+    "pwc_group": 0.21162675892939,
     "pwc_ref": 0.166728770237517,
-    "Z": 0.185836907952775,
-    "ratio": 1.28370521179689,
-    "boot_sign_prob": 0.015992003998001
+    "Z": 0.179537983056345,
+    "ratio": 1.26928758982575,
+    "boot_sign_prob": 0.0139930034982509
    },
    {
     "contrast": "OBC vs General",
@@ -170,10 +170,10 @@
    {
     "exposure": "Data-center presence",
     "contrast": "SC/ST vs General",
-    "pwc_group": 0.142372786608497,
+    "pwc_group": 0.145317139001918,
     "pwc_ref": 0.231867264646051,
-    "Z": -0.237422325803354,
-    "ratio": 0.614027110837882,
+    "Z": -0.227965953611416,
+    "ratio": 0.626725550170901,
     "boot_sign_prob": 0.00299850074962519,
     "perm_p_within_state": 0.0001999600079984
    },
@@ -270,11 +270,11 @@
    {
     "exposure": "PM2.5 (ACAG)",
     "contrast": "SC/ST vs General",
-    "pwc_group": 52.0752452942725,
+    "pwc_group": 52.0561069577723,
     "pwc_ref": 54.7314082124296,
-    "Z": -0.0988839375181461,
-    "ratio": 0.9514691288803,
-    "boot_sign_prob": 0.460769615192404,
+    "Z": -0.0959683139950972,
+    "ratio": 0.951119451480699,
+    "boot_sign_prob": 0.463768115942029,
     "perm_p_within_state": ""
    },
    {
@@ -370,11 +370,11 @@
    {
     "exposure": "Surface NO2",
     "contrast": "SC/ST vs General",
-    "pwc_group": 4.46105020927905,
+    "pwc_group": 4.46079817874292,
     "pwc_ref": 4.97555390463827,
-    "Z": -0.175425927345728,
-    "ratio": 0.896593684799678,
-    "boot_sign_prob": 0.123938030984508,
+    "Z": -0.178520729494626,
+    "ratio": 0.896543031035099,
+    "boot_sign_prob": 0.103948025987006,
     "perm_p_within_state": ""
    },
    {
@@ -472,10 +472,10 @@
    {
     "exposure": "Data-center presence",
     "contrast": "SC/ST vs General",
-    "pwc_group": 0.154475146377327,
+    "pwc_group": 0.156979624981611,
     "pwc_ref": 0.24372835762959,
-    "Z": -0.230621422931534,
-    "ratio": 0.633800464909761,
+    "Z": -0.222820211922674,
+    "ratio": 0.644076161298322,
     "boot_sign_prob": 0.00299850074962519,
     "perm_p_within_state": 0.0001999600079984
    },
@@ -572,11 +572,11 @@
    {
     "exposure": "PM2.5 (ACAG)",
     "contrast": "SC/ST vs General",
-    "pwc_group": 52.0752452942725,
+    "pwc_group": 52.0561069577723,
     "pwc_ref": 54.7314082124296,
-    "Z": -0.0988839375181461,
-    "ratio": 0.9514691288803,
-    "boot_sign_prob": 0.460769615192404,
+    "Z": -0.0959683139950972,
+    "ratio": 0.951119451480699,
+    "boot_sign_prob": 0.463768115942029,
     "perm_p_within_state": ""
    },
    {
@@ -672,11 +672,11 @@
    {
     "exposure": "Surface NO2",
     "contrast": "SC/ST vs General",
-    "pwc_group": 4.46105020927905,
+    "pwc_group": 4.46079817874292,
     "pwc_ref": 4.97555390463827,
-    "Z": -0.175425927345728,
-    "ratio": 0.896593684799678,
-    "boot_sign_prob": 0.123938030984508,
+    "Z": -0.178520729494626,
+    "ratio": 0.896543031035099,
+    "boot_sign_prob": 0.103948025987006,
     "perm_p_within_state": ""
    },
    {
@@ -848,11 +848,11 @@
   },
   {
    "variable": "Share SC/ST",
-   "hosting_mean": 0.277600931945133,
-   "nonhosting_mean": 0.395134047110056,
-   "d_all_india": -0.619909275976318,
-   "d_within_state": -0.608906721507106,
-   "p_within_state": 5.18904712758076e-08
+   "hosting_mean": 0.297126684158659,
+   "nonhosting_mean": 0.414716319502256,
+   "d_all_india": -0.598815424512748,
+   "d_within_state": -0.617086123292768,
+   "p_within_state": 9.74243565633367e-08
   },
   {
    "variable": "Share OBC",
@@ -995,7 +995,7 @@
   "operating": {
    "scope": "operating",
    "inventory": "v2",
-   "scst": 0.318944703421001,
+   "scst": 0.335347336254611,
    "bpl": 0.448346430514449,
    "wealth": 260249.738192515,
    "muslim": 0.0990668394236686,
@@ -1011,7 +1011,7 @@
   "all": {
    "scope": "all",
    "inventory": "v2",
-   "scst": 0.320758140193187,
+   "scst": 0.337042611355785,
    "bpl": 0.501544974573638,
    "wealth": 238592.945311726,
    "muslim": 0.0981773038125075,
