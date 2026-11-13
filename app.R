@@ -1439,23 +1439,24 @@ server <- function(input, output, session) {
   })
   output$ej_interp_disp <- renderUI({
     m <- ej_disp(); k <- function(c) m[m$Contrast == c, ]
-    sig <- m$Contrast[m$`Sign prob.` < 0.05]; more <- m$Contrast[m$`Increment: ratio` > 1]; rev_ <- m$Contrast[m$`Siting: ratio, P(hosting)` < 1 & m$`Increment: ratio` > 1]
+    sk <- m$`Sign prob.` < 0.05 & m$Contrast != "SC/ST vs General"   # SC/ST is reported on its own below (borderline in the paper)
+    sig <- m$Contrast[sk]; more <- m$Contrast[m$`Increment: ratio` > 1]; rev_ <- m$Contrast[m$`Siting: ratio, P(hosting)` < 1 & m$`Increment: ratio` > 1]
     sc <- k("SC/ST vs General")
     lessk <- m$Contrast[m$`Siting: ratio, P(hosting)` < 1]
     interp(sprintf(paste0("%s, ",
                           "while the modelled increment is above parity for %s and below it for the rest. %s ",
-                          "%s %s distinguishable from zero under the state-clustered bootstrap: %s. ",
+                          "Apart from SC/ST (next sentence), %s %s distinguishable from zero under the state-clustered bootstrap: %s. ",
                           "The SC/ST ratio of %.2f (sign probability %.3f) %s. None of these contrasts is a causal effect of siting; they describe where a modelled ",
                           "regional field happens to fall relative to where groups live."),
                    if (length(lessk) == nrow(m)) "Every group in the table is less likely than its reference group to live in a hosting district (siting ratios all below 1)"
                    else sprintf("%d of the %d groups are less likely than their reference group to live in a hosting district (siting ratio below 1)", length(lessk), nrow(m)),
                    if (length(more)) paste(more, collapse = "; ") else "no group",
                    if (length(rev_)) sprintf("For %s the sign reverses between siting and burden.", paste(rev_, collapse = "; ")) else "No contrast reverses sign between siting and burden.",
-                   if (length(sig)) paste("Only", paste(sig, collapse = " and ")) else "No contrast", if (length(sig) <= 1) "is" else "are",
+                   if (length(sig)) paste("only", paste(sig, collapse = " and ")) else "no contrast", if (length(sig) <= 1) "is" else "are",
                    if (length(sig)) paste(sprintf("%s residents receive %s of the increment than %s (ratio %.2f, sign probability %.3f)",
-                                                  sub(" vs .*$", "", sig), ifelse(m$`Increment: ratio`[m$`Sign prob.` < 0.05] > 1, "more", "less"), sub("^.* vs ", "", sig),
-                                                  m$`Increment: ratio`[m$`Sign prob.` < 0.05], m$`Sign prob.`[m$`Sign prob.` < 0.05]), collapse = "; ")
-                   else "all sign probabilities are above 0.05",
+                                                  sub(" vs .*$", "", sig), ifelse(m$`Increment: ratio`[sk] > 1, "more", "less"), sub("^.* vs ", "", sig),
+                                                  m$`Increment: ratio`[sk], m$`Sign prob.`[sk]), collapse = "; ")
+                   else "all their sign probabilities are above 0.05",
                    sc$`Increment: ratio`, sc$`Sign prob.`,
                    if (sc$`Sign prob.` < 0.05) sprintf("is below 0.05 in this scope, a %s modelled increment for SC/ST residents at the district scale; for the operating inventory the paper treats it as borderline, because its sign probability ranges from 0.031 to 0.151 across the dispersion scenarios (SI Table S4.1.3)", if (sc$`Increment: ratio` > 1) "higher" else "lower")
                    else "is evidence neither of inequity nor of equality: the direction is suggestive, the uncertainty too large to call it either a disparity or parity"))
