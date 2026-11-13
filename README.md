@@ -31,7 +31,7 @@ shiny::runApp()
 ## What's in the app
 
 **Two scopes, as in the paper.** The *operating inventory* (233 facilities in 61
-districts; inventory of 30 September 2026, re-verified row by row in October 2026) is the basis of every result in the paper.
+districts; inventory of 30 September 2026, re-verified row by row in October 2026 and checked for consistency in November 2026) is the basis of every result in the paper.
 The *stock-plus-pipeline* scenario adds the 60 under-construction and 36 announced facilities
 (329 in all, 66 districts), sized at their reported build-out loads or the operating allocation. The sidebar switch changes the facility
 points, the value boxes, the district count layer and the PM2.5 increment layer together;
