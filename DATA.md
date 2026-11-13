@@ -113,7 +113,7 @@ as directory listings, and rated low confidence.
 4. **26 October 2026, independent adversarial re-check of all 329 rows.** Reviewers saw each row without the earlier
    verdicts and tried to fault it: 241 rows drew no fault and 88 a challenge; accepted challenges were corrected in
    batch 9, together with the tiered capacity method (below).
-5. **What remains open.** 75 rows (54 of them operating, carrying 237.3 MW of the operating allocation and 11.7% of
+5. **What remains open.** 75 rows (54 of them operating, carrying 237.3 MW of the operating allocation and 11.6% of
    the attributable SO2) can be neither confirmed nor refuted from public sources. Each carries an open issue naming the
    evidence that would settle it and is rated low confidence; they are listed, with the reason and the settling
    evidence for each, in `data/unresolved_facilities.csv` of this repository, and the paper's `unresolved_zero`
