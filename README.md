@@ -12,6 +12,15 @@ geography, the pollution their electricity causes appears in another. A State po
 tracks the state incentive policies that are steering the build-out, and two forms let
 readers submit data centres and policies we have missed.
 
+## Licence
+
+The app code (`app.R`, `create_forms.gs`, `tests/`) is released under the MIT License (`LICENSE`). The data are
+licensed separately. The facility table (`data/india_datacentres_public.csv`), the list of unresolved facilities
+(`data/unresolved_facilities.csv`) and the documented download (`data/india_datacentres_documented.zip`) are
+released under CC BY-NC 4.0 (see `DATA.md`). Tables derived from third-party datasets keep their providers' terms:
+for example, the Prayas ESMI power-interruption tables are for non-commercial use with acknowledgement. The MIT
+License does not apply to anything in `data/`.
+
 ## Run it locally
 
 ```r
