@@ -115,8 +115,8 @@ as directory listings, and rated low confidence.
    batch 9, together with the tiered capacity method (below).
 5. **What remains open.** 75 rows (54 of them operating, carrying 237.3 MW of the operating allocation and 11.7% of
    the attributable SO2) can be neither confirmed nor refuted from public sources. Each carries an open issue naming the
-   evidence that would settle it and is rated low confidence; they are listed in
-   `data/public/unresolved_facilities_20261025.csv` of the analysis repository, and the paper's `unresolved_zero`
+   evidence that would settle it and is rated low confidence; they are listed, with the reason and the settling
+   evidence for each, in `data/unresolved_facilities.csv` of this repository, and the paper's `unresolved_zero`
    sensitivity run sets their load to zero.
 
 ### Evidence stores
@@ -124,7 +124,7 @@ as directory listings, and rated low confidence.
 `source_url_archive` and `source_url_2_archive` give archived copies, from the Internet Archive or (for sites that
 refuse it) archive.today, filled by `scripts/25_archive_sources.py`. All 329 facilities have an archived primary
 source, and 529 of the 530 URLs cited in the table have a copy (408 Internet Archive, 121 archive.today); across all
-the analysis repository's data files, 641 of 649 cited URLs have one. Of the 234 cited Data Center Map pages, 154 are in
+the authors' inventory build files, 641 of 649 cited URLs have one. Of the 234 cited Data Center Map pages, 154 are in
 the Internet Archive; the other 80, and 4 IndiaMART pages, which the Internet Archive refused, were archived on
 archive.today by hand by 10 October 2026. Some pages are reachable only from Indian networks; a co-author in India
 checked them on 20-22 October 2026. Where a page could not be archived, the authors hold a dated copy: the WTL page cited
@@ -210,8 +210,8 @@ recorded in `mw_flag`. The first tier with an admissible figure is used:
 ## Corrections (see `correction_applied` and `correction_evidence`)
 
 Every correction made during verification is listed in `correction_applied` (field, old value, new value and reason) with its
-evidence URL in `correction_evidence`; 168 rows of the table carry one. The analysis repository's
-`inventory_corrections_v2.csv` has 339 correction rows (29 removals and 310 field edits on 170 facilities), made in nine batches:
+evidence URL in `correction_evidence`; 168 rows of the table carry one. The authors' build file
+`inventory_corrections_v2.csv` (read by the analysis code, not released) has 339 correction rows (29 removals and 310 field edits on 170 facilities), made in nine batches:
 
 1. The first source pass.
 2. Duplicates; operator statuses and IT loads (Nxtra, STT, NTT, Sify, Yotta, CtrlS); district fixes.

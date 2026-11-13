@@ -125,7 +125,7 @@ the submission forms* below.
 
 ## Data provenance
 
-Everything in `data/` is written by the analysis repository's scripts from the pipeline's outputs
+Everything in `data/` is written by the scripts of the analysis repository (https://github.com/pdez90/india-datacenter-ej-analysis) from the pipeline's outputs, except `data/unresolved_facilities.csv` (below)
 (`scripts/22_build_shiny_data.py`, with `30_app_download_tables.R` for the backup-diesel and
 emission-factor tables and `22b_inmap_grid.R` for `inmap_grid.rds`), so the app has no runtime dependency on the
 pipeline and the numbers in the interface cannot drift from the paper's tables.
@@ -141,6 +141,7 @@ pipeline and the numbers in the interface cannot drift from the paper's tables.
 | `data/ej_panel.json` | – | the paper's distributional tables, verbatim: `tab20b_inmap_disparity_national.csv` (both scopes), `tab20a_disparity_national.csv` (siting and baseline-exposure contrasts, both scopes), `tab20a_group_exposure_S61.csv`, `tab1_dc_vs_nodc_profile.csv`, `tab16_receiving_profile.csv`, `tab20b_inmap_regional.csv` |
 | `data/headline.json` | – | the numbers the interface text quotes (facility and district counts, anchors, TWh, CO2, kt, diesel share, policy counts), taken from `tab15_national.csv`, `tab15b_marginal_totals.csv`, `tab16b_emissions_points.csv`, `tab16_inmap_summary.txt`, `tab29_diesel_scenarios.csv` and `tab14_policy_burden.csv` |
 | `data/india_datacentres_public.csv` | 329 | the sourced facility table (`scripts/24_public_inventory.R`); data dictionary in `DATA.md` |
+| `data/unresolved_facilities.csv` | 75 | the facilities that public sources neither confirm nor refute (54 operating, 237.3 MW; low confidence), with the reason and the evidence that would settle each; identifiers, status and MW as in the facility table. The paper's `unresolved_zero` sensitivity sets the 54 operating facilities' load to zero (SI Table S4.1.3). From the 25 October 2026 row review |
 | `data/district_power_interruptions.csv` | 79 | `tab28_esmi_district_outages.csv` (`scripts/28_esmi_outages.py`): supply-interruption hours per year (minutes below 80 V, 2014-2019) from the Prayas ESMI monitors, per Census 2011 district, for all, urban and rural monitors; offered for download on the *Power interruptions* tab. Source: Prayas (Energy Group), ESMI, doi:10.7910/DVN/CLLZZM (non-commercial use with acknowledgement) |
 | `data/esmi_monitor_power_interruptions.csv` | 528 | the same, monitor by monitor (`esmi_monitor_outages.csv`) |
 | `data/power_interruptions_backup_diesel.csv` | 62 | one row per hosting district: its ESMI monitors and measured hours, the outage-hour value the backup-diesel model used and why, and the resulting generator hours; plus one total row whose notes give the scenario range (`scripts/30_app_download_tables.R`, from `tab29_*`); README alongside |
@@ -192,8 +193,8 @@ submissions"), so no credentials live in the app:
 
 Their embed URLs are the defaults of `FORM_DC_URL` / `FORM_POLICY_URL` at the top of `app.R`;
 setting either as an environment variable on Connect Cloud overrides the default. New entries are
-checked against the source they cite before they enter the inventory (`data/public/inventory_additions_v2.csv` or
-`inventory_corrections_v2.csv`) or `data/state_dc_policies.csv` in the analysis repository; nothing changes the map automatically.
+checked against the source they cite before they enter the inventory (the authors' build files `inventory_additions_v2.csv` or
+`inventory_corrections_v2.csv`) or the policy compilation (`state_dc_policies.csv`); nothing changes the map automatically.
 
 ## Checks
 
