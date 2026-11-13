@@ -156,7 +156,7 @@ pipeline and the numbers in the interface cannot drift from the paper's tables.
 | `data/power_interruptions_backup_diesel.csv` | 62 | one row per hosting district: its ESMI monitors and measured hours, the outage-hour value the backup-diesel model used and why, and the resulting generator hours; plus one total row whose notes give the scenario range (`scripts/30_app_download_tables.R`, from `tab29_*`); README alongside |
 | `data/emission_factors.csv` | 169 | every emission and water factor used, one row per factor and level, with unit, source, how it is used and the script (`scripts/30_app_download_tables.R`); README alongside |
 | `data/inmap_grid.rds` | 36,164 cells | the operating-scope InMAP field behind the *Air-quality model* tab: one row per grid cell touching a district (lon/lat box, gridded population, increment by species) and one per cell-district piece (`scripts/22b_inmap_grid.R`, which checks that the pieces reproduce `tab16_inmap_district.csv`) |
-| `data/india_datacentres_documented.zip` | – | the download offered on the Facilities tab: the facility table, `DATA.md`, `sources_and_archives.csv` (every cited URL, the facilities citing it, its archived copy and snapshot date), the backup-diesel and emission-factor tables with their READMEs, and a README with licence and citation |
+| `data/india_datacentres_documented.zip` | – | the download offered on the Facilities tab: the facility table, `DATA.md`, `sources_and_archives.csv` (every source URL, the facilities citing it, its archived copy and snapshot date), `correction_evidence_archives.csv` (the same for every URL cited as evidence for a correction), the backup-diesel and emission-factor tables with their READMEs, and a README with licence and citation |
 
 **How the inventory is built.** The backbone is the Data Center Map directory, whose India
 listing is read entry by entry (202 rows). Three other kinds of
@@ -169,7 +169,7 @@ never supply a capacity. Every row was reviewed against its sources (22-25 Octob
 removed, 16 statuses corrected) and then re-checked independently by reviewers who did not see the
 earlier verdicts (26 October 2026). Confidence is high for 176 rows, medium for 34 and low for 119;
 75 rows (54 operating) can be neither confirmed nor refuted from public sources and carry an open
-issue. Sources have Internet Archive or archive.today copies (529 of the 530 cited URLs); pages that
+issue. Sources have Internet Archive or archive.today copies (529 of the 530 source URLs, and 154 of the 157 URLs cited as evidence for corrections); pages that
 could not be archived are held by the authors as dated snapshots outside the repository. `DATA.md`
 documents every step.
 

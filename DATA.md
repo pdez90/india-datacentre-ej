@@ -127,8 +127,8 @@ as directory listings, and rated low confidence.
 
 `source_url_archive` and `source_url_2_archive` give archived copies, from the Internet Archive or (for sites that
 refuse it) archive.today, filled by `scripts/25_archive_sources.py`. All 329 facilities have an archived primary
-source, and 529 of the 530 URLs cited in the table have a copy (408 Internet Archive, 121 archive.today); across all
-the authors' inventory build files, 641 of 649 cited URLs have one. Of the 234 cited Data Center Map pages, 154 are in
+source, and 529 of the 530 source URLs in the table have a copy (408 Internet Archive, 121 archive.today). Of the 157 URLs
+cited as evidence for corrections, 154 have a copy; the other three sites blocked the archive or did not answer it. Of the 234 cited Data Center Map pages, 154 are in
 the Internet Archive; the other 80, and 4 IndiaMART pages, which the Internet Archive refused, were archived on
 archive.today by hand by 10 October 2026. Some pages are reachable only from Indian networks; a co-author in India
 checked them on 20-22 October 2026. Where a page could not be archived, the authors hold a dated copy: the WTL page cited
@@ -136,7 +136,8 @@ for IN360 (the one table URL without an archive), the OCAC page for IN353, the L
 NSE investor presentation (10 November 2025) and the L&T FY2026 annual report among them. These author-held snapshots are
 listed with their dates and SHA-256 hashes in `data/public/source_snapshots.csv`; the files themselves are kept outside
 the public repository and are available from the authors. `source_note` records this for each row.
-`sources_and_archives.csv` in the downloadable bundle lists every cited URL with its archived copy, snapshot date and status.
+`sources_and_archives.csv` in the downloadable bundle lists every source URL, and `correction_evidence_archives.csv` every
+URL cited as evidence for a correction, each with its archived copy, snapshot date and status.
 
 ## Other columns
 
