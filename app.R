@@ -851,7 +851,7 @@ ui <- page_sidebar(
           "for one building; 16 statuses corrected), then re-checked independently on 26 October by reviewers who did not see the earlier verdicts ",
           "(241 rows drew no fault; accepted challenges were corrected). Confidence is high for 176 facilities, medium for 34 and low for 119. ",
           "75 facilities (54 operating, 237 MW) can be neither confirmed nor refuted from public sources; each carries an open issue, and the paper ",
-          "tests their removal. Cited pages have Internet Archive or archive.today copies; pages that could not be archived are held by the authors as dated snapshots."),
+          "tests their removal. All but one cited source page have Internet Archive or archive.today copies, and the authors hold a dated copy of that one; 154 of the 157 pages cited as evidence for corrections have archived copies."),
         p(sprintf(paste0("The result is %d operating facilities in %d districts, and %d facilities in %d ",
                          "districts once the %d under-construction and %d announced facilities are added. "),
                   H$n_operating, H$hosting_districts_operating, H$n_all, H$hosting_districts_all,

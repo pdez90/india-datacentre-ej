@@ -31,7 +31,7 @@ shiny::runApp()
 ## What's in the app
 
 **Two scopes, as in the paper.** The *operating inventory* (233 facilities in 61
-districts; inventory of 30 September 2026, re-verified row by row in October 2026 and checked for consistency in November 2026) is the basis of every result in the paper.
+districts; inventory of 30 September 2026, re-verified row by row in October 2026) is the basis of every result in the paper.
 The *stock-plus-pipeline* scenario adds the 60 under-construction and 36 announced facilities
 (329 in all, 66 districts), sized at their reported build-out loads or the operating allocation. The sidebar switch changes the facility
 points, the value boxes, the district count layer and the PM2.5 increment layer together;
@@ -169,8 +169,8 @@ never supply a capacity. Every row was reviewed against its sources (22-25 Octob
 removed, 16 statuses corrected) and then re-checked independently by reviewers who did not see the
 earlier verdicts (26 October 2026). Confidence is high for 176 rows, medium for 34 and low for 119;
 75 rows (54 operating) can be neither confirmed nor refuted from public sources and carry an open
-issue. Sources have Internet Archive or archive.today copies (529 of the 530 source URLs, and 154 of the 157 URLs cited as evidence for corrections); pages that
-could not be archived are held by the authors as dated snapshots outside the repository. `DATA.md`
+issue. Sources have Internet Archive or archive.today copies (529 of the 530 source URLs, and 154 of the 157 URLs cited as evidence for corrections); the authors hold
+dated copies of the source page that could not be archived and of several others, outside the repository. `DATA.md`
 documents every step.
 
 **What the capacity numbers are.** Capacity follows one tiered method (T1-T6; each row's

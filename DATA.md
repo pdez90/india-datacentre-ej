@@ -5,7 +5,7 @@ inventory the paper analyses (snapshot of 30 September 2026). Only this version 
 
 - It covers all data centres: commercial, enterprise, telecom and government. Sites known to be
   closed are excluded.
-- Built 30 September 2026, then re-verified row by row between 21 and 26 October 2026, with a consistency check on 13 November 2026 (see *Verification history*).
+- Built 30 September 2026, then re-verified row by row between 21 and 26 October 2026 (see *Verification history*).
 - Licence: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 
 ## Where rows come from
@@ -113,11 +113,7 @@ as directory listings, and rated low confidence.
 4. **26 October 2026, independent adversarial re-check of all 329 rows.** Reviewers saw each row without the earlier
    verdicts and tried to fault it: 241 rows drew no fault and 88 a challenge; accepted challenges were corrected in
    batch 9, together with the tiered capacity method (below).
-5. **13 November 2026, internal consistency check.** Each operator's facilities were checked to share one class:
-   Ishan Technologies Gandhinagar and Mumbai were reclassified from enterprise to colocation to match the operator's
-   Chennai facility (batch 10). Two capacity open issues that described superseded figures were updated (IN075) or
-   closed (one of IN178's two). The analysis code now runs these consistency checks on every build.
-6. **What remains open.** 75 rows (54 of them operating, carrying 237.3 MW of the operating allocation and 11.6% of
+5. **What remains open.** 75 rows (54 of them operating, carrying 237.3 MW of the operating allocation and 11.6% of
    the attributable SO2) can be neither confirmed nor refuted from public sources. Each carries an open issue naming the
    evidence that would settle it and is rated low confidence; they are listed, with the reason and the settling
    evidence for each, in `data/unresolved_facilities.csv` of this repository, and the paper's `unresolved_zero`
@@ -131,7 +127,7 @@ source, and 529 of the 530 source URLs in the table have a copy (408 Internet Ar
 cited as evidence for corrections, 154 have a copy; the other three sites blocked the archive or did not answer it. Of the 234 cited Data Center Map pages, 154 are in
 the Internet Archive; the other 80, and 4 IndiaMART pages, which the Internet Archive refused, were archived on
 archive.today by hand by 10 October 2026. Some pages are reachable only from Indian networks; a co-author in India
-checked them on 20-22 October 2026. Where a page could not be archived, the authors hold a dated copy: the WTL page cited
+checked them on 20-22 October 2026. For several pages that could not be archived, the authors hold a dated copy: the WTL page cited
 for IN360 (the one table URL without an archive), the OCAC page for IN353, the Lok Sabha answer for IN347, the Anant Raj
 NSE investor presentation (10 November 2025) and the L&T FY2026 annual report among them. These author-held snapshots are
 listed with their dates and SHA-256 hashes in `data/public/source_snapshots.csv`; the files themselves are kept outside
@@ -253,7 +249,7 @@ described above. They include:
 
 - **Report an error or a missing facility:** use the app's *Submit a data centre* tab, or open an issue on
   the repository.
-- **Release:** snapshot of 30 September 2026, re-verified 21-26 October 2026 and checked for consistency on 13 November 2026. Sources were re-found and archived,
+- **Release:** snapshot of 30 September 2026, re-verified 21-26 October 2026. Sources were re-found and archived,
   every row was reviewed against its sources and then re-checked independently, listing sites were set aside as
   evidence, capacities were set by one tiered method, government data centres and confidence ratings added, and every
   correction documented. Only this version is released.
