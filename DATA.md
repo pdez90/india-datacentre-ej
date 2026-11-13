@@ -210,7 +210,9 @@ recorded in `mw_flag`. The first tier with an admissible figure is used:
 ## Corrections (see `correction_applied` and `correction_evidence`)
 
 Every correction made during verification is listed in `correction_applied` (field, old value, new value and reason) with its
-evidence URL in `correction_evidence`; 170 rows of the table carry one. The authors' build file
+evidence URL in `correction_evidence`; 170 rows of the table carry one. Thirteen corrections cite no URL because they need
+no outside evidence: six Kochi district assignments (the city point lay outside the generalised coastline) and seven
+design figures moved from the current-load field to the build-out field of facilities then recorded as not operating. The authors' build file
 `inventory_corrections_v2.csv` (read by the analysis code, not released) has 341 correction rows (29 removals and 312 field edits on 172 facilities), made in ten batches:
 
 1. The first source pass.
@@ -232,8 +234,8 @@ evidence URL in `correction_evidence`; 170 rows of the table carry one. The auth
 
 ## Open issues (`open_issue`)
 
-Open issues are flagged, not resolved; `confidence_note` gives them for each row. There are 109 on 104 rows
-(status 58, existence 27, capacity 15, source 5, possible duplicate 4); 75 of these rows are the unresolved facilities
+Open issues are flagged, not resolved; `confidence_note` gives them for each row. There are 108 on 104 rows
+(status 58, existence 27, capacity 14, source 5, possible duplicate 4); 75 of these rows are the unresolved facilities
 described above. They include:
 
 - Data Center Map listings with no independent trace;
