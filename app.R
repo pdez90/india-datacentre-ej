@@ -1457,7 +1457,7 @@ server <- function(input, output, session) {
                                                   m$`Increment: ratio`[m$`Sign prob.` < 0.05], m$`Sign prob.`[m$`Sign prob.` < 0.05]), collapse = "; ")
                    else "all sign probabilities are above 0.05",
                    sc$`Increment: ratio`, sc$`Sign prob.`,
-                   if (sc$`Sign prob.` < 0.05) sprintf("is below 0.05 in this scope, a %s modelled increment for SC/ST residents at the district scale; the paper treats it as borderline, because the sign probability ranges from 0.031 to 0.151 across the capacity-weighting scenarios (SI Table S4.1.3)", if (sc$`Increment: ratio` > 1) "higher" else "lower")
+                   if (sc$`Sign prob.` < 0.05) sprintf("is below 0.05 in this scope, a %s modelled increment for SC/ST residents at the district scale; for the operating inventory the paper treats it as borderline, because its sign probability ranges from 0.031 to 0.151 across the dispersion scenarios (SI Table S4.1.3)", if (sc$`Increment: ratio` > 1) "higher" else "lower")
                    else "is evidence neither of inequity nor of equality: the direction is suggestive, the uncertainty too large to call it either a disparity or parity"))
   })
 
@@ -1555,7 +1555,7 @@ server <- function(input, output, session) {
                    fmt1(h$`Share of attributable deaths (%)`[2]),
                    k("Rural vs urban")$`Increment: ratio`, vd(k("Rural vs urban")$`Sign prob.`),
                    k("Muslim vs Hindu")$`Increment: ratio`, vd(k("Muslim vs Hindu")$`Sign prob.`),
-                   k("SC/ST vs General")$`Increment: ratio`, k("SC/ST vs General")$`Sign prob.`, vd(k("SC/ST vs General")$`Sign prob.`)) },
+                   k("SC/ST vs General")$`Increment: ratio`, k("SC/ST vs General")$`Sign prob.`, if (k("SC/ST vs General")$`Sign prob.` < 0.05) "below 0.05 but borderline across the paper's weighting scenarios" else "not distinguishable from parity") },
          caption = "Shading is the modelled annual PM2.5 increment (log scale); the points stay in the cities while the shading follows the generation corridors and the wind."),
     list(title = "4. Who decides", layer = "Baseline water stress (Aqueduct)", fac = TRUE, plants = FALSE,
          text = function() { ph <- policies[policies$has_policy, ]
