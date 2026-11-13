@@ -368,7 +368,7 @@ aq_walkthrough <- function() {
     step(7, "What this does and does not show.",
       tags$ul(class = "mb-0",
         tags$li("It is a scenario, not a measurement: it assumes the sector's demand is met at the margin of each state's grid, and that each state's emissions come from its own plants in proportion to capacity. It does not trace any facility's actual power purchases."),
-        tags$li("Allocating by estimated generation instead of capacity gives the same result (the database's generation is capacity times a fixed factor for each fuel). Flat class weights raise the deaths to about 3,400 and hyperscale-dominant weights lower them to about 1,900; setting the 54 operating facilities that public sources can neither confirm nor refute (237 MW) to zero lowers them to about 1,800 (SI Table S4.1.3)."),
+        tags$li("Flat class weights raise the deaths to about 3,400 and hyperscale-dominant weights lower them to about 1,900; setting the 54 operating facilities that public sources can neither confirm nor refute (237 MW) to zero lowers them to about 1,800 (SI Table S4.1.3)."),
         tags$li("Deaths use one national adult share and baseline death rate, not state- or age-specific rates; the rate used (0.0087 per adult per year) is the upper end of the GBD 2023 range for India at ages 25+ (0.0084-0.0087), and the lower end would give about 2,000. The uncertainty of the GEMM curve and of the dispersion model is not propagated."),
         tags$li(sprintf("In the stock-plus-pipeline scenario (all %s facilities, including those under construction and announced) the population-weighted increment is %s ug/m3 and the deaths about %s a year.",
                         fmtnum(H$n_all), fmtnum(H$inmap_all$pwm_ugm3, 4), fmtnum(H$inmap_all$deaths_per_yr))))))
@@ -928,7 +928,7 @@ ui <- page_sidebar(
                   H$inmap_operating$pwm_ugm3, fmtnum(H$inmap_operating$pop_ge_0_01_million),
                   fmtnum(H$inmap_operating$deaths_per_yr), H$inmap_all$pwm_ugm3,
                   fmtnum(H$inmap_all$pop_ge_0_01_million), fmtnum(H$inmap_all$deaths_per_yr)),
-          "The paper reruns InMAP for four sensitivity variants (SI Table S4.1.3): plant allocation by generation (identical), ",
+          "The paper reruns InMAP for three sensitivity variants (SI Table S4.1.3): ",
           "flat class weights (about 3,400 deaths), hyperscale-dominant weights (about 1,900), and the unresolved-facility test, ",
           "which sets the 54 operating facilities that public sources can neither confirm nor refute to zero (1,824 deaths, 11% fewer)."),
         p("This is not measured pollution. It is the modelled annual-mean PM2.5 attributable to ",

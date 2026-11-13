@@ -96,8 +96,7 @@ population-weighted mean, the population above 0.01 ug/m3 and GEMM attributable 
 scope (district-mean population-weighted increment: operating 0.0594 ug/m3, ~2,047 deaths/yr;
 stock plus pipeline 0.2098 ug/m3, ~7,260). These are modelled, scenario-consistent estimates
 (GEMM concentration-response function applied to the InMAP increment), not observed mortality.
-The paper reruns InMAP for four sensitivity variants (SI Table S4.1.3): plant allocation by
-generation instead of capacity (identical, 2,047 deaths), flat class weights (3,416),
+The paper reruns InMAP for three sensitivity variants (SI Table S4.1.3): flat class weights (3,416),
 hyperscale-dominant weights (1,872), and the unresolved-facility test, which sets the 54 operating
 facilities that public sources can neither confirm nor refute (237.3 MW) to zero (1,824 deaths,
 10.9% fewer).
