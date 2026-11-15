@@ -151,13 +151,13 @@ URL cited as evidence for a correction, each with its archived copy, snapshot da
 | `url_checked` | Whether the cited page was read (`page read`) or seen only as a search result (`search result only`) |
 | `status_in_source`, `status_agrees_with_inventory` | The status the cited source gives, and whether it matches the row's status (blank where the source gives none or the comparison is ambiguous) |
 | `sources_retrieved` | Date the sources were retrieved and the date they were last checked |
-| `adp_match`, `adp_campus_name`, `adp_status`, `adp_stage`, `adp_size_bucket`, `adp_source_urls` | The cross-check against the Atlas of Data Center Politics: how the row was matched (or `none`), and the Atlas's campus name, status, stage, size class and source links. The Atlas is a cross-check only, never a source of rows |
+| `adp_match`, `adp_campus_name`, `adp_status`, `adp_stage`, `adp_size_bucket`, `adp_source_urls` | The cross-check against the Atlas of Data Center Politics: how the row was matched, and the Atlas's campus name, status, stage, size class and source links. `adp_match` is `same operator` (the Atlas lists a campus of the same operator in the same metropolitan market; the campus named is that operator's campus there and is not always the same building), `name and location` (matched on the facility's name and site where the operator names differ), `matched by hand` (the automatic match failed and the authors matched the row by reading both records), `first noticed in the Atlas` (the Atlas campus named led the authors to the facility, which was then added from an operator, company, government or press page) or `none`. The Atlas is a cross-check only, never a source of rows |
 | `inventory_version` | Inventory release date (2026-09-30) |
 
 ## Capacity: what the MW numbers are
 
-Each facility's IT capacity is set by one fixed, tiered method (26 October 2026; `CAPACITY_METHOD.md` in the analysis
-repository's `data/public/`). Only admissible sources count: operator pages and fact sheets, filings, annual reports,
+Each facility's IT capacity is set by one fixed, tiered method (26 October 2026; `docs/CAPACITY_METHOD.md` in the analysis
+repository). Only admissible sources count: operator pages and fact sheets, filings, annual reports,
 investor presentations, rating rationales, government pages and tenders, and dated reputable trade press. Listing-site
 figures are never used. Where admissible sources disagree, a figure for the facility beats one for the operator or
 campus, a dated source beats an undated one (and a later one an earlier one, up to the 30 September 2026 cutoff), a fact
