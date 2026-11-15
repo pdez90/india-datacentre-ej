@@ -42,8 +42,9 @@ source for a row.
   - IDs run from IN001 to IN360.
   - Gaps are merged or dropped rows (29 in all, 11 of them dropped in the October review); `correction_applied` records each correction.
 - **Status:**
-  - `operating`: 233 rows in 61 districts. The paper's main results use these. A row is operating only
-    with dated evidence of go-live, inauguration or operational capacity on or before 30 September 2026.
+  - `operating`: 233 rows in 61 districts. The paper's main results use these. A row is operating where dated evidence
+    shows it was live on or before 30 September 2026, or where its directory entry carries no status sentence
+    (the directory states a status only for facilities not yet in service) and no dated evidence shows otherwise.
   - `under construction`: 60 rows.
   - `announced (planned)`: 36 rows.
   - The pipeline scenario covers all 329 facilities in 66 districts.
@@ -91,7 +92,7 @@ as directory listings, and rated low confidence.
 
 ### Confidence
 
-**`confidence`** (high 176, medium 34, low 119; operating rows 119, 29, 85) summarises this for each row:
+**`confidence`** (high 177, medium 34, low 118; operating rows 119, 29, 85) summarises this for each row:
 
 - **high:** confirmed by a source independent of the directory, with a second source and no open issue;
 - **low:** directory listing only (no independent trace), or an open question about whether the site exists or
@@ -123,13 +124,13 @@ as directory listings, and rated low confidence.
 
 `source_url_archive` and `source_url_2_archive` give archived copies, from the Internet Archive or (for sites that
 refuse it) archive.today, filled by `scripts/25_archive_sources.py`. All 329 facilities have an archived primary
-source, and 529 of the 530 source URLs in the table have a copy (408 Internet Archive, 121 archive.today). Of the 157 URLs
-cited as evidence for corrections, 154 have a copy; the other three sites blocked the archive or did not answer it. Of the 234 cited Data Center Map pages, 154 are in
+source, and 529 of the 530 source URLs in the table have a copy (408 Internet Archive, 121 archive.today). Of the 158 URLs
+cited as evidence for corrections, 157 have a copy; the other site blocks web archives. Of the 234 cited Data Center Map pages, 154 are in
 the Internet Archive; the other 80, and 4 IndiaMART pages, which the Internet Archive refused, were archived on
 archive.today by hand by 10 October 2026. Some pages are reachable only from Indian networks; a co-author in India
 checked them on 20-22 October 2026. For several pages that could not be archived, the authors hold a dated copy: the WTL page cited
-for IN360 (the one table URL without an archive), the OCAC page for IN353, the Lok Sabha answer for IN347, the Anant Raj
-NSE investor presentation (10 November 2025) for IN037 and the L&T FY2026 annual report for IN133. These dated copies are
+for IN360 (the one table URL without an archive), the OCAC page for IN353, the Lok Sabha answer for IN347
+and the L&T FY2026 annual report for IN133. These dated copies are
 kept outside the public repository, with their SHA-256 hashes, and are available from the authors. `source_note` records
 this for each row.
 `sources_and_archives.csv` in the downloadable bundle lists every source URL, and `correction_evidence_archives.csv` every
@@ -235,8 +236,8 @@ design figures moved from the current-load field to the build-out field of facil
 
 ## Open issues (`open_issue`)
 
-Open issues are flagged, not resolved; `confidence_note` gives them for each row. There are 108 on 104 rows
-(status 58, existence 27, capacity 14, source 5, possible duplicate 4); 75 of these rows are the unresolved facilities
+Open issues are flagged, not resolved; `confidence_note` gives them for each row. There are 107 on 103 rows
+(status 57, existence 27, capacity 14, source 5, possible duplicate 4); 75 of these rows are the unresolved facilities
 described above. They include:
 
 - Data Center Map listings with no independent trace;
