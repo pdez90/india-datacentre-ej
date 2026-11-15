@@ -72,7 +72,7 @@ report as `source_url`, and `source_type` says which.
 
 Every row has a `source_url`. 283 rows (189 operating) also have a second source (`source_url_2`); for 49
 directory-only rows that second source (another listing site, a general company page or PeeringDB) does not
-independently document the facility.
+independently confirm the facility's current status.
 
 ### Source types: listing sites are not evidence
 
@@ -80,7 +80,8 @@ independently document the facility.
 Ocolo, Datacenterhawk, Cloudscene, IndiaMART and similar; `source_type` = `directory`) copy one another and state no
 basis, so since 21 October 2026 they are **not counted as independent evidence** that a facility exists or operates,
 and a capacity figure that appears only on a listing site is **never used** (it may be listed in
-`mw_published_figures`). A row whose only support is such listings is `directory_only`.
+`mw_published_figures`). A row with no support beyond such listings, or
+beyond a PeeringDB record that does not show the facility's current status, is `directory_only`.
 
 `source_verification` records how each row is supported:
 
@@ -88,7 +89,7 @@ and a capacity figure that appears only on a listing site is **never used** (it 
 |---|---|---|
 | `confirmed` | 211 | Facility documented by a source independent of the listing sites, and a second source is listed |
 | `partial` | 21 | Listed in the directory; the operator confirms a data centre in that city but not this exact building |
-| `directory_only` | 85 | Listed on listing sites only; no independent source found |
+| `directory_only` | 85 | Listed on listing sites; no independent source confirms the facility's current status |
 | `single_source` | 12 | One independent source only (an operator, government, PeeringDB or press page), not the directory |
 
 Of the 202 directory rows, 96 are confirmed, 21 partial and 85 directory-only. All directory-only rows are kept,
@@ -99,7 +100,7 @@ as directory listings, and rated low confidence.
 **`confidence`** (high 177, medium 34, low 118; operating rows 119, 29, 85) summarises this for each row:
 
 - **high:** confirmed by a source independent of the directory, with a second source and no open issue;
-- **low:** directory listing only (no independent trace), or an open question about whether the site exists or
+- **low:** directory listing only (no independent confirmation of its current status), or an open question about whether the site exists or
   operates as recorded (`[existence]` or `[status]` in `open_issue`);
 - **medium:** everything else (confirmed with an open capacity, source or duplicate question; partial; single source).
 
