@@ -129,9 +129,9 @@ the Internet Archive; the other 80, and 4 IndiaMART pages, which the Internet Ar
 archive.today by hand by 10 October 2026. Some pages are reachable only from Indian networks; a co-author in India
 checked them on 20-22 October 2026. For several pages that could not be archived, the authors hold a dated copy: the WTL page cited
 for IN360 (the one table URL without an archive), the OCAC page for IN353, the Lok Sabha answer for IN347, the Anant Raj
-NSE investor presentation (10 November 2025) and the L&T FY2026 annual report among them. These author-held snapshots are
-listed with their dates and SHA-256 hashes in `data/public/source_snapshots.csv`; the files themselves are kept outside
-the public repository and are available from the authors. `source_note` records this for each row.
+NSE investor presentation (10 November 2025) for IN037 and the L&T FY2026 annual report for IN133. These dated copies are
+kept outside the public repository, with their SHA-256 hashes, and are available from the authors. `source_note` records
+this for each row.
 `sources_and_archives.csv` in the downloadable bundle lists every source URL, and `correction_evidence_archives.csv` every
 URL cited as evidence for a correction, each with its archived copy, snapshot date and status.
 
