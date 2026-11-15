@@ -167,7 +167,7 @@ and a screened OpenStreetMap query are cross-checks only, and listing sites (Dat
 Baxtel, Ocolo, Datacenterhawk, Cloudscene, IndiaMART) are not counted as independent evidence and
 never supply a capacity. Every row was reviewed against its sources (22-25 October 2026: 11 rows
 removed, 16 statuses corrected) and then re-checked independently
-(26 October 2026). Confidence is high for 177 rows, medium for 34 and low for 118;
+(26 October 2026). Confidence is high for 175 rows, medium for 34 and low for 120;
 75 rows (54 operating) can be neither confirmed nor refuted from public sources and carry an open
 issue. Sources have Internet Archive or archive.today copies (529 of the 530 source URLs, and 157 of the 158 URLs cited as evidence for corrections); the authors hold
 dated copies of the source page that could not be archived and of several others, outside the repository. `DATA.md`

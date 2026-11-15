@@ -97,7 +97,7 @@ as directory listings, and rated low confidence.
 
 ### Confidence
 
-**`confidence`** (high 177, medium 34, low 118; operating rows 119, 29, 85) summarises this for each row:
+**`confidence`** (high 175, medium 34, low 120; operating rows 119, 29, 85) summarises this for each row:
 
 - **high:** confirmed by a source independent of the directory, with a second source and no open issue;
 - **low:** directory listing only (no independent confirmation of its current status), or an open question about whether the site exists or
@@ -222,8 +222,8 @@ design figures moved from the current-load field to the build-out field of facil
 
 ## Open issues (`open_issue`)
 
-Open issues are flagged, not resolved; `confidence_note` gives them for each row. There are 107 on 103 rows
-(status 57, existence 27, capacity 14, source 5, possible duplicate 4); 75 of these rows are the unresolved facilities
+Open issues are flagged, not resolved; `confidence_note` gives them for each row. There are 109 on 105 rows
+(status 59, existence 27, capacity 14, source 5, possible duplicate 4); 75 of these rows are the unresolved facilities
 described above. They include:
 
 - Data Center Map listings with no independent trace;

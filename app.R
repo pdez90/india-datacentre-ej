@@ -849,7 +849,7 @@ ui <- page_sidebar(
           "Every facility carries a source link; the Facilities tab gives them, with how each was verified."),
         p("Every row was reviewed against its sources between 22 and 25 October 2026 (11 rows removed as hosting resellers, offices or second rows ",
           "for one building; 16 statuses corrected), then re-checked independently on 26 October. ",
-          "Confidence is high for 177 facilities, medium for 34 and low for 118. ",
+          "Confidence is high for 175 facilities, medium for 34 and low for 120. ",
           "75 facilities (54 operating, 237 MW) can be neither confirmed nor refuted from public sources; each carries an open issue, and the paper ",
           "tests their removal. All but one cited source page have Internet Archive or archive.today copies, and the authors hold a dated copy of that one; 157 of the 158 pages cited as evidence for corrections have archived copies."),
         p(sprintf(paste0("The result is %d operating facilities in %d districts, and %d facilities in %d ",
