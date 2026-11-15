@@ -5,7 +5,7 @@ inventory the paper analyses (snapshot of 30 September 2026). Only this version 
 
 - It covers all data centres: commercial, enterprise, telecom and government. Sites known to be
   closed are excluded.
-- Built 30 September 2026, then re-verified row by row between 21 and 26 October 2026 (see *Verification history*).
+- Built 30 September 2026, then re-verified row by row between 21 and 26 October 2026 (see *How rows were verified*).
 - Licence: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 
 ## Where rows come from
@@ -106,19 +106,17 @@ as directory listings, and rated low confidence.
 
 **`confidence_note`** says in plain language what is uncertain for that row.
 
-### Verification history
+### How rows were verified
 
-1. **30 September 2026, first build.** Every source was re-found and read; 145 directory rows were checked against
-   the operator's site, PeeringDB or the press, and every other row was double-checked against its cited pages.
-2. **21 October 2026.** Listing sites were judged not to be independent evidence, and rows resting only on them
-   were reclassified `directory_only`; shared-building geocodes and India-only pages were checked (batch 6).
-3. **22-25 October 2026, row-by-row source review of all 340 rows** (flagged rows on 24 October, batch 7; the rest
-   on 25 October, batch 8). 11 rows were removed (8 hosting resellers or offices, 3 second rows for one building);
-   status was corrected for 16 rows (for example AdaniConneX Noida and Pune, NTT Navi Mumbai 2 and Sify Lucknow were
-   found operating before the cutoff; Sify Bengaluru 02 is not operating); published capacities were added or corrected.
-4. **26 October 2026, independent adversarial re-check of all 329 rows.** Reviewers saw each row without the earlier
-   verdicts and tried to fault it: 241 rows drew no fault and 88 a challenge; accepted challenges were corrected in
-   batch 9, together with the tiered capacity method (below).
+1. **30 September 2026.** Every source was read; 145 directory rows were checked against the operator's site,
+   PeeringDB or the press, and every other row against its cited pages.
+2. **21 October 2026.** Listing sites were judged not to be independent evidence, and rows whose current status no
+   independent source confirms were classed `directory_only`.
+3. **22-25 October 2026.** Every row was reviewed against its sources. 11 rows were removed (8 hosting resellers or
+   offices, 3 second rows for one building); status was corrected for 16 rows (for example AdaniConneX Noida and Pune,
+   NTT Navi Mumbai 2 and Sify Lucknow were found operating before the cutoff; Sify Bengaluru 02 is not operating);
+   published capacities were added or corrected.
+4. **26 October 2026.** Every row was re-checked independently, and the tiered capacity method (below) was applied.
 5. **What remains open.** 75 rows (54 of them operating, carrying 237.3 MW of the operating allocation and 11.6% of
    the attributable SO2) can be neither confirmed nor refuted from public sources. Each carries an open issue naming the
    evidence that would settle it and is rated low confidence; they are listed, with the reason and the settling
@@ -219,25 +217,8 @@ recorded in `mw_flag`. The first tier with an admissible figure is used:
 Every correction made during verification is listed in `correction_applied` (field, old value, new value and reason) with its
 evidence URL in `correction_evidence`; 171 rows of the table carry one. Thirteen corrections cite no URL because they need
 no outside evidence: six Kochi district assignments (the city point lay outside the generalised coastline) and seven
-design figures moved from the current-load field to the build-out field of facilities then recorded as not operating. The authors' build file
-`inventory_corrections_v2.csv` (read by the analysis code, not released) has 342 correction rows (29 removals and 313 field edits on 173 facilities), made in ten batches:
-
-1. The first source pass.
-2. Duplicates; operator statuses and IT loads (Nxtra, STT, NTT, Sify, Yotta, CtrlS); district fixes.
-3. The independent check of the directory rows: types (AirTrunk, ESR, L&T, Digital Connexion and others
-   are colocation), statuses (Nxtra Kolkata live, Google Rambilli under construction), towns, and merged
-   duplicates.
-4. The double-check of the other rows: NTT, STT and CtrlS IT loads; Nxtra Mahape 2 and CtrlS Patna DC2
-   are live; Sify Bengaluru 02's 22 MW is design capacity.
-5. 19 October 2026: Iron Mountain HYD-1 current IT load set to the operator's own figure (5.7 MW; the directory and
-   trade press give 5.5 MW).
-6. 21 October 2026: final checks of statuses and capacities (for example Digital Edge BOM1 operating; CtrlS Bhubaneswar
-   under construction; capacity figures not labelled as IT load withdrawn).
-7. 24 October 2026: the row-by-row review of flagged rows (statuses, published capacities, 6 removals).
-8. 25 October 2026: the row-by-row review of the remaining rows (build-out loads, types, statuses, 5 removals).
-9. 26 October 2026: the adversarial re-check and the tiered capacity method (T1-T5 figures and their conversions).
-10. 13-15 November 2026: Ishan Technologies Gandhinagar and Mumbai reclassified from enterprise to colocation, to match
-    the operator's Chennai facility; the Gujarat State Data Centre renamed to its Sector 18 site.
+design figures moved from the current-load field to the build-out field of facilities then recorded as not operating. In all there are 342 corrections: 29 removals and
+313 field edits on 173 facilities.
 
 ## Open issues (`open_issue`)
 
@@ -247,7 +228,7 @@ described above. They include:
 
 - Data Center Map listings with no independent trace;
 - status questions: Reliance IDC sites (operator insolvent), AWS TTC, Digital Connexion BOM10, Nxtra
-  Hyderabad, Sify Lucknow, CtrlS Bhubaneswar, the Karnataka SDC;
+  Hyderabad, Sify Lucknow, the Karnataka SDC;
 - capacity figures that sources disagree on or do not label as IT load;
 - possible overlaps between AWS Hyderabad buildings, between AWS Mumbai MIDC and TTC, and between ESR Rabale and Sify Rabale.
 
