@@ -26,6 +26,10 @@ Three other kinds of record add facilities the directory does not list.
 The Atlas of Data Center Politics and OpenStreetMap are used only as cross-checks, never as a
 source for a row.
 
+`inventory_source` records how a row entered the inventory. `source_url` and `source_url_2` are the pages that
+document it, so the two can differ in kind: some operator-census rows cite the facility's directory entry or a press
+report as `source_url`, and `source_type` says which.
+
 ## What a row is
 
 - **A row is one facility as its source lists it.** This is usually one building. A few rows are whole
