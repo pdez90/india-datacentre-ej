@@ -1204,8 +1204,15 @@ server <- function(input, output, session) {
                       "mw_reported", "mw_use", "gwh_use", "co2_use", "s1_use", "s2_use", "src"))) |>
       rename(mw_allocated = mw_use, electricity_gwh = gwh_use, co2_kt = co2_use,
              onsite_water_ml = s1_use, electricity_water_ml = s2_use, source = src) |>
+      mutate(source = unname(c(dcm = "Data Center Map directory", census = "operator census",
+                               government = "government data-centre census",
+                               crosscheck = "operator, company, government or press record")[as.character(source)])) |>
       arrange(desc(mw_allocated))
-    datatable(f, rownames = FALSE, filter = "top", extensions = "Buttons",
+    lab <- c(name = "Facility", operator = "Operator", dc_type = "Class", status = "Status", dist_name = "District",
+             state_name = "State", mw_reported = "Published IT MW", mw_allocated = "IT MW used",
+             electricity_gwh = "Electricity (GWh/yr)", co2_kt = "CO2 (kt/yr)", onsite_water_ml = "On-site water (ML/yr)",
+             electricity_water_ml = "Water for electricity (ML/yr)", source = "Inventory source")
+    datatable(f, rownames = FALSE, filter = "top", extensions = "Buttons", colnames = unname(lab[names(f)]),
               options = list(pageLength = 20, dom = "Bfrtip", buttons = c("csv", "excel"), scrollX = TRUE)) |>
       formatRound(c("mw_reported", "mw_allocated", "electricity_gwh", "co2_kt",
                     "onsite_water_ml", "electricity_water_ml"), 2)
