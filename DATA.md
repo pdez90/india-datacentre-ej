@@ -211,10 +211,10 @@ recorded in `mw_flag`. The first tier with an admissible figure is used:
 ## Corrections (see `correction_applied` and `correction_evidence`)
 
 Every correction made during verification is listed in `correction_applied` (field, old value, new value and reason) with its
-evidence URL in `correction_evidence`; 170 rows of the table carry one. Thirteen corrections cite no URL because they need
+evidence URL in `correction_evidence`; 171 rows of the table carry one. Thirteen corrections cite no URL because they need
 no outside evidence: six Kochi district assignments (the city point lay outside the generalised coastline) and seven
 design figures moved from the current-load field to the build-out field of facilities then recorded as not operating. The authors' build file
-`inventory_corrections_v2.csv` (read by the analysis code, not released) has 341 correction rows (29 removals and 312 field edits on 172 facilities), made in ten batches:
+`inventory_corrections_v2.csv` (read by the analysis code, not released) has 342 correction rows (29 removals and 313 field edits on 173 facilities), made in ten batches:
 
 1. The first source pass.
 2. Duplicates; operator statuses and IT loads (Nxtra, STT, NTT, Sify, Yotta, CtrlS); district fixes.
@@ -230,8 +230,8 @@ design figures moved from the current-load field to the build-out field of facil
 7. 24 October 2026: the row-by-row review of flagged rows (statuses, published capacities, 6 removals).
 8. 25 October 2026: the row-by-row review of the remaining rows (build-out loads, types, statuses, 5 removals).
 9. 26 October 2026: the adversarial re-check and the tiered capacity method (T1-T5 figures and their conversions).
-10. 13 November 2026: Ishan Technologies Gandhinagar and Mumbai reclassified from enterprise to colocation, to match
-    the operator's Chennai facility.
+10. 13-15 November 2026: Ishan Technologies Gandhinagar and Mumbai reclassified from enterprise to colocation, to match
+    the operator's Chennai facility; the Gujarat State Data Centre renamed to its Sector 18 site.
 
 ## Open issues (`open_issue`)
 
