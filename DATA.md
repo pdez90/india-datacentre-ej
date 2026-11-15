@@ -70,7 +70,7 @@ report as `source_url`, and `source_type` says which.
 
 ## Sources, confidence and what we are unsure of
 
-Every row has a `source_url`. 283 rows (189 operating) also have a second source (`source_url_2`); for 49
+Every row has a `source_url`. 294 rows (198 operating) also have a second source (`source_url_2`); for 28
 directory-only rows that second source (another listing site, a general company page or PeeringDB) does not
 independently confirm the facility's current status.
 
@@ -87,17 +87,17 @@ beyond a PeeringDB record that does not show the facility's current status, is `
 
 | Value | Rows | Meaning |
 |---|---|---|
-| `confirmed` | 211 | Facility documented by a source independent of the listing sites, and a second source is listed |
-| `partial` | 21 | Listed in the directory; the operator confirms a data centre in that city but not this exact building |
-| `directory_only` | 85 | Listed on listing sites; no independent source confirms the facility's current status |
+| `confirmed` | 231 | Facility documented by a source independent of the listing sites, and a second source is listed |
+| `partial` | 33 | Listed in the directory; the operator confirms a data centre in that city but not this exact building |
+| `directory_only` | 53 | Listed on listing sites; no independent source confirms the facility's current status |
 | `single_source` | 12 | One independent source only (an operator, government, PeeringDB or press page), not the directory |
 
-Of the 202 directory rows, 96 are confirmed, 21 partial and 85 directory-only. All directory-only rows are kept,
+Of the 202 directory rows, 116 are confirmed, 33 partial and 53 directory-only. All directory-only rows are kept,
 as directory listings, and rated low confidence.
 
 ### Confidence
 
-**`confidence`** (high 175, medium 34, low 120; operating rows 119, 29, 85) summarises this for each row:
+**`confidence`** (high 189, medium 51, low 89; operating rows 129, 40, 64) summarises this for each row:
 
 - **high:** confirmed by a source independent of the directory, with a second source and no open issue;
 - **low:** directory listing only (no independent confirmation of its current status), or an open question about whether the site exists or
@@ -115,7 +115,8 @@ as directory listings, and rated low confidence.
 3. **22-25 October 2026.** Every row was reviewed against its sources. 11 rows were removed (8 hosting resellers or
    offices, 3 second rows for one building); status was corrected for 16 rows (for example AdaniConneX Noida and Pune,
    NTT Navi Mumbai 2 and Sify Lucknow were found operating before the cutoff; Sify Bengaluru 02 is not operating);
-   published capacities were added or corrected.
+   published capacities were added or corrected. Where the review found an operator, filing or press page for a
+   directory row, that page is cited as the row's second source.
 4. **26 October 2026.** Every row was re-checked independently, and the tiered capacity method (below) was applied.
 5. **What remains open.** 75 rows (54 of them operating, carrying 237.3 MW of the operating allocation and 11.6% of
    the attributable SO2) can be neither confirmed nor refuted from public sources. Each carries an open issue naming the
@@ -127,9 +128,9 @@ as directory listings, and rated low confidence.
 
 `source_url_archive` and `source_url_2_archive` give archived copies, from the Internet Archive or (for sites that
 refuse it) archive.today, filled by `scripts/25_archive_sources.py`. All 329 facilities have an archived primary
-source, and 529 of the 530 source URLs in the table have a copy (408 Internet Archive, 121 archive.today). Of the 158 URLs
+source, and 532 of the 533 source URLs in the table have a copy (414 Internet Archive, 118 archive.today). Of the 158 URLs
 cited as evidence for corrections, 157 have a copy; the other site blocks web archives. Of the 234 cited Data Center Map pages, 154 are in
-the Internet Archive; the other 80, and 4 IndiaMART pages, which the Internet Archive refused, were archived on
+the Internet Archive; the other 80, and 3 IndiaMART pages, which the Internet Archive refused, were archived on
 archive.today by hand by 10 October 2026. Some pages are reachable only from Indian networks; a co-author in India
 checked them on 20-22 October 2026. For several pages that could not be archived, the authors hold a dated copy: the WTL page cited
 for IN360 (the one table URL without an archive), the OCAC page for IN353, the Lok Sabha answer for IN347
@@ -147,9 +148,9 @@ URL cited as evidence for a correction, each with its archived copy, snapshot da
 | `opened_year` | Year the facility opened, where a source gives it (blank otherwise) |
 | `mw_flag` | Why the published capacity is uncertain (conflicting figures, unclear measure); blank if none |
 | `source_title`, `source_type`, `source_title_2`, `source_type_2` | Title and kind of each cited source. `source_type` is one of: `directory` (Data Center Map, Baxtel, Ocolo, Datacenterhawk, Cloudscene, IndiaMART and similar listings; not independent evidence), `peeringdb`, `operator` (the operator's own site or report), `government` (incl. parliamentary answers), `press`, `press release`, `certification registry` (Uptime Institute) or `contractor or vendor` |
-| `url_checked` | Whether the cited page was fetched and read (`fetched`) or seen only as a search result (`search_result`) |
+| `url_checked` | Whether the cited page was read (`page read`) or seen only as a search result (`search result only`) |
 | `status_in_source`, `status_agrees_with_inventory` | The status the cited source gives, and whether it matches the row's status (blank where the source gives none or the comparison is ambiguous) |
-| `sources_retrieved` | Date the sources were retrieved (30 September 2026) and the dates each row was re-checked in October 2026 |
+| `sources_retrieved` | Date the sources were retrieved and the date they were last checked |
 | `adp_match`, `adp_campus_name`, `adp_status`, `adp_stage`, `adp_size_bucket`, `adp_source_urls` | The cross-check against the Atlas of Data Center Politics: how the row was matched (or `none`), and the Atlas's campus name, status, stage, size class and source links. The Atlas is a cross-check only, never a source of rows |
 | `inventory_version` | Inventory release date (2026-09-30) |
 
@@ -182,8 +183,8 @@ recorded in `mw_flag`. The first tier with an admissible figure is used:
   - 165 rows have a published load of some kind.
   - "Potential", master-plan and campus-ambition figures, investment sums and listing-site figures are listed in
     `mw_published_figures` but not used.
-- **`mw_certainty`** gives the status of the power figure for each row: reported IT load (106 rows; 74 operating),
-  reported but uncertain (57; 49 operating: every T2-T5 row, and T1 rows with a capacity flag or open issue), or not
+- **`mw_certainty`** gives the status of the power figure for each row: reported IT load (108 rows; 75 operating),
+  reported but uncertain (55; 48 operating: every T2-T5 row, and T1 rows with a capacity flag or open issue), or not
   published, so modelled (166; 110 operating).
 - **`mw_note`** says what the figure is, and why it is uncertain where it is.
 - **`mw_it_used_in_paper`** is the IT capacity each operating facility carries in the central case.
@@ -214,16 +215,17 @@ recorded in `mw_flag`. The first tier with an admissible figure is used:
 
 ## Corrections (see `correction_applied` and `correction_evidence`)
 
-Every correction made during verification is listed in `correction_applied` (field, old value, new value and reason) with its
-evidence URL in `correction_evidence`; 171 rows of the table carry one. Thirteen corrections cite no URL because they need
+Every correction made during verification is listed in `correction_applied` (the field corrected, old value, new value and reason) with its
+evidence URL in `correction_evidence`; 171 rows of the table carry one. A reason that ends with "(evidence dated ...)" or
+"(evidence undated)" gives the date of the source the correction rests on. Thirteen corrections cite no URL because they need
 no outside evidence: six Kochi district assignments (the city point lay outside the generalised coastline) and seven
 design figures moved from the current-load field to the build-out field of facilities then recorded as not operating. In all there are 342 corrections: 29 removals and
 313 field edits on 173 facilities.
 
 ## Open issues (`open_issue`)
 
-Open issues are flagged, not resolved; `confidence_note` gives them for each row. There are 109 on 105 rows
-(status 59, existence 27, capacity 14, source 5, possible duplicate 4); 75 of these rows are the unresolved facilities
+Open issues are flagged, not resolved; `confidence_note` gives them for each row. There are 111 on 107 rows
+(status 60, existence 26, capacity 14, source 5, possible duplicate 6); 75 of these rows are the unresolved facilities
 described above. They include:
 
 - Data Center Map listings with no independent trace;
